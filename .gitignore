@@ -133,4 +133,5 @@ dmypy.json
 !website/migrations/0001*
 !website/migrations/0002*
 
-static/
+/static/
+/media/
