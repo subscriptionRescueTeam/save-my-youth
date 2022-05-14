@@ -3,6 +3,7 @@ import { Home } from './pages';
 import { createGlobalStyle } from 'styled-components';
 import { Header } from './components';
 import reset from 'styled-reset';
+import Search from './pages/Search';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -21,7 +22,8 @@ const App = () => {
       <GlobalStyle />
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />{' '}
+       {/* <Route path="/" element={<Home />} />{' '} */}
+        <Route path="/Search" element={<Search />} />{' '}
       </Routes>
     </BrowserRouter>
   );
