@@ -8,6 +8,7 @@ export type HeaderProps = {
 const Header = ({ title }: HeaderProps) => (
   <S.header>
     {title}
+    <button>로그인</button>
     <button>
       <IconMenu size={20} />
     </button>
