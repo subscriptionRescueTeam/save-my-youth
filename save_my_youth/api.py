@@ -9,6 +9,7 @@ from ninja.security import HttpBearer
 from user.models import User
 
 from subscription.api import like_router
+from user.api import user_router
 
 
 class GlobalAuth(HttpBearer):
@@ -31,3 +32,4 @@ api = NinjaAPI(auth=GlobalAuth()) # , auth=GlobalAuth()
 
 # 라우터 등록
 api.add_router('/like/', like_router)
+api.add_router('/user/', user_router)
