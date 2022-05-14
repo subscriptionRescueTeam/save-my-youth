@@ -8,10 +8,15 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
 
+from user.views import GoogleLogin
+
+
 urlpatterns = [
     path('django-admin/', admin.site.urls),
 
     path('admin/', include(wagtailadmin_urls)),
+    path('auth/', include('dj_rest_auth.urls')),
+    path('social-login/google/', GoogleLogin.as_view(), name='google_login'),
     path('documents/', include(wagtaildocs_urls)),
 
     path('search/', search_views.search, name='search'),
