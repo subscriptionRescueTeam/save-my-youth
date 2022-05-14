@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'home',
     'search',
     'user', # user app
+    'subscription', # 청약 app
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
+    'wagtail.contrib.modeladmin',
 
     'modelcluster',
     'taggit',

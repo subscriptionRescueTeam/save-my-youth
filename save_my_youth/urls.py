@@ -8,19 +8,25 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
 
-from user.views import GoogleLogin
-
 
 urlpatterns = [
     path('django-admin/', admin.site.urls),
 
     path('admin/', include(wagtailadmin_urls)),
-    path('auth/', include('dj_rest_auth.urls')),
-    path('social-login/google/', GoogleLogin.as_view(), name='google_login'),
     path('documents/', include(wagtaildocs_urls)),
 
     path('search/', search_views.search, name='search'),
+]
 
+# 추가 url 설정
+from .api import api # Django Ninja api
+from user.views import GoogleLogin # Social Login Views
+
+
+urlpatterns = urlpatterns + [
+    path('api/auth/', include('dj_rest_auth.urls')),
+    path('api/social-login/google/', GoogleLogin.as_view(), name='google_login'),
+    path('api/', api.urls), #Django Ninja
 ]
 
 
