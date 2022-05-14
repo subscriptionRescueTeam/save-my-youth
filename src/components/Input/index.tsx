@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import * as S from './index.styled';
 
 export type InputPros = {
@@ -25,6 +24,7 @@ const Input = ({
       margin={margin}
       multiple={multiline}
       placeholder={placeholder}
+      onChange={onChange}
     ></S.Input>
   );
 };
