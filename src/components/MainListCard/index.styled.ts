@@ -6,5 +6,5 @@ height: 100%;
 display: flex;
 flex-direction: column;
 border-radius: 20px;
-color: gray;
+background-color: #F1EEE9;
 `
