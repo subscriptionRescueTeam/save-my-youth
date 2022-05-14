@@ -66,6 +66,7 @@ urllib3==1.26.9
 wagtail==2.16.2
 wcwidth==0.2.5
 webencodings==0.5.1
+whitenoise==6.1.0
 Willow==1.4.1
 xlrd==2.0.1
 XlsxWriter==3.0.3
