@@ -128,8 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-0*.py
-
 !website/migrations/0001*
 !website/migrations/0002*
 
