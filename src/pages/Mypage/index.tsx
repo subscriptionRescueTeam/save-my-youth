@@ -2,6 +2,7 @@ import React from 'react';
 import LayoutNavigation from '../../components/LayoutNavigation';
 import Title from '../../components/Title';
 import styled from 'styled-components';
+import ServiceMenu from '../../components/ServiceMenu';
 
 const StyledUserInfoWrap = styled.div`
   display: flex;
@@ -34,6 +35,7 @@ const Mypage = () => {
       <StyledLike>
         <Title title="" subTitle="좋아요 (10건)" />
       </StyledLike>
+      <ServiceMenu></ServiceMenu>
     </>
   );
 };
