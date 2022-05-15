@@ -30,9 +30,7 @@ height:30px;
 font-size: 40px;
 `;
 
-
-
-export const Search = ()=>{
+export const Search = () => {
 	const [keyword, setKeyword] = useState<string>("");
     const onChangeData = (e:React.FormEvent<HTMLInputElement>) => {
     setKeyword(e.currentTarget.value);
