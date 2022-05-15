@@ -1,7 +1,4 @@
-import LayoutNavigation from '../../components/LayoutNavigation';
-import Input from '../../components/Input';
-import MainCardList from '../../components/MainCardList';
-import Title from '../../components/Title';
+import { Input, Title, MainCardList, LayoutNavigation } from '../../components';
 import { 청약 } from '../../types';
 
 const Home = () => {
