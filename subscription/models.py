@@ -8,7 +8,6 @@ from modelcluster.fields import ParentalKey
 from wagtail.core.models import Orderable
 from wagtail.admin.edit_handlers import (
     InlinePanel,
-    MultiFieldPanel,
     FieldPanel,
     ObjectList,
     TabbedInterface,
@@ -17,6 +16,7 @@ from wagtail.admin.edit_handlers import (
 from user.models import User
 
 
+# 사용자 좋아요 모델
 class UserSubscription(Orderable):
     user_subscription = ParentalKey(
         'Subscription',
@@ -36,6 +36,7 @@ class UserSubscription(Orderable):
     ]
 
 
+# 청약 모델
 class Subscription(ClusterableModel):
     sub_id = models.IntegerField(default=0, verbose_name='공고번호')
     name = models.CharField(
@@ -46,19 +47,15 @@ class Subscription(ClusterableModel):
     )
     date = models.DateField(
         null=True,
-        verbose_name="날짜",
+        verbose_name="청약 날짜",
         default=datetime.date.today
-        ) # 파이코인 획득 날짜
+        )
     date_widget = widgets.AdminDateInput(attrs = {'placeholder': 'dd-mm-yyyy'}) # 날짜 선택 위젯
 
     panels = [
-        MultiFieldPanel(
-            [
-                FieldPanel('sub_id'),
-                FieldPanel('name'),
-                FieldPanel('date', widget=date_widget),
-            ], heading="청약 정보"
-        ),
+        FieldPanel('sub_id'),
+        FieldPanel('name'),
+        FieldPanel('date', widget=date_widget),
     ]
 
     like_panels = [
@@ -67,8 +64,8 @@ class Subscription(ClusterableModel):
 
     edit_handler = TabbedInterface(
         [
-            ObjectList(panels, heading="기본"),
-            ObjectList(like_panels, heading="좋아요"),
+            ObjectList(panels, heading="청약 정보"),
+            ObjectList(like_panels, heading="좋아요를 누른 사용자들"),
         ]
     )
 

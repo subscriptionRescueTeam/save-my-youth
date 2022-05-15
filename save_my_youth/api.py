@@ -28,7 +28,7 @@ class GlobalAuth(HttpBearer):
         return user
 
 
-api = NinjaAPI(auth=GlobalAuth()) # , auth=GlobalAuth()
+api = NinjaAPI(auth=GlobalAuth()) # 전체 권한 제한 설정
 
 # 라우터 등록
 api.add_router('/like/', like_router)

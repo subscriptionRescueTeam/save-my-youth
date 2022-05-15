@@ -12,7 +12,7 @@ class LikeGetSchema(Schema):
     num : int
 
 # 좋아요 post 스키마
-class LikePostSchema(ModelSchema):
+class SubscriptionSchema(ModelSchema):
 
     class Config:
         model = Subscription
