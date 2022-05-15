@@ -10,7 +10,6 @@ export type MainCardProps = {
 const MainCardList = ({ popularityList, likeList }: MainCardProps) => {
   return (
     <S.MainCardList>
-      안녕
       <MainCardItem title="인기" 청약리스트={popularityList}></MainCardItem>
       <MainCardItem title="최신" 청약리스트={likeList}></MainCardItem>
     </S.MainCardList>
