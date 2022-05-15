@@ -35,15 +35,27 @@ height:30px;
 font-size: 40px;
 `;
 
+const StyledBox = styled.div`
+    display: flex;
+    align-items:center;
+    @media screen and (min-width: 500px) {
+        flex-direction: column;
+        align-items:flex-end;
+        display: none;
+    }
+`;
+
 export const Search = () => {
 	const [keyword, setKeyword] = useState<string>("");
     const onChangeData = (e:React.FormEvent<HTMLInputElement>) => {
     setKeyword(e.currentTarget.value);
   };
   return (
+    <StyledBox>
     <StyledContainer>
      <StyledSearch value={keyword} onChange={onChangeData} />
      <StyledSearchIcon onClick={() => console.log("")}></StyledSearchIcon>
     </StyledContainer>
+    </StyledBox>
      );
 }
