@@ -14,7 +14,7 @@ export const StyledContainer = styled.div`
   align: center;
 `;
 
-const Styledsearch = styled.input`
+const StyledSearch = styled.input`
   border: 0;
   padding-left: 10px;
   background-color: #eaeaea;
@@ -23,7 +23,7 @@ const Styledsearch = styled.input`
   outline: none;
 `;
 
-const StyledsearchIcon = styled(SearchOutline)`
+const StyledSearchIcon = styled(SearchOutline)`
 margin: 10px 30px 10px 20px;
 width:30px;
 height:30px;
@@ -39,8 +39,8 @@ export const Search = ()=>{
   };
   return (
     <StyledContainer>
-     <Styledsearch value={keyword} onChange={onChangeData} />
-     <StyledsearchIcon/>
+     <StyledSearch value={keyword} onChange={onChangeData} />
+     <StyledSearchIcon/>
     </StyledContainer>
      );
 }

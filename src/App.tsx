@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Home } from './pages';
+import { Home } from './pages/Home/index';
 import { createGlobalStyle } from 'styled-components';
 import { Header } from './components';
 import { Search } from './pages/Search/index';
