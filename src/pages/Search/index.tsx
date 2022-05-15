@@ -3,37 +3,39 @@ import { useEffect,useState } from 'react';
 import styled from 'styled-components';
 import {material, octicons} from 'styled-icons'
 import {SearchOutline} from '@styled-icons/evaicons-outline/SearchOutline'
+import axios from'axios';
 
 export const StyledContainer = styled.div`
   margin: 30px 30px 20px 10px;
   width: 400px;
   height: 45px;
-  border: 0;
+  border: 3px solid #1569CB;
+  border-radius:10px;
   display:flex;
-  background-color: #eaeaea;
+  background-color: #FFFFFF;
   align: center;
 `;
 
+// background-color: #eaeaea;
 const StyledSearch = styled.input`
   border: 0;
   padding-left: 10px;
-  background-color: #eaeaea;
+  border-radius:10px;
   width: 100%;
   height: 100%;
   outline: none;
 `;
 
 const StyledSearchIcon = styled(SearchOutline)`
-margin: 10px 30px 10px 20px;
+margin: 10px 10px 10px 10px;
+padding-bottom:10px;
+display:flex;
 width:30px;
 height:30px;
 font-size: 40px;
 `;
 
 export const Search = () => {
-    // const API_KEY = process.env.REACT_APP_API_KEY;
-    // const url = `https://api.odcloud.kr/api/ApplyhomeInfoDetailSvc/v1/getAPTLttotPblancDetail?page=1&perPage=10&serviceKey=${API_KEY}`;
-
 	const [keyword, setKeyword] = useState<string>("");
     const onChangeData = (e:React.FormEvent<HTMLInputElement>) => {
     setKeyword(e.currentTarget.value);
@@ -41,7 +43,7 @@ export const Search = () => {
   return (
     <StyledContainer>
      <StyledSearch value={keyword} onChange={onChangeData} />
-     <StyledSearchIcon onClick={() => console.log("clicked")}/>
+     <StyledSearchIcon onClick={() => console.log("")}></StyledSearchIcon>
     </StyledContainer>
      );
 }
