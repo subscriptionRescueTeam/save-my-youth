@@ -3,7 +3,6 @@ import Input from '../../components/Input';
 import MainCardList from '../../components/MainCardList';
 import Title from '../../components/Title';
 import { 청약 } from '../../types';
-import Sidebar from '../../components/Sidebar';
 
 const Home = () => {
   const 청약리스트: Array<청약> = [

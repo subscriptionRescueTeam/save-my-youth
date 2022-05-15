@@ -1,9 +1,12 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledOptionList = styled.aside<{ isOpen: boolean }>`
-  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80%;
   height: 100%;
   transition: all 1s ease;
   transform: ${(props) => (props.isOpen ? 'translateX(0)' : 'translateX(100%)')};
@@ -22,9 +25,12 @@ type Option = {
 
 export type SidebarProps = {
   isOpen: boolean;
+  onSidebarOpen: (isOpen: boolean) => void;
 };
 
-const Sidebar = ({ isOpen }: SidebarProps) => {
+const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
+  const sidebarRef = useRef(null);
+
   const optionList: Array<Option> = [
     {
       name: '헬렌',
@@ -40,10 +46,24 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
     },
   ];
 
+  const onClickOutside = (event: any) => {
+    if (sidebarRef.current && !(sidebarRef.current as any).contains(event.target)) {
+      // TODO: change any type
+      return onSidebarOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', onClickOutside, true);
+    return () => {
+      document.removeEventListener('click', onClickOutside, true);
+    };
+  });
+
   return (
-    <StyledOptionList isOpen={isOpen}>
+    <StyledOptionList ref={sidebarRef} isOpen={isOpen}>
       {optionList.map((option) => (
-        <Link key={`{option.name}__{option.link}`} to={option.link}>
+        <Link key={`${option.name}-${option.link}`} to={option.link}>
           <StyledOptionItem>{option.name}</StyledOptionItem>
         </Link>
       ))}

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import IconMenu from '../IconMenu';
 import Sidebar from '../Sidebar';
 
@@ -27,9 +27,13 @@ export type HeaderProps = {
 const Header = ({ title }: HeaderProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const onClick = () => {
+  const handleIsSidebarOpen = useCallback((isOpen: boolean) => {
+    setIsSidebarOpen(isOpen);
+  }, []);
+
+  const onClick = useCallback(() => {
     setIsSidebarOpen(!isSidebarOpen);
-  };
+  }, []);
 
   return (
     <>
@@ -42,7 +46,7 @@ const Header = ({ title }: HeaderProps) => {
           </button>
         </StyledButtonContainer>
       </StyledHeader>
-      <Sidebar isOpen={isSidebarOpen}></Sidebar>
+      <Sidebar isOpen={isSidebarOpen} onSidebarOpen={handleIsSidebarOpen}></Sidebar>
     </>
   );
 };
