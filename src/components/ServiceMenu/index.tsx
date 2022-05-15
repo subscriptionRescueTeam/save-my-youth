@@ -1,22 +1,23 @@
 import styled from 'styled-components';
 import Title from '../Title';
+import { IosArrowRight } from '@styled-icons/fluentui-system-regular';
 
 const MenuItems = [
   {
     id: 0,
-    title: '공지사항',
+    title: '개인정보 수정',
   },
   {
     id: 1,
-    title: 'FAQ',
+    title: '좋아요',
   },
   {
-    id: 1,
-    title: '1:1 문의',
+    id: 2,
+    title: '알림 설정',
   },
   {
     id: 3,
-    title: '서비스해지',
+    title: '고객센터',
   },
 ];
 
@@ -27,15 +28,27 @@ const StyledMenuWrap = styled.div`
   justify-content: center;
 `;
 const StyledMenuList = styled.ul``;
-const StyledItem = styled.li``;
+const StyledItem = styled.li`
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid lightgray;
+`;
+const StyledIcon = styled(IosArrowRight)`
+  color: lightgray;
+  width: 4%;
+`;
 
 const SearchMenu = () => {
   return (
     <StyledMenuWrap>
-      <Title title="" subTitle="고객센터" />
       <StyledMenuList>
         {MenuItems.map((item) => (
-          <StyledItem key={item.id}>{item.title}</StyledItem>
+          <StyledItem key={item.id}>
+            {item.title}
+            <StyledIcon />
+          </StyledItem>
         ))}
       </StyledMenuList>
     </StyledMenuWrap>

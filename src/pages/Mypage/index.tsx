@@ -7,35 +7,25 @@ import ServiceMenu from '../../components/ServiceMenu';
 const StyledUserInfoWrap = styled.div`
   display: flex;
   align-items: center;
-`;
-
-const StyledName = styled.div`
-  flex-direction: row;
-`;
-
-const StyledLike = styled.span`
-  display: flex;
   flex-direction: column;
 `;
 
 const StyledButton = styled.button`
-  margin-left: 20px;
-  height: 50px;
+  height: 30px;
+  border: none;
+  background: none;
+  color: gray;
+  font-weight: 900px;
+  border-bottom: 1px solid gray;
 `;
 
 const Mypage = () => {
   return (
     <>
       <StyledUserInfoWrap>
-        <StyledName>
-          <Title title="퉁이리" subTitle="wer4272@nate.com" />
-        </StyledName>
+        <ServiceMenu />
         <StyledButton>로그아웃</StyledButton>
       </StyledUserInfoWrap>
-      <StyledLike>
-        <Title title="" subTitle="좋아요 (10건)" />
-      </StyledLike>
-      <ServiceMenu></ServiceMenu>
     </>
   );
 };
