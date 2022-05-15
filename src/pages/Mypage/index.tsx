@@ -12,6 +12,11 @@ const StyledName = styled.div`
   flex-direction: row;
 `;
 
+const StyledLike = styled.span`
+  display: flex;
+  flex-direction: column;
+`;
+
 const StyledButton = styled.button`
   margin-left: 20px;
   height: 50px;
@@ -26,6 +31,9 @@ const Mypage = () => {
         </StyledName>
         <StyledButton>로그아웃</StyledButton>
       </StyledUserInfoWrap>
+      <StyledLike>
+        <Title title="" subTitle="좋아요 (10건)" />
+      </StyledLike>
     </>
   );
 };
