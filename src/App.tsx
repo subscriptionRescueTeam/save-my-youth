@@ -2,8 +2,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './pages';
 import { createGlobalStyle } from 'styled-components';
 import { Header } from './components';
+import { Search } from './pages/Search/index';
 import reset from 'styled-reset';
-import Search from './pages/Search';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -22,8 +22,8 @@ const App = () => {
       <GlobalStyle />
       <Header />
       <Routes>
-       {/* <Route path="/" element={<Home />} />{' '} */}
-        <Route path="/Search" element={<Search />} />{' '}
+       <Route path="/" element={<Home />} />{' '}
+       <Route path="/search" element={<Search />} />{' '}
       </Routes>
     </BrowserRouter>
   );
