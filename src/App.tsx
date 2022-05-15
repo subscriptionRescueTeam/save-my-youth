@@ -20,7 +20,6 @@ const App = () => {
   return (
     <BrowserRouter>
       <GlobalStyle />
-      <Header />
       <Routes>
        <Route path="/" element={<Home />} />{' '}
        <Route path="/search" element={<Search />} />{' '}
