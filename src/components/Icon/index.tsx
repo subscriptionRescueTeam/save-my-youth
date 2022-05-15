@@ -1,6 +1,13 @@
-import * as S from './index.styled';
+import styled from 'styled-components';
 
-type IconProps = {
+export const StyledIcon = styled.span<{ color: string; size?: number }>`
+  display: flex;
+  width: ${(props) => (props.size ? props.size : 28)}px;
+  height: ${(props) => (props.size ? props.size : 28)}px;
+  color: ${(props) => (props.color ? props.color : '#00000')};
+`;
+
+export type IconProps = {
   children: React.ReactNode;
   size?: number;
   color?: string;
@@ -8,8 +15,8 @@ type IconProps = {
 
 export const Icon = ({ children, size, color = '' }: IconProps) => {
   return (
-    <S.Icon color={color} size={size} role="img">
+    <StyledIcon color={color} size={size} role="img">
       {children}
-    </S.Icon>
+    </StyledIcon>
   );
 };

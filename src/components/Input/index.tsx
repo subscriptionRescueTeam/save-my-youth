@@ -1,4 +1,10 @@
-import * as S from './index.styled';
+import styled from 'styled-components';
+
+export const StyledInput = styled.input<{ margin: number }>`
+  width: 80%;
+  height: 20px;
+  margin: ${(props) => props.margin};
+`;
 
 export type InputPros = {
   color?: string;
@@ -18,14 +24,14 @@ const Input = ({
   onChange,
 }: InputPros) => {
   return (
-    <S.Input
+    <StyledInput
       color={color}
       disabled={disabled}
       margin={margin}
       multiple={multiline}
       placeholder={placeholder}
       onChange={onChange}
-    ></S.Input>
+    ></StyledInput>
   );
 };
 
