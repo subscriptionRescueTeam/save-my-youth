@@ -19,11 +19,13 @@ export type LayoutNavigationProps = {
   children: React.ReactNode;
 };
 
-const LayoutNavigation = ({ children }: LayoutNavigationProps) => (
-  <StyledLayoutNavigation>
-    <Header title="청년을 구해줘" />
-    <StyledContent>{children}</StyledContent>
-  </StyledLayoutNavigation>
-);
+const LayoutNavigation = ({ children }: LayoutNavigationProps) => {
+  return (
+    <StyledLayoutNavigation>
+      <Header title="청년을 구해줘" />
+      <StyledContent>{children}</StyledContent>
+    </StyledLayoutNavigation>
+  );
+};
 
 export default LayoutNavigation;
