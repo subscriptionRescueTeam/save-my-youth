@@ -3,6 +3,20 @@ import LayoutNavigation from '../../components/LayoutNavigation';
 import Title from '../../components/Title';
 import styled from 'styled-components';
 
+const StyledUserInfoWrap = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const StyledName = styled.div`
+  flex-direction: row;
+`;
+
+const StyledButton = styled.button`
+  margin-left: 20px;
+  height: 50px;
+`;
+
 const Mypage = () => {
   return (
     <>
@@ -17,17 +31,3 @@ const Mypage = () => {
 };
 
 export default Mypage;
-
-const StyledUserInfoWrap = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const StyledName = styled.div`
-  flex-direction: row;
-`;
-
-const StyledButton = styled.button`
-  margin-left: 20px;
-  height: 50px;
-`;
