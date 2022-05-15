@@ -4,7 +4,8 @@ import MainCardList from '../../components/MainCardList';
 import Title from '../../components/Title';
 import { 청약 } from '../../types';
 
-const Home = () => {
+export const Home = () => {
+// const Home = () => {
   const 청약리스트: Array<청약> = [
     {
       id: 0,

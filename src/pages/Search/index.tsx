@@ -31,6 +31,9 @@ font-size: 40px;
 `;
 
 export const Search = () => {
+    // const API_KEY = process.env.REACT_APP_API_KEY;
+    // const url = `https://api.odcloud.kr/api/ApplyhomeInfoDetailSvc/v1/getAPTLttotPblancDetail?page=1&perPage=10&serviceKey=${API_KEY}`;
+
 	const [keyword, setKeyword] = useState<string>("");
     const onChangeData = (e:React.FormEvent<HTMLInputElement>) => {
     setKeyword(e.currentTarget.value);
@@ -38,7 +41,7 @@ export const Search = () => {
   return (
     <StyledContainer>
      <StyledSearch value={keyword} onChange={onChangeData} />
-     <StyledSearchIcon/>
+     <StyledSearchIcon onClick={() => console.log("clicked")}/>
     </StyledContainer>
      );
 }
