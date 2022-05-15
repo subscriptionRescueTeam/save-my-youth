@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 import { Header } from './components';
 import { Search } from './pages/Search/index';
 import reset from 'styled-reset';
+import Mypage from './pages/Mypage/index';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -23,6 +24,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/mypage" element={<Mypage />} />
       </Routes>
     </BrowserRouter>
   );
