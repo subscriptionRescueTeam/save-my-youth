@@ -17,16 +17,10 @@ const StyledFooter = styled.div`
 `;
 
 const Mypage = () => {
-  let navigate = useNavigate();
-
-  const goBefore = () => {
-    navigate('/');
-  };
-
   return (
     <>
       <StyledUserInfoWrap>
-        <CommonHeader title="My Page" clickBefore={goBefore} />
+        <CommonHeader title="My Page" />
         <ServiceMenu />
         <StyledFooter />
       </StyledUserInfoWrap>

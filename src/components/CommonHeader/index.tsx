@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { ArrowLeft, Hamburger } from '../../asset';
 import COLOR from '../../constants/color';
@@ -27,10 +28,15 @@ const TitleItem = styled.div`
 
 export type CommonHeaderProps = {
   title: string;
-  clickBefore: (event: React.MouseEvent<HTMLElement>) => void;
 };
 
-const CommonHeader = ({ title, clickBefore }: CommonHeaderProps) => {
+const CommonHeader = ({ title }: CommonHeaderProps) => {
+  const navigate = useNavigate();
+
+  const clickBefore = () => {
+    navigate('/');
+  };
+
   return (
     <Container>
       <Item onClick={clickBefore}>

@@ -4,6 +4,8 @@ import Picture from '../../asset/picture.png';
 import { ArrowRight } from '../../asset';
 import COLOR from '../../constants/color';
 import { SaleSchedule } from '../../components';
+import CommonHeader from '../../components/CommonHeader';
+import { useNavigate } from 'react-router-dom';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -97,6 +99,7 @@ const Detail = () => {
 
   return (
     <>
+      <CommonHeader title="청약 상세" />
       <StyledImg src={Picture} width="100%" alt="picture" />
       <StyledWrapper>
         <StyledTitleWrapper>
