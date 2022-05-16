@@ -1,23 +1,32 @@
 import styled from 'styled-components';
 import { useCallback, useState } from 'react';
-import IconMenu from '../IconMenu';
+import { Alarm, Hamburger } from '../../asset';
 import Sidebar from '../Sidebar';
+import COLOR from '../../constants/color';
 
 export const StyledHeader = styled.header`
-  width: 100%;
-  height: 30px;
+  width: 90%;
+  height: 60px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: yellow;
 `;
 
 export const StyledTitle = styled.h5`
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: ${COLOR.PRI_DARK_020};
 `;
 
 export const StyledButtonContainer = styled.div`
   display: flex;
+`;
+
+export const StyledAlarm = styled.button``;
+
+export const StyledBurger = styled.button`
+  margin-left: 0.5rem;
 `;
 
 export type HeaderProps = {
@@ -40,10 +49,13 @@ const Header = ({ title }: HeaderProps) => {
       <StyledHeader>
         <StyledTitle>{title}</StyledTitle>
         <StyledButtonContainer>
-          <button>로그인</button>
-          <button onClick={onClick}>
-            <IconMenu size={20} />
-          </button>
+          <StyledAlarm>
+            <Alarm />
+          </StyledAlarm>
+          {/* <IconMenu size={20} /> */}
+          <StyledBurger onClick={onClick}>
+            <Hamburger />
+          </StyledBurger>
         </StyledButtonContainer>
       </StyledHeader>
       <Sidebar isOpen={isSidebarOpen} onSidebarOpen={handleIsSidebarOpen}></Sidebar>

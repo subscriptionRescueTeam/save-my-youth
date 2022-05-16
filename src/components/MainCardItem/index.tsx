@@ -8,12 +8,14 @@ export type MainCardItemProps = {
 };
 
 export const StyledMainCardItem = styled.div`
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  border-radius: 20px;
-  background-color: #f1eee9;
+  margin-bottom: 2rem;
+`;
+
+export const StyledMainCardItemSpan = styled.span`
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
 `;
 
 const MainCardItem = ({ title, 청약리스트 }: MainCardItemProps) => {
@@ -21,8 +23,10 @@ const MainCardItem = ({ title, 청약리스트 }: MainCardItemProps) => {
     <article>
       <ListTitle title={title}></ListTitle>
       <StyledMainCardItem>
-        {청약리스트.map((subscription) => (
-          <span key={subscription.id}>{subscription.name}</span>
+        {청약리스트.map((subscription, i) => (
+          <StyledMainCardItemSpan key={subscription.id}>
+            {i + 1}. {subscription.name}
+          </StyledMainCardItemSpan>
         ))}
       </StyledMainCardItem>
     </article>

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import Picture from '../../asset/picture.png';
 import { ArrowRight } from '../../asset';
@@ -17,6 +18,9 @@ const StyledTitleWrapper = styled.div`
 
 const StyledContentWrapper = styled.div`
   display: flex;
+  justify-content: space-evenly;
+  padding-top: 1.5rem;
+  border-top: 4px solid ${COLOR.LIGHT_010};
 `;
 
 const StyledLocationWrapper = styled.div`
@@ -40,6 +44,25 @@ const StyledDate = styled.div`
 `;
 
 const StyledImg = styled.img``;
+
+export const StyledMenuTitle = styled.li<{ check?: string }>`
+  width: 25%;
+  font-size: 0.9rem;
+  padding-bottom: 1rem;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Pretendard-Regular';
+  display: flex;
+  color: lightgray;
+  &:hover {
+    cursor: pointer;
+  }
+  &#${({ check }) => check} {
+    font-weight: bold;
+    color: ${COLOR.PRI_MAIN};
+    border-bottom: 2px solid ${COLOR.PRI_MAIN};
+  }
+`;
 
 const Detail = () => {
   const [menuCheck, setMenuCheck] = useState<number>(0);
