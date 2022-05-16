@@ -5,6 +5,12 @@ import axios from 'axios';
 import { Header } from '../../components/Header';
 import Searchicon from '../../asset/Search';
 
+const StyledPage = styled.div`
+width: 1300px;
+flex-align:center;
+padding-left:350px;
+`
+
 const StyledContainer = styled.div`
   margin: 30px 30px 20px 10px;
   width: 400px;
@@ -37,11 +43,11 @@ const StyledSearchIcon = styled.div`
 const StyledBox = styled.div`
     display: flex;
     align-items:center;
-    @media screen and (min-width: 500px) {
-        flex-direction: column;
-        align-items:flex-center;
-        display: none;
-    }
+    @media (min-width:1300px) {
+      flex-direction: column;
+      align-items:flex-center;
+      display: none;
+  }
 `;
 
 const StyledCard = styled.div`
@@ -54,10 +60,6 @@ const StyledCard = styled.div`
   background-color: #FFFFFF;
   align: center;
   text-align:center;
-  @media screen and (min-width: 500px) {
-    flex-direction: column;
-    align-items:flex-end;
-    display: none;
 }
 `;
 
@@ -71,37 +73,36 @@ align-items:flex-end;
 `
 
 const Search = () => {
-    const [keyword, setKeyword] = useState<string>("");
-    const onChangeData = (e: React.FormEvent<HTMLInputElement>) => {
-        setKeyword(e.currentTarget.value);
-    };
-    return (
-        <div>
-            <StyledBox>
-                <StyledContainer>
-                    <StyledSearch value={keyword} onChange={onChangeData} />
-                    <StyledSearchIcon>
-                        <Searchicon />
-                    </StyledSearchIcon>
-                </StyledContainer>
-            </StyledBox>
-            <StyledCard>
-                <StyledText>
-                    제 1차 장기전세주택 입주자모집공고
-                </StyledText>
-            </StyledCard>
-            <StyledCard>
-                <StyledText>
-                    행복주택서류심사
-                </StyledText>
-            </StyledCard>
-            <StyledCard>
-                <StyledText>
-                    역세권 청년주택 보금자리 마련
-                </StyledText>
-            </StyledCard>
-        </div>
-    );
+  const [keyword, setKeyword] = useState<string>("");
+  const onChangeData = (e: React.FormEvent<HTMLInputElement>) => {
+    setKeyword(e.currentTarget.value);
+  };
+  return (
+    <StyledPage>
+      <StyledBox>
+        <StyledContainer>
+          <StyledSearch value={keyword} onChange={onChangeData} />
+          <StyledSearchIcon>
+            <Searchicon />
+          </StyledSearchIcon>
+        </StyledContainer>
+      </StyledBox>
+      <StyledCard>
+        <StyledText>
+          제 1차 장기전세주택 입주자모집공고
+        </StyledText>
+      </StyledCard>
+      <StyledCard>
+        <StyledText>
+          행복주택서류심사
+        </StyledText>
+      </StyledCard>
+      <StyledCard>
+        <StyledText>
+          역세권 청년주택 보금자리 마련
+        </StyledText>
+      </StyledCard>
+    </StyledPage>
+  );
 }
 export default Search;
-
