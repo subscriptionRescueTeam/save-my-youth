@@ -6,7 +6,11 @@ import {SearchOutline} from '@styled-icons/evaicons-outline/SearchOutline'
 import axios from'axios';
 
 
+<<<<<<< HEAD
 const StyledContainer = styled.div`
+=======
+export const StyledContainer = styled.div`
+>>>>>>> 1672155464a98f3e564221f04c3830d22b342b06
   margin: 30px 30px 20px 10px;
   width: 400px;
   height: 45px;
@@ -46,7 +50,7 @@ const StyledBox = styled.div`
     }
 `;
 
-export const Search = () => {
+const Search = () => {
 	const [keyword, setKeyword] = useState<string>("");
   const onChangeData = (e:React.FormEvent<HTMLInputElement>) => {
     setKeyword(e.currentTarget.value);
@@ -60,4 +64,8 @@ export const Search = () => {
     </StyledBox>
      );
 }
+<<<<<<< HEAD
 export default Search;
+=======
+export default Search;
+>>>>>>> 1672155464a98f3e564221f04c3830d22b342b06
