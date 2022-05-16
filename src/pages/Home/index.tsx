@@ -2,7 +2,7 @@ import { Input, Title, MainCardList, LayoutNavigation } from '../../components';
 import { 청약 } from '../../types';
 import styled from 'styled-components';
 import COLOR from '../../constants/color';
-import Picture from '../../asset/picture.png';
+import CardSlider from '../../components/CardSlider';
 
 export const StyledMainWrapper = styled.div`
   display: flex;
@@ -38,7 +38,7 @@ export const StyledColorSpan = styled.span`
 `;
 
 export const Home = () => {
-// const Home = () => {
+  // const Home = () => {
   const 청약리스트: Array<청약> = [
     {
       id: 0,
@@ -70,11 +70,13 @@ export const Home = () => {
         </div>
       </StyledMainWrapper>
 
+      <CardSlider />
+
       {/* 이 아래는 컴포넌트로 뺄 예정 */}
-      <StyledImgWrapper>
+      {/* <StyledImgWrapper>
         <StyledImg src={Picture} width="70%" alt="picture" />
         <StyledImgText>제 1차 장기전세주택 입주자모집공고</StyledImgText>
-      </StyledImgWrapper>
+      </StyledImgWrapper> */}
 
       <MainCardList popularityList={청약리스트} likeList={청약리스트}></MainCardList>
     </LayoutNavigation>
