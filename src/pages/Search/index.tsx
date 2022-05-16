@@ -1,12 +1,13 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import {material, octicons} from 'styled-icons'
-import {SearchOutline} from '@styled-icons/evaicons-outline/SearchOutline'
-import axios from'axios';
+import axios from 'axios';
+import { Header } from '../../components/Header'
+import { Searchicon } from '../../asset/searchicon';
 
 
-export const StyledContainer = styled.div`
+
+const StyledContainer = styled.div`
   margin: 30px 30px 20px 10px;
   width: 400px;
   height: 45px;
@@ -17,7 +18,7 @@ export const StyledContainer = styled.div`
   align: center;
 `;
 
-// background-color: #eaeaea;
+
 const StyledSearch = styled.input`
   border: 0;
   padding-left: 10px;
@@ -26,8 +27,8 @@ const StyledSearch = styled.input`
   height: 100%;
   outline: none;
 `;
-
-const StyledSearchIcon = styled(SearchOutline)`
+// onClick={() => console.log("")}
+const StyledSearchIcon = styled.div`
 margin: 10px 10px 10px 10px;
 padding-bottom:10px;
 display:flex;
@@ -39,7 +40,7 @@ font-size: 40px;
 const StyledBox = styled.div`
     display: flex;
     align-items:center;
-    @media screen and (min-width: 500px) {
+    @media screen and (min-width: 500px) and (max-width: 2000px) {
         flex-direction: column;
         align-items:flex-end;
         display: none;
@@ -47,17 +48,19 @@ const StyledBox = styled.div`
 `;
 
 const Search = () => {
-	const [keyword, setKeyword] = useState<string>("");
-  const onChangeData = (e:React.FormEvent<HTMLInputElement>) => {
+  const [keyword, setKeyword] = useState<string>("");
+  const onChangeData = (e: React.FormEvent<HTMLInputElement>) => {
     setKeyword(e.currentTarget.value);
   };
   return (
     <StyledBox>
-    <StyledContainer>
-     <StyledSearch value={keyword} onChange={onChangeData} />
-     <StyledSearchIcon onClick={() => console.log("")}></StyledSearchIcon>
-    </StyledContainer>
+      <StyledContainer>
+        <StyledSearch value={keyword} onChange={onChangeData} />
+        <StyledSearchIcon>
+          <Searchicon />
+        </StyledSearchIcon>
+      </StyledContainer>
     </StyledBox>
-     );
+  );
 }
 export default Search;
