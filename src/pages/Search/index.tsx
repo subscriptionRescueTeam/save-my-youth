@@ -18,7 +18,7 @@ const StyledContainer = styled.div`
   align: center;
 `;
 
-// background-color: #eaeaea;
+
 const StyledSearch = styled.input`
   border: 0;
   padding-left: 10px;
