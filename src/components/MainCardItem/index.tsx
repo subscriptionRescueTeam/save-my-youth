@@ -25,7 +25,7 @@ const MainCardItem = ({ title, 청약리스트 }: MainCardItemProps) => {
       <StyledMainCardItem>
         {청약리스트.map((subscription, i) => (
           <StyledMainCardItemSpan key={subscription.id}>
-            {i + 1}.{subscription.name}
+            {i + 1}. {subscription.name}
           </StyledMainCardItemSpan>
         ))}
       </StyledMainCardItem>

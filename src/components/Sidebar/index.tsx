@@ -1,73 +1,192 @@
-import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import OptionItem from './OptionItem';
+import OptionList from './OptionList';
+import { useState } from 'react';
 
-const StyledOptionList = styled.aside<{ isOpen: boolean }>`
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 80%;
-  height: 100%;
-  transition: all 1s ease;
-  transform: ${(props) => (props.isOpen ? 'translateX(0)' : 'translateX(100%)')};
-`;
+export type ArrowDirection = 'right' | 'down' | 'up';
 
-const StyledOptionItem = styled.button`
-  width: 100%;
-  height: 1.5rem;
-  padding: 10px;
-`;
+export type OptionDecoration = {
+  fontSize?: string;
+  fontWeight?: string;
+  underlineHeight?: string;
+  direction?: ArrowDirection | null;
+  disabled?: boolean;
+};
 
 type Option = {
   name: string;
   link: string;
-};
+} & OptionDecoration;
 
 export type SidebarProps = {
-  isOpen: boolean;
   onSidebarOpen: (isOpen: boolean) => void;
+  isOpen: boolean;
 };
 
 const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
-  const sidebarRef = useRef(null);
-
-  const optionList: Array<Option> = [
+  const userSetting: Array<Option> = [
     {
-      name: '헬렌',
+      name: '제이미 님',
       link: '/',
+      fontSize: '1rem',
+      fontWeight: 'bold',
+      direction: 'right',
     },
     {
-      name: '알림 설정',
+      name: '늘 행운을 빌어요! :)',
       link: '/',
+      fontSize: '0.875rem',
+      underlineHeight: '4px',
+      disabled: true,
     },
     {
       name: '좋아요',
       link: '/',
+      fontSize: '1rem',
+      fontWeight: 'bold',
+      underlineHeight: '2px',
+    },
+    {
+      name: '알림 설정',
+      link: '/',
+      fontSize: '1rem',
+      fontWeight: 'bold',
+      underlineHeight: '2px',
     },
   ];
 
-  const onClickOutside = (event: any) => {
-    if (sidebarRef.current && !(sidebarRef.current as any).contains(event.target)) {
-      // TODO: change any type
-      return onSidebarOpen(false);
-    }
+  const help: Record<string, Array<Option>> = {
+    title: [
+      {
+        name: '고객센터',
+        link: '/',
+        fontSize: '1rem',
+        fontWeight: 'bold',
+        underlineHeight: '2px',
+      },
+    ],
+    option: [
+      {
+        name: '공지사항',
+        link: '/',
+        fontSize: '0.875rem',
+        underlineHeight: '2px',
+        direction: 'right',
+      },
+      {
+        name: 'FAQ',
+        link: '/',
+        fontSize: '0.875rem',
+        underlineHeight: '2px',
+        direction: 'right',
+      },
+      {
+        name: '1:1 문의',
+        link: '/',
+        fontSize: '0.875rem',
+        underlineHeight: '2px',
+        direction: 'right',
+      },
+      {
+        name: '서비스해지',
+        link: '/',
+        fontSize: '0.875rem',
+        underlineHeight: '8px',
+        direction: 'right',
+      },
+    ],
   };
 
-  useEffect(() => {
-    document.addEventListener('click', onClickOutside, true);
-    return () => {
-      document.removeEventListener('click', onClickOutside, true);
-    };
-  });
+  const connection: Array<Option> = [
+    {
+      name: '로그아웃',
+      link: '/',
+      fontSize: '1rem',
+      underlineHeight: '2px',
+    },
+    {
+      name: '연동해제',
+      link: '/',
+      fontSize: '1rem',
+    },
+  ];
+
+  const [helpClicked, setHelpClicked] = useState(false);
+
+  const toggleHelp = () => {
+    return setHelpClicked(!helpClicked);
+  };
 
   return (
-    <StyledOptionList ref={sidebarRef} isOpen={isOpen}>
-      {optionList.map((option) => (
+    <OptionList onSidebarOpen={onSidebarOpen} isOpen={isOpen}>
+      {userSetting.map((option) => (
         <Link key={`${option.name}-${option.link}`} to={option.link}>
-          <StyledOptionItem>{option.name}</StyledOptionItem>
+          <OptionItem
+            fontSize={option.fontSize}
+            fontWeight={option.fontWeight}
+            underlineHeight={option.underlineHeight}
+            direction={option.direction}
+            disabled={option.disabled}
+          >
+            {option.name}
+          </OptionItem>
         </Link>
       ))}
-    </StyledOptionList>
+
+      <div id="accordion">
+        <div id="고객센터" onClick={toggleHelp}>
+          {help.title.map((option) => {
+            const dynamicDirection = helpClicked ? 'up' : 'down';
+
+            return (
+              <Link key={`${option.name}-${option.link}`} to={option.link}>
+                <OptionItem
+                  fontSize={option.fontSize}
+                  fontWeight={option.fontWeight}
+                  underlineHeight={option.underlineHeight}
+                  direction={dynamicDirection}
+                  disabled={option.disabled}
+                >
+                  {option.name}
+                </OptionItem>
+              </Link>
+            );
+          })}
+        </div>
+        {helpClicked && (
+          <div id="옵션">
+            {help.option.map((option) => (
+              <Link key={`${option.name}-${option.link}`} to={option.link}>
+                <OptionItem
+                  fontSize={option.fontSize}
+                  fontWeight={option.fontWeight}
+                  underlineHeight={option.underlineHeight}
+                  direction={option.direction}
+                  disabled={option.disabled}
+                >
+                  {option.name}
+                </OptionItem>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {connection.map((option) => (
+        <Link key={`${option.name}-${option.link}`} to={option.link}>
+          <OptionItem
+            fontSize={option.fontSize}
+            fontWeight={option.fontWeight}
+            underlineHeight={option.underlineHeight}
+            direction={option.direction}
+            disabled={option.disabled}
+          >
+            {option.name}
+          </OptionItem>
+        </Link>
+      ))}
+    </OptionList>
   );
 };
 
