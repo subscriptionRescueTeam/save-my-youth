@@ -32,7 +32,7 @@ export type HeaderProps = {
   title: string;
 };
 
-const Header = ({ title }: HeaderProps) => {
+export const Header = ({ title }: HeaderProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleIsSidebarOpen = useCallback((isOpen: boolean) => {
