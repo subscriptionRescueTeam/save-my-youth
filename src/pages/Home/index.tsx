@@ -37,7 +37,8 @@ export const StyledColorSpan = styled.span`
   padding-right: 2vw;
 `;
 
-const Home = () => {
+export const Home = () => {
+// const Home = () => {
   const 청약리스트: Array<청약> = [
     {
       id: 0,
