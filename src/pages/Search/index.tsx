@@ -2,37 +2,36 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import { Header } from '../../components/Header'
-import { Searchicon } from '../../asset/searchicon';
-
+import { Header } from '../../components/Header';
+import Searchicon from '../../asset/Search';
 
 const StyledContainer = styled.div`
   margin: 30px 30px 20px 10px;
   width: 400px;
   height: 45px;
-  border: 3px solid #1569CB;
-  border-radius:10px;
-  display:flex;
-  background-color: #FFFFFF;
-  align: center;
+  border: 3px solid #1569cb;
+  border-radius: 10px;
+  display: flex;
+  background-color: #ffffff;
+  align-items: center;
 `;
-
 
 const StyledSearch = styled.input`
   border: 0;
   padding-left: 10px;
-  border-radius:10px;
+  border-radius: 10px;
   width: 100%;
   height: 100%;
   outline: none;
 `;
+
 const StyledSearchIcon = styled.div`
-margin: 10px 10px 10px 10px;
-padding-bottom:10px;
-display:flex;
-width:30px;
-height:30px;
-font-size: 40px;
+  margin: 10px 10px 10px 10px;
+  padding-bottom: 10px;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  font-size: 40px;
 `;
 
 const StyledBox = styled.div`

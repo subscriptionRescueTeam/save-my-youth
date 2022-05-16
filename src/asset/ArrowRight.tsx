@@ -8,9 +8,9 @@ const ArrowRight = ({ color = '#929292' }: ArrowRightProps) => {
       <path
         d="M10 17L15 12L10 7"
         stroke={color}
-        stroke-width="2"
-        stroke-linecap="square"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="square"
+        strokeLinejoin="round"
       />
     </svg>
   );
