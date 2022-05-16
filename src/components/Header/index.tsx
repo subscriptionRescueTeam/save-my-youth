@@ -24,7 +24,9 @@ export const StyledButtonContainer = styled.div`
   display: flex;
 `;
 
-export const StyledBurger = styled.div`
+export const StyledAlarm = styled.button``;
+
+export const StyledBurger = styled.button`
   margin-left: 0.5rem;
 `;
 
@@ -48,7 +50,9 @@ const Header = ({ title }: HeaderProps) => {
       <StyledHeader>
         <StyledTitle>{title}</StyledTitle>
         <StyledButtonContainer>
-          <Alarm />
+          <StyledAlarm>
+            <Alarm />
+          </StyledAlarm>
           {/* <IconMenu size={20} /> */}
           <StyledBurger onClick={onClick}>
             <Hamburger />
