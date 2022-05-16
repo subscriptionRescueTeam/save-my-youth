@@ -1,39 +1,26 @@
 import { Title, LayoutNavigation } from '../../components';
 import styled from 'styled-components';
 import ServiceMenu from '../../components/ServiceMenu';
+import COLOR from '../../constants/color';
 
-const StyledUserInfoWrap = styled.div`
-  display: flex;
-  align-items: center;
-`;
+const StyledUserInfoWrap = styled.div``;
 
-const StyledName = styled.div`
-  flex-direction: row;
-`;
-
-const StyledLike = styled.span`
-  display: flex;
-  flex-direction: column;
-`;
-
-const StyledButton = styled.button`
-  margin-left: 20px;
-  height: 50px;
+const StyledFooter = styled.div`
+  position: absolute;
+  height: 10rem;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: ${COLOR.LIGHT_020};
 `;
 
 const Mypage = () => {
   return (
     <>
       <StyledUserInfoWrap>
-        <StyledName>
-          <Title title="퉁이리" subTitle="wer4272@nate.com" />
-        </StyledName>
-        <StyledButton>로그아웃</StyledButton>
+        <ServiceMenu />
+        <StyledFooter />
       </StyledUserInfoWrap>
-      <StyledLike>
-        <Title title="" subTitle="좋아요 (10건)" />
-      </StyledLike>
-      <ServiceMenu></ServiceMenu>
     </>
   );
 };

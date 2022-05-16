@@ -11,7 +11,12 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     font-family: 'Pretendard-Medium', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-  } 
+  }
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
 `;
 
 const App = () => {

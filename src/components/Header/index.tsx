@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { useCallback, useState } from 'react';
 import { Alarm, Hamburger } from '../../asset';
-// import IconMenu from '../IconMenu';
 import Sidebar from '../Sidebar';
 import COLOR from '../../constants/color';
 
@@ -24,7 +23,9 @@ export const StyledButtonContainer = styled.div`
   display: flex;
 `;
 
-export const StyledBurger = styled.div`
+export const StyledAlarm = styled.button``;
+
+export const StyledBurger = styled.button`
   margin-left: 0.5rem;
 `;
 
@@ -48,7 +49,9 @@ export const Header = ({ title }: HeaderProps) => {
       <StyledHeader>
         <StyledTitle>{title}</StyledTitle>
         <StyledButtonContainer>
-          <Alarm />
+          <StyledAlarm>
+            <Alarm />
+          </StyledAlarm>
           {/* <IconMenu size={20} /> */}
           <StyledBurger onClick={onClick}>
             <Hamburger />
