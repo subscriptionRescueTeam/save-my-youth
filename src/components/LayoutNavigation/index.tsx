@@ -12,7 +12,6 @@ export const StyledContent = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 60%; //TODO: 수정
 `;
 
 export type LayoutNavigationProps = {
@@ -22,7 +21,7 @@ export type LayoutNavigationProps = {
 const LayoutNavigation = ({ children }: LayoutNavigationProps) => {
   return (
     <StyledLayoutNavigation>
-      <Header title="청년을 구해줘" />
+      <Header title="청년을 구해줘!" />
       <StyledContent>{children}</StyledContent>
     </StyledLayoutNavigation>
   );
