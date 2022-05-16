@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Picture from '../../asset/picture.png';
 import { ArrowRight } from '../../asset';
 import COLOR from '../../constants/color';
+import { SaleSchedule } from '../../components';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -41,6 +42,36 @@ const StyledDate = styled.div`
 const StyledImg = styled.img``;
 
 const Detail = () => {
+  const [menuCheck, setMenuCheck] = useState<number>(0);
+  const [check, setCheck] = useState('schedule');
+  const menu = [
+    { name: '분양일정', option: 'schedule' },
+    { name: '공급대상', option: 'target' },
+    { name: '임대조건', option: 'lease' },
+    { name: '위치', option: 'location' },
+  ];
+  const checkList: any = {
+    0: <>분양일정 데이터 연동중이에요!</>,
+    1: <>공급대상 데이터 연동중이에요!</>,
+    2: <>임대조건 데이터 연동중이에요!</>,
+    3: <SaleSchedule />,
+  };
+  const menuList = menu.map((i, index) => (
+    <StyledMenuTitle
+      key={i.option}
+      id={i.option}
+      check={check}
+      onClick={(e) => clickFunc(e, index)}
+    >
+      {i.name}
+    </StyledMenuTitle>
+  ));
+
+  const clickFunc = (e: any, index: number) => {
+    setMenuCheck(index);
+    setCheck(e.target.id);
+  };
+
   return (
     <>
       <StyledImg src={Picture} width="100%" alt="picture" />
@@ -53,9 +84,8 @@ const Detail = () => {
           <StyledDate>2022.05.15 등록</StyledDate>
         </StyledTitleWrapper>
 
-        <StyledContentWrapper>
-          <div>여기 탭 들어갈 예정</div>
-        </StyledContentWrapper>
+        <StyledContentWrapper>{menuList}</StyledContentWrapper>
+        {checkList[menuCheck]}
       </StyledWrapper>
     </>
   );
