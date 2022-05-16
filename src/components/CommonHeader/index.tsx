@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { ArrowLeft, Hamburger } from '../../asset';
 import COLOR from '../../constants/color';
@@ -15,9 +16,14 @@ const Item = styled.div`
   cursor: pointer;
   font-family: Noto Sans;
   font-weight: 700;
-  line-height: 1.5rem;
-  align-items: center;
-  margin: 2.2rem;
+  margin-left: 0.7rem;
+  margin-right: 1.3rem;
+`;
+
+const TitleItem = styled.div`
+  font-family: Noto Sans;
+  font-weight: 700;
+  font-size: 1rem;
 `;
 
 export type CommonHeaderProps = {
@@ -25,12 +31,18 @@ export type CommonHeaderProps = {
 };
 
 const CommonHeader = ({ title }: CommonHeaderProps) => {
+  const navigate = useNavigate();
+
+  const clickBefore = () => {
+    navigate('/');
+  };
+
   return (
     <Container>
-      <Item>
+      <Item onClick={clickBefore}>
         <ArrowLeft />
       </Item>
-      <Item>{title}</Item>
+      <TitleItem>{title}</TitleItem>
       <Item>
         <Hamburger />
       </Item>
