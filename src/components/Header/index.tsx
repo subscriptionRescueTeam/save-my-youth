@@ -74,7 +74,6 @@ export const Header = ({ title }: HeaderProps) => {
           <StyledAlarm>
             <Alarm />
           </StyledAlarm>
-          {/* <IconMenu size={20} /> */}
           <StyledBurger onClick={onClick}>
             <Hamburger />
           </StyledBurger>

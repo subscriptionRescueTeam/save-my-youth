@@ -19,8 +19,6 @@ export const StyledInput = styled.input`
   background-color: ${COLOR.LIGHT_010};
   font-family: 'Pretendard-Medium';
   margin-bottom: 2rem;
-  background-repeat: no-repeat;
-  background-position: 99%;
 `;
 
 export const StyledSearch = styled.button`
@@ -56,7 +54,7 @@ const Input = ({
         multiple={multiline}
         placeholder={placeholder}
         onChange={onChange}
-      ></StyledInput>
+      />
 
       <Link to={{ pathname: `/search?${inputRef?.current?.value}` }}>
         <StyledSearch>
