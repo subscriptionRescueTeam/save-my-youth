@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { COLOR } from '../../../constants';
 
 const StyledOptionList = styled.aside<{ isOpen: boolean }>`
   position: absolute;
@@ -8,7 +9,9 @@ const StyledOptionList = styled.aside<{ isOpen: boolean }>`
   width: 80vw;
   height: 100%;
   transition: all 1s ease;
+  z-index: 1;
   transform: ${(props) => (props.isOpen ? 'translateX(0)' : 'translateX(100%)')};
+  background-color: ${COLOR.WHITE};
 `;
 
 export type OptionListProps = {
@@ -20,6 +23,7 @@ export type OptionListProps = {
 const OptionList = ({ children, onSidebarOpen, isOpen }: OptionListProps) => {
   const sidebarRef = useRef(null);
 
+  // ref: https://codesandbox.io/s/outside-click-hook-uc8bo?file=/src/outsideClick.js
   const onClickOutside = (event: any) => {
     if (sidebarRef.current && !(sidebarRef.current as any).contains(event.target)) {
       // TODO: change any type
