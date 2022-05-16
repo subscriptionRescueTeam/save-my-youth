@@ -1,6 +1,4 @@
-import React from 'react';
-import LayoutNavigation from '../../components/LayoutNavigation';
-import Title from '../../components/Title';
+import { Title, LayoutNavigation } from '../../components';
 import styled from 'styled-components';
 import ServiceMenu from '../../components/ServiceMenu';
 
