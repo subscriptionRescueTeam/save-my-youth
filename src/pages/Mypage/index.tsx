@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ServiceMenu from '../../components/ServiceMenu';
 import COLOR from '../../constants/color';
 import CommonHeader from '../../components/CommonHeader';
+import { useNavigate } from 'react-router-dom';
 
 const StyledUserInfoWrap = styled.div``;
 
@@ -16,10 +17,16 @@ const StyledFooter = styled.div`
 `;
 
 const Mypage = () => {
+  let navigate = useNavigate();
+
+  const goBefore = () => {
+    navigate('/');
+  };
+
   return (
     <>
       <StyledUserInfoWrap>
-        <CommonHeader title="My Page" />
+        <CommonHeader title="My Page" clickBefore={goBefore} />
         <ServiceMenu />
         <StyledFooter />
       </StyledUserInfoWrap>

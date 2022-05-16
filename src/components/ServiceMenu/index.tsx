@@ -35,7 +35,7 @@ const StyledMenuList = styled.ul`
 
 const StyledItem = styled.li`
   display: flex;
-  margin: 1rem;
+  margin-bottom: 1.3rem;
   height: 3rem;
   padding: 1rem 1.2rem;
   justify-content: space-between;

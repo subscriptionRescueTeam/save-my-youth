@@ -15,22 +15,28 @@ const Item = styled.div`
   cursor: pointer;
   font-family: Noto Sans;
   font-weight: 700;
-  line-height: 1.5rem;
-  align-items: center;
-  margin: 2.2rem;
+  margin-left: 0.7rem;
+  margin-right: 1.3rem;
+`;
+
+const TitleItem = styled.div`
+  font-family: Noto Sans;
+  font-weight: 700;
+  font-size: 1rem;
 `;
 
 export type CommonHeaderProps = {
   title: string;
+  clickBefore: (event: React.MouseEvent<HTMLElement>) => void;
 };
 
-const CommonHeader = ({ title }: CommonHeaderProps) => {
+const CommonHeader = ({ title, clickBefore }: CommonHeaderProps) => {
   return (
     <Container>
-      <Item>
+      <Item onClick={clickBefore}>
         <ArrowLeft />
       </Item>
-      <Item>{title}</Item>
+      <TitleItem>{title}</TitleItem>
       <Item>
         <Hamburger />
       </Item>
