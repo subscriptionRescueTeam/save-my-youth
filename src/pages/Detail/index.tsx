@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import Picture from '../../asset/picture.png';
 import { ArrowRight } from '../../asset';
@@ -16,6 +17,9 @@ const StyledTitleWrapper = styled.div`
 
 const StyledContentWrapper = styled.div`
   display: flex;
+  justify-content: space-evenly;
+  padding-top: 1.5rem;
+  border-top: 4px solid ${COLOR.LIGHT_010};
 `;
 
 const StyledLocationWrapper = styled.div`
@@ -40,7 +44,50 @@ const StyledDate = styled.div`
 
 const StyledImg = styled.img``;
 
+export const StyledMenuTitle = styled.li<{ check?: string }>`
+  width: 25%;
+  font-size: 0.9rem;
+  padding-bottom: 1rem;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Pretendard-Regular';
+  display: flex;
+  color: lightgray;
+  &:hover {
+    cursor: pointer;
+  }
+  &#${({ check }) => check} {
+    font-weight: bold;
+    color: ${COLOR.PRI_MAIN};
+    border-bottom: 2px solid ${COLOR.PRI_MAIN};
+  }
+`;
+
 const Detail = () => {
+  const [menuCheck, setMenuCheck] = useState(0);
+  const [check, setCheck] = useState('schedule');
+  const menu = [
+    { name: '분양일정', option: 'schedule' },
+    { name: '공급대상', option: 'target' },
+    { name: '임대조건', option: 'lease' },
+    { name: '위치', option: 'location' },
+  ];
+  const menuList = menu.map((i, index) => (
+    <StyledMenuTitle
+      key={i.option}
+      id={i.option}
+      check={check}
+      onClick={(e) => clickFunc(e, index)}
+    >
+      {i.name}
+    </StyledMenuTitle>
+  ));
+
+  const clickFunc = (e: any, index: number) => {
+    setMenuCheck(index);
+    setCheck(e.target.id);
+  };
+
   return (
     <>
       <StyledImg src={Picture} width="100%" alt="picture" />
@@ -53,9 +100,7 @@ const Detail = () => {
           <StyledDate>2022.05.15 등록</StyledDate>
         </StyledTitleWrapper>
 
-        <StyledContentWrapper>
-          <div>여기 탭 들어갈 예정</div>
-        </StyledContentWrapper>
+        <StyledContentWrapper>{menuList}</StyledContentWrapper>
       </StyledWrapper>
     </>
   );
