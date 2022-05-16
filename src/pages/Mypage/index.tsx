@@ -11,12 +11,22 @@ const StyledUserInfoWrap = styled.div`
 `;
 
 const StyledButton = styled.button`
-  height: 30px;
-  border: none;
+  position: absolute;
+  width: 81px;
+  height: 32px;
+  left: 162px;
+  top: 368px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 32px;
+  letter-spacing: -0.011em;
+  text-decoration-line: underline;
+  color: #929292;
   background: none;
-  color: gray;
-  font-weight: 900px;
-  border-bottom: 1px solid gray;
+  border: none;
+  cursor: pointer;
 `;
 
 const Mypage = () => {

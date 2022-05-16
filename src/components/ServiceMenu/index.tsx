@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Title from '../Title';
-import { IosArrowRight } from '@styled-icons/fluentui-system-regular';
+import ArrowRight from '../../assets/ArrowRight.svg';
+import COLOR from '../../constants/color';
 
 const MenuItems = [
   {
@@ -21,23 +22,39 @@ const MenuItems = [
   },
 ];
 
-const StyledMenuWrap = styled.div`
+const StyledMenuWrap = styled.div``;
+
+const StyledMenuList = styled.ul`
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
-  justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+  position: absolute;
+  width: 375px;
+  height: 230px;
+  left: 0px;
+  top: 113px;
 `;
-const StyledMenuList = styled.ul``;
+
 const StyledItem = styled.li`
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 24px;
+  gap: 8px;
+  width: 375px;
+  height: 56px;
+  border-bottom: 2px solid ${COLOR.LIGHT_010};
   justify-content: space-between;
-  margin: 30px;
-  padding-bottom: 30px;
-  border-bottom: 1px solid lightgray;
 `;
-const StyledIcon = styled(IosArrowRight)`
-  color: lightgray;
-  width: 4%;
+
+const StyledLine = styled.span`
+  position: absolute;
+  width: 375px;
+  height: 8px;
+  left: 0px;
+  top: 336px;
+  background: ${COLOR.LIGHT_010};
 `;
 
 const SearchMenu = () => {
@@ -47,10 +64,11 @@ const SearchMenu = () => {
         {MenuItems.map((item) => (
           <StyledItem key={item.id}>
             {item.title}
-            <StyledIcon />
+            <img src={ArrowRight} />
           </StyledItem>
         ))}
       </StyledMenuList>
+      <StyledLine />
     </StyledMenuWrap>
   );
 };
