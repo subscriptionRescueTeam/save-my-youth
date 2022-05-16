@@ -1,7 +1,8 @@
-import { Title, LayoutNavigation } from '../../components';
+import { Title, LayoutNavigation, Header } from '../../components';
 import styled from 'styled-components';
 import ServiceMenu from '../../components/ServiceMenu';
 import COLOR from '../../constants/color';
+import CommonHeader from '../../components/CommonHeader';
 
 const StyledUserInfoWrap = styled.div``;
 
@@ -18,6 +19,7 @@ const Mypage = () => {
   return (
     <>
       <StyledUserInfoWrap>
+        <CommonHeader title="My Page" />
         <ServiceMenu />
         <StyledFooter />
       </StyledUserInfoWrap>
