@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { useCallback, useState } from 'react';
 import { Alarm, Hamburger } from '../../asset';
-// import IconMenu from '../IconMenu';
 import Sidebar from '../Sidebar';
 import COLOR from '../../constants/color';
 
