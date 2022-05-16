@@ -1,8 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { material, octicons } from 'styled-icons'
-import { SearchOutline } from '@styled-icons/evaicons-outline/SearchOutline'
 import axios from 'axios';
 import { Header } from '../../components/Header'
 import { Searchicon } from '../../asset/searchicon';
@@ -42,7 +40,7 @@ font-size: 40px;
 const StyledBox = styled.div`
     display: flex;
     align-items:center;
-    @media screen and (min-width: 500px) {
+    @media screen and (min-width: 500px) and (max-width: 2000px) {
         flex-direction: column;
         align-items:flex-end;
         display: none;
