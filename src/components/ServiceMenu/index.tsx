@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Title from '../Title';
-import ArrowRight from '../../assets/ArrowRight.svg';
 import COLOR from '../../constants/color';
+import { ArrowRight } from '../../asset';
 
 const MenuItems = [
   {
@@ -22,39 +22,56 @@ const MenuItems = [
   },
 ];
 
-const StyledMenuWrap = styled.div``;
+const StyledMenuWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+`;
 
 const StyledMenuList = styled.ul`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  position: absolute;
-  width: 375px;
-  height: 230px;
-  left: 0px;
-  top: 113px;
 `;
 
 const StyledItem = styled.li`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 16px 24px;
-  gap: 8px;
-  width: 375px;
-  height: 56px;
-  border-bottom: 2px solid ${COLOR.LIGHT_010};
+  margin: 1rem;
+  height: 3rem;
+  padding: 1rem 1.2rem;
   justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 2px solid ${COLOR.LIGHT_010};
 `;
 
 const StyledLine = styled.span`
   position: absolute;
-  width: 375px;
   height: 8px;
   left: 0px;
-  top: 336px;
+  top: 36px;
   background: ${COLOR.LIGHT_010};
+`;
+
+const StyledButtonWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledButton = styled.button`
+  width: 81px;
+  height: 32px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.8rem;
+  line-height: 1.3rem;
+  letter-spacing: -0.011em;
+  text-decoration-line: underline;
+  color: ${COLOR.DARK_020};
+  background: none;
+  border: none;
+  cursor: pointer;
 `;
 
 const SearchMenu = () => {
@@ -64,11 +81,13 @@ const SearchMenu = () => {
         {MenuItems.map((item) => (
           <StyledItem key={item.id}>
             {item.title}
-            <img src={ArrowRight} />
+            <ArrowRight />
           </StyledItem>
         ))}
       </StyledMenuList>
-      <StyledLine />
+      <StyledButtonWrap>
+        <StyledButton>로그아웃</StyledButton>
+      </StyledButtonWrap>
     </StyledMenuWrap>
   );
 };

@@ -1,32 +1,17 @@
-import React from 'react';
-import LayoutNavigation from '../../components/LayoutNavigation';
-import Title from '../../components/Title';
+import { Title, LayoutNavigation } from '../../components';
 import styled from 'styled-components';
 import ServiceMenu from '../../components/ServiceMenu';
+import COLOR from '../../constants/color';
 
-const StyledUserInfoWrap = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
+const StyledUserInfoWrap = styled.div``;
 
-const StyledButton = styled.button`
+const StyledFooter = styled.div`
   position: absolute;
-  width: 81px;
-  height: 32px;
-  left: 162px;
-  top: 368px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 32px;
-  letter-spacing: -0.011em;
-  text-decoration-line: underline;
-  color: #929292;
-  background: none;
-  border: none;
-  cursor: pointer;
+  height: 10rem;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: ${COLOR.LIGHT_020};
 `;
 
 const Mypage = () => {
@@ -34,7 +19,7 @@ const Mypage = () => {
     <>
       <StyledUserInfoWrap>
         <ServiceMenu />
-        <StyledButton>로그아웃</StyledButton>
+        <StyledFooter />
       </StyledUserInfoWrap>
     </>
   );
