@@ -1,7 +1,53 @@
+import environ
+import os
 from ninja import Router
 
 from .models import Subscription, UserSubscription
 from . import schema
+import requests
+import json
+
+
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+
+subscription_router = Router(tags=["청약 API"])
+
+@subscription_router.get('/{queryData}',
+                        response={200: schema.OpenApiSchema},
+                        summary="청약 가져오기",
+                        auth=None,
+                        )
+def get_subscription(request, queryData: str):
+    """
+    ## subscription API 사용방법입니다.
+    **default -> 기본 데이터 page=1, perPage=10**
+
+    이외에는 공공 API와 동일하게 사용하면 됩니다.
+
+    **기존 쿼리문의 첫 &은 생략합니다.**
+
+    ex)page=3&perPage=15 이렇게 보내시면 됩니다.
+    """
+
+    serviceKey = env('OPEN_API')
+
+    url = 'http://api.odcloud.kr/api/ApplyhomeInfoDetailSvc/v1/getAPTLttotPblancDetail'  + f'?serviceKey={serviceKey}'
+
+    if queryData == 'default':
+        response = requests.get(url)
+
+    else:
+        response = requests.get(url + '&' + queryData)
+
+    contents = json.loads(response.text)
+    subscription_list = contents
+
+    return 200, {'subscription_data': subscription_list}
 
 
 like_router = Router(tags=["좋아요 API"])

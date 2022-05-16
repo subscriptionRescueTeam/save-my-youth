@@ -8,7 +8,7 @@ from ninja import NinjaAPI
 from ninja.security import HttpBearer
 from user.models import User
 
-from subscription.api import like_router
+from subscription.api import like_router, subscription_router
 from user.api import user_router
 
 
@@ -33,3 +33,4 @@ api = NinjaAPI(auth=GlobalAuth()) # 전체 권한 제한 설정
 # 라우터 등록
 api.add_router('/like/', like_router)
 api.add_router('/user/', user_router)
+api.add_router('/subscription/', subscription_router)

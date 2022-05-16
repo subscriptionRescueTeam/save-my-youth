@@ -6,6 +6,10 @@ class ErrorSchema(Schema):
     message: str
 
 
+class OpenApiSchema(Schema):
+    subscription_data : dict = None
+
+
 # 좋아요 get 스키마
 class LikeGetSchema(Schema):
     status : bool

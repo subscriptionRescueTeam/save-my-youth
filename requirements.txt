@@ -16,6 +16,7 @@ dj-static==0.0.6
 Django==4.0.4
 django-allauth==0.50.0
 django-cors-headers==3.12.0
+django-environ==0.8.1
 django-extensions==3.1.5
 django-filter==21.1
 django-modelcluster==5.3
