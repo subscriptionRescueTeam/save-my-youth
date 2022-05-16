@@ -7,9 +7,10 @@ import { useRef } from 'react';
 export const StyledInputContainer = styled.div`
   position: relative;
   width: 90%;
+  z-index: -1;
 `;
 
-export const StyledInput = styled.input<{ margin: number }>`
+export const StyledInput = styled.input`
   width: 100%;
   padding: 1rem 1rem;
   margin: 0 auto;
@@ -17,7 +18,6 @@ export const StyledInput = styled.input<{ margin: number }>`
   border: none;
   background-color: ${COLOR.LIGHT_010};
   font-family: 'Pretendard-Medium';
-  margin: ${(props) => props.margin};
   margin-bottom: 2rem;
   background-repeat: no-repeat;
   background-position: 99%;
@@ -32,7 +32,7 @@ export const StyledSearch = styled.button`
 export type InputPros = {
   color?: string;
   disabled?: boolean;
-  margin?: number;
+  margin?: string;
   multiline?: boolean;
   placeholder: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
@@ -41,7 +41,6 @@ export type InputPros = {
 const Input = ({
   color,
   disabled = false,
-  margin = 2,
   multiline = false,
   placeholder = '',
   onChange,
@@ -54,7 +53,6 @@ const Input = ({
         ref={inputRef}
         color={color}
         disabled={disabled}
-        margin={margin}
         multiple={multiline}
         placeholder={placeholder}
         onChange={onChange}
