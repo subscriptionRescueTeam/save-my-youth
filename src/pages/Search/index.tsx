@@ -1,9 +1,10 @@
 import React from 'react';
-import { useEffect,useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import {material, octicons} from 'styled-icons'
 import {SearchOutline} from '@styled-icons/evaicons-outline/SearchOutline'
 import axios from'axios';
+
 
 export const StyledContainer = styled.div`
   margin: 30px 30px 20px 10px;
@@ -45,9 +46,9 @@ const StyledBox = styled.div`
     }
 `;
 
-export const Search = () => {
+const Search = () => {
 	const [keyword, setKeyword] = useState<string>("");
-    const onChangeData = (e:React.FormEvent<HTMLInputElement>) => {
+  const onChangeData = (e:React.FormEvent<HTMLInputElement>) => {
     setKeyword(e.currentTarget.value);
   };
   return (
@@ -59,3 +60,4 @@ export const Search = () => {
     </StyledBox>
      );
 }
+export default Search;

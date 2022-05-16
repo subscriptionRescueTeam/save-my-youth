@@ -1,10 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home/index';
+import { Home, Search, Mypage, Detail } from './pages';
 import { createGlobalStyle } from 'styled-components';
-import { Header } from './components';
-import { Search } from './pages/Search/index';
 import reset from 'styled-reset';
-import Mypage from './pages/Mypage/index';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -25,6 +22,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
         <Route path="/mypage" element={<Mypage />} />
+        <Route path="/detail" element={<Detail />} />
       </Routes>
     </BrowserRouter>
   );
