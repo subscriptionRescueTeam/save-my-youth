@@ -1,0 +1,8 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production.environment]
+  TOML_ENV_VAR = "From netlify.toml"
+  AWS_API_URL = "From netlify.toml (AWS_API_URL)"
