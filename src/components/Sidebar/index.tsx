@@ -1,8 +1,10 @@
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import OptionItem from './OptionItem';
 import OptionList from './OptionList';
+import { useState } from 'react';
 
-export type ArrowDirection = 'right' | 'down' | 'left' | 'up';
+export type ArrowDirection = 'right' | 'down' | 'up';
 
 export type OptionDecoration = {
   fontSize?: string;
@@ -23,7 +25,7 @@ export type SidebarProps = {
 };
 
 const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
-  const optionList: Array<Option> = [
+  const userSetting: Array<Option> = [
     {
       name: '제이미 님',
       link: '/',
@@ -52,28 +54,51 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
       fontWeight: 'bold',
       underlineHeight: '2px',
     },
-    {
-      name: '고객센터',
-      link: '/',
-      fontSize: '1rem',
-      fontWeight: 'bold',
-      underlineHeight: '2px',
-      direction: 'down',
-    },
-    {
-      name: '공지사항',
-      link: '/',
-      fontSize: '0.875rem',
-      underlineHeight: '2px',
-      direction: 'right',
-    },
-    {
-      name: '서비스해지',
-      link: '/',
-      fontSize: '0.875rem',
-      underlineHeight: '8px',
-      direction: 'right',
-    },
+  ];
+
+  const help: Record<string, Array<Option>> = {
+    title: [
+      {
+        name: '고객센터',
+        link: '/',
+        fontSize: '1rem',
+        fontWeight: 'bold',
+        underlineHeight: '2px',
+      },
+    ],
+    option: [
+      {
+        name: '공지사항',
+        link: '/',
+        fontSize: '0.875rem',
+        underlineHeight: '2px',
+        direction: 'right',
+      },
+      {
+        name: 'FAQ',
+        link: '/',
+        fontSize: '0.875rem',
+        underlineHeight: '2px',
+        direction: 'right',
+      },
+      {
+        name: '1:1 문의',
+        link: '/',
+        fontSize: '0.875rem',
+        underlineHeight: '2px',
+        direction: 'right',
+      },
+      {
+        name: '서비스해지',
+        link: '/',
+        fontSize: '0.875rem',
+        underlineHeight: '8px',
+        direction: 'right',
+      },
+    ],
+  };
+
+  const connection: Array<Option> = [
     {
       name: '로그아웃',
       link: '/',
@@ -87,9 +112,68 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
     },
   ];
 
+  const [helpClicked, setHelpClicked] = useState(false);
+
+  const toggleHelp = () => {
+    return setHelpClicked(!helpClicked);
+  };
+
   return (
     <OptionList onSidebarOpen={onSidebarOpen} isOpen={isOpen}>
-      {optionList.map((option) => (
+      {userSetting.map((option) => (
+        <Link key={`${option.name}-${option.link}`} to={option.link}>
+          <OptionItem
+            fontSize={option.fontSize}
+            fontWeight={option.fontWeight}
+            underlineHeight={option.underlineHeight}
+            direction={option.direction}
+            disabled={option.disabled}
+          >
+            {option.name}
+          </OptionItem>
+        </Link>
+      ))}
+
+      <div id="accordion">
+        <div id="고객센터" onClick={toggleHelp}>
+          {help.title.map((option) => {
+            const dynamicDirection = helpClicked ? 'up' : 'down';
+
+            return (
+              <Link key={`${option.name}-${option.link}`} to={option.link}>
+                <OptionItem
+                  fontSize={option.fontSize}
+                  fontWeight={option.fontWeight}
+                  underlineHeight={option.underlineHeight}
+                  direction={dynamicDirection}
+                  disabled={option.disabled}
+                >
+                  {option.name}
+                </OptionItem>
+              </Link>
+            );
+          })}
+        </div>
+        {helpClicked && (
+          <div id="옵션">
+            {help.option.map((option) => (
+              <Link key={`${option.name}-${option.link}`} to={option.link}>
+                <OptionItem
+                  fontSize={option.fontSize}
+                  fontWeight={option.fontWeight}
+                  underlineHeight={option.underlineHeight}
+                  direction={option.direction}
+                  disabled={option.disabled}
+                >
+                  {option.name}
+                </OptionItem>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {connection.map((option) => (
         <Link key={`${option.name}-${option.link}`} to={option.link}>
           <OptionItem
             fontSize={option.fontSize}
