@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Picture from '../../asset/picture.png';
 import { ArrowRight } from '../../asset';
 import COLOR from '../../constants/color';
+import { SaleSchedule } from '../../components';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -64,7 +65,7 @@ export const StyledMenuTitle = styled.li<{ check?: string }>`
 `;
 
 const Detail = () => {
-  const [menuCheck, setMenuCheck] = useState(0);
+  const [menuCheck, setMenuCheck] = useState<number>(0);
   const [check, setCheck] = useState('schedule');
   const menu = [
     { name: '분양일정', option: 'schedule' },
@@ -72,6 +73,12 @@ const Detail = () => {
     { name: '임대조건', option: 'lease' },
     { name: '위치', option: 'location' },
   ];
+  const checkList: any = {
+    0: <>분양일정 데이터 연동중이에요!</>,
+    1: <>공급대상 데이터 연동중이에요!</>,
+    2: <>임대조건 데이터 연동중이에요!</>,
+    3: <SaleSchedule />,
+  };
   const menuList = menu.map((i, index) => (
     <StyledMenuTitle
       key={i.option}
@@ -101,6 +108,7 @@ const Detail = () => {
         </StyledTitleWrapper>
 
         <StyledContentWrapper>{menuList}</StyledContentWrapper>
+        {checkList[menuCheck]}
       </StyledWrapper>
     </>
   );
