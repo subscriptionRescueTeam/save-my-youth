@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { Header } from '../../components/Header';
 import Searchicon from '../../asset/Search';
+import SearchHeader from '../../components/SearchHeader';
 
 const StyledPage = styled.div`
 width: 1300px;
@@ -79,6 +80,7 @@ const Search = () => {
   };
   return (
     <StyledPage>
+      <SearchHeader title="검색페이지" />
       <StyledBox>
         <StyledContainer>
           <StyledSearch value={keyword} onChange={onChangeData} />
