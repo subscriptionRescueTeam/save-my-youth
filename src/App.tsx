@@ -2,6 +2,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home, Search, Mypage, Detail } from './pages';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import UserModify from './pages/UserModify';
+import Like from './pages/Like';
+import AlarmSetting from './pages/AlarmSetting';
+import ServiceCenter from './pages/ServiceCenter';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -29,6 +33,10 @@ const App = () => {
         <Route path="/search" element={<Search />} />
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/detail" element={<Detail />} />
+        <Route path="/usermodify" element={<UserModify />} />
+        <Route path="/like" element={<Like />} />
+        <Route path="/alarmsetting" element={<AlarmSetting />} />
+        <Route path="/servicecenter" element={<ServiceCenter />} />
       </Routes>
     </BrowserRouter>
   );
