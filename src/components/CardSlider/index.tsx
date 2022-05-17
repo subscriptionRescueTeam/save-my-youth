@@ -60,6 +60,18 @@ const 임시청약리스트 = [
     likeNum: 26,
     imgLink: tmpImg,
   },
+  {
+    id: 5,
+    title: '제 1차 장기전세주택 입주자모집공고',
+    likeNum: 26,
+    imgLink: tmpImg,
+  },
+  {
+    id: 6,
+    title: '제 1차 장기전세주택 입주자모집공고',
+    likeNum: 26,
+    imgLink: tmpImg,
+  },
 ];
 
 // ref: https://github.com/Ziratsu/slider-react/tree/a44cc92f02b0e4995cc661e04c32724fc946ac59

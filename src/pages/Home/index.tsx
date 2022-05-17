@@ -1,4 +1,4 @@
-import { Input, Title, MainCardList, LayoutNavigation } from '../../components';
+import { Input, MainCardList, LayoutNavigation } from '../../components';
 import { 청약 } from '../../types';
 import styled from 'styled-components';
 import COLOR from '../../constants/color';
@@ -12,24 +12,6 @@ export const StyledMainWrapper = styled.div`
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 2rem;
-`;
-
-const StyledImgWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const StyledImgText = styled.div`
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
-  padding-top: 0.5rem;
-  margin-bottom: 2rem;
-`;
-
-const StyledImg = styled.img`
-  border-radius: 10px 10px 0 0;
 `;
 
 export const StyledColorSpan = styled.span`

@@ -6,6 +6,7 @@ export const StyledLayoutNavigation = styled.div`
   min-height: 100vh;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden;
 `;
 
 export const StyledContent = styled.main`

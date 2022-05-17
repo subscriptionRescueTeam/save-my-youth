@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import OptionItem from './OptionItem';
 import OptionList from './OptionList';
