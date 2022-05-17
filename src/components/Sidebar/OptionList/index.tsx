@@ -16,6 +16,13 @@ const StyledOptionList = styled.aside<{ isOpen: boolean }>`
   visibility: ${(props) => (props.isOpen ? 'visible' : 'hidden')};
 `;
 
+export const StyledSidebarHeader = styled.div`
+  font-size: 1.25rem;
+  color: ${COLOR.PRI_DARK_010};
+  font-weight: bold;
+  padding: 1.125rem 1.25rem 0.75rem 1.25rem;
+`;
+
 export type OptionListProps = {
   children: React.ReactNode;
   onSidebarOpen: (isOpen: boolean) => void;
@@ -42,6 +49,7 @@ const OptionList = ({ children, onSidebarOpen, isOpen }: OptionListProps) => {
 
   return (
     <StyledOptionList ref={sidebarRef} isOpen={isOpen}>
+      <StyledSidebarHeader>청년을 구해줘!</StyledSidebarHeader>
       {children}
     </StyledOptionList>
   );
