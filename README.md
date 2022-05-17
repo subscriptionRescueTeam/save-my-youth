@@ -2,7 +2,7 @@
     
 # **청년을 구해줘**
     
- [청년을 구해줘](https://whoplus.ga/)
+ [청년을 구해줘](https://save-my-youth.ga/)
   
   
 <img width="1000" alt="save-my-youth" src="https://i.imgur.com/lGsGnE9.png"><br>
