@@ -96,14 +96,14 @@ const Detail = () => {
     setMenuCheck(index);
     setCheck(e.target.id);
   };
-
+  let navigate = useNavigate();
   return (
     <>
       <CommonHeader title="청약 상세" />
       <StyledImg src={Picture} width="100%" alt="picture" />
       <StyledWrapper>
         <StyledTitleWrapper>
-          <StyledLocationWrapper>
+          <StyledLocationWrapper onClick={() => navigate('/search')}>
             서울특별시 <ArrowRight /> 강북구
           </StyledLocationWrapper>
           <StyledTitle>제 1차 장기전세주택 입주자모집공고</StyledTitle>
