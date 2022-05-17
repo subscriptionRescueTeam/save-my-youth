@@ -60,7 +60,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
     title: [
       {
         name: '고객센터',
-        link: '/mypage',
+        link: '',
         fontSize: '1rem',
         fontWeight: 'bold',
         underlineHeight: '2px',

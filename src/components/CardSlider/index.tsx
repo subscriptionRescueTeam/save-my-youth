@@ -85,8 +85,9 @@ const CardSlider = () => {
       <StyledDotsContainer>
         {Array.from({ length: 임시청약리스트.length }).map((item, index) => (
           <StyledDot
-            active={slideIndex === index + 1}
-            onClick={() => moveDot(index + 1)}
+            key={`${index}-${item}`}
+            active={slideIndex === index}
+            onClick={() => moveDot(index)}
           ></StyledDot>
         ))}
       </StyledDotsContainer>
