@@ -1,9 +1,11 @@
 import jwt
+import orjson
 
 from django.shortcuts import get_object_or_404
 
 from rest_framework_simplejwt import settings
 
+from ninja.renderers import BaseRenderer
 from ninja import NinjaAPI
 from ninja.security import HttpBearer
 from user.models import User
@@ -27,8 +29,14 @@ class GlobalAuth(HttpBearer):
 
         return user
 
+# api 렌더링 (한글이 깨지는 문제)
+class ORJSONRenderer(BaseRenderer):
+    media_type = "application/json"
 
-api = NinjaAPI(auth=GlobalAuth()) # 전체 권한 제한 설정
+    def render(self, request, data, *, response_status):
+        return orjson.dumps(data)
+
+api = NinjaAPI(renderer=ORJSONRenderer(), auth=GlobalAuth()) # 전체 권한 제한 설정
 
 # 라우터 등록
 api.add_router('/like/', like_router)
