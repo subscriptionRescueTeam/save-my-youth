@@ -1,8 +1,9 @@
-import { Input, MainCardList, LayoutNavigation, CardSlider } from '../../components';
+import { Input, MainCardList, LayoutNavigation } from '../../components';
 import { 청약 } from '../../types';
 import styled from 'styled-components';
 import COLOR from '../../constants/color';
 import useSubscription from '../../hooks/useSubscription';
+import CardSlider from '../../components/CardSlider';
 
 export const StyledMainWrapper = styled.div`
   display: flex;
