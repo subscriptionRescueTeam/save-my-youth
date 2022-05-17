@@ -10,8 +10,9 @@ const StyledOptionList = styled.aside<{ isOpen: boolean }>`
   height: 100%;
   transition: all 1s ease;
   z-index: 1;
-  transform: ${(props) => (props.isOpen ? 'translateX(0)' : 'translateX(100%)')};
   background-color: ${COLOR.WHITE};
+  transform: ${(props) => (props.isOpen ? 'translateX(0)' : 'translateX(100%)')};
+  visibility: ${(props) => (props.isOpen ? 'visible' : 'hidden')};
 `;
 
 export type OptionListProps = {
