@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Title from '../Title';
 import COLOR from '../../constants/color';
 import { ArrowRight } from '../../asset';
 
