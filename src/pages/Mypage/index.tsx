@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { ServiceMenu, CommonHeader } from '../../components';
 import COLOR from '../../constants/color';
 
-const StyledUserInfoWrap = styled.div``;
+const StyledMenuWrap = styled.div``;
 
 const StyledFooter = styled.div`
   position: absolute;
@@ -16,11 +16,11 @@ const StyledFooter = styled.div`
 const Mypage = () => {
   return (
     <>
-      <StyledUserInfoWrap>
+      <StyledMenuWrap>
         <CommonHeader title="My Page" />
         <ServiceMenu />
         <StyledFooter />
-      </StyledUserInfoWrap>
+      </StyledMenuWrap>
     </>
   );
 };
