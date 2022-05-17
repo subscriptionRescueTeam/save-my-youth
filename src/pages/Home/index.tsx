@@ -37,8 +37,7 @@ export const StyledColorSpan = styled.span`
   padding-right: 2vw;
 `;
 
-export const Home = () => {
-  // const Home = () => {
+const Home = () => {
   const 청약리스트: Array<청약> = [
     {
       id: 0,
@@ -62,23 +61,15 @@ export const Home = () => {
 
   return (
     <LayoutNavigation>
-      <Input placeholder="검색어를 입력하세요 (ex. 월세, 전세 등)"></Input>
+      <Input placeholder="검색어를 입력하세요 (ex. 월세, 전세 등)" />
       <StyledMainWrapper>
         <div>오늘의 청약</div>
         <div>
           <StyledColorSpan>9</StyledColorSpan>건
         </div>
       </StyledMainWrapper>
-
       <CardSlider />
-
-      {/* 이 아래는 컴포넌트로 뺄 예정 */}
-      {/* <StyledImgWrapper>
-        <StyledImg src={Picture} width="70%" alt="picture" />
-        <StyledImgText>제 1차 장기전세주택 입주자모집공고</StyledImgText>
-      </StyledImgWrapper> */}
-
-      <MainCardList popularityList={청약리스트} likeList={청약리스트}></MainCardList>
+      <MainCardList popularityList={청약리스트} likeList={청약리스트} />
     </LayoutNavigation>
   );
 };

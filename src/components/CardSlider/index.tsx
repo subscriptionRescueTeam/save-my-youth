@@ -76,7 +76,7 @@ const CardSlider = () => {
         {임시청약리스트.map((청약, index) => {
           return (
             <Slide key={청약.id}>
-              <Card title={청약.title} likeNum={청약.likeNum}></Card>
+              <Card title={청약.title} likeNum={청약.likeNum} />
             </Slide>
           );
         })}

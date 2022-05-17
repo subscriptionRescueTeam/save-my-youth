@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import COLOR from '../../constants/color';
+import { useNavigate } from 'react-router-dom';
 
 export const StyledListTitle = styled.div<{ underline: boolean; color?: string }>`
   display: flex;
@@ -22,6 +23,7 @@ export const StyledMore = styled.button`
   background-color: ${COLOR.WHITE};
   color: ${COLOR.PRI_DARK_020};
   font-family: 'Pretendard-Medium';
+  cursor: pointer;
 `;
 
 export type ListTitleProps = {
@@ -31,10 +33,11 @@ export type ListTitleProps = {
 };
 
 const ListTitle = ({ title, more = '더보기', underline = false }: ListTitleProps) => {
+  let navigate = useNavigate();
   return (
     <StyledListTitle underline={underline}>
       <StyledTitle>{title}</StyledTitle>
-      <StyledMore>{more}</StyledMore>
+      <StyledMore onClick={() => navigate('/search')}>{more}</StyledMore>
     </StyledListTitle>
   );
 };

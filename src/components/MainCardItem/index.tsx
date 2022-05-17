@@ -21,7 +21,7 @@ export const StyledMainCardItemSpan = styled.span`
 const MainCardItem = ({ title, 청약리스트 }: MainCardItemProps) => {
   return (
     <article>
-      <ListTitle title={title}></ListTitle>
+      <ListTitle title={title} />
       <StyledMainCardItem>
         {청약리스트.map((subscription, i) => (
           <StyledMainCardItemSpan key={subscription.id}>
