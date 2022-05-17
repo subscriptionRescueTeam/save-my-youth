@@ -4,10 +4,10 @@ import { COLOR } from '../../../constants';
 
 // ref: https://velog.io/@dev-tinkerbell/display-none%EC%9D%B4-transition%EC%9D%B4-%EC%95%88%EB%A8%B9%ED%9E%88%EB%8A%94-%EC%9D%B4%EC%9C%A0
 const StyledOptionList = styled.aside<{ isOpen: boolean }>`
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
-  width: 80vw;
+  width: 80%;
   height: 100%;
   transition: all 1s ease;
   z-index: 1;
