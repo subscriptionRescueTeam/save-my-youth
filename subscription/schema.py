@@ -18,6 +18,8 @@ class LikeGetSchema(Schema):
 # 좋아요 post 스키마
 class SubscriptionSchema(ModelSchema):
 
+    like_num: int
+
     class Config:
         model = Subscription
         model_fields = ['sub_id', 'name', 'date']

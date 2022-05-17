@@ -1,6 +1,7 @@
 import environ
 import os
 from ninja import Router
+from typing import List
 
 from .models import Subscription, UserSubscription
 from . import schema
@@ -80,6 +81,21 @@ def get_like(request, sub_id: int):
 
     except Subscription.DoesNotExist as e:
         return 404
+
+# 좋아요가 눌러진 청약 리스트 가져오기
+@like_router.get('/',
+                response={200: List[schema.SubscriptionSchema]},
+                summary="인기 청약 리스트",
+                auth=None)
+def get_like_list(request):
+
+    subscriptions = Subscription.objects.all()
+
+    for subscription in subscriptions:
+        user_subscription = UserSubscription.objects.filter(user_subscription_id=subscription.id)
+        subscription.like_num = len(user_subscription)
+
+    return subscriptions
 
 
 @like_router.post(

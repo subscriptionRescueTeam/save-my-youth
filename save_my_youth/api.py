@@ -8,8 +8,8 @@ from rest_framework_simplejwt import settings
 from ninja.renderers import BaseRenderer
 from ninja import NinjaAPI
 from ninja.security import HttpBearer
-from user.models import User
 
+from user.models import User
 from subscription.api import like_router, subscription_router
 from user.api import user_router
 
