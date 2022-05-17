@@ -31,16 +31,14 @@ const StyledMenuWrap = styled.div`
 const StyledMenuList = styled.ul`
   display: flex;
   flex-direction: column;
+  font-weight: bold;
 `;
 
 const StyledItem = styled.li`
   display: flex;
-  margin-bottom: 1.3rem;
-  height: 3rem;
-  padding: 1rem 1.2rem;
+  padding: 1.5rem;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
   border-bottom: 2px solid ${COLOR.LIGHT_010};
 `;
 
@@ -59,18 +57,11 @@ const StyledButtonWrap = styled.div`
 `;
 
 const StyledButton = styled.button`
-  width: 81px;
-  height: 32px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 0.8rem;
-  line-height: 1.3rem;
-  letter-spacing: -0.011em;
-  text-decoration-line: underline;
+  margin-top: 1.5rem;
+  text-decoration: underline;
   color: ${COLOR.DARK_020};
-  background: none;
   border: none;
+  font-family: 'Pretendard-Medium';
   cursor: pointer;
 `;
 

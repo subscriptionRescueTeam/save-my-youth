@@ -27,8 +27,8 @@ export type SidebarProps = {
 const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
   const userSetting: Array<Option> = [
     {
-      name: '제이미 님',
-      link: '/',
+      name: '사용자 님',
+      link: '/mypage',
       fontSize: '1rem',
       fontWeight: 'bold',
       direction: 'right',
@@ -42,14 +42,14 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
     },
     {
       name: '좋아요',
-      link: '/',
+      link: '/mypage',
       fontSize: '1rem',
       fontWeight: 'bold',
       underlineHeight: '2px',
     },
     {
       name: '알림 설정',
-      link: '/',
+      link: '/mypage',
       fontSize: '1rem',
       fontWeight: 'bold',
       underlineHeight: '2px',
@@ -60,7 +60,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
     title: [
       {
         name: '고객센터',
-        link: '/',
+        link: '',
         fontSize: '1rem',
         fontWeight: 'bold',
         underlineHeight: '2px',

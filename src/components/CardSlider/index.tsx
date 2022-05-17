@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Card from '../Card';
-import tmpImg from '../../asset/picture.png';
+import tmpImg from '../../asset/picture2.png';
 import { COLOR } from '../../constants';
 
 const DOT_RADIUS = '6px';
@@ -76,7 +76,7 @@ const CardSlider = () => {
         {임시청약리스트.map((청약, index) => {
           return (
             <Slide key={청약.id}>
-              <Card title={청약.title} likeNum={청약.likeNum}></Card>
+              <Card title={청약.title} likeNum={청약.likeNum} />
             </Slide>
           );
         })}
@@ -85,8 +85,9 @@ const CardSlider = () => {
       <StyledDotsContainer>
         {Array.from({ length: 임시청약리스트.length }).map((item, index) => (
           <StyledDot
-            active={slideIndex === index + 1}
-            onClick={() => moveDot(index + 1)}
+            key={`${index}-${item}`}
+            active={slideIndex === index}
+            onClick={() => moveDot(index)}
           ></StyledDot>
         ))}
       </StyledDotsContainer>

@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     font-family: 'Pretendard-Medium', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    overflow: hidden;
   }
   button {
     background: none;

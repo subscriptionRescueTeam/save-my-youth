@@ -1,8 +1,29 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { useCallback, useState } from 'react';
 import { Alarm, Hamburger } from '../../asset';
 import Sidebar from '../Sidebar';
 import COLOR from '../../constants/color';
+
+const colorAnimation = keyframes`
+  0% {
+    background: rgba(38, 38, 38, 0);
+  }
+
+  100% {
+    background: rgba(38, 38, 38, 0.3);
+  }
+`;
+
+export const StyledDarkBody = styled.div<{ isOpen: boolean }>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  // ref: https://stackoverflow.com/questions/4359627/stopping-a-css3-animation-on-last-frame
+  animation: 1s ${colorAnimation} forwards;
+`;
 
 export const StyledHeader = styled.header`
   width: 90%;
@@ -46,13 +67,13 @@ export const Header = ({ title }: HeaderProps) => {
 
   return (
     <>
+      {isSidebarOpen && <StyledDarkBody isOpen={isSidebarOpen}></StyledDarkBody>}
       <StyledHeader>
         <StyledTitle>{title}</StyledTitle>
         <StyledButtonContainer>
           <StyledAlarm>
             <Alarm />
           </StyledAlarm>
-          {/* <IconMenu size={20} /> */}
           <StyledBurger onClick={onClick}>
             <Hamburger />
           </StyledBurger>

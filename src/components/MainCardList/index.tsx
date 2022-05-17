@@ -18,8 +18,8 @@ export type MainCardProps = {
 const MainCardList = ({ popularityList, likeList }: MainCardProps) => {
   return (
     <StyledMainCardList>
-      <MainCardItem title="인기 청약 BEST3" 청약리스트={popularityList}></MainCardItem>
-      <MainCardItem title="최신 청약 BEST3" 청약리스트={likeList}></MainCardItem>
+      <MainCardItem title="인기 청약 BEST3" 청약리스트={popularityList} />
+      <MainCardItem title="최신 청약 BEST3" 청약리스트={likeList} />
     </StyledMainCardList>
   );
 };

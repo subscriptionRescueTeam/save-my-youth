@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import BlueHeart from '../../asset/BlueHeart';
 import { COLOR } from '../../constants';
-import tmpImg from '../../asset/picture.png';
+import tmpImg from '../../asset/picture2.png';
+import { useNavigate } from 'react-router-dom';
 
 const BORDER_RADIUS = '8px';
 
@@ -57,8 +58,9 @@ export type CardProps = {
 };
 
 const Card = ({ backgroundImg = tmpImg, title, likeNum }: CardProps) => {
+  let navigate = useNavigate();
   return (
-    <StyledCard backgroundImg={backgroundImg}>
+    <StyledCard onClick={() => navigate('/detail')} backgroundImg={backgroundImg}>
       <StyledTitleContainer>
         <StyledTitle>{title}</StyledTitle>
         <StyledLikeNumContainer>
