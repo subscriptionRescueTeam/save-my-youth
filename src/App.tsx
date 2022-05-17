@@ -1,11 +1,16 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Home, Search, Mypage, Detail } from './pages';
+import {
+  Home,
+  Search,
+  Mypage,
+  Detail,
+  UserModify,
+  Like,
+  AlarmSetting,
+  ServiceCenter,
+} from './pages';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
-import UserModify from './pages/UserModify';
-import Like from './pages/Like';
-import AlarmSetting from './pages/AlarmSetting';
-import ServiceCenter from './pages/ServiceCenter';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
