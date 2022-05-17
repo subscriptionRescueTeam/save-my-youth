@@ -1,8 +1,8 @@
-import { Input, MainCardList, LayoutNavigation } from '../../components';
+import { Input, MainCardList, LayoutNavigation, CardSlider } from '../../components';
 import { 청약 } from '../../types';
 import styled from 'styled-components';
 import COLOR from '../../constants/color';
-import CardSlider from '../../components/CardSlider';
+import useSubscription from '../../hooks/useSubscription';
 
 export const StyledMainWrapper = styled.div`
   display: flex;
@@ -20,6 +20,10 @@ export const StyledColorSpan = styled.span`
 `;
 
 const Home = () => {
+  const { subData } = useSubscription();
+
+  console.log(subData);
+
   const 청약리스트: Array<청약> = [
     {
       id: 0,
