@@ -7,7 +7,6 @@ import { useRef } from 'react';
 export const StyledInputContainer = styled.div`
   position: relative;
   width: 90%;
-  z-index: -1;
 `;
 
 export const StyledInput = styled.input`

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Card from '../Card';
-import tmpImg from '../../asset/picture.png';
+import tmpImg from '../../asset/picture2.png';
 import { COLOR } from '../../constants';
 
 const DOT_RADIUS = '6px';
