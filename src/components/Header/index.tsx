@@ -1,8 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 import { useCallback, useState } from 'react';
-import { Alarm, Hamburger } from '../../asset';
+import { Alarm, ExclamationPoint, Hamburger } from '../../asset';
 import Sidebar from '../Sidebar';
 import COLOR from '../../constants/color';
+import { useNavigate } from 'react-router-dom';
 
 const colorAnimation = keyframes`
   0% {
@@ -38,10 +39,16 @@ export const StyledHeader = styled.header`
   align-items: center;
 `;
 
+export const StyledLogo = styled.button`
+  display: flex;
+  align-items: center;
+`;
+
 export const StyledTitle = styled.h5`
   font-size: 1.2rem;
   font-weight: bold;
-  color: ${COLOR.PRI_DARK_020};
+  color: ${COLOR.PRI_MAIN};
+  margin-right: 3px;
 `;
 
 export const StyledButtonContainer = styled.div`
@@ -60,6 +67,7 @@ export type HeaderProps = {
 
 export const Header = ({ title }: HeaderProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleIsSidebarOpen = useCallback((isOpen: boolean) => {
     setIsSidebarOpen(isOpen);
@@ -73,7 +81,11 @@ export const Header = ({ title }: HeaderProps) => {
     <>
       {isSidebarOpen && <StyledDarkBody isOpen={isSidebarOpen}></StyledDarkBody>}
       <StyledHeader>
-        <StyledTitle>{title}</StyledTitle>
+        <StyledLogo onClick={() => navigate('/')}>
+          <StyledTitle>{title}</StyledTitle>
+          <ExclamationPoint />
+        </StyledLogo>
+
         <StyledButtonContainer>
           <StyledAlarm>
             <Alarm />
