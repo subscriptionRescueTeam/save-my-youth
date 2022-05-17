@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import Picture from '../../asset/picture.png';
+import Picture from '../../asset/picture2.png';
 import { ArrowRight } from '../../asset';
 import COLOR from '../../constants/color';
 import { SaleSchedule } from '../../components';
