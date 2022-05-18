@@ -1,23 +1,23 @@
 import styled from 'styled-components';
 import COLOR from '../../constants/color';
 import { ArrowRight } from '../../asset';
+import { Link } from 'react-router-dom';
 
 const MenuItems = [
   {
     id: 0,
     title: '개인정보 수정',
+    link: '/usermodify',
   },
   {
     id: 1,
     title: '좋아요',
+    link: '/like',
   },
   {
     id: 2,
-    title: '알림 설정',
-  },
-  {
-    id: 3,
     title: '고객센터',
+    link: '/servicecenter',
   },
 ];
 
@@ -69,10 +69,12 @@ const SearchMenu = () => {
     <StyledMenuWrap>
       <StyledMenuList>
         {MenuItems.map((item) => (
-          <StyledItem key={item.id}>
-            {item.title}
-            <ArrowRight />
-          </StyledItem>
+          <Link key={`${item.id}-${item.link}`} to={item.link}>
+            <StyledItem>
+              {item.title}
+              <ArrowRight />
+            </StyledItem>
+          </Link>
         ))}
       </StyledMenuList>
       <StyledButtonWrap>
