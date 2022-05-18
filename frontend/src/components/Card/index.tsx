@@ -19,6 +19,7 @@ const StyledCard = styled.article<{ backgroundImg: string }>`
   flex-direction: column;
   justify-content: flex-end;
   margin: 0.375rem;
+  cursor: pointer;
 `;
 
 const StyledTitleContainer = styled.div`
