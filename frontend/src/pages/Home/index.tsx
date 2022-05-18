@@ -24,27 +24,6 @@ const Home = () => {
 
   console.log(subData);
 
-  const 청약리스트: Array<청약> = [
-    {
-      id: 0,
-      name: '제 1차 장기전세주택 입주자모집공고.',
-      location: '서울시 영등포구',
-      like: false,
-    },
-    {
-      id: 1,
-      name: '2022년 특화형 전세임대 청년 기숙사형(경희대)...',
-      location: '서울시 구로구',
-      like: false,
-    },
-    {
-      id: 2,
-      name: '[토지임대부 사회주택] 홍시주택(금천구 소재) 입..',
-      location: '경기도 하남시',
-      like: false,
-    },
-  ];
-
   return (
     <LayoutNavigation>
       <Input placeholder="검색어를 입력하세요 (ex. 월세, 전세 등)" />
@@ -55,7 +34,7 @@ const Home = () => {
         </div>
       </StyledMainWrapper>
       <CardSlider />
-      <MainCardList popularityList={청약리스트} likeList={청약리스트} />
+      <MainCardList popularityList={subData} likeList={subData} />
     </LayoutNavigation>
   );
 };

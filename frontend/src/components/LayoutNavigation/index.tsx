@@ -23,7 +23,7 @@ export type LayoutNavigationProps = {
 const LayoutNavigation = ({ children }: LayoutNavigationProps) => {
   return (
     <StyledLayoutNavigation>
-      <Header title="청년을 구해줘!" />
+      <Header title="청년을 구해줘" />
       <StyledContent>{children}</StyledContent>
     </StyledLayoutNavigation>
   );
