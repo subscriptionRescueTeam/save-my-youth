@@ -12,7 +12,6 @@ const getPosts = async (SUBSCRPT_AREA_CODE_NM?: string) => {
       `https://secret-reaches-74853.herokuapp.com/api/subscription/cond[SUBSCRPT_AREA_CODE_NM::EQ]=${SUBSCRPT_AREA_CODE_NM}`
     );
 
-    //'https://secret-reaches-74853.herokuapp.com/api/subscription/default'
     subData = [];
     let res = response.data.subscription_data.data;
 
