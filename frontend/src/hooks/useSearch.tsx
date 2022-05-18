@@ -1,23 +1,18 @@
 import axios, { AxiosResponse } from 'axios';
-import { useEffect } from 'react';
-import { 청약 } from '../types';
+import { useEffect, useState } from 'react';
 
-let subData: Array<청약> = [];
+let subData: any = [];
 
-const getPosts = async (SUBSCRPT_AREA_CODE_NM?: string) => {
+const getPosts = async () => {
   try {
-    const areaCode = SUBSCRPT_AREA_CODE_NM || "서울";
-
     const response: AxiosResponse<any> = await axios.get(
-      `https://secret-reaches-74853.herokuapp.com/api/subscription/cond[SUBSCRPT_AREA_CODE_NM::EQ]=${SUBSCRPT_AREA_CODE_NM}`
+      'https://secret-reaches-74853.herokuapp.com/api/subscription/${SUBSCRPT_AREA_CODE_NM::EQ}'
     );
 
-    subData = [];
     let res = response.data.subscription_data.data;
 
     res.map((v: any) => {
       let subscriptionState = {
-        id: v.PBLANC_NO,
         houseName: v.HOUSE_NM,
         houseLocation: v.HSSPLY_ADRES,
         applyScale: v.TOT_SUPLY_HSHLDCO,
@@ -32,13 +27,11 @@ const getPosts = async (SUBSCRPT_AREA_CODE_NM?: string) => {
   } catch (e) {
     console.error(e);
   }
-
-  console.log(subData);
 };
 
-const useSubscription = (keyword?: string) => {
+const useSubscription = () => {
   useEffect(() => {
-    getPosts(keyword);
+    getPosts();
   }, []);
 
   return { subData };
