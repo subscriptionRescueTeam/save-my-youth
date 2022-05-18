@@ -16,11 +16,6 @@ const MenuItems = [
   },
   {
     id: 2,
-    title: '알림 설정',
-    link: '/alarmsetting',
-  },
-  {
-    id: 3,
     title: '고객센터',
     link: '/servicecenter',
   },
