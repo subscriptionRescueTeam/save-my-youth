@@ -8,6 +8,7 @@ import {
   Like,
   AlarmSetting,
   ServiceCenter,
+  Login,
 } from './pages';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
@@ -42,6 +43,7 @@ const App = () => {
         <Route path="/like" element={<Like />} />
         <Route path="/alarmsetting" element={<AlarmSetting />} />
         <Route path="/servicecenter" element={<ServiceCenter />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
