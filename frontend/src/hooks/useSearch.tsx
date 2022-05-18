@@ -25,7 +25,7 @@ const getPosts = async () => {
       subData.push(subscriptionState);
     });
   } catch (e) {
-    throw Error();
+    console.error(e);
   }
 };
 
