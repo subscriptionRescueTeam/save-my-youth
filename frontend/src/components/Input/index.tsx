@@ -2,9 +2,8 @@ import styled from 'styled-components';
 import COLOR from '../../constants/color';
 import { Search } from '../../asset';
 import { Link } from 'react-router-dom';
-import { useRef } from 'react';
 
-export const StyledInputContainer = styled.div`
+export const StyledInputContainer = styled.section`
   position: relative;
   width: 90%;
 `;
@@ -20,7 +19,7 @@ export const StyledInput = styled.input`
   margin-bottom: 2rem;
 `;
 
-export const StyledSearch = styled.button`
+export const StyledSearch = styled.div`
   position: absolute;
   top: 20%;
   right: 16px;
@@ -42,27 +41,29 @@ const Input = ({
   placeholder = '',
   onChange,
 }: InputPros) => {
+<<<<<<< HEAD
   const inputRef = useRef<null | HTMLInputElement>(null);
 
   // HTMLInputElement
+=======
+>>>>>>> d18492b5ce08ae3b11a230c119659adba7c4c59c
   return (
     <StyledInputContainer>
-      <StyledInput
-        ref={inputRef}
-        color={color}
-        disabled={disabled}
-        multiple={multiline}
-        placeholder={placeholder}
-        onChange={onChange}
-      />
+      <Link to={{ pathname: `/search?` }}>
+        <StyledInput
+          color={color}
+          disabled={disabled}
+          multiple={multiline}
+          placeholder={placeholder}
+          onChange={onChange}
+        />
 
-      <Link to={{ pathname: `/search?${inputRef?.current?.value}` }}>
         <StyledSearch>
           <Search />
         </StyledSearch>
       </Link>
     </StyledInputContainer>
   );
-};
+}; // ${inputRef?.current?.value}
 
 export default Input;

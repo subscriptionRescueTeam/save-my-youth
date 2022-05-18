@@ -34,6 +34,7 @@ const StyledArrow = styled.div`
 
 export type OptionItemProps = {
   children: React.ReactNode;
+  isGetReady?: boolean;
 } & OptionDecoration;
 
 const OptionItem = ({
@@ -43,6 +44,7 @@ const OptionItem = ({
   underlineHeight = '0',
   direction = null,
   disabled = false,
+  isGetReady = false,
 }: OptionItemProps) => {
   const getArrowIcon = (direction: string) => {
     switch (direction) {
@@ -59,7 +61,13 @@ const OptionItem = ({
 
   return (
     <StyledContainer>
-      <StyledButton underlineHeight={underlineHeight} disabled={disabled}>
+      <StyledButton
+        underlineHeight={underlineHeight}
+        disabled={disabled}
+        onClick={() => {
+          isGetReady && alert('준비 중인 서비스입니다.');
+        }}
+      >
         <StyledSpan fontSize={fontSize} fontWeight={fontWeight}>
           {children}
         </StyledSpan>

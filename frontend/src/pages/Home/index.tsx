@@ -3,6 +3,7 @@ import { 청약 } from '../../types';
 import styled from 'styled-components';
 import COLOR from '../../constants/color';
 import useSubscription from '../../hooks/useSubscription';
+import { useState } from 'react';
 
 export const StyledMainWrapper = styled.div`
   display: flex;
@@ -22,28 +23,10 @@ export const StyledColorSpan = styled.span`
 const Home = () => {
   const { subData } = useSubscription();
 
-  console.log(subData);
+  const [popular3, setPopular3] = useState(subData);
+  const [latest3, setLatest3] = useState(subData);
 
-  const 청약리스트: Array<청약> = [
-    {
-      id: 0,
-      name: '제 1차 장기전세주택 입주자모집공고.',
-      location: '서울시 영등포구',
-      like: false,
-    },
-    {
-      id: 1,
-      name: '2022년 특화형 전세임대 청년 기숙사형(경희대)...',
-      location: '서울시 구로구',
-      like: false,
-    },
-    {
-      id: 2,
-      name: '[토지임대부 사회주택] 홍시주택(금천구 소재) 입..',
-      location: '경기도 하남시',
-      like: false,
-    },
-  ];
+  console.log(subData);
 
   return (
     <LayoutNavigation>
@@ -55,7 +38,8 @@ const Home = () => {
         </div>
       </StyledMainWrapper>
       <CardSlider />
-      <MainCardList popularityList={청약리스트} likeList={청약리스트} />
+      // TODO: 렌더링 문제
+      <MainCardList popularityList={popular3} likeList={latest3} />
     </LayoutNavigation>
   );
 };

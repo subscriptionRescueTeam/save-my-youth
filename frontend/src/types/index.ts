@@ -6,10 +6,14 @@ export type User = {
 };
 
 export type 청약 = {
-  id: number;
-  name: string;
-  like: boolean;
-  location: string; // API 백엔드따라서 우리가 바뀐다!
+  id: number,
+  houseName: string,
+  houseLocation: string,
+  applyScale: number,
+  recNotice: string,
+  applyStartDate: string,
+  applyEndDate: string,
+  applyHomepage: string,
 };
 
 export type Writing = '최신' | '인기';
