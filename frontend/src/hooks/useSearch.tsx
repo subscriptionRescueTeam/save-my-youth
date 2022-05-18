@@ -6,7 +6,7 @@ let subData: any = [];
 const getPosts = async () => {
   try {
     const response: AxiosResponse<any> = await axios.get(
-      'https://secret-reaches-74853.herokuapp.com/api/subscription/default'
+      'https://secret-reaches-74853.herokuapp.com/api/subscription/${SUBSCRPT_AREA_CODE_NM::EQ}'
     );
 
     let res = response.data.subscription_data.data;

@@ -41,12 +41,6 @@ const Input = ({
   placeholder = '',
   onChange,
 }: InputPros) => {
-<<<<<<< HEAD
-  const inputRef = useRef<null | HTMLInputElement>(null);
-
-  // HTMLInputElement
-=======
->>>>>>> d18492b5ce08ae3b11a230c119659adba7c4c59c
   return (
     <StyledInputContainer>
       <Link to={{ pathname: `/search?` }}>

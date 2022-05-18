@@ -4,12 +4,15 @@ import { 청약 } from '../types';
 
 let subData: Array<청약> = [];
 
-const getPosts = async () => {
+const getPosts = async (SUBSCRPT_AREA_CODE_NM?: string) => {
   try {
+    const areaCode  = SUBSCRPT_AREA_CODE_NM || "서울";
+
     const response: AxiosResponse<any> = await axios.get(
-      'https://secret-reaches-74853.herokuapp.com/api/subscription/default'
+      `https://secret-reaches-74853.herokuapp.com/api/subscription/cond[SUBSCRPT_AREA_CODE_NM::EQ]=${SUBSCRPT_AREA_CODE_NM}`
     );
 
+//'https://secret-reaches-74853.herokuapp.com/api/subscription/default'
     subData = [];
     let res = response.data.subscription_data.data;
 
@@ -30,11 +33,13 @@ const getPosts = async () => {
   } catch (e) {
     console.error(e);
   }
+
+  console.log(subData);
 };
 
-const useSubscription = () => {
+const useSubscription = (keyword?: string) => {
   useEffect(() => {
-    getPosts();
+    getPosts(keyword);
   }, []);
 
   return { subData };
