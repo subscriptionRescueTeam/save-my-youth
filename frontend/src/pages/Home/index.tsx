@@ -3,6 +3,7 @@ import { 청약 } from '../../types';
 import styled from 'styled-components';
 import COLOR from '../../constants/color';
 import useSubscription from '../../hooks/useSubscription';
+import { useState } from 'react';
 
 export const StyledMainWrapper = styled.div`
   display: flex;
@@ -22,6 +23,9 @@ export const StyledColorSpan = styled.span`
 const Home = () => {
   const { subData } = useSubscription();
 
+  const [popular3, setPopular3] = useState(subData);
+  const [latest3, setLatest3] = useState(subData);
+
   console.log(subData);
 
   return (
@@ -34,7 +38,8 @@ const Home = () => {
         </div>
       </StyledMainWrapper>
       <CardSlider />
-      <MainCardList popularityList={subData} likeList={subData} />
+      // TODO: 렌더링 문제
+      <MainCardList popularityList={popular3} likeList={latest3} />
     </LayoutNavigation>
   );
 };

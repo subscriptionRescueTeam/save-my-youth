@@ -22,13 +22,14 @@ export const StyledMainCardItemSpan = styled.span`
 
 const MainCardItem = ({ title, 청약리스트 }: MainCardItemProps) => {
   const navigate = useNavigate();
+
   return (
     <article>
       <ListTitle title={title} />
       <StyledMainCardItem>
         {청약리스트.map((subscription, i) => (
           <StyledMainCardItemSpan key={subscription.id} onClick={() => navigate('/detail')}>
-            {i + 1}. {subscription.name}
+            {i + 1}. {subscription.houseName}
           </StyledMainCardItemSpan>
         ))}
       </StyledMainCardItem>
