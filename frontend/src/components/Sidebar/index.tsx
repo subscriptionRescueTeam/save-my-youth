@@ -92,14 +92,6 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
         direction: 'right',
         isGetReady: true,
       },
-      {
-        name: '서비스해지',
-        link: '/',
-        fontSize: '0.875rem',
-        underlineHeight: '8px',
-        direction: 'right',
-        isGetReady: true,
-      },
     ],
   };
 
