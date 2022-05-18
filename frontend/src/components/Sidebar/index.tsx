@@ -16,6 +16,7 @@ export type OptionDecoration = {
 type Option = {
   name: string;
   link: string;
+  isGetReady?: boolean;
 } & OptionDecoration;
 
 export type SidebarProps = {
@@ -41,17 +42,18 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
     },
     {
       name: '좋아요',
-      link: '/mypage',
+      link: '/like',
       fontSize: '1rem',
       fontWeight: 'bold',
       underlineHeight: '2px',
     },
     {
       name: '알림 설정',
-      link: '/mypage',
+      link: '/',
       fontSize: '1rem',
       fontWeight: 'bold',
       underlineHeight: '2px',
+      isGetReady: true,
     },
   ];
 
@@ -59,7 +61,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
     title: [
       {
         name: '고객센터',
-        link: '',
+        link: '/',
         fontSize: '1rem',
         fontWeight: 'bold',
         underlineHeight: '2px',
@@ -72,6 +74,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
         fontSize: '0.875rem',
         underlineHeight: '2px',
         direction: 'right',
+        isGetReady: true,
       },
       {
         name: 'FAQ',
@@ -79,6 +82,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
         fontSize: '0.875rem',
         underlineHeight: '2px',
         direction: 'right',
+        isGetReady: true,
       },
       {
         name: '1:1 문의',
@@ -86,6 +90,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
         fontSize: '0.875rem',
         underlineHeight: '2px',
         direction: 'right',
+        isGetReady: true,
       },
       {
         name: '서비스해지',
@@ -93,6 +98,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
         fontSize: '0.875rem',
         underlineHeight: '8px',
         direction: 'right',
+        isGetReady: true,
       },
     ],
   };
@@ -127,6 +133,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
             underlineHeight={option.underlineHeight}
             direction={option.direction}
             disabled={option.disabled}
+            isGetReady={option.isGetReady}
           >
             {option.name}
           </OptionItem>
@@ -139,20 +146,20 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
             const dynamicDirection = helpClicked ? 'up' : 'down';
 
             return (
-              <Link key={`${option.name}-${option.link}`} to={option.link}>
-                <OptionItem
-                  fontSize={option.fontSize}
-                  fontWeight={option.fontWeight}
-                  underlineHeight={option.underlineHeight}
-                  direction={dynamicDirection}
-                  disabled={option.disabled}
-                >
-                  {option.name}
-                </OptionItem>
-              </Link>
+              <OptionItem
+                fontSize={option.fontSize}
+                fontWeight={option.fontWeight}
+                underlineHeight={option.underlineHeight}
+                direction={dynamicDirection}
+                disabled={option.disabled}
+                isGetReady={option.isGetReady}
+              >
+                {option.name}
+              </OptionItem>
             );
           })}
         </div>
+
         {helpClicked && (
           <div id="옵션">
             {help.option.map((option) => (
@@ -163,6 +170,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
                   underlineHeight={option.underlineHeight}
                   direction={option.direction}
                   disabled={option.disabled}
+                  isGetReady={option.isGetReady}
                 >
                   {option.name}
                 </OptionItem>
@@ -180,6 +188,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
             underlineHeight={option.underlineHeight}
             direction={option.direction}
             disabled={option.disabled}
+            isGetReady={option.isGetReady}
           >
             {option.name}
           </OptionItem>
