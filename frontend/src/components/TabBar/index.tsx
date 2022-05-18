@@ -1,6 +1,5 @@
 /*
 사용법
-해당 탭바는 4개 전용입니다.
 
 예시)
   const menu = [
@@ -31,8 +30,8 @@ const StyledContentWrapper = styled.div`
   border-top: 4px solid ${COLOR.LIGHT_010};
 `;
 
-const StyledMenuTitle = styled.li<{ check?: string }>`
-  width: 25%;
+const StyledMenuTitle = styled.li<{ check?: string; count: number }>`
+  width: ${({ count }) => 100 / count}%;
   font-size: 0.9rem;
   padding-bottom: 1rem;
   justify-content: center;
@@ -59,6 +58,7 @@ const TabBar = ({ menu, checkList }: any) => {
       key={i.option}
       id={i.option}
       check={check}
+      count={menu.length}
       onClick={(e) => clickFunc(e, index)}
     >
       {i.name}
