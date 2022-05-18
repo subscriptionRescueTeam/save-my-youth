@@ -42,8 +42,9 @@ const Input = ({
   placeholder = '',
   onChange,
 }: InputPros) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<null | HTMLInputElement>(null);
 
+  // HTMLInputElement
   return (
     <StyledInputContainer>
       <StyledInput
