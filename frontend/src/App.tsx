@@ -1,15 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import {
-  Home,
-  Search,
-  Mypage,
-  Detail,
-  UserModify,
-  Like,
-  AlarmSetting,
-  ServiceCenter,
-  Login,
-} from './pages';
+import { Home, Search, Mypage, Detail, UserModify, Like, ServiceCenter, Login } from './pages';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import COLOR from './constants/color';
