@@ -12,6 +12,7 @@ import {
 } from './pages';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import COLOR from './constants/color';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -27,6 +28,10 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     cursor: pointer;
     padding:0;
+  }
+  a{
+    text-decoration: none;
+    color:${COLOR.BLACK}
   }
 `;
 
