@@ -60,7 +60,7 @@
 |퉁이리(PL)|헬렌|플로라|매직타로|
 |:-:|:-:|:-:|:-:|
 |<img src="https://avatars.githubusercontent.com/u/77133565?v=4" alt="tooooo1" width="100" height="100">|<img src="https://avatars.githubusercontent.com/u/64337152?v=4" alt="helen" width="100" height="100">|<img src="https://avatars.githubusercontent.com/u/92790783?v=4" alt="flora" width="100" height="100">|<img src="https://avatars.githubusercontent.com/u/53456037?v=4" alt="magictaro" width="100" height="100">|
-|[tooooo1](https://github.com/tooooo1)|[hotbreakb](https://github.com/hotbreakb)|[kmin-jeong](https://github.com/kmin-jeong)|[Lela12](https://github.com/Lela12)|
+|[tooooo1](https://github.com/tooooo1)|[hotbreakb](https://github.com/hotbreakb)|[Lela12](https://github.com/Lela12)|[kmin-jeong](https://github.com/kmin-jeong)|
 
 
     
