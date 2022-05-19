@@ -7,6 +7,7 @@ import { CARD_HEIGHT, CARD_WIDTH } from '../../types';
 
 const BORDER_RADIUS = '8px';
 
+// TODO: background -> image 변경
 const StyledCard = styled.article<{ backgroundImg: string }>`
   width: ${CARD_WIDTH}vw;
   height: ${CARD_HEIGHT}vw;
