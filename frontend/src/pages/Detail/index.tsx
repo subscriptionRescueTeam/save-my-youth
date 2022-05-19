@@ -37,20 +37,30 @@ const StyledDate = styled.div`
   color: ${COLOR.DARK_020};
 `;
 
+const StyledTag = styled.div`
+  display: flex;
+  font-size: 0.8rem;
+  color: ${COLOR.DARK_030};
+  background-color: ${COLOR.PRI_LIGHT_010};
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+`;
+
 const StyledImg = styled.img``;
+
+const Flex = styled.div`
+  display: flex;
+`;
 
 const Detail = () => {
   const menu = [
-    { name: '분양일정', option: 'schedule' },
-    { name: '공급대상', option: 'target' },
-    { name: '임대조건', option: 'lease' },
+    { name: '청약일정', option: 'schedule' },
     { name: '위치', option: 'location' },
   ];
   const checkList: any = {
-    0: <>분양일정 데이터 연동중이에요!</>,
-    1: <>공급대상 데이터 연동중이에요!</>,
-    2: <>임대조건 데이터 연동중이에요!</>,
-    3: <SaleSchedule />,
+    0: <>청약일정 데이터 연동중이에요!</>,
+    1: <SaleSchedule />,
   };
 
   let navigate = useNavigate();
@@ -64,6 +74,9 @@ const Detail = () => {
             서울특별시 <ArrowRight /> 강북구
           </StyledLocationWrapper>
           <StyledTitle>제 1차 장기전세주택 입주자모집공고</StyledTitle>
+          <Flex>
+            <StyledTag>345세대</StyledTag>
+          </Flex>
           <StyledDate>2022.05.15 등록</StyledDate>
         </StyledTitleWrapper>
 

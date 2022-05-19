@@ -1,16 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import {
-  Home,
-  Search,
-  Mypage,
-  Detail,
-  UserModify,
-  Like,
-  AlarmSetting,
-  ServiceCenter,
-} from './pages';
+import { Home, Search, Mypage, Detail, UserModify, Like, ServiceCenter, Login } from './pages';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import COLOR from './constants/color';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -27,6 +19,10 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     padding:0;
   }
+  a{
+    text-decoration: none;
+    color:${COLOR.BLACK}
+  }
 `;
 
 const App = () => {
@@ -40,8 +36,8 @@ const App = () => {
         <Route path="/detail" element={<Detail />} />
         <Route path="/usermodify" element={<UserModify />} />
         <Route path="/like" element={<Like />} />
-        <Route path="/alarmsetting" element={<AlarmSetting />} />
         <Route path="/servicecenter" element={<ServiceCenter />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
