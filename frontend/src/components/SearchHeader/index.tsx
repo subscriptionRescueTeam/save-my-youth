@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as ArrowLeft } from '../../assets/icons/arrowLeft.svg';
 import { ReactComponent as Hamburger } from '../../assets/icons/hamburger.svg';
-import COLOR from '../../constants/color';
+import PALETTE from '../../constants/palette';
 
 const StyledPage = styled.div`
   align-items: center;
@@ -15,7 +15,7 @@ const Container = styled.header`
   justify-content: space-between;
   align-items: center;
   height: 3rem;
-  border-bottom: 5px solid ${COLOR.LIGHT_010};
+  border-bottom: 5px solid ${PALETTE.LIGHT_010};
 `;
 
 const Item = styled.div`

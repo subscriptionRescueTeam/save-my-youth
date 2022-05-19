@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ReactComponent as Location } from '../../assets/icons/location.svg';
-import COLOR from '../../constants/color';
+import PALETTE from '../../constants/palette';
 
 const StyledWrapper = styled.div`
   margin: 1rem;
@@ -25,7 +25,7 @@ const StyledLocationButton = styled.button`
   width: 100%;
   font-family: 'Pretendard-Bold';
   margin-bottom: 1rem;
-  background-color: ${COLOR.PRI_LIGHT_020};
+  background-color: ${PALETTE.PRI_LIGHT_020};
   border: none;
   padding: 2rem 0;
   border-radius: 8px;

@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components';
 import { ReactComponent as ArrowLeft } from '../../assets/icons/arrowLeft.svg';
 import { ReactComponent as Hamburger } from '../../assets/icons/hamburger.svg';
 import Sidebar from '../Sidebar';
-import COLOR from '../../constants/color';
+import PALETTE from '../../constants/palette';
 
 const Container = styled.header`
   display: flex;
@@ -59,7 +59,7 @@ export const StyledHeader = styled.header`
 export const StyledTitle = styled.h5`
   font-size: 1.2rem;
   font-weight: bold;
-  color: ${COLOR.PRI_DARK_020};
+  color: ${PALETTE.PRI_DARK_020};
 `;
 
 export const StyledButtonContainer = styled.div`

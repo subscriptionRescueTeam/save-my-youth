@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ServiceMenu, CommonHeader } from '../../components';
-import COLOR from '../../constants/color';
+import PALETTE from '../../constants/palette';
 
 const StyledMenuWrap = styled.div``;
 
@@ -10,7 +10,7 @@ const StyledFooter = styled.div`
   bottom: 0px;
   left: 0px;
   right: 0px;
-  background: ${COLOR.LIGHT_020};
+  background: ${PALETTE.LIGHT_020};
 `;
 
 const Mypage = () => {

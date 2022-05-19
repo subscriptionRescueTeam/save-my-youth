@@ -3,7 +3,7 @@ import { OptionDecoration } from '..';
 import { ReactComponent as ArrowRight } from '../../../assets/icons/arrowRight.svg';
 import { ReactComponent as ArrowDown } from '../../../assets/icons/arrowDown.svg';
 import { ReactComponent as ArrowUp } from '../../../assets/icons/arrowUp.svg';
-import { COLOR } from '../../../constants';
+import PALETTE from '../../../constants/palette';
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -17,7 +17,7 @@ const StyledButton = styled.button<{
   height: 3.5rem;
   text-align: left;
   padding: 1rem 1.5rem 1rem 1.5rem;
-  border-bottom: ${(props) => props.underlineHeight} solid ${COLOR.LIGHT_010};
+  border-bottom: ${(props) => props.underlineHeight} solid ${PALETTE.LIGHT_010};
 `;
 
 const StyledSpan = styled.span<{

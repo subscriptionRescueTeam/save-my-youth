@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Close } from '../../../assets/icons/close.svg';
-import { COLOR } from '../../../constants';
+import PALETTE from '../../../constants/palette';
 
 // ref: https://velog.io/@dev-tinkerbell/display-none%EC%9D%B4-transition%EC%9D%B4-%EC%95%88%EB%A8%B9%ED%9E%88%EB%8A%94-%EC%9D%B4%EC%9C%A0
 const StyledOptionList = styled.aside<{ isOpen: boolean }>`
@@ -12,14 +12,14 @@ const StyledOptionList = styled.aside<{ isOpen: boolean }>`
   height: 100%;
   transition: all 1s ease;
   z-index: 1;
-  background-color: ${COLOR.WHITE};
+  background-color: ${PALETTE.WHITE};
   transform: ${(props) => (props.isOpen ? 'translateX(0)' : 'translateX(100%)')};
   visibility: ${(props) => (props.isOpen ? 'visible' : 'hidden')};
 `;
 
 export const StyledSidebarHeader = styled.div`
   font-size: 1.25rem;
-  color: ${COLOR.PRI_DARK_010};
+  color: ${PALETTE.PRI_DARK_010};
   font-weight: bold;
   padding: 1.125rem 1.25rem 0.75rem 1.25rem;
 `;

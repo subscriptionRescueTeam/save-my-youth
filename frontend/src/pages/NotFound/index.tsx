@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ErrorNotFound from '../../assets/images/errorNotFound.gif';
 import { LayoutNavigation } from '../../components';
-import COLOR from '../../constants/color';
+import PALETTE from '../../constants/palette';
 import { useNavigate } from 'react-router-dom';
 
 const StyledImg = styled.img`
@@ -23,7 +23,7 @@ const StyledButton = styled.button`
   color: white;
   font-size: 1rem;
   border-radius: 12px;
-  background: ${COLOR.PRI_MAIN};
+  background: ${PALETTE.PRI_MAIN};
   font-family: 'Pretendard-Regular';
   cursor: pointer;
   user-select: none;
