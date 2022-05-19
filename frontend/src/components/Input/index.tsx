@@ -32,6 +32,7 @@ export type InputPros = {
   multiline?: boolean;
   placeholder: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onKeyPress?: any;
 };
 
 const Input = ({
@@ -40,6 +41,7 @@ const Input = ({
   multiline = false,
   placeholder = '',
   onChange,
+  onKeyPress,
 }: InputPros) => {
   return (
     <StyledInputContainer>
@@ -50,6 +52,7 @@ const Input = ({
           multiple={multiline}
           placeholder={placeholder}
           onChange={onChange}
+          onKeyPress={onKeyPress}
         />
 
         <StyledSearch>
@@ -58,6 +61,6 @@ const Input = ({
       </Link>
     </StyledInputContainer>
   );
-}; // ${inputRef?.current?.value}
+};
 
 export default Input;

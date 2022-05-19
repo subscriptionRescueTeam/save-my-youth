@@ -36,7 +36,7 @@ const useSubscription = (keyword?: string) => {
     getPosts(keyword).then((res) => {
       setSubData(res);
     });
-  }, []);
+  }, [keyword]);
 
   return { subData };
 };
