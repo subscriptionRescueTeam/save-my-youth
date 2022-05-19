@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import BlueHeart from '../../asset/BlueHeart';
+import { ReactComponent as BlueHeart } from '../../assets/icons/blueHeart.svg';
 import { COLOR } from '../../constants';
-import tmpImg from '../../asset/picture2.png';
+import tmpImg from '../../assets/images/picture2.png';
 import { useNavigate } from 'react-router-dom';
 
 const BORDER_RADIUS = '8px';
