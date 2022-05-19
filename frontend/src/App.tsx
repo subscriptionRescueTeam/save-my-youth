@@ -1,15 +1,13 @@
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import {
-  Home,
-  Search,
-  Mypage,
-  Detail,
-  UserModify,
-  Like,
-  ServiceCenter,
-  Login,
-  NotFound,
-} from './pages';
+import Home from './pages/Home';
+import Search from './pages/Search';
+import Mypage from './pages/Mypage';
+import Detail from './pages/Detail';
+import UserModify from './pages/UserModify';
+import Like from './pages/Like';
+import ServiceCenter from './pages/ServiceCenter';
+import Login from './pages/Login';
+import NotFound from './pages/NotFound';
 
 const App = () => {
   return (
