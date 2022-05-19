@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { useCallback, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { ArrowLeft, Hamburger } from '../../asset';
+import { ReactComponent as ArrowLeft } from '../../assets/icons/arrowLeft.svg';
+import { ReactComponent as Hamburger } from '../../assets/icons/hamburger.svg';
 import Sidebar from '../Sidebar';
 import COLOR from '../../constants/color';
 

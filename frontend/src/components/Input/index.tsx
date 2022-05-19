@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import COLOR from '../../constants/color';
-import { Search } from '../../asset';
+import { ReactComponent as Search } from '../../assets/icons/search.svg';
 import { Link } from 'react-router-dom';
 
 export const StyledInputContainer = styled.section`

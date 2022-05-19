@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Location } from '../../asset';
+import { ReactComponent as Location } from '../../assets/icons/location.svg';
 import COLOR from '../../constants/color';
 
 const StyledWrapper = styled.div`

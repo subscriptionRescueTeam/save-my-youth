@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Picture from '../../asset/picture2.png';
-import { ArrowRight } from '../../asset';
+import Picture from '../../assets/images/picture2.png';
+import { ReactComponent as ArrowRight } from '../../assets/icons/arrowRight.svg';
 import COLOR from '../../constants/color';
 import { SaleSchedule, TabBar } from '../../components';
 import CommonHeader from '../../components/CommonHeader';
