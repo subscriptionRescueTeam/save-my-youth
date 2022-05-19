@@ -63,15 +63,16 @@ const subscriptionList = [
   },
 ];
 
+// TODO: 스크롤 맨 오른쪽까지 되게 수정
 const Conatiner = styled.div`
-  /* overflow-x: scroll; // PC */
-  /* -webkit-overflow-scrolling: touch; // mobile */
-  /* -ms-overflow-style: none; /* IE and Edge */
+  width: 100%;
+  overflow-x: scroll; // PC
+  //-webkit-overflow-scrolling: touch; // mobile */
+  -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
   &::-webkit-scrollbar {
-    /* Chrome, Safari, Opera*/
-    /* display: none; */
+    display: none; /* Chrome, Safari, Opera*/
   }
 `;
 
