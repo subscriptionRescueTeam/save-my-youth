@@ -1,5 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Home, Search, Mypage, Detail, UserModify, Like, ServiceCenter, Login } from './pages';
+import {
+  Home,
+  Search,
+  Mypage,
+  Detail,
+  UserModify,
+  Like,
+  ServiceCenter,
+  Login,
+  NotFound,
+} from './pages';
 
 const App = () => {
   return (
@@ -13,6 +23,7 @@ const App = () => {
         <Route path="/like" element={<Like />} />
         <Route path="/servicecenter" element={<ServiceCenter />} />
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
