@@ -1,5 +1,4 @@
 import { Input, MainCardList, LayoutNavigation, CardSlider } from '../../components';
-import { 청약 } from '../../types';
 import styled from 'styled-components';
 import COLOR from '../../constants/color';
 import useSubscription from '../../hooks/useSubscription';
@@ -23,11 +22,6 @@ export const StyledColorSpan = styled.span`
 const Home = () => {
   const { subData } = useSubscription();
 
-  const [popular3, setPopular3] = useState(subData);
-  const [latest3, setLatest3] = useState(subData);
-
-  console.log(subData);
-
   return (
     <LayoutNavigation>
       <Input placeholder="검색어를 입력하세요 (ex. 월세, 전세 등)" />
@@ -38,8 +32,7 @@ const Home = () => {
         </div>
       </StyledMainWrapper>
       <CardSlider />
-      // TODO: 렌더링 문제
-      <MainCardList popularityList={popular3} likeList={latest3} />
+      <MainCardList popularityList={subData.slice(0, 3)} likeList={subData.slice(4, 7)} />
     </LayoutNavigation>
   );
 };

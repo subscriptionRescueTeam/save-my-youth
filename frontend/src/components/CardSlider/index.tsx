@@ -35,7 +35,7 @@ const StyledDot = styled.button<{ active: boolean }>`
   background: ${(props) => (props.active ? COLOR.PRI_MAIN : COLOR.LIGHT_030)};
 `;
 
-const 임시청약리스트 = [
+const tempSubscription = [
   {
     id: 1,
     title: '제 1차 장기전세주택 입주자모집공고',
@@ -85,17 +85,17 @@ const CardSlider = () => {
   return (
     <section>
       <StyledCardsContainer>
-        {임시청약리스트.map((청약, index) => {
+        {tempSubscription.map((v, index) => {
           return (
-            <Slide key={청약.id}>
-              <Card title={청약.title} likeNum={청약.likeNum} />
+            <Slide key={v.id}>
+              <Card title={v.title} likeNum={v.likeNum} />
             </Slide>
           );
         })}
       </StyledCardsContainer>
 
       <StyledDotsContainer>
-        {Array.from({ length: 임시청약리스트.length }).map((item, index) => (
+        {Array.from({ length: tempSubscription.length }).map((item, index) => (
           <StyledDot
             key={`${index}-${item}`}
             active={slideIndex === index}
