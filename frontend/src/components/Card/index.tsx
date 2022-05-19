@@ -3,13 +3,13 @@ import BlueHeart from '../../asset/BlueHeart';
 import { COLOR } from '../../constants';
 import tmpImg from '../../asset/picture2.png';
 import { useNavigate } from 'react-router-dom';
+import { CARD_HEIGHT, CARD_WIDTH } from '../../types';
 
 const BORDER_RADIUS = '8px';
 
-// TODO: 받아온 사진에 따라 이미지 다르게 보여주기
 const StyledCard = styled.article<{ backgroundImg: string }>`
-  width: 259px;
-  height: 193px;
+  width: ${CARD_WIDTH}vw;
+  height: ${CARD_HEIGHT}vw;
   border-radius: ${BORDER_RADIUS};
   background-image: url(${tmpImg});
   background-repeat: no-repeat;
