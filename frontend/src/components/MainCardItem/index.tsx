@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import ListTitle from '../ListTitle';
-import { 청약 } from '../../types';
+import { Subscription } from '../../types';
 import { useNavigate } from 'react-router-dom';
 
 export type MainCardItemProps = {
   title: string;
-  청약리스트: Array<청약>;
+  SubscriptionList: Array<Subscription>;
 };
 
 export const StyledMainCardItem = styled.div`
@@ -20,14 +20,14 @@ export const StyledMainCardItemSpan = styled.span`
   cursor: pointer;
 `;
 
-const MainCardItem = ({ title, 청약리스트 }: MainCardItemProps) => {
+const MainCardItem = ({ title, SubscriptionList }: MainCardItemProps) => {
   const navigate = useNavigate();
 
   return (
     <article>
       <ListTitle title={title} />
       <StyledMainCardItem>
-        {청약리스트.map((subscription, i) => (
+        {SubscriptionList.map((subscription, i) => (
           <StyledMainCardItemSpan key={subscription.id} onClick={() => navigate('/detail')}>
             {i + 1}. {subscription.houseName}
           </StyledMainCardItemSpan>

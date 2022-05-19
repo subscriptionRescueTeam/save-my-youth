@@ -139,7 +139,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
 
             return (
               <OptionItem
-                key={`${option.name}-${option.link}`}
+                key={option.name}
                 fontSize={option.fontSize}
                 fontWeight={option.fontWeight}
                 underlineHeight={option.underlineHeight}
