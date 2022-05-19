@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import MainCardItem from '../MainCardItem';
-import { 청약 } from '../../types';
+import { Subscription } from '../../types';
 
 export const StyledMainCardList = styled.section`
   width: 90%;
@@ -11,15 +11,15 @@ export const StyledMainCardList = styled.section`
 `;
 
 export type MainCardProps = {
-  popularityList: Array<청약>;
-  likeList: Array<청약>;
+  popularityList: Array<Subscription>;
+  likeList: Array<Subscription>;
 };
 
 const MainCardList = ({ popularityList, likeList }: MainCardProps) => {
   return (
     <StyledMainCardList>
-      <MainCardItem title="인기 청약 BEST3" 청약리스트={popularityList} />
-      <MainCardItem title="최신 청약 BEST3" 청약리스트={likeList} />
+      <MainCardItem title="인기 청약 BEST3" SubscriptionList={popularityList} />
+      <MainCardItem title="최신 청약 BEST3" SubscriptionList={likeList} />
     </StyledMainCardList>
   );
 };
