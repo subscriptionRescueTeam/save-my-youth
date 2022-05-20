@@ -15,7 +15,7 @@ const StyledCard = styled.div`
 margin: 30px 30px 20px 10px;
 width: 400px;
 height: 102px;
-border: 2px solid #1569CB;
+border: 2px solid ${COLOR.LIGHT_010};
 border-radius:10px;
 display:flex;
 background-color: #FFFFFF;
@@ -41,14 +41,14 @@ export type SearchCardProps = {
     houseLocation: string,
 };
 
-const SearchCard = ({ id, houseName, houseLocation }: SearchCardProps) => {
+const SearchCard = ({ houseName, houseLocation }: SearchCardProps) => {
     return (
         <StyledBox>
-      <StyledCard>
-           <StyledText>{houseName}</StyledText>
-           <StyledText>{houseLocation}</StyledText>
-      </StyledCard>
-      </StyledBox>
+            <StyledCard>
+                <StyledText>{houseName}</StyledText>
+           <    StyledText>{houseLocation}</StyledText>
+            </StyledCard>
+        </StyledBox>
     );
   };
   
