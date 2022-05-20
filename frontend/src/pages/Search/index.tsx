@@ -18,11 +18,7 @@ const Search = () => {
   };
 
   const onKeyPress = (e: any) => {
-    // if (e.key === 'Enter') console.log(subData);
-    if (e.key === 'Enter') {
-      console.log(subData);
-    }
-    {subData}
+    if (e.key === 'Enter') console.log(subData);
   };
 
   return (
