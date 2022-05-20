@@ -1,34 +1,17 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Home, Search, Mypage, Detail, UserModify, Like, ServiceCenter, Login } from './pages';
-import { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset';
-import COLOR from './constants/color';
-
-const GlobalStyle = createGlobalStyle`
-  ${reset}
-  * {
-    outline: none;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: 'Pretendard-Medium', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-  }
-  button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding:0;
-  }
-  a{
-    text-decoration: none;
-    color:${COLOR.BLACK}
-  }
-`;
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import Home from './pages/Home';
+import Search from './pages/Search';
+import Mypage from './pages/Mypage';
+import Detail from './pages/Detail';
+import UserModify from './pages/UserModify';
+import Like from './pages/Like';
+import ServiceCenter from './pages/ServiceCenter';
+import Login from './pages/Login';
+import NotFound from './pages/NotFound';
 
 const App = () => {
   return (
     <BrowserRouter>
-      <GlobalStyle />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
@@ -38,6 +21,8 @@ const App = () => {
         <Route path="/like" element={<Like />} />
         <Route path="/servicecenter" element={<ServiceCenter />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/404" element={<NotFound />} />
+        <Route path="/*" element={<Navigate replace to="/404" />} />
       </Routes>
     </BrowserRouter>
   );

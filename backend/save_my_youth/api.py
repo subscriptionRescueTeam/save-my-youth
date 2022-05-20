@@ -17,6 +17,8 @@ from user.api import user_router
 class GlobalAuth(HttpBearer):
     def authenticate(self, request, token):
 
+        print(request)
+
         if token == 'save':
 
             user = get_object_or_404(User, pk=1)
@@ -36,7 +38,8 @@ class ORJSONRenderer(BaseRenderer):
     def render(self, request, data, *, response_status):
         return orjson.dumps(data)
 
-api = NinjaAPI(renderer=ORJSONRenderer(), auth=GlobalAuth()) # 전체 권한 제한 설정
+
+api = NinjaAPI(auth=GlobalAuth(), renderer=ORJSONRenderer()) # 전체 권한 제한 설정
 
 # 라우터 등록
 api.add_router('/like/', like_router)

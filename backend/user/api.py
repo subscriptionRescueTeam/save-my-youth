@@ -6,7 +6,6 @@ from . import schema
 
 user_router = Router(tags=["사용자 API"])
 
-
 # 유저 정보 가져오기
 @user_router.get(
     '/',
@@ -15,7 +14,7 @@ user_router = Router(tags=["사용자 API"])
 )
 def get_user(request):
 
-    user_subscription = UserSubscription.objects.filter(user_id=request.user.id)
+    user_subscription = UserSubscription.objects.filter(user_id=request.auth.id)
     user = request.user
     like = []
 
