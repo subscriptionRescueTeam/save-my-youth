@@ -127,7 +127,8 @@ const Login = () => {
         <StyledToHome>홈으로 돌아가기</StyledToHome>
       </Link>
       <StyledMaker>@청년을 구해줘</StyledMaker>
-      <button onClick={test}>test</button> // TODO: 지우기
+      <button onClick={test}>test</button>
+      {/* TODO: 지우기 */}
     </LayoutCenter>
   );
 };
