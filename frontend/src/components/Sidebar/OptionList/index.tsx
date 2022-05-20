@@ -31,7 +31,7 @@ export const StyledCloseContainer = styled.button`
 `;
 
 export type OptionListProps = {
-  children: Children;
+  children: React.ReactNode;
   onSidebarOpen: (isOpen: boolean) => void;
   isOpen: boolean;
 };
