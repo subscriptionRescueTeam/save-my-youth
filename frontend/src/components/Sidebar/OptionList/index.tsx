@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Close } from '../../../assets/icons/close.svg';
 import { COLOR } from '../../../constants';
+import { Children } from '../../../types';
 
 // ref: https://velog.io/@dev-tinkerbell/display-none%EC%9D%B4-transition%EC%9D%B4-%EC%95%88%EB%A8%B9%ED%9E%88%EB%8A%94-%EC%9D%B4%EC%9C%A0
 const StyledOptionList = styled.aside<{ isOpen: boolean }>`
@@ -31,7 +32,7 @@ export const StyledCloseContainer = styled.button`
 `;
 
 export type OptionListProps = {
-  children: React.ReactNode;
+  children: Children;
   onSidebarOpen: (isOpen: boolean) => void;
   isOpen: boolean;
 };

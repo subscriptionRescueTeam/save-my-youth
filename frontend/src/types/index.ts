@@ -24,3 +24,5 @@ export type Search = {
   searchList: Array<Subscription>; //리스트 결과값
   filter: Writing; //디폴트로 최신을 보여주고 필터로 인기순을 누르면 보여줌
 };
+
+export type Children = React.ReactNode;
