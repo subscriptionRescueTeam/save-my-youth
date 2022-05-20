@@ -23,3 +23,6 @@ export const CARD_WIDTH = 69.06;
 export const CARD_HEIGHT = CARD_WIDTH * 0.7451;
 
 export type slidDirection = 'left' | 'right';
+
+export type HelpType = { name: string, option: string }
+export type HelpContents = Record<number, Children>;
