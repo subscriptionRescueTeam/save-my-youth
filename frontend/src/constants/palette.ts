@@ -1,4 +1,4 @@
-const COLOR = {
+const PALETTE = {
   WHITE: '#ffffff',
   BLACK: '#1a1a1a',
 
@@ -19,6 +19,6 @@ const COLOR = {
   PRI_LIGHT_022: '#6DA7EB',
   PRI_LIGHT_020: '#8FBFF8',
   PRI_LIGHT_010: '#ABD2FE',
-};
+} as const;
 
-export default COLOR;
+export default PALETTE;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import COLOR from '../../constants/color';
+import PALETTE from '../../constants/palette';
 import { useNavigate } from 'react-router-dom';
 
 export const StyledListTitle = styled.div<{ underline: boolean; color?: string }>`
@@ -20,8 +20,8 @@ export const StyledTitle = styled.span`
 export const StyledMore = styled.button`
   font-size: 0.9rem;
   border: none;
-  background-color: ${COLOR.WHITE};
-  color: ${COLOR.PRI_DARK_020};
+  background-color: ${PALETTE.WHITE};
+  color: ${PALETTE.PRI_DARK_020};
   font-family: 'Pretendard-Medium';
   cursor: pointer;
 `;

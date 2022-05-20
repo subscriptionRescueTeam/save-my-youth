@@ -1,8 +1,7 @@
 import { Input, MainCardList, LayoutNavigation, CardSlider } from '../../components';
 import styled from 'styled-components';
-import COLOR from '../../constants/color';
+import PALETTE from '../../constants/palette';
 import useSubscription from '../../hooks/useSubscription';
-import { useState } from 'react';
 
 export const StyledMainWrapper = styled.div`
   display: flex;
@@ -15,7 +14,7 @@ export const StyledMainWrapper = styled.div`
 `;
 
 export const StyledColorSpan = styled.span`
-  color: ${COLOR.PRI_DARK_010};
+  color: ${PALETTE.PRI_DARK_010};
   padding-right: 2vw;
 `;
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import COLOR from '../../constants/color';
+import PALETTE from '../../constants/palette';
 import { ReactComponent as Search } from '../../assets/icons/search.svg';
 import { Link } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ export const StyledInput = styled.input`
   margin: 0 auto;
   border-radius: 8px;
   border: none;
-  background-color: ${COLOR.LIGHT_010};
+  background-color: ${PALETTE.LIGHT_010};
   font-family: 'Pretendard-Medium';
   margin-bottom: 2rem;
 `;
