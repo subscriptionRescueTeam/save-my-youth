@@ -35,7 +35,7 @@ const StyledArrow = styled.div`
 `;
 
 export type OptionItemProps = {
-  children: React.ReactNode;
+  children: Children;
   isGetReady?: boolean;
 } & OptionDecoration;
 

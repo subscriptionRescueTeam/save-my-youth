@@ -36,7 +36,9 @@ export type Search = {
   applyHomepage: string,
 };
 
+export type Children = React.ReactNode;
 export const CARD_WIDTH = 69.06;
 export const CARD_HEIGHT = CARD_WIDTH * 0.7451;
 
 export type slidDirection = 'left' | 'right';
+

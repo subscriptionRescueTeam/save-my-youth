@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import { Children } from '../../types';
-import Header from '../Header';
 
-export const StyledLayoutNavigation = styled.div`
+export const StyledLayoutCenter = styled.div<{ backgroundColor: string }>`
   min-width: 100vw;
   min-height: 100vh;
   flex-direction: column;
   align-items: center;
-  overflow-x: hidden;
+  background-color: backgroundColor;
 `;
 
 export const StyledContent = styled.main`
@@ -17,17 +16,17 @@ export const StyledContent = styled.main`
   align-items: center;
 `;
 
-export type LayoutNavigationProps = {
+export type LayoutCenterProps = {
   children: Children;
+  backgroundColor: string;
 };
 
-const LayoutNavigation = ({ children }: LayoutNavigationProps) => {
+const LayoutCenter = ({ children, backgroundColor }: LayoutCenterProps) => {
   return (
-    <StyledLayoutNavigation>
-      <Header title="청년을 구해줘" />
+    <StyledLayoutCenter backgroundColor={backgroundColor}>
       <StyledContent>{children}</StyledContent>
-    </StyledLayoutNavigation>
+    </StyledLayoutCenter>
   );
 };
 
-export default LayoutNavigation;
+export default LayoutCenter;
