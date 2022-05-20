@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 import { ReactComponent as BlueHeart } from '../../assets/icons/blueHeart.svg';
-import { COLOR } from '../../constants';
+import PALETTE from '../../constants/palette';
 import tmpImg from '../../assets/images/picture2.png';
 import { useNavigate } from 'react-router-dom';
+import { CARD_HEIGHT, CARD_WIDTH } from '../../types';
 
 const BORDER_RADIUS = '8px';
 
-// TODO: 받아온 사진에 따라 이미지 다르게 보여주기
+// TODO: background -> image 변경
 const StyledCard = styled.article<{ backgroundImg: string }>`
-  width: 259px;
-  height: 193px;
+  width: ${CARD_WIDTH}vw;
+  height: ${CARD_HEIGHT}vw;
   border-radius: ${BORDER_RADIUS};
   background-image: url(${tmpImg});
   background-repeat: no-repeat;
@@ -19,6 +20,7 @@ const StyledCard = styled.article<{ backgroundImg: string }>`
   flex-direction: column;
   justify-content: flex-end;
   margin: 0.375rem;
+  cursor: pointer;
 `;
 
 const StyledTitleContainer = styled.div`
@@ -29,7 +31,7 @@ const StyledTitleContainer = styled.div`
   width: 100%;
   height: 36.26%;
   border-radius: 0 0 ${BORDER_RADIUS} ${BORDER_RADIUS};
-  background-color: ${COLOR.LIGHT_010};
+  background-color: ${PALETTE.LIGHT_010};
   padding: 8px 12px 8px 12px;
 `;
 
@@ -48,7 +50,7 @@ const StyledLikeNumContainer = styled.div`
 
 const StyledLikeNum = styled.span`
   font-size: 0.75rem;
-  color: ${COLOR.DARK_020};
+  color: ${PALETTE.DARK_020};
 `;
 
 export type CardProps = {

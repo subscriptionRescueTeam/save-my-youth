@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
-import COLOR from './constants/color';
+import PALETTE from './constants/palette';
 import './assets/css/font.css';
 
 const GlobalStyle = createGlobalStyle`
@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
   }
   a{
     text-decoration: none;
-    color:${COLOR.BLACK}
+    color:${PALETTE.BLACK}
   }
 `;
 

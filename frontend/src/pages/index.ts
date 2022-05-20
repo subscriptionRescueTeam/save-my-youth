@@ -6,3 +6,4 @@ export { default as ServiceCenter } from './ServiceCenter';
 export { default as UserModify } from './UserModify';
 export { default as Like } from './Like';
 export { default as Login } from './Login';
+export { default as NotFound } from './NotFound';

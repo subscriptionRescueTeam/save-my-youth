@@ -20,14 +20,14 @@
 
 */
 import { useState } from 'react';
-import COLOR from '../../constants/color';
+import PALETTE from '../../constants/palette';
 import styled from 'styled-components';
 
 const StyledContentWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   padding-top: 1.5rem;
-  border-top: 4px solid ${COLOR.LIGHT_010};
+  border-top: 4px solid ${PALETTE.LIGHT_010};
 `;
 
 const StyledMenuTitle = styled.li<{ check?: string; count: number }>`
@@ -44,8 +44,8 @@ const StyledMenuTitle = styled.li<{ check?: string; count: number }>`
   }
   &#${({ check }) => check} {
     font-weight: bold;
-    color: ${COLOR.PRI_MAIN};
-    border-bottom: 2px solid ${COLOR.PRI_MAIN};
+    color: ${PALETTE.PRI_MAIN};
+    border-bottom: 2px solid ${PALETTE.PRI_MAIN};
   }
 `;
 
