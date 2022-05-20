@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import { Input, CommonHeader } from '../../components';
 import React, { useState, FormEvent } from 'react';
 import useSubscription from '../../hooks/useSubscription';
+import SearchCardItem,{SearchCardItemProps} from '../../components/SearchCardItem';
+import SearchCardList, {SearchCardListProps} from '../../components/SearchCardList';
+import { Subscription, SummarizedSubscription } from '../../types';
+
 
 const InputWrapper = styled.div`
   display: flex;
@@ -18,7 +22,10 @@ const Search = () => {
   };
 
   const onKeyPress = (e: any) => {
-    if (e.key === 'Enter') console.log(subData);
+    // if (e.key === 'Enter') console.log(subData);
+    if (e.key === 'Enter') {
+      <SearchCardList subData= {subData}/>
+    }
   };
 
   return (
@@ -31,7 +38,8 @@ const Search = () => {
           onKeyPress={onKeyPress}
         />
       </InputWrapper>
-      {keyword}
+      <SearchCardList subData= {subData}/>
+      {/* {keyword} view props={subData} */}
     </>
   );
 };

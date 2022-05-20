@@ -1,3 +1,4 @@
+import React from 'react'
 export type User = {
   name: string; // nickname
   email: string;
@@ -15,6 +16,13 @@ export type Subscription = {
   applyEndDate: string;
   applyHomepage: string;
 };
+
+export type SummarizedSubscription = {
+  id: number,
+  houseName: string,
+  houseLocation: string,
+  applyScale: number,
+}
 
 export type Writing = '최신' | '인기';
 export type Children = React.ReactNode;
