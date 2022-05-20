@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { ReactComponent as BlueHeart } from '../../assets/icons/blueHeart.svg';
-import PALETTE from '../../constants/palette';
-import tmpImg from '../../assets/images/picture2.png';
+import { ReactComponent as BlueHeart } from '../assets/icons/blueHeart.svg';
+import PALETTE from '../constants/palette';
+import tmpImg from '../assets/images/picture2.png';
 import { useNavigate } from 'react-router-dom';
-import { CARD_HEIGHT, CARD_WIDTH } from '../../types';
+import { CARD_HEIGHT, CARD_WIDTH } from '../types';
 
 const BORDER_RADIUS = '8px';
 
