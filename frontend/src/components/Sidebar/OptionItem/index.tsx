@@ -4,7 +4,6 @@ import { ReactComponent as ArrowRight } from '../../../assets/icons/arrowRight.s
 import { ReactComponent as ArrowDown } from '../../../assets/icons/arrowDown.svg';
 import { ReactComponent as ArrowUp } from '../../../assets/icons/arrowUp.svg';
 import PALETTE from '../../../constants/palette';
-import { Children } from '../../../types';
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -36,7 +35,7 @@ const StyledArrow = styled.div`
 `;
 
 export type OptionItemProps = {
-  children: Children;
+  children: React.ReactNode;
   isGetReady?: boolean;
 } & OptionDecoration;
 
