@@ -34,7 +34,49 @@ const StyledDot = styled.button<{ active: boolean }>`
   background: ${(props) => (props.active ? PALETTE.PRI_MAIN : PALETTE.LIGHT_030)};
 `;
 
-const tempSubscription = [
+// TODO: 스크롤 맨 오른쪽까지 되게 수정
+const StyledCardConatiner = styled.div`
+  width: 100%;
+  overflow-x: scroll; // PC
+  //-webkit-overflow-scrolling: touch; // mobile */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+`;
+
+const StyledCardSlider = styled.div<{ slideIndex: number }>`
+  height: 100%;
+  display: flex;
+  transition: all 1s ease;
+  transform: translateX(
+    ${(props) =>
+      props.slideIndex * -CARD_WIDTH + (CARD_WIDTH * (subscriptionList.length - 1)) / 2}vw
+  );
+`;
+
+// TODO: 사용될 예정 (화살표 누르면 이동)
+const StyledArrow = styled.div<{ direction: string }>`
+  width: 50px;
+  height: 50px;
+  background-color: #fff7f7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: ${(props) => props.direction === 'left' && '10px'}; //direction이 left면 left에서부터 10px
+  right: ${(props) => props.direction === 'right' && '10px'};
+  margin: auto;
+  cursor: pointer;
+  opacity: 0.5;
+  z-index: 2;
+`;
+
+const subscriptionList = [
   {
     id: 1,
     title: '제 1차 장기전세주택 입주자모집공고',
