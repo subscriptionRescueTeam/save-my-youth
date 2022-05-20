@@ -1,15 +1,5 @@
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import {
-  Home,
-  Search,
-  Mypage,
-  Detail,
-  UserModify,
-  Like,
-  ServiceCenter,
-  Login,
-  NotFound,
-} from './pages';
+import { Home, Search, Mypage, Detail, UserModify, Like, Login, Help, NotFound } from './pages';
 
 const App = () => {
   return (
@@ -21,7 +11,7 @@ const App = () => {
         <Route path="/detail" element={<Detail />} />
         <Route path="/usermodify" element={<UserModify />} />
         <Route path="/like" element={<Like />} />
-        <Route path="/servicecenter" element={<ServiceCenter />} />
+        <Route path="/help" element={<Help />} />
         <Route path="/login" element={<Login />} />
         <Route path="/404" element={<NotFound />} />
         <Route path="/*" element={<Navigate replace to="/404" />} />

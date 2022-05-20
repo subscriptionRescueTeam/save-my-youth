@@ -17,7 +17,7 @@ const MenuItems = [
   {
     id: 2,
     title: '고객센터',
-    link: '/servicecenter',
+    link: '/help',
   },
 ];
 

@@ -17,7 +17,7 @@ const checkList: any = {
   2: <>1:1 문의로 궁금하신 내용을 직접 문의하실 수 있어요.</>,
 };
 
-const ServiceCenter = () => {
+const Help = () => {
   return (
     <>
       <CommonHeader title="고객 센터" />
@@ -26,4 +26,4 @@ const ServiceCenter = () => {
   );
 };
 
-export default ServiceCenter;
+export default Help;
