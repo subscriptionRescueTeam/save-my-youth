@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Card from '../Card';
 import tmpImg from '../../assets/images/picture2.png';
 import PALETTE from '../../constants/palette';
+import { CARD_WIDTH } from '../../types';
 
 const DOT_RADIUS = '6px';
 
