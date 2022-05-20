@@ -17,8 +17,6 @@ from user.api import user_router
 class GlobalAuth(HttpBearer):
     def authenticate(self, request, token):
 
-        print(request)
-
         if token == 'save':
 
             user = get_object_or_404(User, pk=1)
