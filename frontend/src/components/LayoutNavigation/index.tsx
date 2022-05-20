@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Children } from '../../types';
 import Header from '../Header';
 
 export const StyledLayoutNavigation = styled.div`
@@ -18,7 +17,7 @@ export const StyledContent = styled.main`
 `;
 
 export type LayoutNavigationProps = {
-  children: Children;
+  children: React.ReactNode;
 };
 
 const LayoutNavigation = ({ children }: LayoutNavigationProps) => {

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Children } from '../../types';
 
 export const StyledIcon = styled.span<{ color: string; size?: number }>`
   display: flex;
@@ -9,7 +8,7 @@ export const StyledIcon = styled.span<{ color: string; size?: number }>`
 `;
 
 export type IconProps = {
-  children: Children;
+  children: React.ReactNode;
   size?: number;
   color?: string;
 };
