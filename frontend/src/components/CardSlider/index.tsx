@@ -1,11 +1,21 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Card from '../Card';
-import tmpImg from '../../asset/picture2.png';
-import { COLOR } from '../../constants';
-import { CARD_WIDTH } from '../../types';
+import tmpImg from '../../assets/images/picture2.png';
+import PALETTE from '../../constants/palette';
 
 const DOT_RADIUS = '6px';
+
+const StyledCardsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const Slide = styled.div`
+  width: 100%;
+  height: 100%;
+  transition: ease-in-out 0.4s;
+`;
 
 const StyledDotsContainer = styled.div`
   display: flex;
@@ -21,7 +31,7 @@ const StyledDot = styled.button<{ active: boolean }>`
   border-radius: 50%;
   padding: 0;
   margin: 0 2px;
-  background: ${(props) => (props.active ? COLOR.PRI_MAIN : COLOR.LIGHT_030)};
+  background: ${(props) => (props.active ? PALETTE.PRI_MAIN : PALETTE.LIGHT_030)};
 `;
 
 // TODO: 스크롤 맨 오른쪽까지 되게 수정

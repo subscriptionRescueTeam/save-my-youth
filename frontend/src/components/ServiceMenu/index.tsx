@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import COLOR from '../../constants/color';
-import { ArrowRight } from '../../asset';
+import PALETTE from '../../constants/palette';
+import { ReactComponent as ArrowRight } from '../../assets/icons/arrowRight.svg';
 import { Link } from 'react-router-dom';
 
 const MenuItems = [
@@ -38,7 +38,7 @@ const StyledItem = styled.li`
   padding: 1.5rem;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid ${COLOR.LIGHT_010};
+  border-bottom: 2px solid ${PALETTE.LIGHT_010};
 `;
 
 const StyledLine = styled.span`
@@ -46,7 +46,7 @@ const StyledLine = styled.span`
   height: 8px;
   left: 0px;
   top: 36px;
-  background: ${COLOR.LIGHT_010};
+  background: ${PALETTE.LIGHT_010};
 `;
 
 const StyledButtonWrap = styled.div`
@@ -58,7 +58,7 @@ const StyledButtonWrap = styled.div`
 const StyledButton = styled.button`
   margin-top: 1.5rem;
   text-decoration: underline;
-  color: ${COLOR.DARK_020};
+  color: ${PALETTE.DARK_020};
   border: none;
   font-family: 'Pretendard-Medium';
   cursor: pointer;

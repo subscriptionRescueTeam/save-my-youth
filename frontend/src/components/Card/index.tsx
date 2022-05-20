@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import BlueHeart from '../../asset/BlueHeart';
-import { COLOR } from '../../constants';
-import tmpImg from '../../asset/picture2.png';
+import { ReactComponent as BlueHeart } from '../../assets/icons/blueHeart.svg';
+import PALETTE from '../../constants/palette';
+import tmpImg from '../../assets/images/picture2.png';
 import { useNavigate } from 'react-router-dom';
 import { CARD_HEIGHT, CARD_WIDTH } from '../../types';
 
@@ -31,7 +31,7 @@ const StyledTitleContainer = styled.div`
   width: 100%;
   height: 36.26%;
   border-radius: 0 0 ${BORDER_RADIUS} ${BORDER_RADIUS};
-  background-color: ${COLOR.LIGHT_010};
+  background-color: ${PALETTE.LIGHT_010};
   padding: 8px 12px 8px 12px;
 `;
 
@@ -50,7 +50,7 @@ const StyledLikeNumContainer = styled.div`
 
 const StyledLikeNum = styled.span`
   font-size: 0.75rem;
-  color: ${COLOR.DARK_020};
+  color: ${PALETTE.DARK_020};
 `;
 
 export type CardProps = {

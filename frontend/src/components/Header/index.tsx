@@ -1,8 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 import { useCallback, useState } from 'react';
-import { Alarm, ExclamationPoint, Hamburger } from '../../asset';
+import { ReactComponent as ExclamationPoint } from '../../assets/icons/exclamationPoint.svg';
+import { ReactComponent as Hamburger } from '../../assets/icons/hamburger.svg';
 import Sidebar from '../Sidebar';
-import COLOR from '../../constants/color';
+import PALETTE from '../../constants/palette';
 import { useNavigate } from 'react-router-dom';
 
 const colorAnimation = keyframes`
@@ -47,7 +48,7 @@ export const StyledLogo = styled.button`
 export const StyledTitle = styled.h5`
   font-size: 1.2rem;
   font-weight: bold;
-  color: ${COLOR.PRI_MAIN};
+  color: ${PALETTE.PRI_MAIN};
   margin-right: 3px;
 `;
 
@@ -86,9 +87,6 @@ export const Header = ({ title }: HeaderProps) => {
           <ExclamationPoint />
         </StyledLogo>
         <StyledButtonContainer>
-          <StyledAlarm>
-            <Alarm />
-          </StyledAlarm>
           <StyledBurger onClick={onClick}>
             <Hamburger />
           </StyledBurger>

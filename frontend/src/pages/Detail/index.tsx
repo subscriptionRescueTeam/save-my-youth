@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Picture from '../../asset/picture2.png';
-import { ArrowRight } from '../../asset';
-import COLOR from '../../constants/color';
+import Picture from '../../assets/images/picture2.png';
+import { ReactComponent as ArrowRight } from '../../assets/icons/arrowRight.svg';
+import PALETTE from '../../constants/palette';
 import { SaleSchedule, TabBar } from '../../components';
 import CommonHeader from '../../components/CommonHeader';
 import { useNavigate } from 'react-router-dom';
@@ -20,7 +20,7 @@ const StyledTitleWrapper = styled.div`
 const StyledLocationWrapper = styled.div`
   display: flex;
   align-items: center;
-  color: ${COLOR.PRI_DARK_010};
+  color: ${PALETTE.PRI_DARK_010};
   font-size: 0.9rem;
 `;
 
@@ -34,14 +34,14 @@ const StyledTitle = styled.div`
 const StyledDate = styled.div`
   display: flex;
   font-size: 0.9rem;
-  color: ${COLOR.DARK_020};
+  color: ${PALETTE.DARK_020};
 `;
 
 const StyledTag = styled.div`
   display: flex;
   font-size: 0.8rem;
-  color: ${COLOR.DARK_030};
-  background-color: ${COLOR.PRI_LIGHT_010};
+  color: ${PALETTE.DARK_030};
+  background-color: ${PALETTE.PRI_LIGHT_010};
   padding: 0.5rem 0.7rem;
   border-radius: 8px;
   margin-bottom: 1rem;

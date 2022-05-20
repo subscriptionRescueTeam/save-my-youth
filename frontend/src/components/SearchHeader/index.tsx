@@ -1,20 +1,21 @@
 import { useNavigate } from 'react-router-dom';
-import styled, { css } from 'styled-components';
-import { ArrowLeft, Hamburger } from '../../asset';
-import COLOR from '../../constants/color';
+import styled from 'styled-components';
+import { ReactComponent as ArrowLeft } from '../../assets/icons/arrowLeft.svg';
+import { ReactComponent as Hamburger } from '../../assets/icons/hamburger.svg';
+import PALETTE from '../../constants/palette';
 
 const StyledPage = styled.div`
-flex-align:center;
-padding-right:500px;
-`
+  align-items: center;
+  padding-right: 500px;
+`;
 
 const Container = styled.header`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 3rem;
-    border-bottom: 5px solid ${COLOR.LIGHT_010};
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  border-bottom: 5px solid ${PALETTE.LIGHT_010};
 `;
 
 const Item = styled.div`
@@ -26,35 +27,34 @@ const Item = styled.div`
 `;
 
 const TitleItem = styled.div`
-  font-family: Noto Sans;
   font-weight: 700;
   font-size: 1rem;
 `;
 
 export type CommonHeaderProps = {
-    title: string;
+  title: string;
 };
 
 const CommonHeader = ({ title }: CommonHeaderProps) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const clickBefore = () => {
-        navigate('/');
-    };
+  const clickBefore = () => {
+    navigate('/');
+  };
 
-    return (
-        <StyledPage>
-            <Container>
-                <Item onClick={clickBefore}>
-                    <ArrowLeft />
-                </Item>
-                <TitleItem>{title}</TitleItem>
-                <Item>
-                    <Hamburger />
-                </Item>
-            </Container>
-        </StyledPage>
-    );
+  return (
+    <StyledPage>
+      <Container>
+        <Item onClick={clickBefore}>
+          <ArrowLeft />
+        </Item>
+        <TitleItem>{title}</TitleItem>
+        <Item>
+          <Hamburger />
+        </Item>
+      </Container>
+    </StyledPage>
+  );
 };
 
 export default CommonHeader;

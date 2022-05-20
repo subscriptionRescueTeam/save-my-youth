@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import COLOR from '../../constants/color';
-import { Search } from '../../asset';
+import PALETTE from '../../constants/palette';
+import { ReactComponent as Search } from '../../assets/icons/search.svg';
 import { Link } from 'react-router-dom';
 
 export const StyledInputContainer = styled.section`
@@ -14,7 +14,7 @@ export const StyledInput = styled.input`
   margin: 0 auto;
   border-radius: 8px;
   border: none;
-  background-color: ${COLOR.LIGHT_010};
+  background-color: ${PALETTE.LIGHT_010};
   font-family: 'Pretendard-Medium';
   margin-bottom: 2rem;
 `;
@@ -32,6 +32,7 @@ export type InputPros = {
   multiline?: boolean;
   placeholder: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onKeyPress?: any;
 };
 
 const Input = ({
@@ -40,6 +41,7 @@ const Input = ({
   multiline = false,
   placeholder = '',
   onChange,
+  onKeyPress,
 }: InputPros) => {
   return (
     <StyledInputContainer>
@@ -50,6 +52,7 @@ const Input = ({
           multiple={multiline}
           placeholder={placeholder}
           onChange={onChange}
+          onKeyPress={onKeyPress}
         />
 
         <StyledSearch>
@@ -58,6 +61,6 @@ const Input = ({
       </Link>
     </StyledInputContainer>
   );
-}; // ${inputRef?.current?.value}
+};
 
 export default Input;
