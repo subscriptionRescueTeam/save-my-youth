@@ -8,3 +8,4 @@ export { default as ServiceMenu } from './ServiceMenu';
 export { default as InputLabel } from './InputLabel';
 export { default as CardSlider } from './CardSlider';
 export { default as TabBar } from './TabBar';
+export { default as SearchCard } from './SearchCard';
