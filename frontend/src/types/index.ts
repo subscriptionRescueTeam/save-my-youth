@@ -16,6 +16,19 @@ export type Subscription = {
   applyHomepage: string;
 };
 
+export type SubscriptionUsedMainPage = SubscriptionUsedMainPageByAPI & SubscriptionUsedMainPageByDB;
+
+export type SubscriptionUsedMainPageByAPI = {
+  id: number;
+  houseName: string;
+  recNotice: string;
+}
+
+export type SubscriptionUsedMainPageByDB = {
+  likeNum: number,
+  imgLink: string,
+}
+
 export type Writing = '최신' | '인기';
 export type Children = React.ReactNode;
 
