@@ -25,7 +25,7 @@ export type Search = {
   filter: Writing; //디폴트로 최신을 보여주고 필터로 인기순을 누르면 보여줌
 };
 
-
+export type Children = React.ReactNode;
 export const CARD_WIDTH = 69.06;
 export const CARD_HEIGHT = CARD_WIDTH * 0.7451;
 
