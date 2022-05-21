@@ -16,7 +16,6 @@ const colorAnimation = keyframes`
   }
 `;
 
-// ref: https://stackoverflow.com/questions/18588835/allow-a-div-to-cover-the-whole-page-instead-of-the-area-within-the-container
 export const StyledDarkBody = styled.div<{ isOpen: boolean }>`
   position: fixed;
   padding: 0;
@@ -26,8 +25,6 @@ export const StyledDarkBody = styled.div<{ isOpen: boolean }>`
   width: 100%;
   height: 100%;
   z-index: 1;
-
-  // ref: https://stackoverflow.com/questions/4359627/stopping-a-css3-animation-on-last-frame
   animation: 1s ${colorAnimation} forwards;
 `;
 

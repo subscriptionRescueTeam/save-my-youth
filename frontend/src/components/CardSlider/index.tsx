@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Card from '../Card';
-import PALETTE from '../../constants/palette';
 import { CARD_WIDTH, SubscriptionUsedMainPage } from '../../types';
 import TodaySubscriptionNull from '../TodaySubscriptionNull';
 
@@ -36,7 +35,6 @@ export type CardSliderProps = {
   todaySubscriptions: SubscriptionUsedMainPage[];
 };
 
-// ref: https://github.com/Ziratsu/slider-react/tree/a44cc92f02b0e4995cc661e04c32724fc946ac59
 const CardSlider = ({ todaySubscriptions }: CardSliderProps) => {
   const [slideIndex, setSlideIndex] = useState(0);
 

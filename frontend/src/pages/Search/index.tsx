@@ -2,9 +2,7 @@ import styled from 'styled-components';
 import { Input, CommonHeader } from '../../components';
 import React, { useState, FormEvent } from 'react';
 import useSubscription from '../../hooks/useSubscription';
-import SearchCardItem from '../../components/SearchCardItem';
 import SearchCardList from '../../components/SearchCardList';
-import { Subscription, SummarizedSubscription } from '../../types';
 
 const InputWrapper = styled.div`
   display: flex;
@@ -21,7 +19,6 @@ const Search = () => {
   };
 
   const onKeyPress = (e: any) => {
-    // if (e.key === 'Enter') console.log(subData);
     if (e.key === 'Enter') {
       console.log(subData);
       <SearchCardList subData={subData} />;

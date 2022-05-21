@@ -4,7 +4,6 @@ import PALETTE from '../../constants/palette';
 import tmpImg from '../../assets/images/picture2.png';
 import { useNavigate } from 'react-router-dom';
 import { CARD_HEIGHT, CARD_WIDTH, CARD_MARGIN, CARD_BORDER_RADIUS } from '../../types';
-import { ReactComponent as house1 } from '../../assets/images/house/image1.svg';
 
 // TODO: background -> image 변경
 const StyledCard = styled.article`
