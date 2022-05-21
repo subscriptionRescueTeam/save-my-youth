@@ -11,8 +11,8 @@ export const StyledMainCardList = styled.section`
 `;
 
 export type MainCardProps = {
-  popularityList: Array<SubscriptionUsedMainPage>;
-  likeList: Array<SubscriptionUsedMainPage>;
+  popularityList: SubscriptionUsedMainPage[];
+  likeList: SubscriptionUsedMainPage[];
 };
 
 const MainCardList = ({ popularityList, likeList }: MainCardProps) => {
