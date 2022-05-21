@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 export type MainCardItemProps = {
   title: string;
-  SubscriptionList: Array<SubscriptionUsedMainPage>;
+  SubscriptionList: SubscriptionUsedMainPage[];
 };
 
 export const StyledMainCardItem = styled.div`

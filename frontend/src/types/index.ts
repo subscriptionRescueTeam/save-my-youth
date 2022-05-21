@@ -3,7 +3,7 @@ export type User = {
   name: string; // nickname
   email: string;
   likeNum: number;
-  likeList: Array<Subscription>;
+  likeList: Subscription[];
 };
 
 export type Subscription = {
