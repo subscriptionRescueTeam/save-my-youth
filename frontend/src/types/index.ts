@@ -39,3 +39,5 @@ export type Option = {
   link: string;
   isGetReady?: boolean;
 } & OptionDecoration;
+export type HelpType = { name: string, option: string }
+export type HelpContents = Record<number, Children>;

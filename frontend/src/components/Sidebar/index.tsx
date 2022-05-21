@@ -55,27 +55,24 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
     option: [
       {
         name: '공지사항',
-        link: '/',
+        link: '/help',
         fontSize: '0.875rem',
         underlineHeight: '2px',
         direction: 'right',
-        isGetReady: true,
       },
       {
         name: 'FAQ',
-        link: '/',
+        link: '/help',
         fontSize: '0.875rem',
         underlineHeight: '2px',
         direction: 'right',
-        isGetReady: true,
       },
       {
         name: '1:1 문의',
-        link: '/',
+        link: '/help',
         fontSize: '0.875rem',
         underlineHeight: '2px',
         direction: 'right',
-        isGetReady: true,
       },
     ],
   };
