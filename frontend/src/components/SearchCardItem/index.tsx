@@ -9,18 +9,16 @@ const StyledBox = styled.div`
     display: flex;
     flex-container:space-between;
     align-items:center;
-    @media screen and (min-width: 500px) {
-        flex-direction: column;
-        display: none;
-    }
+    flex-direction: column;
+    width:100%
 `;
 
 const StyledCard = styled.div`
-    margin: 30px 30px 10px 10px;
+    margin: 1em 1em 0.333em 0.333em;
     width: 90%;
-    height: 102px;
-    border: 2px solid ${PALETTE.PRI_LIGHT_010};
-    border-radius:10px;
+    height: 30%;
+    border: 0.1em solid ${PALETTE.PRI_LIGHT_010};
+    border-radius:1em;
     display: flex;
     flex-direction:column;
     background-color: #FFFFFF;
@@ -28,41 +26,41 @@ const StyledCard = styled.div`
 
 const StyledText = styled.div`
     text-align:left;
-    padding-left:10px;
-    padding-top:10px;
+    padding-left:1em;
+    padding-top:1em;
     flex-direction: column;
     align-items:flex-end;
     `;
 
 const StyledTitle = styled.div`
-    font-size:14px;
+    font-size:0.8em;
     font-weight:bold;
-    padding-left:20px;
-    padding-top:10px;
+    padding-left:1.5em;
+    padding-top:1em;
 `
 
 const StyledLocal = styled.div`
-    padding-left:20px;
-    padding-top:5px;
-    font-size:12px;
+    padding-left:1.5em;
+    padding-top:0.5em;
+    font-size:0.7em;
     color:${PALETTE.PRI_DARK_010};
     align-items:left;
 `
 
 const StyledDate = styled.div`
-    padding-left:20px;
-    padding-top:5px;
-    font-size:12px;
+    padding-left:1.5em;
+    padding-top:0.5em;
+    font-size:0.7em;
     color:${PALETTE.DARK_020};
     align-items:left;
 
 `
 const StyledLike = styled.div`
-  font-size: 12px;
+  font-size: 0.7em;
   color: ${PALETTE.DARK_020};
   align-items:right;
-  padding-right:10px;
-  padding-bottom:10px;
+  padding-right:0.5em;
+  padding-bottom:0.5em;
   margin: auto 0 0 auto;
 `
 

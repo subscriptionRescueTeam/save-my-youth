@@ -15,7 +15,6 @@ export type Subscription = {
   applyStartDate: string;
   applyEndDate: string;
   applyHomepage: string;
-  likeNum: number;
 };
 
 export type SummarizedSubscription = {
@@ -27,7 +26,6 @@ export type SummarizedSubscription = {
   applyStartDate: string;
   applyEndDate: string;
   applyHomepage: string;
-  likeNum: number;
 }
 
 export type Writing = '최신' | '인기';

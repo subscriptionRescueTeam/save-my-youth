@@ -34,7 +34,7 @@ const Search = () => {
       <CommonHeader title="검색" />
       <InputWrapper>
         <Input
-          placeholder="검색어를 입력하세요 (ex. 월세, 전세 등)"
+          placeholder="검색어를 입력하세요 (ex.지역)"
           onChange={onChangeData}
           onKeyPress={onKeyPress}
         />
