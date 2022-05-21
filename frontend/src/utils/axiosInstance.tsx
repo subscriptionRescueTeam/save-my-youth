@@ -36,14 +36,13 @@ axiosInstance.interceptors.response.use(
     if (error.response.status === 401) {
       const RefreshToken = await cookies.get('RefreshToken');
 
-      const { data } = await axios({
-        url: `${BASE_URL}api/token/refresh/`,
-        headers: {
-          Authorization: RefreshToken,
-        },
-        method: 'POST',
+      const { data } = await axios.post(`${BASE_URL}api/token/refresh/`, {
+        refresh: RefreshToken
       });
-      const { AccessToken: newAccessToken, RefreshToken: newRefreshToken } = data;
+
+      const newAccessToken = data.access;
+      const newRefreshToken = data.refresh;
+
       await cookies.set('AccessToken', newAccessToken, {
         path: '/',
         secure: true,
@@ -54,7 +53,7 @@ axiosInstance.interceptors.response.use(
         secure: true,
         sameSite: false,
       });
-      originalRequest.headers['Authorization'] = newAccessToken;
+      originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
 
       const retryOriginalRequest = new Promise((resolve) => {
         resolve(axiosInstance(originalRequest));
