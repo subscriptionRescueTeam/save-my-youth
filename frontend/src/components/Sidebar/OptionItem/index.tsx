@@ -17,7 +17,7 @@ const StyledButton = styled.button<{
   width: 100%;
   height: 3.5rem;
   text-align: left;
-  padding: 1rem 1.5rem 1rem 1.5rem;
+  padding: 1rem 1.5rem;
   border-bottom: ${(props) => props.underlineHeight} solid ${PALETTE.LIGHT_010};
 `;
 
