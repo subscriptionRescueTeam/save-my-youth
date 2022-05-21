@@ -21,7 +21,7 @@ const StyledCard = styled.div`
     border-radius:1em;
     display: flex;
     flex-direction:column;
-    background-color: #FFFFFF;
+    background-color: ${PALETTE.WHITE};
     `;
 
 const StyledText = styled.div`
