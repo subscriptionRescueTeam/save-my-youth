@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import OptionItem from './OptionItem';
 import OptionList from './OptionList';
-import { Option } from '../../types';
+import { AccordionType, Option } from '../../types';
 import Accordion from '../Accordion';
 
 export type SidebarProps = {
@@ -10,7 +10,7 @@ export type SidebarProps = {
 };
 
 const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
-  const userSetting: Array<Option> = [
+  const userSetting: Option[] = [
     {
       name: '사용자 님',
       link: '/mypage',
@@ -42,17 +42,15 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
     },
   ];
 
-  const help: Record<string, Array<Option>> = {
-    title: [
-      {
-        name: '고객센터',
-        link: '/',
-        fontSize: '1rem',
-        fontWeight: 'bold',
-        underlineHeight: '2px',
-      },
-    ],
-    option: [
+  const help: AccordionType = {
+    head: {
+      name: '고객센터',
+      link: '/',
+      fontSize: '1rem',
+      fontWeight: 'bold',
+      underlineHeight: '2px',
+    },
+    tails: [
       {
         name: '공지사항',
         link: '/help',
@@ -77,7 +75,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
     ],
   };
 
-  const connection: Array<Option> = [
+  const connection: Option[] = [
     {
       name: '로그아웃',
       link: '/',
@@ -108,7 +106,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
         </Link>
       ))}
 
-      <Accordion options={help} />
+      <Accordion contents={help} />
 
       {connection.map((option) => (
         <Link key={`${option.name}-${option.link}`} to={option.link}>
