@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { useCallback, useState } from 'react';
-import { ReactComponent as HeaderTitle } from '../../assets/icons/headertitle.svg';
+import { ReactComponent as HeaderTitle } from '../../assets/icons/headerTitle.svg';
 import { ReactComponent as Hamburger } from '../../assets/icons/hamburger.svg';
 import Sidebar from '../Sidebar';
 import { useNavigate } from 'react-router-dom';
