@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 export type User = {
   name: string; // nickname
   email: string;
@@ -18,27 +18,27 @@ export type Subscription = {
 };
 
 export type SummarizedSubscription = {
-  id: number,
-  houseName: string,
-  houseLocation: string,
-  applyScale: number,
+  id: number;
+  houseName: string;
+  houseLocation: string;
+  applyScale: number;
   recNotice: string;
   applyStartDate: string;
   applyEndDate: string;
   applyHomepage: string;
-}
+};
 export type SubscriptionUsedMainPage = SubscriptionUsedMainPageByAPI & SubscriptionUsedMainPageByDB;
 
 export type SubscriptionUsedMainPageByAPI = {
   id: number;
   houseName: string;
   recNotice: string;
-}
+};
 
 export type SubscriptionUsedMainPageByDB = {
-  likeNum: number,
-  imgLink: string,
-}
+  likeNum: number;
+  imgLink: string;
+};
 
 export type Writing = '최신' | '인기';
 export type Children = React.ReactNode;
@@ -61,10 +61,10 @@ export type Option = {
   isGetReady?: boolean;
 } & OptionDecoration;
 
-export type HelpType = { name: string, option: string }
-export type HelpContents = Record<number, Children>;
+export type HelpType = { name: string; option: string };
+export type HelpContents = Record<number, JSX.Element>;
 
-export type AccordionType = { head: Option, tails: Option[] }
+export type AccordionType = { head: Option; tails: Option[] };
 
 export const CARD_WIDTH = 260;
 export const CARD_HEIGHT = 194;
