@@ -1,8 +1,9 @@
+import React from 'react'
 export type User = {
   name: string; // nickname
   email: string;
   likeNum: number;
-  likeList: Array<Subscription>;
+  likeList: Subscription[];
 };
 
 export type Subscription = {
@@ -16,6 +17,29 @@ export type Subscription = {
   applyHomepage: string;
 };
 
+export type SummarizedSubscription = {
+  id: number,
+  houseName: string,
+  houseLocation: string,
+  applyScale: number,
+  recNotice: string;
+  applyStartDate: string;
+  applyEndDate: string;
+  applyHomepage: string;
+}
+export type SubscriptionUsedMainPage = SubscriptionUsedMainPageByAPI & SubscriptionUsedMainPageByDB;
+
+export type SubscriptionUsedMainPageByAPI = {
+  id: number;
+  houseName: string;
+  recNotice: string;
+}
+
+export type SubscriptionUsedMainPageByDB = {
+  likeNum: number,
+  imgLink: string,
+}
+
 export type Writing = '최신' | '인기';
 export type Children = React.ReactNode;
 
@@ -24,5 +48,25 @@ export const CARD_HEIGHT = CARD_WIDTH * 0.7451;
 
 export type slidDirection = 'left' | 'right';
 
+export type ArrowDirection = 'right' | 'down' | 'up';
+
+export type OptionDecoration = {
+  fontSize?: string;
+  fontWeight?: string;
+  underlineHeight?: string;
+  direction?: ArrowDirection | null;
+  disabled?: boolean;
+};
+
+export type Option = {
+  name: string;
+  link: string;
+  isGetReady?: boolean;
+} & OptionDecoration;
+
 export type HelpType = { name: string, option: string }
 export type HelpContents = Record<number, Children>;
+
+export type AccordionType = { head: Option, tails: Option[] }
+
+

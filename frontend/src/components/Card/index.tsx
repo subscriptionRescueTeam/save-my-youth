@@ -32,7 +32,7 @@ const StyledTitleContainer = styled.div`
   height: 36.26%;
   border-radius: 0 0 ${BORDER_RADIUS} ${BORDER_RADIUS};
   background-color: ${PALETTE.LIGHT_010};
-  padding: 8px 12px 8px 12px;
+  padding: 8px 12px;
 `;
 
 const StyledTitle = styled.span`

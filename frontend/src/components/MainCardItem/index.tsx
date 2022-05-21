@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import ListTitle from '../ListTitle';
-import { Subscription } from '../../types';
+import { SubscriptionUsedMainPage } from '../../types';
 import { useNavigate } from 'react-router-dom';
 
 export type MainCardItemProps = {
   title: string;
-  SubscriptionList: Array<Subscription>;
+  SubscriptionList: SubscriptionUsedMainPage[];
 };
 
 export const StyledMainCardItem = styled.div`
