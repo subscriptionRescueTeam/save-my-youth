@@ -7,6 +7,8 @@ import { CSSProperties } from 'react';
 import { ReactComponent as Logo } from '../../assets/icons/logo.svg';
 import { ReactComponent as GoogleLogo } from '../../assets/icons/google.svg';
 import { Link } from 'react-router-dom';
+import { Cookies } from 'react-cookie';
+
 
 const StyledTitleContainer = styled.div`
   display: flex;
@@ -65,6 +67,8 @@ const StyledMaker = styled.span`
   bottom: 24px;
 `;
 
+const cookies = new Cookies();
+
 const Login = () => {
   const loginSuccess = async (response: any) => {
     const res = await fetch('https://secret-reaches-74853.herokuapp.com/api/social-login/google/', {
@@ -77,7 +81,11 @@ const Login = () => {
       },
     });
     const data = await res.json();
-    localStorage.setItem('loginData', JSON.stringify(data));
+    cookies.set('AccessToken', data.access_token);
+    cookies.set('RefreshToken', data.refresh_token);
+    cookies.set('UserInfo', data.user);
+    //localStorage.setItem('loginData', JSON.stringify(data));
+
   };
 
   const loginFail = () => {
@@ -86,7 +94,6 @@ const Login = () => {
 
   const test = async () => {
     const response = await axiosInstance.get('api/user/');
-    console.log(response);
   };
 
   const LoginButtonCss: CSSProperties = {
