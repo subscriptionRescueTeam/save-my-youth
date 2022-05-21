@@ -20,7 +20,7 @@ const Slide = styled.div`
 const StyledDotsContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin: 1.5rem 0 1.5rem 0;
+  margin: 1.5rem 0;
 `;
 
 const StyledDot = styled.button<{ active: boolean }>`
