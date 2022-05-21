@@ -8,7 +8,7 @@ export const StyledListTitle = styled.div<{ underline: boolean; color?: string }
   width: 100%;
   height: 24px;
   border-bottom: ${(props) => (props.underline ? '0.2rem' : 0)} solid
-    ${(props) => (props.color ? props.color : '#DDDDDD')};
+    ${(props) => (props.color ? props.color : PALETTE.WHITE)};
   margin: 1rem 0;
 `;
 
