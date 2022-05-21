@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
 import { Subscription } from '../types';
 
-const useSubscription = (keyword?: string) => {
+const useSearch = (keyword?: string) => {
   const [subData, setSubData] = useState<Subscription[]>([]);
 
   const getPosts = async (SUBSCRPT_AREA_CODE_NM?: string) => {
@@ -39,4 +39,4 @@ const useSubscription = (keyword?: string) => {
   return { subData };
 };
 
-export default useSubscription;
+export default useSearch;
