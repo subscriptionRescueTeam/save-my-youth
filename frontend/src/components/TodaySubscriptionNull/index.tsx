@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import PALETTE from '../../constants/palette';
 import { CARD_HEIGHT, CARD_MARGIN, CARD_WIDTH } from '../../types';
@@ -40,21 +40,15 @@ export const StyledButton = styled.button`
 `;
 
 const TodaySubscriptionNull = () => {
-  const navigate = useNavigate();
-
   return (
     <StyledCard>
       <StyledCommentContainer>
         <StyledComment>오늘은 올라온 공고가 더 이상 없네요</StyledComment>
         <StyledComment>제일 빠른 공고를 둘러볼까요?</StyledComment>
       </StyledCommentContainer>
-      <StyledButton
-        onClick={() => {
-          () => navigate('/search');
-        }}
-      >
-        최신 공고 보러가기
-      </StyledButton>
+      <Link to="/search">
+        <StyledButton>최신 공고 보러가기</StyledButton>
+      </Link>
     </StyledCard>
   );
 };
