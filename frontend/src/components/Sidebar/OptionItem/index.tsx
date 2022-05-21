@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import { OptionDecoration } from '..';
 import { ReactComponent as ArrowRight } from '../../../assets/icons/arrowRight.svg';
 import { ReactComponent as ArrowDown } from '../../../assets/icons/arrowDown.svg';
 import { ReactComponent as ArrowUp } from '../../../assets/icons/arrowUp.svg';
 import PALETTE from '../../../constants/palette';
-import { Children } from '../../../types';
+import { Children, OptionDecoration } from '../../../types';
 
 const StyledContainer = styled.div`
   width: 100%;
