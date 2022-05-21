@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Card from '../Card';
-import tmpImg from '../../assets/images/picture2.png';
 import PALETTE from '../../constants/palette';
-import { CARD_WIDTH } from '../../types';
+import { CARD_WIDTH, SubscriptionUsedMainPage } from '../../types';
 
 const DOT_RADIUS = '6px';
 
@@ -48,13 +47,13 @@ const StyledCardConatiner = styled.div`
   }
 `;
 
-const StyledCardSlider = styled.div<{ slideIndex: number }>`
+const StyledCardSlider = styled.div<{ slideIndex: number; todaySubscriptionsLength: number }>`
   height: 100%;
   display: flex;
   transition: all 1s ease;
   transform: translateX(
     ${(props) =>
-      props.slideIndex * -CARD_WIDTH + (CARD_WIDTH * (subscriptionList.length - 1)) / 2}vw
+      props.slideIndex * -CARD_WIDTH + (CARD_WIDTH * (props.todaySubscriptionsLength - 1)) / 2}vw
   );
 `;
 
@@ -78,47 +77,12 @@ const StyledArrow = styled.div<{ direction: string }>`
   z-index: 2;
 `;
 
-const subscriptionList = [
-  {
-    id: 1,
-    title: '제 1차 장기전세주택 입주자모집공고',
-    likeNum: 26,
-    imgLink: tmpImg,
-  },
-  {
-    id: 2,
-    title: '제 1차 장기전세주택 입주자모집공고',
-    likeNum: 26,
-    imgLink: tmpImg,
-  },
-  {
-    id: 3,
-    title: '제 1차 장기전세주택 입주자모집공고',
-    likeNum: 26,
-    imgLink: tmpImg,
-  },
-  {
-    id: 4,
-    title: '제 1차 장기전세주택 입주자모집공고',
-    likeNum: 26,
-    imgLink: tmpImg,
-  },
-  {
-    id: 5,
-    title: '제 1차 장기전세주택 입주자모집공고',
-    likeNum: 26,
-    imgLink: tmpImg,
-  },
-  {
-    id: 6,
-    title: '제 1차 장기전세주택 입주자모집공고',
-    likeNum: 26,
-    imgLink: tmpImg,
-  },
-];
+export type CardSliderProps = {
+  todaySubscriptions: SubscriptionUsedMainPage[];
+};
 
 // ref: https://github.com/Ziratsu/slider-react/tree/a44cc92f02b0e4995cc661e04c32724fc946ac59
-const CardSlider = () => {
+const CardSlider = ({ todaySubscriptions }: CardSliderProps) => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   // const handleClick = (direction: slidDirection) => {
@@ -136,20 +100,28 @@ const CardSlider = () => {
   return (
     <section>
       <StyledCardConatiner>
-        <StyledCardSlider slideIndex={slideIndex} onScroll={() => console.log('drag')}>
-          {subscriptionList.map((subscription) => (
-            <Card key={subscription.id} title={subscription.title} likeNum={subscription.likeNum} />
+        <StyledCardSlider
+          slideIndex={slideIndex}
+          todaySubscriptionsLength={todaySubscriptions.length}
+          onScroll={() => console.log('drag')}
+        >
+          {todaySubscriptions.map((todaySubscription) => (
+            <Card
+              key={todaySubscription.id}
+              title={todaySubscription.houseName}
+              likeNum={todaySubscription.likeNum}
+            />
           ))}
         </StyledCardSlider>
       </StyledCardConatiner>
 
       <StyledDotsContainer>
-        {Array.from({ length: subscriptionList.length }).map((item, index) => (
+        {Array.from({ length: todaySubscriptions.length }).map((item, index) => (
           <StyledDot
             key={`${index}-${item}`}
             active={slideIndex === index}
             onClick={() => onDotClick(index)}
-          ></StyledDot>
+          />
         ))}
       </StyledDotsContainer>
     </section>
