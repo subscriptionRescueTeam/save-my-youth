@@ -7,6 +7,7 @@ import TodaySubscriptionNull from '../TodaySubscriptionNull';
 
 // TODO: 스크롤 맨 오른쪽까지 되게 수정
 const StyledCardConatiner = styled.div`
+  position: relative;
   width: 100%;
   overflow-x: scroll; // PC
   //-webkit-overflow-scrolling: touch; // mobile */
@@ -19,13 +20,16 @@ const StyledCardConatiner = styled.div`
 `;
 
 const StyledCardSlider = styled.div<{ slideIndex: number; todaySubscriptionsLength: number }>`
+  position: relative;
+  top: 0;
+  left: 100px;
   height: 100%;
   display: flex;
   transition: all 1s ease;
-  transform: translateX(
+  /* transform: translateX(
     ${(props) =>
-      props.slideIndex * -CARD_WIDTH + (CARD_WIDTH * (props.todaySubscriptionsLength - 1)) / 2}px
-  );
+    props.slideIndex * -CARD_WIDTH + (CARD_WIDTH * (props.todaySubscriptionsLength - 2)) / 2}px
+  ); */
 `;
 
 export type CardSliderProps = {
