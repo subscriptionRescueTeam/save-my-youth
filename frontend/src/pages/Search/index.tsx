@@ -6,7 +6,6 @@ import SearchCardItem from '../../components/SearchCardItem';
 import SearchCardList from '../../components/SearchCardList';
 import { Subscription, SummarizedSubscription } from '../../types';
 
-
 const InputWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -25,7 +24,7 @@ const Search = () => {
     // if (e.key === 'Enter') console.log(subData);
     if (e.key === 'Enter') {
       console.log(subData);
-      <SearchCardList subData= {subData}/>
+      <SearchCardList subData={subData} />;
     }
   };
 
@@ -39,7 +38,7 @@ const Search = () => {
           onKeyPress={onKeyPress}
         />
       </InputWrapper>
-      <SearchCardList subData= {subData}/>
+      <SearchCardList subData={subData} />
     </>
   );
 };
