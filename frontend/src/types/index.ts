@@ -22,6 +22,10 @@ export type SummarizedSubscription = {
   houseName: string,
   houseLocation: string,
   applyScale: number,
+  recNotice: string;
+  applyStartDate: string;
+  applyEndDate: string;
+  applyHomepage: string;
 }
 
 export type Writing = '최신' | '인기';

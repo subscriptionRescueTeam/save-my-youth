@@ -24,6 +24,7 @@ const Search = () => {
   const onKeyPress = (e: any) => {
     // if (e.key === 'Enter') console.log(subData);
     if (e.key === 'Enter') {
+      console.log(subData);
       <SearchCardList subData= {subData}/>
     }
   };
@@ -39,7 +40,6 @@ const Search = () => {
         />
       </InputWrapper>
       <SearchCardList subData= {subData}/>
-      {/* {keyword} view props={subData} */}
     </>
   );
 };
