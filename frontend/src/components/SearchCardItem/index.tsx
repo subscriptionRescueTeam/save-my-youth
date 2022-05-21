@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const StyledBox = styled.div`
     display: flex;
-    flex-container:space-between;
+    flex:space-between;
     align-items:center;
     flex-direction: column;
     width:100%
@@ -17,7 +17,7 @@ const StyledCard = styled.div`
     margin: 1em 1em 0.333em 0.333em;
     width: 90%;
     height: 30%;
-    border: 0.1em solid ${PALETTE.PRI_LIGHT_010};
+    border: 0.1em solid ${PALETTE.PRI_LIGHT_010}; 
     border-radius:1em;
     display: flex;
     flex-direction:column;

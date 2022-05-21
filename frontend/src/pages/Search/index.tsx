@@ -22,10 +22,8 @@ const Search = () => {
   };
 
   const onKeyPress = (e: any) => {
-    // if (e.key === 'Enter') console.log(subData);
     if (e.key === 'Enter') {
-      console.log(subData);
-      <SearchCardList subData= {subData}/>
+      <SearchCardList subData={subData} />
     }
   };
 
@@ -39,7 +37,7 @@ const Search = () => {
           onKeyPress={onKeyPress}
         />
       </InputWrapper>
-      <SearchCardList subData= {subData}/>
+      <SearchCardList subData={subData} />
     </>
   );
 };
