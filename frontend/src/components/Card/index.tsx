@@ -3,14 +3,14 @@ import { ReactComponent as BlueHeart } from '../../assets/icons/blueHeart.svg';
 import PALETTE from '../../constants/palette';
 import tmpImg from '../../assets/images/picture2.png';
 import { useNavigate } from 'react-router-dom';
-import { CARD_HEIGHT, CARD_WIDTH } from '../../types';
+import { CARD_HEIGHT, CARD_WIDTH, CARD_MARGIN } from '../../types';
 
 const BORDER_RADIUS = '8px';
 
 // TODO: background -> image 변경
 const StyledCard = styled.article<{ backgroundImg: string }>`
-  width: ${CARD_WIDTH}vw;
-  height: ${CARD_HEIGHT}vw;
+  width: ${CARD_WIDTH}px;
+  height: ${CARD_HEIGHT}px;
   border-radius: ${BORDER_RADIUS};
   background-image: url(${tmpImg});
   background-repeat: no-repeat;
@@ -19,7 +19,7 @@ const StyledCard = styled.article<{ backgroundImg: string }>`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  margin: 0.375rem;
+  margin: ${CARD_MARGIN}px;
   cursor: pointer;
 `;
 
