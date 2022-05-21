@@ -3,7 +3,7 @@ import { Input, CommonHeader } from '../../components';
 import React, { useState, FormEvent } from 'react';
 import useSubscription from '../../hooks/useSubscription';
 import SearchCardItem from '../../components/SearchCardItem';
-import SearchCardList, {SearchCardListProps} from '../../components/SearchCardList';
+import SearchCardList from '../../components/SearchCardList';
 import { Subscription, SummarizedSubscription } from '../../types';
 
 
