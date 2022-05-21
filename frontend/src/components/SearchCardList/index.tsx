@@ -21,7 +21,7 @@ const SearchCardList = ({subData}: SearchCardListProps) => {
         applyHomepage: data.applyHomepage
       }
 
-      return <SearchCardItem key={summarizedSubscription.id} subscription={summarizedSubscription}></SearchCardItem>
+      return <SearchCardItem key={summarizedSubscription.id} subscription={summarizedSubscription}/>
     })
   }</article>
 };
