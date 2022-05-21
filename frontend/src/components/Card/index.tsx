@@ -9,7 +9,7 @@ import { CARD_HEIGHT, CARD_WIDTH, CARD_MARGIN, CARD_BORDER_RADIUS } from '../../
 const StyledCard = styled.article<{ backgroundImg: string }>`
   width: ${CARD_WIDTH}px;
   height: ${CARD_HEIGHT}px;
-  border-radius: ${CARD_BORDER_RADIUS};
+  border-radius: ${CARD_BORDER_RADIUS}px;
   background-image: url(${tmpImg});
   background-repeat: no-repeat;
   background-size: cover;
@@ -28,7 +28,7 @@ const StyledTitleContainer = styled.div`
   align-items: flex-end;
   width: 100%;
   height: 36.26%;
-  border-radius: 0 0 ${CARD_BORDER_RADIUS} ${CARD_BORDER_RADIUS};
+  border-radius: 0 0 ${CARD_BORDER_RADIUS}px ${CARD_BORDER_RADIUS}px;
   background-color: ${PALETTE.LIGHT_010};
   padding: 8px 12px;
 `;

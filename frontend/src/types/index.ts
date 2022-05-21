@@ -69,4 +69,4 @@ export type AccordionType = { head: Option, tails: Option[] }
 export const CARD_WIDTH = 260;
 export const CARD_HEIGHT = 194;
 export const CARD_MARGIN = 6;
-export const CARD_BORDER_RADIUS = '8px';
+export const CARD_BORDER_RADIUS = 8;
