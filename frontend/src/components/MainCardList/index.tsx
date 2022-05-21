@@ -8,6 +8,7 @@ export const StyledMainCardList = styled.section`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  margin-top: 3rem;
 `;
 
 export type MainCardProps = {
