@@ -1,7 +1,9 @@
 import { Input, MainCardList, LayoutNavigation, CardSlider } from '../../components';
 import styled from 'styled-components';
 import PALETTE from '../../constants/palette';
-import useSubscription from '../../hooks/useSubscription';
+import { SubscriptionUsedMainPage } from '../../types';
+import useTodaySubscription from '../../hooks/useTodaySubscription';
+import useTheOtherDaySubscription from '../../hooks/useTheOtherDaySubscription';
 
 export const StyledMainWrapper = styled.div`
   display: flex;
@@ -19,7 +21,22 @@ export const StyledColorSpan = styled.span`
 `;
 
 const Home = () => {
-  const { subData } = useSubscription();
+  const { todaySubscriptions } = useTodaySubscription();
+  const { theOtherDaySubscriptions } = useTheOtherDaySubscription();
+
+  const popularityList = theOtherDaySubscriptions
+    .sort((a: SubscriptionUsedMainPage, b: SubscriptionUsedMainPage) => {
+      return new Date(a.likeNum).getDate() - new Date(b.likeNum).getDate();
+    })
+    .slice(0, 3);
+
+  const likeList = theOtherDaySubscriptions
+    .sort((a: SubscriptionUsedMainPage, b: SubscriptionUsedMainPage) => {
+      return new Date(b.recNotice).getDate() - new Date(a.recNotice).getDate();
+    })
+    .slice(0, 3);
+
+  console.log(likeList);
 
   return (
     <LayoutNavigation>
@@ -27,11 +44,11 @@ const Home = () => {
       <StyledMainWrapper>
         <div>오늘의 청약</div>
         <div>
-          <StyledColorSpan>9</StyledColorSpan>건
+          <StyledColorSpan>{todaySubscriptions.length}</StyledColorSpan>건
         </div>
       </StyledMainWrapper>
-      <CardSlider />
-      <MainCardList popularityList={subData.slice(0, 3)} likeList={subData.slice(4, 7)} />
+      <CardSlider todaySubscriptions={todaySubscriptions} />
+      <MainCardList popularityList={popularityList} likeList={likeList} />
     </LayoutNavigation>
   );
 };

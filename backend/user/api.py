@@ -2,6 +2,7 @@ from ninja import Router
 
 from subscription.models import UserSubscription, Subscription
 from . import schema
+from user.models import User
 
 
 user_router = Router(tags=["사용자 API"])
@@ -15,7 +16,7 @@ user_router = Router(tags=["사용자 API"])
 def get_user(request):
 
     user_subscription = UserSubscription.objects.filter(user_id=request.auth.id)
-    user = request.user
+    user = User.objects.get(id=request.auth.id)
     like = []
 
     for sub in user_subscription:
