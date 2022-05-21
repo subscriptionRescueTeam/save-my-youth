@@ -1,53 +1,48 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Option } from '../../types';
+import { AccordionType } from '../../types';
 import OptionItem from '../Sidebar/OptionItem';
 
 export type AccodionProps = {
-  options: Record<string, Array<Option>>;
+  contents: AccordionType;
 };
 
-const Accordion = ({ options }: AccodionProps) => {
+const Accordion = ({ contents: { head, tails } }: AccodionProps) => {
   const [titleClicked, setTitleClicked] = useState(false);
 
   const toggleAccodion = () => {
     return setTitleClicked(!titleClicked);
   };
-  return (
-    <div id="accordion">
-      <div id="고객센터" onClick={toggleAccodion}>
-        {options.title.map((option) => {
-          const dynamicDirection = titleClicked ? 'up' : 'down';
 
-          return (
-            <OptionItem
-              key={option.name}
-              fontSize={option.fontSize}
-              fontWeight={option.fontWeight}
-              underlineHeight={option.underlineHeight}
-              direction={dynamicDirection}
-              disabled={option.disabled}
-              isGetReady={option.isGetReady}
-            >
-              {option.name}
-            </OptionItem>
-          );
-        })}
+  return (
+    <div>
+      <div onClick={toggleAccodion}>
+        <OptionItem
+          key={head.name}
+          fontSize={head.fontSize}
+          fontWeight={head.fontWeight}
+          underlineHeight={head.underlineHeight}
+          direction={titleClicked ? 'up' : 'down'}
+          disabled={head.disabled}
+          isGetReady={head.isGetReady}
+        >
+          {head.name}
+        </OptionItem>
       </div>
 
       {titleClicked && (
-        <div id="옵션">
-          {options.option.map((option) => (
-            <Link key={`${option.name}-${option.link}`} to={option.link}>
+        <div>
+          {tails.map((tail) => (
+            <Link key={`${tail.name}-${tail.link}`} to={tail.link}>
               <OptionItem
-                fontSize={option.fontSize}
-                fontWeight={option.fontWeight}
-                underlineHeight={option.underlineHeight}
-                direction={option.direction}
-                disabled={option.disabled}
-                isGetReady={option.isGetReady}
+                fontSize={tail.fontSize}
+                fontWeight={tail.fontWeight}
+                underlineHeight={tail.underlineHeight}
+                direction={tail.direction}
+                disabled={tail.disabled}
+                isGetReady={tail.isGetReady}
               >
-                {option.name}
+                {tail.name}
               </OptionItem>
             </Link>
           ))}
