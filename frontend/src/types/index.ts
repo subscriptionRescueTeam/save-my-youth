@@ -1,3 +1,4 @@
+import React from 'react'
 export type User = {
   name: string; // nickname
   email: string;
@@ -16,6 +17,16 @@ export type Subscription = {
   applyHomepage: string;
 };
 
+export type SummarizedSubscription = {
+  id: number,
+  houseName: string,
+  houseLocation: string,
+  applyScale: number,
+  recNotice: string;
+  applyStartDate: string;
+  applyEndDate: string;
+  applyHomepage: string;
+}
 export type SubscriptionUsedMainPage = SubscriptionUsedMainPageByAPI & SubscriptionUsedMainPageByDB;
 
 export type SubscriptionUsedMainPageByAPI = {

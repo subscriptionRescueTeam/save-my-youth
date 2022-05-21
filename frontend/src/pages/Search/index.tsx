@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import { Input, CommonHeader } from '../../components';
 import React, { useState, FormEvent } from 'react';
 import useSubscription from '../../hooks/useSubscription';
+import SearchCardItem from '../../components/SearchCardItem';
+import SearchCardList from '../../components/SearchCardList';
+import { Subscription, SummarizedSubscription } from '../../types';
+
 
 const InputWrapper = styled.div`
   display: flex;
@@ -18,7 +22,11 @@ const Search = () => {
   };
 
   const onKeyPress = (e: any) => {
-    if (e.key === 'Enter') console.log(subData);
+    // if (e.key === 'Enter') console.log(subData);
+    if (e.key === 'Enter') {
+      console.log(subData);
+      <SearchCardList subData= {subData}/>
+    }
   };
 
   return (
@@ -26,12 +34,12 @@ const Search = () => {
       <CommonHeader title="검색" />
       <InputWrapper>
         <Input
-          placeholder="검색어를 입력하세요 (ex. 월세, 전세 등)"
+          placeholder="검색어를 입력하세요 (ex.지역)"
           onChange={onChangeData}
           onKeyPress={onKeyPress}
         />
       </InputWrapper>
-      {keyword}
+      <SearchCardList subData= {subData}/>
     </>
   );
 };

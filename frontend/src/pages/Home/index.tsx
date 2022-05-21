@@ -40,7 +40,7 @@ const Home = () => {
 
   return (
     <LayoutNavigation>
-      <Input placeholder="검색어를 입력하세요 (ex. 월세, 전세 등)" />
+      <Input placeholder="검색어를 입력하세요 (ex.지역)" />
       <StyledMainWrapper>
         <div>오늘의 청약</div>
         <div>
