@@ -17,7 +17,7 @@ const StyledCard = styled.article`
   cursor: pointer;
 `;
 
-const StyledImage = styled.div<{ image: React.Component }>`
+const StyledImage = styled.div<{ image: string }>`
   width: 100%;
   height: 124px;
   border-radius: ${CARD_BORDER_RADIUS}px ${CARD_BORDER_RADIUS}px 0 0;
@@ -54,16 +54,16 @@ const StyledLikeNum = styled.span`
 `;
 
 export type CardProps = {
-  backgroundImg?: string;
+  image?: string;
   title: string;
   likeNum: number;
 };
 
-const Card = ({ backgroundImg = tmpImg, title, likeNum }: CardProps) => {
+const Card = ({ image = tmpImg, title, likeNum }: CardProps) => {
   let navigate = useNavigate();
   return (
     <StyledCard onClick={() => navigate('/detail')}>
-      <StyledImage image={house1} />
+      <StyledImage image={image} />
       <StyledTitle>{title}</StyledTitle>
       <StyledLikeNumContainer>
         <BlueHeart />
