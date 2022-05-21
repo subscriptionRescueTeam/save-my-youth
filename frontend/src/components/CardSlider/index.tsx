@@ -5,8 +5,6 @@ import PALETTE from '../../constants/palette';
 import { CARD_WIDTH, SubscriptionUsedMainPage } from '../../types';
 import TodaySubscriptionNull from '../TodaySubscriptionNull';
 
-const DOT_RADIUS = '6px';
-
 // TODO: 스크롤 맨 오른쪽까지 되게 수정
 const StyledCardConatiner = styled.div`
   width: 100%;
@@ -57,7 +55,6 @@ const CardSlider = ({ todaySubscriptions }: CardSliderProps) => {
               likeNum={todaySubscription.likeNum}
             />
           ))}
-          <TodaySubscriptionNull />
           {todaySubscriptions.length < 2 && <TodaySubscriptionNull />}
         </StyledCardSlider>
       </StyledCardConatiner>
