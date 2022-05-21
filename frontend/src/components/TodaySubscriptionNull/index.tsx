@@ -12,7 +12,6 @@ export const StyledCard = styled.article`
   height: ${CARD_HEIGHT}px;
   background: rgba(171, 210, 254, 0.2);
   border-radius: 8px;
-  padding: 36px 29px;
   margin: ${CARD_MARGIN}px;
 `;
 
@@ -30,13 +29,12 @@ export const StyledComment = styled.span`
 `;
 
 export const StyledButton = styled.button`
-  width: 130px;
-  height: 37px;
   color: ${PALETTE.WHITE};
   background: ${PALETTE.PRI_MAIN};
-  padding: 8px 12px;
+  padding: 0.6rem 1rem;
   border-radius: 8px;
   font-size: 0.875rem;
+  font-family: 'Pretendard-Bold';
 `;
 
 const TodaySubscriptionNull = () => {
