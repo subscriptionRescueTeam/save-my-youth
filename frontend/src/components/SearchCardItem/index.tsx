@@ -1,7 +1,9 @@
+import React from 'react';
 import PALETTE from '../../constants/palette';
 import styled from 'styled-components';;
 import { SummarizedSubscription } from '../../types';
 import { ReactComponent as BlueHeart } from '../../assets/icons/blueHeart.svg';
+import { useNavigate } from 'react-router-dom';
 
 const StyledBox = styled.div`
     display: flex;
@@ -24,10 +26,6 @@ const StyledCard = styled.div`
     background-color: #FFFFFF;
     `;
 
-    // @media screen and (min-width: 500px) {
-    //     flex-direction: column;
-    //     flex-container:space-between;
-    // }    
 const StyledText = styled.div`
     text-align:left;
     padding-left:10px;
@@ -72,15 +70,16 @@ export type SearchCardItemProps = {
     subscription: SummarizedSubscription,
 }
 
-const SearchCardItem = ({subscription}: SearchCardItemProps) => {
+const SearchCardItem = ({ subscription }: SearchCardItemProps) => {
+    const navigate = useNavigate();
     return (
         <StyledBox>
-            <StyledCard>
-            <StyledTitle>{subscription.houseName}</StyledTitle>
+            <StyledCard key={subscription.id} onClick={() => navigate('/detail')}>
+                <StyledTitle>{subscription.houseName}</StyledTitle>
                 <StyledLocal>{subscription.houseLocation}</StyledLocal>
                 <StyledDate>{subscription.applyStartDate}~{subscription.applyEndDate}</StyledDate>
                 <StyledLike>
-                    <BlueHeart/>
+                    <BlueHeart />
                     126
                 </StyledLike>
             </StyledCard>
