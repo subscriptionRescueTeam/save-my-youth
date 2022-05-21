@@ -9,7 +9,6 @@ import { ReactComponent as GoogleLogo } from '../../assets/icons/google.svg';
 import { Link } from 'react-router-dom';
 import { Cookies } from 'react-cookie';
 
-
 const StyledTitleContainer = styled.div`
   display: flex;
   margin-top: 10.81vh;
@@ -50,13 +49,13 @@ const StyledButton = styled.button`
 const StyledGoogle = styled.span`
   font-weight: bold;
   font-size: 1.125rem;
-  color: ${PALETTE.DARK_010};
+  color: ${PALETTE.DARK_040};
   margin: 2px 0 0 8px;
 `;
 
 const StyledToHome = styled.span`
   font-size: 1rem;
-  font-weight: ${PALETTE.DARK_020};
+  color: ${PALETTE.DARK_020};
   border-bottom: 1px solid ${PALETTE.DARK_020};
 `;
 
@@ -85,7 +84,6 @@ const Login = () => {
     cookies.set('RefreshToken', data.refresh_token);
     cookies.set('UserInfo', data.user);
     //localStorage.setItem('loginData', JSON.stringify(data));
-
   };
 
   const loginFail = () => {
@@ -125,7 +123,7 @@ const Login = () => {
         render={(renderProps) => (
           <StyledButton onClick={renderProps.onClick} style={LoginButtonCss}>
             <GoogleLogo></GoogleLogo>
-            <StyledGoogle> Google로 로그인</StyledGoogle>
+            <StyledGoogle>Google로 로그인</StyledGoogle>
           </StyledButton>
         )}
       ></GoogleLogin>

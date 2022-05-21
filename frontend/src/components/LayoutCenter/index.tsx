@@ -6,7 +6,7 @@ export const StyledLayoutCenter = styled.div<{ backgroundColor: string }>`
   min-height: 100vh;
   flex-direction: column;
   align-items: center;
-  background-color: backgroundColor;
+  background-color: ${(props) => props.backgroundColor};
 `;
 
 export const StyledContent = styled.main`
