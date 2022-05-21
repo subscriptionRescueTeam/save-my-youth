@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const colorAnimation = keyframes`
   0% {
-    background: rgba(38, 38, 38, 0);
+    background: transparent;
   }
 
   100% {
