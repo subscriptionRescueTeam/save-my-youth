@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'user', # user app
     'subscription', # 청약 app
 
+    'django_apscheduler',
+
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
@@ -217,7 +219,7 @@ SITE_ID = 1
 from datetime import timedelta
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=20),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
     'ROTATE_REFRESH_TOKENS': True, # IMPORTANT
     'BLACKLIST_AFTER_ROTATION': True, # IMPORTANT
@@ -238,3 +240,7 @@ REST_FRAMEWORK = {
 }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# 장고 스케줄러
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"  # Default
+SCHEDULER_DEFAULT = True

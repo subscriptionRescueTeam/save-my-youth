@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import GoogleLogin from 'react-google-login';
-import axiosInstance from '../../utils/axiosInstance';
 import LayoutCenter from '../../components/LayoutCenter';
 import PALETTE from '../../constants/palette';
 import { CSSProperties } from 'react';
@@ -83,15 +82,10 @@ const Login = () => {
     cookies.set('AccessToken', data.access_token);
     cookies.set('RefreshToken', data.refresh_token);
     cookies.set('UserInfo', data.user);
-    //localStorage.setItem('loginData', JSON.stringify(data));
   };
 
   const loginFail = () => {
     window.alert('로그인 실패했습니다. 관리자에게 문의해주세요.');
-  };
-
-  const test = async () => {
-    const response = await axiosInstance.get('api/user/');
   };
 
   const LoginButtonCss: CSSProperties = {
@@ -131,8 +125,6 @@ const Login = () => {
         <StyledToHome>홈으로 돌아가기</StyledToHome>
       </Link>
       <StyledMaker>@청년을 구해줘</StyledMaker>
-      <button onClick={test}>test</button>
-      {/* TODO: 지우기 */}
     </LayoutCenter>
   );
 };

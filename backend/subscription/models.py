@@ -35,27 +35,40 @@ class UserSubscription(Orderable):
         FieldPanel('user')
     ]
 
+    class Meta:
+        verbose_name_plural = '사용자들'
+        verbose_name = '사용자'
+
 
 # 청약 모델
 class Subscription(ClusterableModel):
-    sub_id = models.IntegerField(default=0, verbose_name='공고번호')
+    expiry = models.BooleanField(default=False, verbose_name='만료')
+    sub_id = models.IntegerField(default=0, verbose_name='공고 번호')
     name = models.CharField(
         max_length=500,
         null=True,
-        verbose_name="주택명",
-        blank=True
+        verbose_name="건물명",
+        blank=False
     )
-    date = models.DateField(
-        null=True,
-        verbose_name="청약 날짜",
+    end_date = models.DateField(
+        null=False,
+        verbose_name="청약 종료 날짜",
         default=datetime.date.today
         )
-    date_widget = widgets.AdminDateInput(attrs = {'placeholder': 'dd-mm-yyyy'}) # 날짜 선택 위젯
+    address = models.CharField(
+        max_length=100,
+        null=True,
+        verbose_name='건물 주소',
+        blank=False
+    )
+    date_widget = widgets.AdminDateInput(attrs = {'placeholder': 'dd-mm-yyyy'})
 
     panels = [
+        FieldPanel('expiry'),
         FieldPanel('sub_id'),
         FieldPanel('name'),
-        FieldPanel('date', widget=date_widget),
+        FieldPanel('address'),
+        FieldPanel('end_date', widget=date_widget),
     ]
 
     like_panels = [
@@ -70,4 +83,5 @@ class Subscription(ClusterableModel):
     )
 
     class Meta:
-        verbose_name_plural = '청약 관리'
+        verbose_name_plural = '청약'
+        verbose_name = '청약'
