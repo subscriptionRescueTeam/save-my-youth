@@ -8,7 +8,7 @@
     { name: '임대조건', option: 'lease' },
     { name: '위치', option: 'location' },
   ];
-  const checkList: any = {
+  const checkList = {
     0: <>분양일정 데이터 연동중이에요!</>,
     1: <>공급대상 데이터 연동중이에요!</>,
     2: <>임대조건 데이터 연동중이에요!</>,
@@ -22,6 +22,7 @@
 import { useState } from 'react';
 import PALETTE from '../../constants/palette';
 import styled from 'styled-components';
+import { HelpContents } from '../../types';
 
 const StyledContentWrapper = styled.div`
   display: flex;
@@ -49,11 +50,21 @@ const StyledMenuTitle = styled.li<{ check?: string; count: number }>`
   }
 `;
 
-const TabBar = ({ menu, checkList }: any) => {
+interface IMenu {
+  name: string;
+  option: string;
+}
+
+type TabBarProps = {
+  menu: IMenu[];
+  checkList: HelpContents;
+};
+
+const TabBar = ({ menu, checkList }: TabBarProps) => {
   const [menuCheck, setMenuCheck] = useState<number>(0);
   const [check, setCheck] = useState<string>(menu[0].option);
 
-  const menuList = menu.map((i: any, index: any) => (
+  const menuList = menu.map((i: any, index: number) => (
     <StyledMenuTitle
       key={i.option}
       id={i.option}
@@ -65,7 +76,7 @@ const TabBar = ({ menu, checkList }: any) => {
     </StyledMenuTitle>
   ));
 
-  const clickFunc = (e: any, index: number) => {
+  const clickFunc = (e: React.BaseSyntheticEvent<MouseEvent>, index: number) => {
     setMenuCheck(index);
     setCheck(e.target.id);
   };

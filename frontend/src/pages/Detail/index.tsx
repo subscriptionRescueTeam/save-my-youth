@@ -5,6 +5,7 @@ import PALETTE from '../../constants/palette';
 import { SaleSchedule, TabBar } from '../../components';
 import CommonHeader from '../../components/CommonHeader';
 import { useNavigate } from 'react-router-dom';
+import { HelpContents } from '../../types';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -53,12 +54,17 @@ const Flex = styled.div`
   display: flex;
 `;
 
+interface IMenu {
+  name: string;
+  option: string;
+}
+
 const Detail = () => {
-  const menu = [
+  const menu: IMenu[] = [
     { name: '청약일정', option: 'schedule' },
     { name: '위치', option: 'location' },
   ];
-  const checkList: any = {
+  const checkList: HelpContents = {
     0: <>청약일정 데이터 연동중이에요!</>,
     1: <SaleSchedule />,
   };
