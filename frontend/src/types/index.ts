@@ -39,5 +39,10 @@ export type Option = {
   link: string;
   isGetReady?: boolean;
 } & OptionDecoration;
+
 export type HelpType = { name: string, option: string }
 export type HelpContents = Record<number, Children>;
+
+export type AccordionType = { head: Option, tails: Option[] }
+
+
