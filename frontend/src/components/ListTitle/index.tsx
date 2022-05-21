@@ -33,7 +33,7 @@ export type ListTitleProps = {
 };
 
 const ListTitle = ({ title, more = '더보기', underline = false }: ListTitleProps) => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <StyledListTitle underline={underline}>
       <StyledTitle>{title}</StyledTitle>

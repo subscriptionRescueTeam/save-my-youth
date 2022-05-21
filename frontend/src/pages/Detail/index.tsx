@@ -63,7 +63,7 @@ const Detail = () => {
     1: <SaleSchedule />,
   };
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <>
       <CommonHeader title="청약 상세" />

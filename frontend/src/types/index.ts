@@ -43,9 +43,6 @@ export type SubscriptionUsedMainPageByDB = {
 export type Writing = '최신' | '인기';
 export type Children = React.ReactNode;
 
-export const CARD_WIDTH = 69.06;
-export const CARD_HEIGHT = CARD_WIDTH * 0.7451;
-
 export type slidDirection = 'left' | 'right';
 
 export type ArrowDirection = 'right' | 'down' | 'up';
@@ -69,4 +66,7 @@ export type HelpContents = Record<number, Children>;
 
 export type AccordionType = { head: Option, tails: Option[] }
 
-
+export const CARD_WIDTH = 260;
+export const CARD_HEIGHT = 194;
+export const CARD_MARGIN = 6;
+export const CARD_BORDER_RADIUS = 8;
