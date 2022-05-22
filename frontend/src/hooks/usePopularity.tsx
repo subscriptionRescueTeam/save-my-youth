@@ -7,10 +7,9 @@ const usePopularity = (keyword?: string) => {
 
     const getPosts = async (sub_id?: any) => {
         try {
-            const popularCode = { sub_id };
 
             const response: AxiosResponse<any> = await axios.get(
-                `https://secret-reaches-74853.herokuapp.com/api/subscription/cond[SUBSCRPT_AREA_CODE_NM::EQ]=${popularCode}`
+                `hhttps://secret-reaches-74853.herokuapp.com/api/like/`
             );
             let res = response.data.subscription_data.data;
             const data = res.map((v: any) => {
@@ -18,7 +17,6 @@ const usePopularity = (keyword?: string) => {
                     id: v.PBLANC_NO,
                     houseName: v.HOUSE_NM,
                     houseLocation: v.HSSPLY_ADRES,
-                    applyStartDate: v.RCEPT_BGNDE,
                     applyEndDate: v.RCEPT_ENDDE,
                 };
                 return subscriptionState;
