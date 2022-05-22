@@ -18,10 +18,14 @@ const StyledCardConatiner = styled.div`
   }
 `;
 
-const StyledCardSlider = styled.div<{ slideIndex: number; todaySubscriptionsLength: number }>`
+const StyledCardSlider = styled.div<{
+  slideIndex: number;
+  todaySubscriptionsLength: number;
+  nullShow: boolean;
+}>`
   position: relative;
   top: 0;
-  left: 100px;
+  left: ${(props) => (props.nullShow ? '0px' : '100px')};
   height: 100%;
   display: flex;
   transition: all 1s ease;
@@ -49,6 +53,7 @@ const CardSlider = ({ todaySubscriptions }: CardSliderProps) => {
           slideIndex={slideIndex}
           todaySubscriptionsLength={todaySubscriptions.length}
           onScroll={() => console.log('drag')}
+          nullShow={todaySubscriptions.length < 2}
         >
           {todaySubscriptions.map((todaySubscription) => (
             <Card
