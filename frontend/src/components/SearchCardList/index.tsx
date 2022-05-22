@@ -1,6 +1,17 @@
+import React, { useState, FormEvent } from 'react';
+import styled from 'styled-components';
 import { Subscription, SummarizedSubscription, SearchCardListProps } from '../../types';
 import SearchCardItem from '../SearchCardItem';
+import PALETTE from '../../constants/palette';
 
+const MessageWrapper = styled.div`
+  display: flex;
+  justify-content: left;
+  margin: 1rem 0;
+  padding-left:1em;
+  font-size:0.8em;
+  color: ${PALETTE.DARK_020};
+`;
 
 const SearchCardList = ({ subData }: SearchCardListProps) => {
   return (
@@ -16,11 +27,9 @@ const SearchCardList = ({ subData }: SearchCardListProps) => {
           };
 
           return (
-            <div>
-              {/* 여기어 필터링 단추 */}
-              {/* 여기에 검색결과 리스트 */}
+            <>
               <SearchCardItem key={summarizedSubscription.id} subscription={summarizedSubscription} />
-            </div>
+            </>
           );
         })}
     </article>
