@@ -4,6 +4,7 @@ import PALETTE from '../../constants/palette';
 import { SubscriptionUsedMainPage } from '../../types';
 import useTodaySubscription from '../../hooks/useTodaySubscription';
 import useTheOtherDaySubscription from '../../hooks/useTheOtherDaySubscription';
+import useSearch from '../../hooks/useSearch';
 
 export const StyledMainWrapper = styled.div`
   display: flex;
@@ -21,6 +22,7 @@ export const StyledColorSpan = styled.span`
 `;
 
 const Home = () => {
+  const subData = useSearch();
   const { todaySubscriptions } = useTodaySubscription();
   const { theOtherDaySubscriptions } = useTheOtherDaySubscription();
 
