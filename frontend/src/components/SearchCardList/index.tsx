@@ -6,11 +6,11 @@ export type SearchCardListProps = {
   subData: Subscription[];
 }
 
-const SearchCardList = ({subData}: SearchCardListProps) => {
+const SearchCardList = ({ subData }: SearchCardListProps) => {
   return <article>{
-    subData && subData.map((data)=>{
+    subData && subData.map((data) => {
 
-      const summarizedSubscription:SummarizedSubscription = {
+      const summarizedSubscription: SummarizedSubscription = {
         id: data.id,
         houseName: data.houseName,
         houseLocation: data.houseLocation,
@@ -21,7 +21,7 @@ const SearchCardList = ({subData}: SearchCardListProps) => {
         applyHomepage: data.applyHomepage
       }
 
-      return <SearchCardItem key={summarizedSubscription.id} subscription={summarizedSubscription}/>
+      return <SearchCardItem key={summarizedSubscription.id} subscription={summarizedSubscription} />
     })
   }</article>
 };
