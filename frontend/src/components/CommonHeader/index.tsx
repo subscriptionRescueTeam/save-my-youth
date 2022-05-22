@@ -40,9 +40,9 @@ export const StyledDarkBody = styled.div<{ isOpen: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  animation: 1s ${colorAnimation} forwards;
+  width: 100%;
+  height: 100%;
+  animation: 0.5s ${colorAnimation} forwards;
 `;
 
 export const StyledHeader = styled.header`
@@ -91,18 +91,21 @@ const CommonHeader = ({ title }: HeaderProps) => {
   };
 
   return (
-    <Container>
-      <Item onClick={clickBefore}>
-        <ArrowLeft />
-      </Item>
-      <TitleItem>{title}</TitleItem>
-      <Item>
-        <StyledBurger onClick={onClick}>
-          <Hamburger />
-        </StyledBurger>
-      </Item>
-      <Sidebar isOpen={isSidebarOpen} onSidebarOpen={handleIsSidebarOpen}></Sidebar>
-    </Container>
+    <>
+      {isSidebarOpen && <StyledDarkBody isOpen={isSidebarOpen} />}
+      <Container>
+        <Item onClick={clickBefore}>
+          <ArrowLeft />
+        </Item>
+        <TitleItem>{title}</TitleItem>
+        <Item>
+          <StyledBurger onClick={onClick}>
+            <Hamburger />
+          </StyledBurger>
+        </Item>
+        <Sidebar isOpen={isSidebarOpen} onSidebarOpen={handleIsSidebarOpen}></Sidebar>
+      </Container>
+    </>
   );
 };
 

@@ -11,7 +11,7 @@ const StyledOptionList = styled.aside<{ isOpen: boolean }>`
   right: 0;
   width: 80%;
   height: 100%;
-  transition: all 1s ease;
+  transition: all 0.5s ease;
   z-index: 1;
   background-color: ${PALETTE.WHITE};
   transform: ${(props) => (props.isOpen ? 'translateX(0)' : 'translateX(100%)')};
