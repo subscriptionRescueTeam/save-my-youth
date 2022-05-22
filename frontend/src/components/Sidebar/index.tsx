@@ -50,7 +50,6 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
       fontSize: '1rem',
       fontWeight: 'bold',
       underlineHeight: '2px',
-      isGetReady: true,
     },
   ];
 

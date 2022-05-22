@@ -24,7 +24,6 @@ const Accordion = ({ contents: { head, tails } }: AccodionProps) => {
           underlineHeight={head.isUseBoldUnderline && !titleClicked ? '8px' : head.underlineHeight}
           direction={titleClicked ? 'up' : 'down'}
           disabled={head.disabled}
-          isGetReady={head.isGetReady}
         >
           {head.name}
         </OptionItem>
@@ -40,7 +39,6 @@ const Accordion = ({ contents: { head, tails } }: AccodionProps) => {
                 underlineHeight={index == tails.length - 1 ? '8px' : tail.underlineHeight}
                 direction={tail.direction}
                 disabled={tail.disabled}
-                isGetReady={tail.isGetReady}
               >
                 {tail.name}
               </OptionItem>
