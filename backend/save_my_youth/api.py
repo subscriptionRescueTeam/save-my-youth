@@ -14,6 +14,7 @@ from traitlets import Undefined
 from user.models import User
 from subscription.api import like_router, subscription_router
 from user.api import user_router
+from customer_service.api import faq_router
 
 
 class GlobalAuth(HttpBearer):
@@ -50,3 +51,4 @@ api = NinjaAPI(auth=GlobalAuth(), renderer=ORJSONRenderer()) # 전체 권한 제
 api.add_router('/like/', like_router)
 api.add_router('/user/', user_router)
 api.add_router('/subscription/', subscription_router)
+api.add_router('/faq/', faq_router)
