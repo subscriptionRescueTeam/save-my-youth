@@ -3,6 +3,7 @@ import OptionItem from './OptionItem';
 import OptionList from './OptionList';
 import { AccordionType, Option } from '../../types';
 import Accordion from '../Accordion';
+import PALETTE from '../../constants/palette';
 
 export type SidebarProps = {
   onSidebarOpen: (isOpen: boolean) => void;
@@ -49,6 +50,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
       fontSize: '1rem',
       fontWeight: 'bold',
       underlineHeight: '2px',
+      isUseBoldUnderline: true,
     },
     tails: [
       {
@@ -83,7 +85,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
       underlineHeight: '2px',
     },
     {
-      name: '연동해제',
+      name: '회원탈퇴',
       link: '/',
       fontSize: '1rem',
     },
@@ -96,6 +98,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
           <OptionItem
             fontSize={option.fontSize}
             fontWeight={option.fontWeight}
+            fontColor={option.fontColor}
             underlineHeight={option.underlineHeight}
             direction={option.direction}
             disabled={option.disabled}
@@ -113,6 +116,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
           <OptionItem
             fontSize={option.fontSize}
             fontWeight={option.fontWeight}
+            fontColor={`${PALETTE.DARK_030}`}
             underlineHeight={option.underlineHeight}
             direction={option.direction}
             disabled={option.disabled}

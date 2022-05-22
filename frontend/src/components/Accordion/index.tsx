@@ -21,7 +21,7 @@ const Accordion = ({ contents: { head, tails } }: AccodionProps) => {
           key={head.name}
           fontSize={head.fontSize}
           fontWeight={head.fontWeight}
-          underlineHeight={head.underlineHeight}
+          underlineHeight={head.isUseBoldUnderline && !titleClicked ? '8px' : head.underlineHeight}
           direction={titleClicked ? 'up' : 'down'}
           disabled={head.disabled}
           isGetReady={head.isGetReady}
@@ -32,12 +32,12 @@ const Accordion = ({ contents: { head, tails } }: AccodionProps) => {
 
       {titleClicked && (
         <div>
-          {tails.map((tail) => (
+          {tails.map((tail, index) => (
             <Link key={`${tail.name}-${tail.link}`} to={tail.link}>
               <OptionItem
                 fontSize={tail.fontSize}
                 fontWeight={tail.fontWeight}
-                underlineHeight={tail.underlineHeight}
+                underlineHeight={index == tails.length - 1 ? '8px' : tail.underlineHeight}
                 direction={tail.direction}
                 disabled={tail.disabled}
                 isGetReady={tail.isGetReady}
