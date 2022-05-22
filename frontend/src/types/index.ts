@@ -10,22 +10,16 @@ export type Subscription = {
   id: number;
   houseName: string;
   houseLocation: string;
-  applyScale: number;
-  recNotice: string;
   applyStartDate: string;
   applyEndDate: string;
-  applyHomepage: string;
 };
 
 export type SummarizedSubscription = {
   id: number;
   houseName: string;
   houseLocation: string;
-  applyScale: number;
-  recNotice: string;
   applyStartDate: string;
   applyEndDate: string;
-  applyHomepage: string;
 };
 export type SubscriptionUsedMainPage = SubscriptionUsedMainPageByAPI & SubscriptionUsedMainPageByDB;
 
@@ -68,6 +62,11 @@ export type HelpType = { name: string; option: string };
 export type HelpContents = Record<number, JSX.Element>;
 
 export type AccordionType = { head: Option; tails: Option[] };
+
+// serchCardlist
+export type SearchCardListProps = { subData: Subscription[] };
+export type SubscriptionList = { subData: SearchCardListProps };
+export type SearchCardItemProps = { subscription: SummarizedSubscription };
 
 export const CARD_WIDTH = 260;
 export const CARD_HEIGHT = 194;

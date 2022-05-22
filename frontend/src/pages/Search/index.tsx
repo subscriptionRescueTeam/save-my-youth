@@ -1,13 +1,23 @@
+import React, { useState, FormEvent } from 'react';
 import styled from 'styled-components';
 import { Input, CommonHeader } from '../../components';
-import React, { useState, FormEvent } from 'react';
+import PALETTE from '../../constants/palette';
 import useSubscription from '../../hooks/useSubscription';
 import SearchCardList from '../../components/SearchCardList';
 
 const InputWrapper = styled.div`
   display: flex;
   justify-content: center;
+  margin: 0.8rem 0;
+`;
+
+const MessageWrapper = styled.div`
+  display: flex;
+  justify-content: left;
   margin: 1rem 0;
+  padding-left:1em;
+  font-size:0.8em;
+  color: ${PALETTE.DARK_020};
 `;
 
 const Search = () => {
@@ -20,8 +30,10 @@ const Search = () => {
 
   const onKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter') {
-      console.log(subData);
-      <SearchCardList subData={subData} />;
+      <div>
+        <MessageWrapper>총 {subData.length}개의 공고가 있습니다</MessageWrapper>
+        <SearchCardList subData={subData} />;
+      </div>
     }
   };
 
@@ -35,6 +47,7 @@ const Search = () => {
           onKeyPress={onKeyPress}
         />
       </InputWrapper>
+      <MessageWrapper>총 {subData.length}개의 공고가 있습니다</MessageWrapper>
       <SearchCardList subData={subData} />
     </>
   );
