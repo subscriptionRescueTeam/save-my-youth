@@ -38,7 +38,7 @@ const StyledArrow = styled.div`
 
 export type OptionItemProps = {
   children: Children;
-  isGetReady?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 } & OptionDecoration;
 
 const OptionItem = ({
@@ -49,7 +49,7 @@ const OptionItem = ({
   underlineHeight = '0',
   direction = null,
   disabled = false,
-  isGetReady = false,
+  onClick,
 }: OptionItemProps) => {
   const getArrowIcon = (direction: string) => {
     switch (direction) {
@@ -66,13 +66,7 @@ const OptionItem = ({
 
   return (
     <StyledContainer>
-      <StyledButton
-        underlineHeight={underlineHeight}
-        disabled={disabled}
-        onClick={() => {
-          isGetReady && alert('준비 중인 서비스입니다.');
-        }}
-      >
+      <StyledButton underlineHeight={underlineHeight} disabled={disabled} onClick={onClick}>
         <StyledSpan fontSize={fontSize} fontWeight={fontWeight} fontColor={fontColor}>
           {children}
         </StyledSpan>

@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import OptionItem from './OptionItem';
 import OptionList from './OptionList';
 import { AccordionType, Option } from '../../types';
 import Accordion from '../Accordion';
 import PALETTE from '../../constants/palette';
+import { useCookies } from 'react-cookie';
 
 export type SidebarProps = {
   onSidebarOpen: (isOpen: boolean) => void;
@@ -11,10 +12,20 @@ export type SidebarProps = {
 };
 
 const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
+  const [cookies, setCookie, removeCookie] = useCookies([
+    'AccessToken',
+    'RefreshToken',
+    'UserInfo',
+  ]);
+
+  const userName = cookies.AccessToken
+    ? cookies['UserInfo']['last_name'] + cookies['UserInfo']['first_name']
+    : null;
+
   const userSetting: Option[] = [
     {
-      name: '사용자 님',
-      link: '/mypage',
+      name: `${userName} 님`,
+      link: userName ? '/mypage' : '/login',
       fontSize: '1rem',
       fontWeight: 'bold',
       direction: 'right',
@@ -83,6 +94,14 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
       link: '/',
       fontSize: '1rem',
       underlineHeight: '2px',
+      onClick: () => {
+        if (confirm('로그아웃 할까요?')) {
+          removeCookie('AccessToken');
+          removeCookie('RefreshToken');
+          removeCookie('UserInfo');
+          onSidebarOpen(false);
+        }
+      },
     },
     {
       name: '회원탈퇴',
@@ -102,7 +121,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
             underlineHeight={option.underlineHeight}
             direction={option.direction}
             disabled={option.disabled}
-            isGetReady={option.isGetReady}
+            onClick={option.onClick}
           >
             {option.name}
           </OptionItem>
@@ -120,7 +139,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
             underlineHeight={option.underlineHeight}
             direction={option.direction}
             disabled={option.disabled}
-            isGetReady={option.isGetReady}
+            onClick={option.onClick}
           >
             {option.name}
           </OptionItem>
