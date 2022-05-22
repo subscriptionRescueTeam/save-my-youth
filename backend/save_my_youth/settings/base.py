@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'search',
     'user', # user app
     'subscription', # 청약 app
+    'customer_service',
 
     'django_apscheduler',
 
