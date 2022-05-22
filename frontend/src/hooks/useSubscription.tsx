@@ -7,7 +7,7 @@ const useSubscription = (keyword?: string) => {
 
   const getPosts = async (SUBSCRPT_AREA_CODE_NM?: string) => {
     try {
-      const areaCode = SUBSCRPT_AREA_CODE_NM ;
+      const areaCode = SUBSCRPT_AREA_CODE_NM;
 
       const response: AxiosResponse<any> = await axios.get(
         `https://secret-reaches-74853.herokuapp.com/api/subscription/cond[SUBSCRPT_AREA_CODE_NM::EQ]=${areaCode}`

@@ -32,7 +32,7 @@ export type InputPros = {
   multiline?: boolean;
   placeholder: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  onKeyPress?: any;
+  onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>;
 };
 
 const Input = ({
@@ -54,7 +54,6 @@ const Input = ({
           onChange={onChange}
           onKeyPress={onKeyPress}
         />
-
         <StyledSearch>
           <Search />
         </StyledSearch>

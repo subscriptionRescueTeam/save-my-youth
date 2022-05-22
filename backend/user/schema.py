@@ -1,15 +1,10 @@
 from typing import List
 
-from ninja import ModelSchema
-from .models import User
-from subscription.schema import SubscriptionSchema, UserLikeListSchema
+from ninja import Schema
+from subscription.schema import SubscriptionSchema
 
 
-# 좋아요 get 스키마
-class UserSchema(ModelSchema):
+# 사용자 좋아요 리스트 스키마
+class UserLikeSchema(Schema):
 
-    user_like : List[UserLikeListSchema] = None
-
-    class Config:
-        model = User
-        model_fields = ['id', 'email', 'username']
+    like_list : List[SubscriptionSchema] = None

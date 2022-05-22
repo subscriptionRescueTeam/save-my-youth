@@ -9,11 +9,10 @@ class ErrorSchema(Schema):
 class OpenApiSchema(Schema):
     subscription_data : dict = None
 
-
 # 좋아요 get 스키마
 class LikeGetSchema(Schema):
     status : bool
-    num : int
+    like_num : int
 
 # 좋아요 post 스키마
 class SubscriptionSchema(ModelSchema):
@@ -22,14 +21,19 @@ class SubscriptionSchema(ModelSchema):
 
     class Config:
         model = Subscription
-        model_fields = ['sub_id', 'name', 'date']
-
+        model_fields = ['expiry', 'sub_id', 'name', 'end_date', 'address']
 
 class UserLikeListSchema(ModelSchema):
 
     class Config:
         model = Subscription
-        model_fields = ['sub_id', 'name', 'date']
+        model_fields = ['expiry', 'sub_id', 'name', 'end_date', 'address']
+
+class UserSubscriptionSchema(ModelSchema):
+
+    class Config:
+        model = Subscription
+        model_fields = ['sub_id', 'name', 'end_date', 'address']
 
 
 class LikeDeleteSchema(Schema):
