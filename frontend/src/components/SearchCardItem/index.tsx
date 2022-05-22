@@ -1,7 +1,7 @@
 import React from 'react';
 import PALETTE from '../../constants/palette';
 import styled from 'styled-components';
-import { SummarizedSubscription } from '../../types';
+import { SummarizedSubscription, SearchCardItemProps } from '../../types';
 import { ReactComponent as BlueHeart } from '../../assets/icons/blueHeart.svg';
 import { useNavigate } from 'react-router-dom';
 
@@ -54,9 +54,6 @@ const StyledLike = styled.span`
   color: ${PALETTE.DARK_020};
 `;
 
-export type SearchCardItemProps = {
-  subscription: SummarizedSubscription;
-};
 
 const SearchCardItem = ({ subscription }: SearchCardItemProps) => {
   const navigate = useNavigate();

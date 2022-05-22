@@ -18,11 +18,8 @@ const useSubscription = (keyword?: string) => {
           id: v.PBLANC_NO,
           houseName: v.HOUSE_NM,
           houseLocation: v.HSSPLY_ADRES,
-          applyScale: v.TOT_SUPLY_HSHLDCO,
-          recNotice: v.RCRIT_PBLANC_DE,
           applyStartDate: v.RCEPT_BGNDE,
           applyEndDate: v.RCEPT_ENDDE,
-          applyHomepage: v.HMPG_ADRES,
         };
         return subscriptionState;
       });
