@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import ErrorNotFound from '../../assets/images/errorNotFound.gif';
-import { Header } from '../../components';
+import { LayoutNavigation } from '../../components';
 import PALETTE from '../../constants/palette';
 import { useNavigate } from 'react-router-dom';
 
@@ -33,12 +33,12 @@ const StyledButton = styled.button`
 const NotFound = () => {
   let navigate = useNavigate();
   return (
-    <Header>
+    <LayoutNavigation>
       <StyledImg src={ErrorNotFound} width="100%" alt="errornotfound" />
       <StyledText>요청하신 페이지를 찾을 수 없어요.</StyledText>
       <StyledText>올바른 주소로 접속하셨나요?</StyledText>
       <StyledButton onClick={() => navigate('/')}>홈으로 돌아가기</StyledButton>
-    </Header>
+    </LayoutNavigation>
   );
 };
 

@@ -1,9 +1,10 @@
-import { Input, MainCardList, Header, CardSlider } from '../../components';
+import { Input, MainCardList, LayoutNavigation, CardSlider } from '../../components';
 import styled from 'styled-components';
 import PALETTE from '../../constants/palette';
 import { SubscriptionUsedMainPage } from '../../types';
 import useTodaySubscription from '../../hooks/useTodaySubscription';
 import useTheOtherDaySubscription from '../../hooks/useTheOtherDaySubscription';
+import useSearch from '../../hooks/useSearch';
 
 export const StyledMainWrapper = styled.div`
   display: flex;
@@ -21,6 +22,7 @@ export const StyledColorSpan = styled.span`
 `;
 
 const Home = () => {
+  const subData = useSearch();
   const { todaySubscriptions } = useTodaySubscription();
   const { theOtherDaySubscriptions } = useTheOtherDaySubscription();
 
@@ -39,7 +41,7 @@ const Home = () => {
   console.log(likeList);
 
   return (
-    <Header>
+    <LayoutNavigation>
       <Input placeholder="검색어를 입력하세요 (ex.지역)" />
       <StyledMainWrapper>
         <div>오늘의 청약</div>
@@ -49,7 +51,7 @@ const Home = () => {
       </StyledMainWrapper>
       <CardSlider todaySubscriptions={todaySubscriptions} />
       <MainCardList popularityList={popularityList} likeList={likeList} />
-    </Header>
+    </LayoutNavigation>
   );
 };
 
