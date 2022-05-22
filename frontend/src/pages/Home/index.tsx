@@ -38,8 +38,6 @@ const Home = () => {
     })
     .slice(0, 3);
 
-  console.log(likeList);
-
   return (
     <LayoutNavigation>
       <Input placeholder="검색어를 입력하세요 (ex.지역)" />

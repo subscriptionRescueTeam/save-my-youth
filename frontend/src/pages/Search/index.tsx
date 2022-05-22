@@ -20,7 +20,6 @@ const Search = () => {
 
   const onKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter') {
-      console.log(subData);
       <SearchCardList subData={subData} />;
     }
   };

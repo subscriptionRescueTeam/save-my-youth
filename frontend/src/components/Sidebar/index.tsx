@@ -44,13 +44,6 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
       fontWeight: 'bold',
       underlineHeight: '2px',
     },
-    {
-      name: '알림 설정',
-      link: '/',
-      fontSize: '1rem',
-      fontWeight: 'bold',
-      underlineHeight: '2px',
-    },
   ];
 
   const help: AccordionType = {
@@ -94,18 +87,11 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
       fontSize: '1rem',
       underlineHeight: '2px',
       onClick: () => {
-        if (confirm('로그아웃 할까요?')) {
-          removeCookie('AccessToken');
-          removeCookie('RefreshToken');
-          removeCookie('UserInfo');
-          onSidebarOpen(false);
-        }
+        removeCookie('AccessToken');
+        removeCookie('RefreshToken');
+        removeCookie('UserInfo');
+        onSidebarOpen(false);
       },
-    },
-    {
-      name: '회원탈퇴',
-      link: '/',
-      fontSize: '1rem',
     },
   ];
 
@@ -120,7 +106,6 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
             underlineHeight={option.underlineHeight}
             direction={option.direction}
             disabled={option.disabled}
-            onClick={option.onClick}
           >
             {option.name}
           </OptionItem>
