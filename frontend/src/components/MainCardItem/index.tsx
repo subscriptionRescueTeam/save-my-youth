@@ -11,7 +11,7 @@ export type MainCardItemProps = {
 export const StyledMainCardItem = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 `;
 
 export const StyledMainCardItemSpan = styled.span`

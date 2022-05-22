@@ -31,17 +31,19 @@ const StyledLocationButton = styled.button`
   border-radius: 8px;
 `;
 
-const SaleSchedule = () => {
+const DetailLocation = ({ subData }: any) => {
   return (
     <StyledWrapper>
       <StyledLocationTitle>위치</StyledLocationTitle>
       <StyledLocationDetail>
         <Location />
-        서울특별시 강북구 미아동 423-3
+        {subData.houseLocation}
       </StyledLocationDetail>
-      <StyledLocationButton>지도 바로가기</StyledLocationButton>
+      <StyledLocationButton onClick={() => window.open(subData.applyHomepage)}>
+        지도 바로가기
+      </StyledLocationButton>
     </StyledWrapper>
   );
 };
 
-export default SaleSchedule;
+export default DetailLocation;

@@ -23,9 +23,11 @@ const StyledButton = styled.button<{
 const StyledSpan = styled.span<{
   fontSize: string;
   fontWeight: string;
+  fontColor: string;
 }>`
   font-size: ${(props) => props.fontSize};
   font-weight: ${(props) => props.fontWeight};
+  color: ${(props) => props.fontColor};
 `;
 
 const StyledArrow = styled.div`
@@ -36,17 +38,18 @@ const StyledArrow = styled.div`
 
 export type OptionItemProps = {
   children: Children;
-  isGetReady?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 } & OptionDecoration;
 
 const OptionItem = ({
   children,
   fontSize = '1rem',
   fontWeight = 'regular',
+  fontColor = '${PALETTE.BLACK}',
   underlineHeight = '0',
   direction = null,
   disabled = false,
-  isGetReady = false,
+  onClick,
 }: OptionItemProps) => {
   const getArrowIcon = (direction: string) => {
     switch (direction) {
@@ -63,14 +66,8 @@ const OptionItem = ({
 
   return (
     <StyledContainer>
-      <StyledButton
-        underlineHeight={underlineHeight}
-        disabled={disabled}
-        onClick={() => {
-          isGetReady && alert('준비 중인 서비스입니다.');
-        }}
-      >
-        <StyledSpan fontSize={fontSize} fontWeight={fontWeight}>
+      <StyledButton underlineHeight={underlineHeight} disabled={disabled} onClick={onClick}>
+        <StyledSpan fontSize={fontSize} fontWeight={fontWeight} fontColor={fontColor}>
           {children}
         </StyledSpan>
       </StyledButton>

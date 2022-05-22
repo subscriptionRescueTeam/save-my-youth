@@ -1,5 +1,6 @@
-import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { useEffect, useRef } from 'react';
+import { ReactComponent as HeaderTitle } from '../../../assets/icons/headerTitle.svg';
 import { ReactComponent as Close } from '../../../assets/icons/close.svg';
 import PALETTE from '../../../constants/palette';
 import { Children } from '../../../types';
@@ -59,7 +60,7 @@ const OptionList = ({ children, onSidebarOpen, isOpen }: OptionListProps) => {
         <StyledCloseContainer onClick={() => onSidebarOpen(false)}>
           <Close />
         </StyledCloseContainer>
-        청년을 구해줘!
+        <HeaderTitle />
       </StyledSidebarHeader>
       {children}
     </StyledOptionList>

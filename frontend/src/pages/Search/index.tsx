@@ -18,7 +18,7 @@ const Search = () => {
     setKeyword(e.currentTarget.value);
   };
 
-  const onKeyPress = (e: any) => {
+  const onKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter') {
       console.log(subData);
       <SearchCardList subData={subData} />;
