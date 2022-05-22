@@ -11,6 +11,7 @@ const StyledFooter = styled.div`
   left: 0px;
   right: 0px;
   background: ${PALETTE.LIGHT_020};
+  z-index: -1;
 `;
 
 const Mypage = () => {

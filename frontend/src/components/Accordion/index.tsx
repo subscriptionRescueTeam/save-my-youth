@@ -18,29 +18,31 @@ const Accordion = ({ contents: { head, tails } }: AccodionProps) => {
     <div>
       <div onClick={toggleAccodion}>
         <OptionItem
-          key={head.name}
+          key={head.optionName}
           fontSize={head.fontSize}
           fontWeight={head.fontWeight}
           underlineHeight={head.isUseBoldUnderline && !titleClicked ? '8px' : head.underlineHeight}
           direction={titleClicked ? 'up' : 'down'}
           disabled={head.disabled}
+          isShownAlways={head.isShownAlways}
         >
-          {head.name}
+          {head.optionName}
         </OptionItem>
       </div>
 
       {titleClicked && (
         <div>
           {tails.map((tail, index) => (
-            <Link key={`${tail.name}-${tail.link}`} to={tail.link}>
+            <Link key={`${tail.optionName}-${tail.link}`} to={tail.link}>
               <OptionItem
                 fontSize={tail.fontSize}
                 fontWeight={tail.fontWeight}
                 underlineHeight={index == tails.length - 1 ? '8px' : tail.underlineHeight}
                 direction={tail.direction}
                 disabled={tail.disabled}
+                isShownAlways={tail.isShownAlways}
               >
-                {tail.name}
+                {tail.optionName}
               </OptionItem>
             </Link>
           ))}

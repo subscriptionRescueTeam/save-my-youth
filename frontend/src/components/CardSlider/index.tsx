@@ -52,7 +52,6 @@ const CardSlider = ({ todaySubscriptions }: CardSliderProps) => {
         <StyledCardSlider
           slideIndex={slideIndex}
           todaySubscriptionsLength={todaySubscriptions.length}
-          onScroll={() => console.log('drag')}
           nullShow={todaySubscriptions.length < 2}
         >
           {todaySubscriptions.map((todaySubscription) => (

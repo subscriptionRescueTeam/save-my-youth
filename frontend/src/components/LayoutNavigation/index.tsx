@@ -35,7 +35,7 @@ const StyledDarkBody = styled.div<{ isOpen: boolean }>`
   width: 100%;
   height: 100%;
   z-index: 1;
-  animation: 1s ${colorAnimation} forwards;
+  animation: 0.5s ${colorAnimation} forwards;
 `;
 
 const StyledHeader = styled.header`
@@ -51,7 +51,6 @@ const StyledLogo = styled.button`
   display: flex;
   align-items: center;
 `;
-
 
 const LayoutNavigation = ({ children }: LayoutNavigationProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

@@ -52,9 +52,10 @@ export type OptionDecoration = {
 };
 
 export type Option = {
-  name: string;
+  userName?: string;
+  optionName: string;
   link: string;
-  isGetReady?: boolean;
+  isShownAlways?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 } & OptionDecoration;
 
