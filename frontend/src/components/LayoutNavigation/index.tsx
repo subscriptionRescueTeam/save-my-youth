@@ -52,6 +52,7 @@ const StyledLogo = styled.button`
   align-items: center;
 `;
 
+
 const LayoutNavigation = ({ children }: LayoutNavigationProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();

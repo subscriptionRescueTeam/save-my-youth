@@ -11,6 +11,14 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     font-family: 'Pretendard-Medium', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    @media all and (min-width:768px) { 
+      width: 412px;
+      height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); 
+     }
   }
   button {
     background: none;
