@@ -52,7 +52,8 @@ const StyledLogo = styled.button`
   align-items: center;
 `;
 
-const Header = ({ children }: LayoutNavigationProps) => {
+
+const LayoutNavigation = ({ children }: LayoutNavigationProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -81,4 +82,4 @@ const Header = ({ children }: LayoutNavigationProps) => {
   );
 };
 
-export default Header;
+export default LayoutNavigation;
