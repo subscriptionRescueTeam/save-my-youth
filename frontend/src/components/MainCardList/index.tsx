@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import MainCardItem from '../MainCardItem';
-import { Subscription, SubscriptionUsedMainPage } from '../../types';
+import { SubscriptionUsedMainPage } from '../../types';
 
 export const StyledMainCardList = styled.section`
   width: 90%;

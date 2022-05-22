@@ -17,7 +17,7 @@ const Input = styled.input`
   border: none;
   border-radius: 0px;
   font-size: 1rem;
-  font-family: Pretendard-Regular;
+  font-family: 'Pretendard-Regular';
 `;
 
 export type InputLabel = {

@@ -41,14 +41,6 @@ const StyledItem = styled.li`
   border-bottom: 2px solid ${PALETTE.LIGHT_010};
 `;
 
-const StyledLine = styled.span`
-  position: absolute;
-  height: 8px;
-  left: 0px;
-  top: 36px;
-  background: ${PALETTE.LIGHT_010};
-`;
-
 const StyledButtonWrap = styled.div`
   display: flex;
   align-items: center;

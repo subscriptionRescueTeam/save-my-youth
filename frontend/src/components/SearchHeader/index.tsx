@@ -20,7 +20,6 @@ const Container = styled.header`
 
 const Item = styled.div`
   cursor: pointer;
-  font-family: Noto Sans;
   font-weight: 700;
   margin-left: 0.7rem;
   margin-right: 1.3rem;

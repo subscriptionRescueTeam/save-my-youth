@@ -2,14 +2,11 @@ import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
 import { Subscription } from '../types';
 
-const useSubscription = (keyword?: string) => {
+const useSearch = (keyword?: string) => {
   const [subData, setSubData] = useState<Subscription[]>([]);
 
   const getPosts = async (SUBSCRPT_AREA_CODE_NM?: string) => {
     try {
-      // const areaCode = SUBSCRPT_AREA_CODE_NM || '서울' ;
-      // const areaCode = '서울';
-
       const response: AxiosResponse<any> = await axios.get(
         `https://secret-reaches-74853.herokuapp.com/api/subscription/cond[SUBSCRPT_AREA_CODE_NM::EQ]=${SUBSCRPT_AREA_CODE_NM}`
       );
@@ -42,4 +39,4 @@ const useSubscription = (keyword?: string) => {
   return { subData };
 };
 
-export default useSubscription;
+export default useSearch;

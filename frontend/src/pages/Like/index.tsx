@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import CommonHeader from '../../components/CommonHeader';
-// import SearchCardItem from '../../components/SearchCardItem';
 import SearchCardList from '../../components/SearchCardList';
 import useSubscription from '../../hooks/useSubscription';
 
