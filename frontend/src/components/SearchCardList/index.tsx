@@ -1,9 +1,6 @@
-import { Subscription, SummarizedSubscription } from '../../types';
+import { Subscription, SummarizedSubscription, SearchCardListProps } from '../../types';
 import SearchCardItem from '../SearchCardItem';
 
-export type SearchCardListProps = {
-  subData: Subscription[];
-};
 
 const SearchCardList = ({ subData }: SearchCardListProps) => {
   return (
@@ -14,15 +11,16 @@ const SearchCardList = ({ subData }: SearchCardListProps) => {
             id: data.id,
             houseName: data.houseName,
             houseLocation: data.houseLocation,
-            applyScale: data.applyScale,
-            recNotice: data.recNotice,
             applyStartDate: data.applyStartDate,
             applyEndDate: data.applyEndDate,
-            applyHomepage: data.applyHomepage,
           };
 
           return (
-            <SearchCardItem key={summarizedSubscription.id} subscription={summarizedSubscription} />
+            <div>
+              {/* 여기어 필터링 단추 */}
+              {/* 여기에 검색결과 리스트 */}
+              <SearchCardItem key={summarizedSubscription.id} subscription={summarizedSubscription} />
+            </div>
           );
         })}
     </article>
