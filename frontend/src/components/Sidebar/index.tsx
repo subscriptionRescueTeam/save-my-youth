@@ -5,11 +5,26 @@ import { AccordionType, Option } from '../../types';
 import Accordion from '../Accordion';
 import PALETTE from '../../constants/palette';
 import { useCookies } from 'react-cookie';
+import styled from 'styled-components';
 
 export type SidebarProps = {
   onSidebarOpen: (isOpen: boolean) => void;
   isOpen: boolean;
 };
+
+const StyledUserName = styled.span`
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid ${PALETTE.BLACK};
+`;
+
+const StyledLoginButton = styled.button`
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: ${PALETTE.PRI_LIGHT_010};
+`;
 
 const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
   const [cookies, setCookie, removeCookie] = useCookies([
@@ -24,21 +39,23 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
 
   const userSetting: Option[] = [
     {
-      name: `${userName} 님`,
+      userName: `${userName}`,
+      optionName: ` 님`,
       link: userName ? '/mypage' : '/login',
       fontSize: '1rem',
       fontWeight: 'bold',
-      direction: 'right',
+      isShownAlways: true,
     },
     {
-      name: '늘 행운을 빌어요! :)',
+      optionName: '늘 행운을 빌어요! :)',
       link: '/',
       fontSize: '0.875rem',
       underlineHeight: '4px',
       disabled: true,
+      isShownAlways: true,
     },
     {
-      name: '좋아요',
+      optionName: '좋아요',
       link: '/like',
       fontSize: '1rem',
       fontWeight: 'bold',
@@ -48,41 +65,45 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
 
   const help: AccordionType = {
     head: {
-      name: '고객센터',
+      optionName: '고객센터',
       link: '/',
       fontSize: '1rem',
       fontWeight: 'bold',
       underlineHeight: '2px',
       isUseBoldUnderline: true,
+      isShownAlways: true,
     },
     tails: [
       {
-        name: '공지사항',
+        optionName: '공지사항',
         link: '/help',
         fontSize: '0.875rem',
         underlineHeight: '2px',
         direction: 'right',
+        isShownAlways: true,
       },
       {
-        name: 'FAQ',
+        optionName: 'FAQ',
         link: '/help',
         fontSize: '0.875rem',
         underlineHeight: '2px',
         direction: 'right',
+        isShownAlways: true,
       },
       {
-        name: '1:1 문의',
+        optionName: '1:1 문의',
         link: '/help',
         fontSize: '0.875rem',
         underlineHeight: '2px',
         direction: 'right',
+        isShownAlways: true,
       },
     ],
   };
 
   const connection: Option[] = [
     {
-      name: '로그아웃',
+      optionName: '로그아웃',
       link: '/',
       fontSize: '1rem',
       underlineHeight: '2px',
@@ -97,8 +118,8 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
 
   return (
     <OptionList onSidebarOpen={onSidebarOpen} isOpen={isOpen}>
-      {userSetting.map((option) => (
-        <Link key={`${option.name}-${option.link}`} to={option.link}>
+      {userSetting.map((option, index) => (
+        <Link key={`${option.optionName}-${option.link}`} to={option.link}>
           <OptionItem
             fontSize={option.fontSize}
             fontWeight={option.fontWeight}
@@ -106,8 +127,25 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
             underlineHeight={option.underlineHeight}
             direction={option.direction}
             disabled={option.disabled}
+            isShownAlways={option.isShownAlways}
           >
-            {option.name}
+            {index !== 0 && (
+              <>
+                <StyledUserName>{option.userName}</StyledUserName>
+                {option.optionName}
+              </>
+            )}
+            {index === 0 && userName && (
+              <>
+                <StyledUserName>{option.userName}</StyledUserName>
+                {option.optionName}
+              </>
+            )}
+            {index === 0 && !userName && (
+              <Link to="/login">
+                <StyledLoginButton>로그인</StyledLoginButton>
+              </Link>
+            )}
           </OptionItem>
         </Link>
       ))}
@@ -115,7 +153,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
       <Accordion contents={help} />
 
       {connection.map((option) => (
-        <Link key={`${option.name}-${option.link}`} to={option.link}>
+        <Link key={`${option.optionName}-${option.link}`} to={option.link}>
           <OptionItem
             fontSize={option.fontSize}
             fontWeight={option.fontWeight}
@@ -124,8 +162,9 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
             direction={option.direction}
             disabled={option.disabled}
             onClick={option.onClick}
+            isShownAlways={option.isShownAlways}
           >
-            {option.name}
+            {option.optionName}
           </OptionItem>
         </Link>
       ))}
