@@ -21,16 +21,11 @@ const MenuItems = [
   },
 ];
 
-const StyledMenuWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-`;
-
 const StyledMenuList = styled.ul`
   display: flex;
   flex-direction: column;
   font-weight: bold;
+  margin-top: 10px;
 `;
 
 const StyledItem = styled.li`
@@ -41,38 +36,18 @@ const StyledItem = styled.li`
   border-bottom: 2px solid ${PALETTE.LIGHT_010};
 `;
 
-const StyledButtonWrap = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const StyledButton = styled.button`
-  margin-top: 1.5rem;
-  text-decoration: underline;
-  color: ${PALETTE.DARK_020};
-  border: none;
-  font-family: 'Pretendard-Medium';
-  cursor: pointer;
-`;
-
 const SearchMenu = () => {
   return (
-    <StyledMenuWrap>
-      <StyledMenuList>
-        {MenuItems.map((item) => (
-          <Link key={`${item.id}-${item.link}`} to={item.link}>
-            <StyledItem>
-              {item.title}
-              <ArrowRight />
-            </StyledItem>
-          </Link>
-        ))}
-      </StyledMenuList>
-      <StyledButtonWrap>
-        <StyledButton>로그아웃</StyledButton>
-      </StyledButtonWrap>
-    </StyledMenuWrap>
+    <StyledMenuList>
+      {MenuItems.map((item) => (
+        <Link key={`${item.id}-${item.link}`} to={item.link}>
+          <StyledItem>
+            {item.title}
+            <ArrowRight />
+          </StyledItem>
+        </Link>
+      ))}
+    </StyledMenuList>
   );
 };
 

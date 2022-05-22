@@ -50,7 +50,9 @@ export type ArrowDirection = 'right' | 'down' | 'up';
 export type OptionDecoration = {
   fontSize?: string;
   fontWeight?: string;
+  fontColor?: string;
   underlineHeight?: string;
+  isUseBoldUnderline?: boolean;
   direction?: ArrowDirection | null;
   disabled?: boolean;
 };
@@ -59,6 +61,7 @@ export type Option = {
   name: string;
   link: string;
   isGetReady?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 } & OptionDecoration;
 
 export type HelpType = { name: string; option: string };
