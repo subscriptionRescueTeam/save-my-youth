@@ -28,7 +28,7 @@ const TitleItem = styled.div`
 
 const colorAnimation = keyframes`
   0% {
-    background: rgba(38, 38, 38, 0);
+    background: transparent;
   }
 
   100% {
@@ -42,8 +42,6 @@ export const StyledDarkBody = styled.div<{ isOpen: boolean }>`
   left: 0;
   width: 100vw;
   height: 100vh;
-
-  // ref: https://stackoverflow.com/questions/4359627/stopping-a-css3-animation-on-last-frame
   animation: 1s ${colorAnimation} forwards;
 `;
 

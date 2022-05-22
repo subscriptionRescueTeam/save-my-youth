@@ -2,12 +2,14 @@ import jwt
 import orjson
 
 from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
 
 from rest_framework_simplejwt import settings
 
 from ninja.renderers import BaseRenderer
 from ninja import NinjaAPI
 from ninja.security import HttpBearer
+from traitlets import Undefined
 
 from user.models import User
 from subscription.api import like_router, subscription_router
@@ -23,11 +25,16 @@ class GlobalAuth(HttpBearer):
 
             return user
 
-        payload = jwt.decode(jwt=token, key=settings.DEFAULTS['SIGNING_KEY'], algorithms=settings.DEFAULTS['ALGORITHM'])
-        user_id = payload['user_id']
-        user = get_object_or_404(User, pk=user_id)
+        try:
+            payload = jwt.decode(jwt=token, key=settings.DEFAULTS['SIGNING_KEY'], algorithms=settings.DEFAULTS['ALGORITHM'])
+            user_id = payload['user_id']
+            user = get_object_or_404(User, pk=user_id)
 
-        return user
+            return user
+
+        except jwt.ExpiredSignatureError:
+            HttpResponse(401)
+            return
 
 # api 렌더링 (한글이 깨지는 문제)
 class ORJSONRenderer(BaseRenderer):

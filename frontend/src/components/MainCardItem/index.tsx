@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom';
 
 export type MainCardItemProps = {
   title: string;
-  SubscriptionList: Array<SubscriptionUsedMainPage>;
+  SubscriptionList: SubscriptionUsedMainPage[];
 };
 
 export const StyledMainCardItem = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 `;
 
 export const StyledMainCardItemSpan = styled.span`

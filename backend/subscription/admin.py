@@ -8,8 +8,8 @@ from .models import Subscription
 
 class SubscriptionAdmin(ModelAdmin):
     model = Subscription
-    menu_label = '청약목록'  # ditch this to use verbose_name_plural from model
-    menu_icon = 'list-ol'  # change as required
+    menu_label = '청약목록'
+    menu_icon = 'list-ol'
     list_display = ('sub_id', 'name',)
     search_fields = ['sub_id','name',]
 

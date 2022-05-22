@@ -9,10 +9,7 @@ const StyledBox = styled.div`
   width: 90%;
   height: 30%;
   margin: 1rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  grid-gap: 1rem;
+  box-sizing: border-box;
 `;
 
 const StyledCard = styled.div`

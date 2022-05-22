@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import CommonHeader from '../../components/CommonHeader';
 import SearchCardList from '../../components/SearchCardList';

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import GoogleLogin from 'react-google-login';
-import axiosInstance from '../../utils/axiosInstance';
 import LayoutCenter from '../../components/LayoutCenter';
 import PALETTE from '../../constants/palette';
 import { CSSProperties } from 'react';
@@ -8,7 +7,6 @@ import { ReactComponent as Logo } from '../../assets/icons/logo.svg';
 import { ReactComponent as GoogleLogo } from '../../assets/icons/google.svg';
 import { Link } from 'react-router-dom';
 import { Cookies } from 'react-cookie';
-
 
 const StyledTitleContainer = styled.div`
   display: flex;
@@ -50,13 +48,13 @@ const StyledButton = styled.button`
 const StyledGoogle = styled.span`
   font-weight: bold;
   font-size: 1.125rem;
-  color: ${PALETTE.DARK_010};
+  color: ${PALETTE.DARK_040};
   margin: 2px 0 0 8px;
 `;
 
 const StyledToHome = styled.span`
   font-size: 1rem;
-  font-weight: ${PALETTE.DARK_020};
+  color: ${PALETTE.DARK_020};
   border-bottom: 1px solid ${PALETTE.DARK_020};
 `;
 
@@ -84,16 +82,10 @@ const Login = () => {
     cookies.set('AccessToken', data.access_token);
     cookies.set('RefreshToken', data.refresh_token);
     cookies.set('UserInfo', data.user);
-    //localStorage.setItem('loginData', JSON.stringify(data));
-
   };
 
   const loginFail = () => {
     window.alert('로그인 실패했습니다. 관리자에게 문의해주세요.');
-  };
-
-  const test = async () => {
-    const response = await axiosInstance.get('api/user/');
   };
 
   const LoginButtonCss: CSSProperties = {
@@ -125,7 +117,7 @@ const Login = () => {
         render={(renderProps) => (
           <StyledButton onClick={renderProps.onClick} style={LoginButtonCss}>
             <GoogleLogo></GoogleLogo>
-            <StyledGoogle> Google로 로그인</StyledGoogle>
+            <StyledGoogle>Google로 로그인</StyledGoogle>
           </StyledButton>
         )}
       ></GoogleLogin>
@@ -133,8 +125,6 @@ const Login = () => {
         <StyledToHome>홈으로 돌아가기</StyledToHome>
       </Link>
       <StyledMaker>@청년을 구해줘</StyledMaker>
-      <button onClick={test}>test</button>
-      {/* TODO: 지우기 */}
     </LayoutCenter>
   );
 };

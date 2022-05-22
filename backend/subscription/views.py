@@ -1,3 +1,16 @@
-from django.shortcuts import render
+import datetime
+from .models import Subscription
 
-# Create your views here.
+
+def expiry_check():
+    #날짜 셋팅
+    today = datetime.date.today()
+
+    subscriptions = Subscription.objects.filter(expiry=False)
+
+    if len(subscriptions) != 0:
+        for sub in subscriptions:
+
+            if sub.end_date < today:
+                sub.expiry = True
+                sub.save()

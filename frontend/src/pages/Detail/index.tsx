@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 import Picture from '../../assets/images/picture2.png';
 import { ReactComponent as ArrowRight } from '../../assets/icons/arrowRight.svg';
+import { ReactComponent as BigHeart } from '../../assets/icons/bigHeart.svg';
+import { ReactComponent as BigNullHeart } from '../../assets/icons/bigNullHeart.svg';
 import PALETTE from '../../constants/palette';
-import { SaleSchedule, TabBar } from '../../components';
+import { DetailSchedule, DetailLocation, TabBar } from '../../components';
 import CommonHeader from '../../components/CommonHeader';
 import { useNavigate } from 'react-router-dom';
+import { HelpContents } from '../../types';
+import { useState } from 'react';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -15,6 +19,12 @@ const StyledTitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: 1rem;
+`;
+
+const StyledHeartButton = styled.button`
+  display: flex;
+  align-items: center;
+  height: 1.5rem;
 `;
 
 const StyledLocationWrapper = styled.div`
@@ -47,39 +57,77 @@ const StyledTag = styled.div`
   margin-bottom: 1rem;
 `;
 
+const StyledImgLabel = styled.div``;
+
+const StyledLabel = styled.div`
+  position: absolute;
+  top: 80px;
+  left: 0;
+  color: ${PALETTE.BLACK};
+  font-family: 'Pretendard-Bold';
+  background-color: ${PALETTE.PRI_LIGHT_010};
+  padding: 0.6rem 1.2rem 0.6rem 1rem;
+  border-radius: 0 4px 4px 0;
+`;
+
 const StyledImg = styled.img``;
 
 const Flex = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
+interface IMenu {
+  name: string;
+  option: string;
+}
+
+export const tempData = {
+  applyEndDate: '2020-06-10',
+  applyHomepage: 'http://leel-sinbanpo-parkavenue.co.kr/',
+  applyScale: 98,
+  applyStartDate: '2020-06-08',
+  houseLocation: '서울특별시 서초구 강남대로107길 14 (잠원동)',
+  houseName: '르엘 신반포 파크애비뉴',
+  id: 2020000651,
+  recNotice: '2020-05-28',
+};
+
 const Detail = () => {
-  const menu = [
+  const [heartState, setHeartState] = useState(true);
+  const menu: IMenu[] = [
     { name: '청약일정', option: 'schedule' },
     { name: '위치', option: 'location' },
   ];
-  const checkList: any = {
-    0: <>청약일정 데이터 연동중이에요!</>,
-    1: <SaleSchedule />,
+  const checkList: HelpContents = {
+    0: <DetailSchedule subData={tempData} />,
+    1: <DetailLocation subData={tempData} />,
   };
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <>
       <CommonHeader title="청약 상세" />
       <StyledImg src={Picture} width="100%" alt="picture" />
+      <StyledLabel>{tempData.houseLocation.split(' ')[0]}</StyledLabel>
       <StyledWrapper>
         <StyledTitleWrapper>
           <StyledLocationWrapper onClick={() => navigate('/search')}>
-            서울특별시 <ArrowRight /> 강북구
+            {tempData.houseLocation.split(' ')[0]} <ArrowRight />{' '}
+            {tempData.houseLocation.split(' ')[1]}
           </StyledLocationWrapper>
-          <StyledTitle>제 1차 장기전세주택 입주자모집공고</StyledTitle>
+          <StyledTitle>{tempData.houseName}</StyledTitle>
           <Flex>
-            <StyledTag>345세대</StyledTag>
+            <StyledTag>{tempData.applyScale}세대</StyledTag>
           </Flex>
-          <StyledDate>2022.05.15 등록</StyledDate>
+          <Flex>
+            <StyledDate>{tempData.applyStartDate} 등록</StyledDate>
+            <StyledHeartButton onClick={() => setHeartState(!heartState)}>
+              {heartState ? <BigNullHeart /> : <BigHeart />}
+            </StyledHeartButton>
+          </Flex>
         </StyledTitleWrapper>
-
         <TabBar menu={menu} checkList={checkList} />
       </StyledWrapper>
     </>

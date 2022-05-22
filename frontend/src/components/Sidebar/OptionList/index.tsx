@@ -4,7 +4,6 @@ import { ReactComponent as Close } from '../../../assets/icons/close.svg';
 import PALETTE from '../../../constants/palette';
 import { Children } from '../../../types';
 
-// ref: https://velog.io/@dev-tinkerbell/display-none%EC%9D%B4-transition%EC%9D%B4-%EC%95%88%EB%A8%B9%ED%9E%88%EB%8A%94-%EC%9D%B4%EC%9C%A0
 const StyledOptionList = styled.aside<{ isOpen: boolean }>`
   position: fixed;
   top: 0;
@@ -40,7 +39,6 @@ export type OptionListProps = {
 const OptionList = ({ children, onSidebarOpen, isOpen }: OptionListProps) => {
   const sidebarRef = useRef(null);
 
-  // ref: https://codesandbox.io/s/outside-click-hook-uc8bo?file=/src/outsideClick.js
   const onClickOutside = (event: any) => {
     if (sidebarRef.current && !(sidebarRef.current as any).contains(event.target)) {
       // TODO: change any type
