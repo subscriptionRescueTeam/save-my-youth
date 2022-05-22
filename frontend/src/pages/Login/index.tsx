@@ -102,7 +102,7 @@ const Login = () => {
   return (
     <LayoutCenter backgroundColor={PALETTE.LIGHT_010}>
       <StyledTitleContainer>
-        <Logo></Logo>
+        <Logo />
         <StyledTitle>청년을 구해줘!</StyledTitle>
       </StyledTitleContainer>
       <StyledComment>
