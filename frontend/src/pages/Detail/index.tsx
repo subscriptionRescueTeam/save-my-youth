@@ -132,14 +132,15 @@ const Detail = () => {
     } 
   }
 
-  useEffect( ()=>{
+  
+
+  useEffect( ()=>{ // 얘 때문인 거 같아요
     async function getYourLike() {
-      const { data } = await axiosInstance.get(`api/like/${String(tempData.id)}`);
-      console.log(tempData.id)
+      const { data } = await axiosInstance.get(`api/like/${tempData.id}`);
       console.log(data);
       setHeartState(data.status);
        }
-    getYourLike(); // 아 페이지에서
+    getYourLike();
   },[axiosInstance, tempData]);
 
   const navigate = useNavigate();

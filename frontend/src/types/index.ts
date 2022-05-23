@@ -32,8 +32,9 @@ export type Subscription = {
   readonly id: number;
   readonly houseName: string;
   readonly houseLocation: string;
-  readonly applyStartDate: string;
+  readonly applyStartDate?: string;
   readonly applyEndDate: string;
+  readonly likeNum?: number;
 };
 
 export type SummarizedSubscription = {
@@ -55,6 +56,8 @@ export type SubscriptionUsedMainPageByDB = {
   readonly likeNum: number;
   imgLink: string;
 };
+
+
 
 export type Writing = '최신' | '인기';
 export type Children = React.ReactNode;
