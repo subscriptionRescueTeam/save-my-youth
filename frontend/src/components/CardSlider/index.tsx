@@ -1,25 +1,22 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import Card from '../Card';
-import { CARD_WIDTH, SubscriptionUsedMainPage } from '../../types';
+import { SubscriptionUsedMainPage } from '../../types';
 import TodaySubscriptionNull from '../TodaySubscriptionNull';
 
-// TODO: 스크롤 맨 오른쪽까지 되게 수정
 const StyledCardConatiner = styled.div`
   position: relative;
   width: 100%;
   overflow-x: scroll; // PC
-  //-webkit-overflow-scrolling: touch; // mobile */
+  -webkit-overflow-scrolling: touch; // mobile */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
   &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera*/
+    display: none; Chrome, Safari, Opera */
   }
 `;
 
 const StyledCardSlider = styled.div<{
-  slideIndex: number;
   todaySubscriptionsLength: number;
   nullShow: boolean;
 }>`
@@ -29,10 +26,6 @@ const StyledCardSlider = styled.div<{
   height: 100%;
   display: flex;
   transition: all 1s ease;
-  /* transform: translateX(
-    ${(props) =>
-    props.slideIndex * -CARD_WIDTH + (CARD_WIDTH * (props.todaySubscriptionsLength - 2)) / 2}px
-  ); */
 `;
 
 export type CardSliderProps = {
@@ -40,17 +33,10 @@ export type CardSliderProps = {
 };
 
 const CardSlider = ({ todaySubscriptions }: CardSliderProps) => {
-  const [slideIndex, setSlideIndex] = useState(0);
-
-  const onDotClick = (index: number) => {
-    setSlideIndex(index);
-  };
-
   return (
     <section>
       <StyledCardConatiner>
         <StyledCardSlider
-          slideIndex={slideIndex}
           todaySubscriptionsLength={todaySubscriptions.length}
           nullShow={todaySubscriptions.length < 2}
         >
