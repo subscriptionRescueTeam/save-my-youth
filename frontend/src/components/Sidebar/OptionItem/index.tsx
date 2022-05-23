@@ -1,33 +1,26 @@
 import styled from 'styled-components';
-import { ReactComponent as ArrowRight } from '../../../assets/icons/arrowRight.svg';
 import { ReactComponent as ArrowDown } from '../../../assets/icons/arrowDown.svg';
 import { ReactComponent as ArrowUp } from '../../../assets/icons/arrowUp.svg';
 import PALETTE from '../../../constants/palette';
 import { Children, OptionDecoration } from '../../../types';
 import { useCookies } from 'react-cookie';
+import ArrowRight from '../../../assets/icons/arrowRight';
 
 const StyledContainer = styled.div`
   width: 100%;
   position: relative;
 `;
 
-const StyledButton = styled.button<{
-  underlineHeight: string;
-  disabled?: boolean;
-}>`
+const StyledButton = styled.button<{ underlineHeight: string; disabled?: boolean }>`
   width: 100%;
-  height: 3.5rem;
+  height: 100%;
   text-align: left;
   padding: 1rem 1.5rem;
   border-bottom: ${(props) => props.underlineHeight} solid ${PALETTE.LIGHT_010};
   cursor: ${(props) => (props.disabled ? 'default' : 'pointer')};
 `;
 
-const StyledSpan = styled.span<{
-  fontSize: string;
-  fontWeight: string;
-  fontColor: string;
-}>`
+const StyledSpan = styled.span<{ fontSize: string; fontWeight: string; fontColor: string }>`
   font-size: ${(props) => props.fontSize};
   font-weight: ${(props) => props.fontWeight};
   color: ${(props) => props.fontColor};
