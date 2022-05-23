@@ -1,16 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import { AccordionType } from '../../types';
 import OptionItem from '../Sidebar/OptionItem';
 
 export type AccodionProps = {
   contents: AccordionType;
 };
-
-export const StyledAccordion = styled.div`
-  width: 100%;
-`;
 
 const Accordion = ({ contents: { head, tails } }: AccodionProps) => {
   const [titleClicked, setTitleClicked] = useState(false);
@@ -20,7 +15,7 @@ const Accordion = ({ contents: { head, tails } }: AccodionProps) => {
   };
 
   return (
-    <StyledAccordion>
+    <div>
       <div onClick={toggleAccodion}>
         <OptionItem
           key={head.optionName}
@@ -53,7 +48,7 @@ const Accordion = ({ contents: { head, tails } }: AccodionProps) => {
           ))}
         </div>
       )}
-    </StyledAccordion>
+    </div>
   );
 };
 
