@@ -103,7 +103,7 @@ const Home = () => {
       </StyledMainBannerContainer>
       <StyledServiceContainer>
         <StyledServiceReason>왜 ‘청년을 구해줘!’ 일까요?</StyledServiceReason>
-        <Link to="/service">
+        <Link to="/info">
           <StyledGotoServiceIntroduction>
             서비스 소개 보러가기
             <ArrowRight color={PALETTE.BLACK} />

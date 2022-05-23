@@ -22,7 +22,7 @@ const StyledCardSlider = styled.div<{
 }>`
   position: relative;
   top: 0;
-  left: ${(props) => (props.nullShow ? '0px' : '100px')};
+  left: ${(props) => (props.nullShow ? '0px' : '1200px')};
   height: 100%;
   display: flex;
   transition: all 1s ease;
