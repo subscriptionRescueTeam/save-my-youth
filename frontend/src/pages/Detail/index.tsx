@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Picture from '../../assets/images/picture2.png';
-import { ReactComponent as ArrowRight } from '../../assets/icons/arrowRight.svg';
 import { ReactComponent as BigHeart } from '../../assets/icons/bigHeart.svg';
 import { ReactComponent as BigNullHeart } from '../../assets/icons/bigNullHeart.svg';
 import PALETTE from '../../constants/palette';
@@ -9,7 +8,7 @@ import CommonHeader from '../../components/CommonHeader';
 import { useNavigate } from 'react-router-dom';
 import { HelpContents } from '../../types';
 import { useState } from 'react';
-// import useSubscription from '../../hooks/useSubscription';
+import ArrowRight from '../../assets/icons/arrowRight';
 
 const StyledWrapper = styled.div`
   display: flex;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PALETTE from '../../constants/palette';
-import { ReactComponent as ArrowRight } from '../../assets/icons/arrowRight.svg';
 import { Link } from 'react-router-dom';
+import ArrowRight from '../../assets/icons/arrowRight';
 
 const MenuItems = [
   {

@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Input, CommonHeader } from '../../components';
 import PALETTE from '../../constants/palette';
