@@ -1,16 +1,5 @@
-import styled from 'styled-components';
 import { SummarizedSubscription, SearchCardListProps } from '../../types';
 import SearchCardItem from '../SearchCardItem';
-import PALETTE from '../../constants/palette';
-
-const MessageWrapper = styled.div`
-  display: flex;
-  justify-content: left;
-  margin: 1rem 0;
-  padding-left: 1em;
-  font-size: 0.8em;
-  color: ${PALETTE.DARK_020};
-`;
 
 const SearchCardList = ({ subData }: SearchCardListProps) => {
   return (
