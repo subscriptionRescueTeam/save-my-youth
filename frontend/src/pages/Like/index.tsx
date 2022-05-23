@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import CommonHeader from '../../components/CommonHeader';
 import SearchCardList from '../../components/SearchCardList';
-import useSubscription from '../../hooks/useSubscription';
+import useSearch from '../../hooks/useSearch';
 
 const StyledAnnounce = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ const StyledAnnounce = styled.div`
 `;
 
 const Like = () => {
-  const { subData } = useSubscription('서울');
+  const { subData } = useSearch('서울');
 
   useEffect(() => {
     <SearchCardList subData={subData} />;

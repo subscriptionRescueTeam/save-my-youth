@@ -6,6 +6,28 @@ export type User = {
   likeList: Subscription[];
 };
 
+export type tempSub = {
+  1: number; //공고번호
+  2: string; //주택명
+  3: string; //공급위치
+  4: number; //공급규모
+  5: string; //모집공고일
+  6: string; //청약접수시작일
+  7: string; //청약접수종료일
+  8: string; //홈페이지
+  9: string; //특별공급 접수시작일
+  10: string; //특별공급 접수 종료일
+  11: string; //1순위 접수일 해당지역
+  12: string; //1순위 접수일 경기지역
+  13: string; //1순위 접수일 기타지역
+  14: string; //2순위 접수일 해당지역
+  15: string; //2순위 접수일 경기지역
+  16: string; //2순위 접수일 기타지역
+  17: string; //당첨자발표일
+  18: string; //계약시작일
+  19: string; //계약종료일
+};
+
 export type Subscription = {
   readonly id: number;
   readonly houseName: string;
