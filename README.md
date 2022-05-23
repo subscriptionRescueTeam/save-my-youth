@@ -1,13 +1,13 @@
 <div align="center">
-    
+
 # **청년을 구해줘**
-    
+
  [청년을 구해줘](https://dynamic-gnome-cec0c3.netlify.app/)
-  
-  
+
+
 <img width="1000" alt="save-my-youth" src="https://i.imgur.com/lGsGnE9.png"><br>
-    
-  
+
+
     "청년을 구해줘!"는 청년들을 위한 청약 정보를 한눈에 쉽게 살펴볼 수 있는 웹사이트입니다.
 
 </div>
@@ -54,16 +54,16 @@
 
 <br><br>
 ## 🏠 Members
-    
+
 ### 프론트엔드
-    
+
 |퉁이리(PL)|헬렌|플로라|매직타로|
 |:-:|:-:|:-:|:-:|
 |<img src="https://avatars.githubusercontent.com/u/77133565?v=4" alt="tooooo1" width="100" height="100">|<img src="https://avatars.githubusercontent.com/u/64337152?v=4" alt="helen" width="100" height="100">|<img src="https://avatars.githubusercontent.com/u/92790783?v=4" alt="flora" width="100" height="100">|<img src="https://avatars.githubusercontent.com/u/53456037?v=4" alt="magictaro" width="100" height="100">|
 |[tooooo1](https://github.com/tooooo1)|[hotbreakb](https://github.com/hotbreakb)|[Lela12](https://github.com/Lela12)|[kmin-jeong](https://github.com/kmin-jeong)|
 
 
-    
+
 ### 백엔드
 |다츠|
 |:-:|
@@ -73,10 +73,10 @@
 ### 디자이너
 |제이미|
 |:-:|
-|<img src="https://avatars.githubusercontent.com/u/51393021?s=400&v=4" alt="jayme" width="100" height="100">|
+|<img src="https://avatars.githubusercontent.com/u/51393021?s=400&v=4" alt="jamey" width="100" height="100">|
 |[제이미](https://github.com/)|
 
-    
+
 ## ✍️CONVENTION✍️
 
 | 태그                  | 설명                                                                      |
@@ -93,4 +93,4 @@
 | `Test: `             | 테스트 추가, 테스트 리팩토링(프로덕션 코드 변경 X)                        |
 | `Chore: `            | 빌드 테스트 업데이트, 패키지 매니저를 설정하는 경우(프로덕션 코드 변경 X) |
 | `Rename: `           | 파일 혹은 폴더명을 수정하거나 옮기는 작업만인 경우                        |
-| `Remove: `           | 파일을 삭제하는 작업만 수행한 경우                                        |   
+| `Remove: `           | 파일을 삭제하는 작업만 수행한 경우                                        |
