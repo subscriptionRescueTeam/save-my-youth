@@ -7,8 +7,9 @@ import { DetailSchedule, DetailLocation, TabBar } from '../../components';
 import CommonHeader from '../../components/CommonHeader';
 import { useNavigate } from 'react-router-dom';
 import { HelpContents } from '../../types';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import ArrowRight from '../../assets/icons/arrowRight';
+import { useCookies } from 'react-cookie';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -105,6 +106,8 @@ export const tempData = {
 
 const Detail = () => {
   const [heartState, setHeartState] = useState(true);
+  const [cookies, setCookie] = useCookies(['AccessToken', 'RefreshToken', 'UserInfo']);
+
   // const { subData } = useSubscription();
 
   const menu: IMenu[] = [
@@ -115,8 +118,6 @@ const Detail = () => {
     0: <DetailSchedule subData={tempData} />,
     1: <DetailLocation subData={tempData} />,
   };
-
-  // console.log(tempData);
 
   const navigate = useNavigate();
   return (

@@ -29,7 +29,7 @@ export type InputLabel = {
 const InputLabel = ({ label, placeholder, onChange }: InputLabel) => (
   <Wrapper>
     <Label>{label}</Label>
-    <Input placeholder={placeholder} onChange={onChange} />
+    <Input readOnly placeholder={placeholder} onChange={onChange} />
   </Wrapper>
 );
 

@@ -6,7 +6,7 @@ import ArrowRight from '../../assets/icons/arrowRight';
 const MenuItems = [
   {
     id: 0,
-    title: '개인정보 수정',
+    title: '개인정보',
     link: '/usermodify',
   },
   {

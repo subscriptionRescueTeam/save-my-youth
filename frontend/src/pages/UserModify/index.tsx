@@ -7,7 +7,7 @@ const StyledUserInfoWrap = styled.div``;
 const UserModify = () => {
   return (
     <StyledUserInfoWrap>
-      <CommonHeader title="개인정보 수정" />
+      <CommonHeader title="개인정보" />
       <UserInfo />
     </StyledUserInfoWrap>
   );
