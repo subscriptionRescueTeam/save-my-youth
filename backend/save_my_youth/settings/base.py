@@ -227,7 +227,7 @@ SIMPLE_JWT = {
     'UPDATE_LAST_LOGIN': True,
 }
 
-CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3000' ,'http://localhost:3000', 'https://dynamic-gnome-cec0c3.netlify.app']
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3000' ,'http://localhost:3000', 'https://save-my-youth.netlify.app', 'https://save-my-youth.ga']
 CORS_ALLOW_CREDENTIALS = True
 
 # Rest Settings
