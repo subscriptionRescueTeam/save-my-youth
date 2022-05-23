@@ -9,6 +9,7 @@ import CommonHeader from '../../components/CommonHeader';
 import { useNavigate } from 'react-router-dom';
 import { HelpContents } from '../../types';
 import { useState } from 'react';
+// import useSubscription from '../../hooks/useSubscription';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -57,8 +58,6 @@ const StyledTag = styled.div`
   margin-bottom: 1rem;
 `;
 
-const StyledImgLabel = styled.div``;
-
 const StyledLabel = styled.div`
   position: absolute;
   top: 80px;
@@ -92,10 +91,23 @@ export const tempData = {
   houseName: '르엘 신반포 파크애비뉴',
   id: 2020000651,
   recNotice: '2020-05-28',
+  SPSPLY_RCEPT_BGNDE: '2020-05-28', //특별공급 접수시작일
+  SPSPLY_RCEPT_ENDDE: '2020-07-28', //특별공급 접수 종료일
+  GNRL_RNK1_CRSPAREA_RCEPT_PD: '2020-05-28', //1순위 접수일 해당지역
+  GNRL_RNK1_ETC_GG_RCPTDE_PD: '2020-05-29', //1순위 접수일 경기지역
+  GNRL_RNK1_ETC_AREA_RCPTDE_PD: '2020-06-08', //1순위 접수일 기타지역
+  GNRL_RNK2_CRSPAREA_RCEPT_PD: '2020-06-07', //2순위 접수일 해당지역
+  GNRL_RNK2_ETC_GG_RCPTDE_PD: '2020-05-28', //2순위 접수일 경기지역
+  GNRL_RNK2_ETC_AREA_RCPTDE_PD: '2020-05-30', //2순위 접수일 기타지역
+  PRZWNER_PRESNATN_DE: '2020-07-01', //당첨자발표일
+  CNTRCT_CNCLS_BGNDE: '2020-07-02', //계약시작일
+  CNTRCT_CNCLS_ENDDE: '2020-07-05', //계약종료일
 };
 
 const Detail = () => {
   const [heartState, setHeartState] = useState(true);
+  // const { subData } = useSubscription();
+
   const menu: IMenu[] = [
     { name: '청약일정', option: 'schedule' },
     { name: '위치', option: 'location' },
@@ -104,6 +116,8 @@ const Detail = () => {
     0: <DetailSchedule subData={tempData} />,
     1: <DetailLocation subData={tempData} />,
   };
+
+  // console.log(tempData);
 
   const navigate = useNavigate();
   return (
