@@ -10,6 +10,7 @@ import { HelpContents } from '../../types';
 import { useContext, useState } from 'react';
 import ArrowRight from '../../assets/icons/arrowRight';
 import { useCookies } from 'react-cookie';
+import axiosInstance from '../../utils/axiosInstance';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -108,8 +109,6 @@ const Detail = () => {
   const [heartState, setHeartState] = useState(true);
   const [cookies, setCookie] = useCookies(['AccessToken', 'RefreshToken', 'UserInfo']);
 
-  // const { subData } = useSubscription();
-
   const menu: IMenu[] = [
     { name: '청약일정', option: 'schedule' },
     { name: '위치', option: 'location' },
@@ -118,6 +117,22 @@ const Detail = () => {
     0: <DetailSchedule subData={tempData} />,
     1: <DetailLocation subData={tempData} />,
   };
+//아 ㅇㅋㅇㅋ 하트 되어있는지 확인하는 거죠? 하트 개수
+  // axiosInstance
+  const onHeartClick = async ()=>{
+    if(cookies.AccessToken) {
+      setHeartState(!heartState);
+      const { data } = await axiosInstance.post(`api/like/`,{ 
+        "sub_id": tempData.id,
+        "name": tempData.houseName,
+        // "end_date": tempData.applyEndDate,
+        "address": tempData.houseLocation,
+      })
+    } else{
+      navigate('/login')
+    } 
+
+  }
 
   const navigate = useNavigate();
   return (
@@ -137,7 +152,7 @@ const Detail = () => {
           </Flex>
           <Flex>
             <StyledDate>{tempData.applyStartDate} 등록</StyledDate>
-            <StyledHeartButton onClick={() => setHeartState(!heartState)}>
+            <StyledHeartButton onClick={onHeartClick}>
               {heartState ? <BigNullHeart /> : <BigHeart />}
             </StyledHeartButton>
           </Flex>
