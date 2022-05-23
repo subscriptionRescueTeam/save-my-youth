@@ -6,4 +6,5 @@ export { default as UserModify } from './UserModify';
 export { default as Like } from './Like';
 export { default as Login } from './Login';
 export { default as Help } from './Help';
+export { default as Info } from './Info';
 export { default as NotFound } from './NotFound';

@@ -10,7 +10,7 @@ class OpenApiSchema(Schema):
     subscription_data : dict = None
 
 # 좋아요 get 스키마
-class LikeGetSchema(Schema):
+class UserGetLikeSchema(Schema):
     status : bool
     like_num : int
 
