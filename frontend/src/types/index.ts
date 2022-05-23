@@ -65,7 +65,7 @@ export type ArrowDirection = 'right' | 'down' | 'up';
 
 export type OptionDecoration = {
   readonly fontSize?: string;
-  readonly fontWeight?: string;
+  readonly fontFamily?: string;
   readonly fontColor?: string;
   readonly underlineHeight?: string;
   readonly isUseBoldUnderline?: boolean;
@@ -91,14 +91,14 @@ export type SearchCardListProps = { subData: Subscription[] };
 export type SubscriptionList = { subData: SearchCardListProps };
 export type SearchCardItemProps = { subscription: SummarizedSubscription };
 
-export type FAQCategory = "청약" | "홈페이지";
+export type FAQCategory = '청약' | '홈페이지';
 export type FAQType = {
-  "question": string;
-  "answer": string;
-  "faq_category": {
-    "category_name": FAQCategory;
-  }
-}
+  question: string;
+  answer: string;
+  faq_category: {
+    category_name: FAQCategory;
+  };
+};
 
 export const CARD_WIDTH = 260;
 export const CARD_HEIGHT = 194;
