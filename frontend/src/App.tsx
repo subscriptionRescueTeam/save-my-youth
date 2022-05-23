@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import Footer from './components/Footer';
 import {
   Home,
   Search,
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/404" element={<NotFound />} />
         <Route path="/*" element={<Navigate replace to="/404" />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
