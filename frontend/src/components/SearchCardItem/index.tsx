@@ -18,7 +18,7 @@ const StyledCard = styled.div`
   padding: 0.7rem;
   border: 0.1rem solid ${PALETTE.PRI_LIGHT_010};
   border-radius: 0.5rem;
-  background-color: ${PALETTE.WHITE};
+  background-color: ${PALETTE.WHITE}
   color: ${PALETTE.BLACK};
 `;
 

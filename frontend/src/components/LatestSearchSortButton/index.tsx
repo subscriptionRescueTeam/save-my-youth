@@ -14,12 +14,10 @@ const StyledButton = styled.button`
   }
 `;
 
-
 const PopularButtons = () => {
   const [isShow, setIsShow] = useState<boolean>(false);
 
   const onClicked = (e: React.MouseEventHandler<HTMLButtonElement>) => {
-
   };
   return (
     <StyledButton>최신순</StyledButton>

@@ -6,10 +6,10 @@ const StyledButton = styled.button`
   padding:0.375rem 0.75rem;
   margin-left:1em;
   border-radius:0.45rem;
-  font-size:0.8em;
+  font-size:0.8em; 
   line-height:1.5;
   font-weight:700;
-  color:${PALETTE.BLACK};
+  color:${PALETTE.BLACK};S
   background-color:${PALETTE.LIGHT_010};
   }
 `;
