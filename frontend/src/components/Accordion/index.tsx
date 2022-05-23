@@ -12,6 +12,10 @@ export const StyledAccordion = styled.div`
   width: 100%;
 `;
 
+const StyledFlex = styled.div`
+  display: flex;
+`;
+
 const Accordion = ({ contents: { head, tails } }: AccodionProps) => {
   const [titleClicked, setTitleClicked] = useState(false);
 
@@ -21,11 +25,11 @@ const Accordion = ({ contents: { head, tails } }: AccodionProps) => {
 
   return (
     <StyledAccordion>
-      <div onClick={toggleAccodion}>
+      <StyledFlex onClick={toggleAccodion}>
         <OptionItem
           key={head.optionName}
           fontSize={head.fontSize}
-          fontWeight={head.fontWeight}
+          fontFamily={head.fontFamily}
           underlineHeight={head.isUseBoldUnderline && !titleClicked ? '8px' : head.underlineHeight}
           direction={titleClicked ? 'up' : 'down'}
           disabled={head.disabled}
@@ -33,7 +37,7 @@ const Accordion = ({ contents: { head, tails } }: AccodionProps) => {
         >
           {head.optionName}
         </OptionItem>
-      </div>
+      </StyledFlex>
 
       {titleClicked && (
         <div>
@@ -41,7 +45,7 @@ const Accordion = ({ contents: { head, tails } }: AccodionProps) => {
             <Link key={`${tail.optionName}-${tail.link}`} to={tail.link}>
               <OptionItem
                 fontSize={tail.fontSize}
-                fontWeight={tail.fontWeight}
+                fontFamily={tail.fontFamily}
                 underlineHeight={index == tails.length - 1 ? '8px' : tail.underlineHeight}
                 direction={tail.direction}
                 disabled={tail.disabled}

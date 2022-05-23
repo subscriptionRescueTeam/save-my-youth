@@ -13,16 +13,17 @@ export type SidebarProps = {
 };
 
 const StyledUserName = styled.span`
-  width: 100%;
-  height: 100%;
   border-bottom: 1px solid ${PALETTE.BLACK};
 `;
 
-const StyledLoginButton = styled.button`
+const StyledLogin = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 40px;
   border-radius: 4px;
-  font-weight: bold;
+  font-family: 'Pretendard-semiBold';
   background: ${PALETTE.PRI_LIGHT_010};
 `;
 
@@ -43,7 +44,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
       optionName: ` 님`,
       link: userName ? '/mypage' : '/login',
       fontSize: '1rem',
-      fontWeight: 'bold',
+      fontFamily: 'Pretendard-Bold',
       isShownAlways: true,
     },
     {
@@ -58,7 +59,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
       optionName: '좋아요',
       link: '/like',
       fontSize: '1rem',
-      fontWeight: 'bold',
+      fontFamily: 'Pretendard-Bold',
       underlineHeight: '2px',
     },
   ];
@@ -68,7 +69,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
       optionName: '고객센터',
       link: '/',
       fontSize: '1rem',
-      fontWeight: 'bold',
+      fontFamily: 'Pretendard-Bold',
       underlineHeight: '2px',
       isUseBoldUnderline: true,
       isShownAlways: true,
@@ -122,7 +123,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
         <Link key={`${option.optionName}-${option.link}`} to={option.link}>
           <OptionItem
             fontSize={option.fontSize}
-            fontWeight={option.fontWeight}
+            fontFamily={option.fontFamily}
             fontColor={option.fontColor}
             underlineHeight={option.underlineHeight}
             direction={option.direction}
@@ -141,11 +142,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
                 {option.optionName}
               </>
             )}
-            {index === 0 && !userName && (
-              <Link to="/login">
-                <StyledLoginButton>로그인</StyledLoginButton>
-              </Link>
-            )}
+            {index === 0 && !userName && <StyledLogin>로그인</StyledLogin>}
           </OptionItem>
         </Link>
       ))}
@@ -156,7 +153,7 @@ const Sidebar = ({ onSidebarOpen, isOpen }: SidebarProps) => {
         <Link key={`${option.optionName}-${option.link}`} to={option.link}>
           <OptionItem
             fontSize={option.fontSize}
-            fontWeight={option.fontWeight}
+            fontFamily={option.fontFamily}
             fontColor={`${PALETTE.DARK_030}`}
             underlineHeight={option.underlineHeight}
             direction={option.direction}
