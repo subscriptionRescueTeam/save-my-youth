@@ -5,7 +5,7 @@ import { SubscriptionUsedMainPage } from '../types';
 
 const useTodaySubscription = () => {
   const [todaySubscriptions, setTodaySubscriptions] = useState<SubscriptionUsedMainPage[]>([]);
-  const today = '2022-06-01'; //new Date().toJSON().slice(0, 10).replace(/-/g, '-');
+  const today = '2022-04-01'; //new Date().toJSON().slice(0, 10).replace(/-/g, '-');
 
   const getTodayPosts = async () => {
     try {
