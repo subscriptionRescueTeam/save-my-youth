@@ -7,8 +7,10 @@ import { DetailSchedule, DetailLocation, TabBar } from '../../components';
 import CommonHeader from '../../components/CommonHeader';
 import { useNavigate } from 'react-router-dom';
 import { HelpContents } from '../../types';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ArrowRight from '../../assets/icons/arrowRight';
+import { useCookies } from 'react-cookie';
+import axiosInstance from '../../utils/axiosInstance';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -105,7 +107,7 @@ export const tempData = {
 
 const Detail = () => {
   const [heartState, setHeartState] = useState(true);
-  // const { subData } = useSubscription();
+  const [cookies, setCookie] = useCookies(['AccessToken', 'RefreshToken', 'UserInfo']);
 
   const menu: IMenu[] = [
     { name: '청약일정', option: 'schedule' },
@@ -116,7 +118,30 @@ const Detail = () => {
     1: <DetailLocation subData={tempData} />,
   };
 
-  // console.log(tempData);
+  const onHeartClick = async ()=>{
+    if(cookies.AccessToken) {
+      setHeartState(!heartState);
+      const { data } = await axiosInstance.post(`api/like/`,{ 
+        "sub_id": tempData.id,
+        "name": tempData.houseName,
+        "end_date": tempData.applyEndDate,
+        "address": tempData.houseLocation,
+      })
+    } else{
+      navigate('/login')
+    } 
+  }
+
+  
+
+  useEffect( ()=>{ // 얘 때문인 거 같아요
+    async function getYourLike() {
+      const { data } = await axiosInstance.get(`api/like/${tempData.id}`);
+      console.log(data);
+      setHeartState(data.status);
+       }
+    getYourLike();
+  },[axiosInstance, tempData]);
 
   const navigate = useNavigate();
   return (
@@ -136,7 +161,7 @@ const Detail = () => {
           </Flex>
           <Flex>
             <StyledDate>{tempData.applyStartDate} 등록</StyledDate>
-            <StyledHeartButton onClick={() => setHeartState(!heartState)}>
+            <StyledHeartButton onClick={onHeartClick}>
               {heartState ? <BigNullHeart /> : <BigHeart />}
             </StyledHeartButton>
           </Flex>
