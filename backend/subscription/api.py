@@ -58,7 +58,7 @@ like_router = Router(tags=["좋아요 API"])
                 response={200: schema.UserGetLikeSchema},
                 summary="청약 좋아요 가져오기",
                 auth=None)
-def user_get_like(request, sub_id: int):
+def user_get_like(request, sub_id: str):
     '''
     청약의 좋아요 갯수와 로그인시 사용자가 좋아요를 눌렀는지 확인하는 API입니다.
     like/{공고번호}로 가져오시면 됩니다.
@@ -67,7 +67,7 @@ def user_get_like(request, sub_id: int):
     '''
 
     try:
-        subscription = Subscription.objects.get(sub_id=sub_id)
+        subscription = Subscription.objects.get(sub_id=int(sub_id))
         user_subscription = UserSubscription.objects.filter(
             user_subscription_id=subscription.id)
 
