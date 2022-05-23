@@ -14,13 +14,7 @@ export type Subscription = {
   applyEndDate: string;
 };
 
-export type SummarizedSubscription = {
-  id: number;
-  houseName: string;
-  houseLocation: string;
-  applyStartDate: string;
-  applyEndDate: string;
-};
+
 export type SubscriptionUsedMainPage = SubscriptionUsedMainPageByAPI & SubscriptionUsedMainPageByDB;
 
 export type SubscriptionUsedMainPageByAPI = {
@@ -67,7 +61,7 @@ export type AccordionType = { head: Option; tails: Option[] };
 // serchCardlist
 export type SearchCardListProps = { subData: Subscription[] };
 export type SubscriptionList = { subData: SearchCardListProps };
-export type SearchCardItemProps = { subscription: SummarizedSubscription };
+export type SearchCardItemProps = { subscription: Subscription };
 
 export const CARD_WIDTH = 260;
 export const CARD_HEIGHT = 194;

@@ -15,12 +15,16 @@ const StyledButton = styled.button`
   }
 `;
 
+const onClicked = (e: React.MouseEventHandler<HTMLButtonElement>) => {
+
+};
+
 
 const PopularButtons = () => {
 
-    return (
-        <StyledButton>인기순</StyledButton>
-    );
+  return (
+    <StyledButton>인기순</StyledButton>
+  );
 };
 
 export default PopularButtons;

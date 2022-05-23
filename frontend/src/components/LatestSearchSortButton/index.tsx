@@ -6,7 +6,6 @@ import PALETTE from '../../constants/palette';
 const StyledButton = styled.button`
   padding:0.375rem 0.75rem;
   margin-left:1em;
-  dislpay:flex;
   border-radius:0.45rem;
   font-size:0.8em;
   line-height:1.5;
@@ -16,13 +15,16 @@ const StyledButton = styled.button`
   }
 `;
 
+const onClicked = (e: React.MouseEventHandler<HTMLButtonElement>) => {
 
-const LatestButtons = () => {
+};
+
+
+const PopularButtons = () => {
 
   return (
     <StyledButton>최신순</StyledButton>
   );
 };
 
-
-export default LatestButtons;
+export default PopularButtons;
