@@ -1,9 +1,10 @@
 import React from 'react';
-import PALETTE from '../../constants/palette';
-import styled from 'styled-components';
-import { Subscription, SearchCardItemProps } from '../../types';
-import { ReactComponent as BlueHeart } from '../../assets/icons/blueHeart.svg';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+
+import { ReactComponent as BlueHeart } from '../../assets/icons/blueHeart.svg';
+import PALETTE from '../../constants/palette';
+import { SearchCardItemProps, Subscription } from '../../types';
 
 const StyledBox = styled.div`
   width: 90%;

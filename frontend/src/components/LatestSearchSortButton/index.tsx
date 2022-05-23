@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+
 import PALETTE from '../../constants/palette';
 
 const StyledButton = styled.button`
@@ -17,11 +18,8 @@ const StyledButton = styled.button`
 const PopularButtons = () => {
   const [isShow, setIsShow] = useState<boolean>(false);
 
-  const onClicked = (e: React.MouseEventHandler<HTMLButtonElement>) => {
-  };
-  return (
-    <StyledButton>최신순</StyledButton>
-  );
+  const onClicked = (e: React.MouseEventHandler<HTMLButtonElement>) => {};
+  return <StyledButton>최신순</StyledButton>;
 };
 
 export default PopularButtons;

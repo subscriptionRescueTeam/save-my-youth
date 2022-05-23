@@ -1,4 +1,4 @@
-import { Subscription, SearchCardListProps } from '../../types';
+import { SearchCardListProps, Subscription } from '../../types';
 import SearchCardItem from '../SearchCardItem';
 
 const SearchCardList = ({ subData }: SearchCardListProps) => {
@@ -16,15 +16,11 @@ const SearchCardList = ({ subData }: SearchCardListProps) => {
 
           return (
             <>
-              <SearchCardItem
-                key={Subscription.id}
-                subscription={Subscription}
-              />
+              <SearchCardItem key={Subscription.id} subscription={Subscription} />
             </>
           );
         })}
     </article>
   );
 };
-
 export default SearchCardList;
