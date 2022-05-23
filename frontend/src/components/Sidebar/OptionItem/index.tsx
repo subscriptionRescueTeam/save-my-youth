@@ -11,10 +11,7 @@ const StyledContainer = styled.div`
   position: relative;
 `;
 
-const StyledButton = styled.button<{
-  underlineHeight: string;
-  disabled?: boolean;
-}>`
+const StyledButton = styled.button<{ underlineHeight: string; disabled?: boolean }>`
   width: 100%;
   height: 3.5rem;
   text-align: left;
@@ -23,11 +20,7 @@ const StyledButton = styled.button<{
   cursor: ${(props) => (props.disabled ? 'default' : 'pointer')};
 `;
 
-const StyledSpan = styled.span<{
-  fontSize: string;
-  fontWeight: string;
-  fontColor: string;
-}>`
+const StyledSpan = styled.span<{ fontSize: string; fontWeight: string; fontColor: string }>`
   font-size: ${(props) => props.fontSize};
   font-weight: ${(props) => props.fontWeight};
   color: ${(props) => props.fontColor};
