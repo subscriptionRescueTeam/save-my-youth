@@ -43,18 +43,22 @@ def edit_user(request, data: schema.UserSchema):
     '''
     사용자 정부 수정 API입니다.
 
-    username: str -> 사용자 이름
+    first_name: str -> 사용자 이름
+    last_name: str -> 사용자 성
     email: str -> 사용자 이메일
 
-    email 정규식 체크해서 보내주시기 바랍니다.
+    데이터 정규식 체크해서 보내주시기 바랍니다.
+    데이터 값이 바뀌지 않을 경우 원본 데이터를 넣어서 보내주시기 바랍니다.
     '''
     user_email = data.email
-    user_username = data.username
+    user_first_name = data.first_name
+    user_last_name = data.last_name
 
     user_info = User.objects.get(id=request.auth.id)
 
     user_info.email = user_email
-    user_info.username = user_username
+    user_info.first_name = user_first_name
+    user_info.last_name = user_last_name
     user_info.save()
 
     return 201

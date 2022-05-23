@@ -12,7 +12,7 @@ const StyledCardConatiner = styled.div`
   scrollbar-width: none; /* Firefox */
 
   &::-webkit-scrollbar {
-    display: none; Chrome, Safari, Opera */
+    display: none;
   }
 `;
 
