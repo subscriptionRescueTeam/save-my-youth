@@ -54,7 +54,6 @@ const StyledLike = styled.span`
   color: ${PALETTE.DARK_020};
 `;
 
-
 const SearchCardItem = ({ subscription }: SearchCardItemProps) => {
   const navigate = useNavigate();
 

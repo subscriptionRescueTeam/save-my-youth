@@ -1,9 +1,5 @@
-import React, { useState, FormEvent } from 'react';
-import styled from 'styled-components';
 import { Subscription, SearchCardListProps } from '../../types';
 import SearchCardItem from '../SearchCardItem';
-import PALETTE from '../../constants/palette';
-
 
 const SearchCardList = ({ subData }: SearchCardListProps) => {
   return (
@@ -20,7 +16,10 @@ const SearchCardList = ({ subData }: SearchCardListProps) => {
 
           return (
             <>
-              <SearchCardItem key={Subscription.id} subscription={Subscription} />
+              <SearchCardItem
+                key={Subscription.id}
+                subscription={Subscription}
+              />
             </>
           );
         })}

@@ -1,8 +1,8 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Input, CommonHeader } from '../../components';
 import PALETTE from '../../constants/palette';
-import useSubscription from '../../hooks/useSubscription';
+import useSearch from '../../hooks/useSearch';
 import SearchCardList from '../../components/SearchCardList';
 import PopularButtons from '../../components/PopularSearchButton';
 import LatestButtons from '../../components/LatestSearchSortButton';
@@ -25,7 +25,7 @@ const MessageWrapper = styled.div`
 
 const Search = () => {
   const [keyword, setKeyword] = useState<string>();
-  const { subData } = useSubscription(keyword);
+  const { subData } = useSearch(keyword);
 
   const onChangeData = (e: React.FormEvent<HTMLInputElement>) => {
     setKeyword(e.currentTarget.value);
@@ -36,7 +36,7 @@ const Search = () => {
       <div>
         <MessageWrapper>총 {subData.length}개의 공고가 있습니다</MessageWrapper>
         <SearchCardList subData={subData} />;
-      </div>
+      </div>;
     }
   };
 

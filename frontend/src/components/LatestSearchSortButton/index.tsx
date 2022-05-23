@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import PALETTE from '../../constants/palette';
-// import { Subscription, SummarizedSubscription } from '../../types';
 
 const StyledButton = styled.button`
   padding:0.375rem 0.75rem;
