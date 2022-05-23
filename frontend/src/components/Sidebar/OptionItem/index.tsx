@@ -11,23 +11,16 @@ const StyledContainer = styled.div`
   position: relative;
 `;
 
-const StyledButton = styled.button<{
-  underlineHeight: string;
-  disabled?: boolean;
-}>`
+const StyledButton = styled.button<{ underlineHeight: string; disabled?: boolean }>`
   width: 100%;
-  height: 3.5rem;
+  height: 100%;
   text-align: left;
   padding: 1rem 1.5rem;
   border-bottom: ${(props) => props.underlineHeight} solid ${PALETTE.LIGHT_010};
   cursor: ${(props) => (props.disabled ? 'default' : 'pointer')};
 `;
 
-const StyledSpan = styled.span<{
-  fontSize: string;
-  fontWeight: string;
-  fontColor: string;
-}>`
+const StyledSpan = styled.span<{ fontSize: string; fontWeight: string; fontColor: string }>`
   font-size: ${(props) => props.fontSize};
   font-weight: ${(props) => props.fontWeight};
   color: ${(props) => props.fontColor};
