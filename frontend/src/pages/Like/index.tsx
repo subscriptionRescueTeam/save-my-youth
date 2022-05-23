@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import CommonHeader from '../../components/CommonHeader';
 import SearchCardList from '../../components/SearchCardList';
-import useSearch from '../../hooks/useSearch';
+import useLike from '../../hooks/useLike';
 
 const StyledAnnounce = styled.div`
   display: flex;
@@ -14,17 +14,17 @@ const StyledAnnounce = styled.div`
 `;
 
 const Like = () => {
-  const { subData } = useSearch('서울');
+  const { LikeList } = useLike();
 
   useEffect(() => {
-    <SearchCardList subData={subData} />;
+    <SearchCardList subData={LikeList} />;
   }, []);
 
   return (
     <>
       <CommonHeader title="좋아요" />
       <StyledAnnounce>총 8 개의 공고가 있습니다.</StyledAnnounce>
-      <SearchCardList subData={subData} />
+      <SearchCardList subData={LikeList} />
     </>
   );
 };
