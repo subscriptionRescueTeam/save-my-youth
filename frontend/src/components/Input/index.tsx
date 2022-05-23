@@ -16,7 +16,7 @@ export const StyledInput = styled.input`
   border: none;
   background-color: ${PALETTE.LIGHT_010};
   font-family: 'Pretendard-Medium';
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 `;
 
 export const StyledSearch = styled.div`

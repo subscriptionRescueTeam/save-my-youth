@@ -7,11 +7,11 @@ export type User = {
 };
 
 export type Subscription = {
-  readonly id: number;
-  readonly houseName: string;
-  readonly houseLocation: string;
-  readonly applyStartDate: string;
-  readonly applyEndDate: string;
+  id: number;
+  houseName: string;
+  houseLocation: string;
+  applyStartDate: string;
+  applyEndDate: string;
 };
 
 export type SummarizedSubscription = {
@@ -24,13 +24,13 @@ export type SummarizedSubscription = {
 export type SubscriptionUsedMainPage = SubscriptionUsedMainPageByAPI & SubscriptionUsedMainPageByDB;
 
 export type SubscriptionUsedMainPageByAPI = {
-  readonly id: number;
-  readonly houseName: string;
-  readonly recNotice: string;
+  id: number;
+  houseName: string;
+  recNotice: string;
 };
 
 export type SubscriptionUsedMainPageByDB = {
-  readonly likeNum: number;
+  likeNum: number;
   imgLink: string;
 };
 
@@ -42,41 +42,32 @@ export type slidDirection = 'left' | 'right';
 export type ArrowDirection = 'right' | 'down' | 'up';
 
 export type OptionDecoration = {
-  readonly fontSize?: string;
-  readonly fontWeight?: string;
-  readonly fontColor?: string;
-  readonly underlineHeight?: string;
-  readonly isUseBoldUnderline?: boolean;
-  readonly direction?: ArrowDirection | null;
-  readonly disabled?: boolean;
+  fontSize?: string;
+  fontWeight?: string;
+  fontColor?: string;
+  underlineHeight?: string;
+  isUseBoldUnderline?: boolean;
+  direction?: ArrowDirection | null;
+  disabled?: boolean;
 };
 
 export type Option = {
-  readonly userName?: string;
-  readonly optionName: string;
-  readonly link: string;
-  readonly isShownAlways?: boolean;
-  readonly onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  userName?: string;
+  optionName: string;
+  link: string;
+  isShownAlways?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 } & OptionDecoration;
 
-export type HelpType = { readonly name: string; readonly option: string };
+export type HelpType = { name: string; option: string };
 export type HelpContents = Record<number, JSX.Element>;
 
-export type AccordionType = { readonly head: Option; tails: Option[] };
+export type AccordionType = { head: Option; tails: Option[] };
 
 // serchCardlist
 export type SearchCardListProps = { subData: Subscription[] };
 export type SubscriptionList = { subData: SearchCardListProps };
 export type SearchCardItemProps = { subscription: SummarizedSubscription };
-
-export type FAQCategory = "청약" | "홈페이지";
-export type FAQType = {
-  "question": string;
-  "answer": string;
-  "faq_category": {
-    "category_name": FAQCategory;
-  }
-}
 
 export const CARD_WIDTH = 260;
 export const CARD_HEIGHT = 194;
