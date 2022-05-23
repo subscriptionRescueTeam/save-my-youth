@@ -35,17 +35,17 @@ const ServiceInfo = () => {
       <StyledWrapper>
         <StyledLocationTitle>프로젝트 개요</StyledLocationTitle>
         <StyledLocationDetail>
-          <span style={{ fontFamily: 'Pretendard-Bold' }}>"청년을 구해줘!"</span>는 청년들을 위한
-          청약 정보를 한눈에 쉽게 살펴볼 수 있는 웹사이트입니다.
+          <span style={{ fontFamily: 'Pretendard-Bold' }}>"청년을 구해줘!"</span>는 청년들이 신청할
+          수 있는 청약을 보여주는 웹사이트입니다.
         </StyledLocationDetail>
         <StyledBar>─</StyledBar>
         <StyledLocationDetail>
-          역세권 청년주택에 거주하고 있고, 앞으로 다른 곳으로 이사가고 싶어서 청약을 넣을 예정인
-          청년,독립을 하고 싶은 청년, 부모와 떨어져서 성장할 수 있는 기회를 놓치지 않길 바라는 청년.
+          우리는 독립을 원하는 청년이 보다 저렴한 가격에 안전한 곳에 머물기를 바라는 마음으로 이
+          사이트를 제작하였습니다.
         </StyledLocationDetail>
         <StyledLocationDetail>
-          이유는 다르지만 청년청약에 관심을 가지고 있습니다. 그렇지만 청약 공고가 올라오는 사이트가
-          모두 달라 따로 찾아보아야 하게 때문에 청약 공고를 한 눈에 볼 수 있게 하는 사이트입니다
+          청약 공고가 여기저기 흩어져 있어 다 찾아보고 계시나요? 혹은 청약이 뭔지도 모르겠다고요? 이
+          사이트 안에서 답을 찾아보세요!
         </StyledLocationDetail>
       </StyledWrapper>
     </>
