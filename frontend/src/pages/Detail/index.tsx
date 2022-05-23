@@ -9,7 +9,7 @@ import CommonHeader from '../../components/CommonHeader';
 import { useNavigate } from 'react-router-dom';
 import { HelpContents } from '../../types';
 import { useState } from 'react';
-import useSubscription from '../../hooks/useSubscription';
+// import useSubscription from '../../hooks/useSubscription';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -106,7 +106,7 @@ export const tempData = {
 
 const Detail = () => {
   const [heartState, setHeartState] = useState(true);
-  const { subData } = useSubscription();
+  // const { subData } = useSubscription();
 
   const menu: IMenu[] = [
     { name: '청약일정', option: 'schedule' },
@@ -117,7 +117,7 @@ const Detail = () => {
     1: <DetailLocation subData={tempData} />,
   };
 
-  console.log(subData);
+  // console.log(tempData);
 
   const navigate = useNavigate();
   return (
