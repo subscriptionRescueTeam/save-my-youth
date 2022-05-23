@@ -50,16 +50,16 @@ const FAQContent = ({ FAQList }: FAQContentProps) => {
       {FAQList.map((FAQ) => {
         const newFAQ: AccordionType = {
           head: {
-            // optionName: `Q.${FAQ.question}`,
-            optionName: FAQ.question,
+            optionName: `Q. ${FAQ.question}`,
             link: '#',
             fontSize: '1rem',
+            fontFamily: 'Pretendard-Medium',
             underlineHeight: '2px',
             isShownAlways: true,
           },
           tails: [
             {
-              optionName: FAQ.answer,
+              optionName: `A. ${FAQ.answer}`,
               link: '#',
               fontSize: '0.875rem',
               underlineHeight: '2px',

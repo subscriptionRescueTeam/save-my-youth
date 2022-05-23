@@ -4,7 +4,6 @@ import PALETTE from '../../constants/palette';
 import { SubscriptionUsedMainPage } from '../../types';
 import useTodaySubscription from '../../hooks/useTodaySubscription';
 import useTheOtherDaySubscription from '../../hooks/useTheOtherDaySubscription';
-import useSearch from '../../hooks/useSearch';
 import MainBanner from '../../assets/images/mainBanner.svg';
 import { Link } from 'react-router-dom';
 import ArrowRight from '../../assets/icons/arrowRight';
@@ -78,7 +77,6 @@ export const StyledColorSpan = styled.span`
 `;
 
 const Home = () => {
-  const subData = useSearch();
   const { todaySubscriptions } = useTodaySubscription();
   const { theOtherDaySubscriptions } = useTheOtherDaySubscription();
 

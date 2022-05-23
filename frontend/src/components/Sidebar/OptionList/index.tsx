@@ -6,6 +6,7 @@ import PALETTE from '../../../constants/palette';
 import { Children } from '../../../types';
 
 const StyledOptionList = styled.aside<{ isOpen: boolean }>`
+  width: 100%;
   position: fixed;
   top: 0;
   right: 0;
