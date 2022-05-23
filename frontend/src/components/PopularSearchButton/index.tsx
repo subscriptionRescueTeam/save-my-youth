@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import PALETTE from '../../constants/palette';
 import { Subscription, SummarizedSubscription } from '../../types';
-import { Children } from '../../types';
 
 const StyledButton = styled.button`
   padding:0.375rem 0.75rem;
@@ -11,7 +10,7 @@ const StyledButton = styled.button`
   font-size:0.8em;
   line-height:1.5;
   font-weight:700;
-  font-color:${PALETTE.BLACK};
+  color:${PALETTE.BLACK};
   background-color:${PALETTE.LIGHT_010};
   }
 `;
