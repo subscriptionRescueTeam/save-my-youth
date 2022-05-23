@@ -6,22 +6,24 @@ import { Children } from '../../types';
 
 const StyledButton = styled.button`
   padding:0.375rem 0.75rem;
-  border-radius:0.25rem;
-  font-size:1rem;
+  margin-left:1em;
+  dislpay:flex;
+  border-radius:0.45rem;
+  font-size:0.8em;
   line-height:1.5;
+  font-weight:700;
   font-color:${PALETTE.BLACK};
   background-color:${PALETTE.LIGHT_010};
   }
 `;
 
 
-export const Buttons = () => {
+const LatestButtons = () => {
 
   return (
-    <StyledButton>
-      인기순
-    </StyledButton>
+    <StyledButton>최신순</StyledButton>
   );
 };
 
 
+export default LatestButtons;
