@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 import { Children } from '../../types';
 
-export const StyledLayoutCenter = styled.div<{ backgroundColor: string }>`
-  min-width: 100vw;
-  min-height: 100vh;
+export const StyledLayoutCenter = styled.div`
+  width: 100%;
   flex-direction: column;
   align-items: center;
-  background-color: ${(props) => props.backgroundColor};
 `;
 
 export const StyledContent = styled.main`
@@ -18,12 +16,11 @@ export const StyledContent = styled.main`
 
 export type LayoutCenterProps = {
   children: Children;
-  backgroundColor: string;
 };
 
-const LayoutCenter = ({ children, backgroundColor }: LayoutCenterProps) => {
+const LayoutCenter = ({ children }: LayoutCenterProps) => {
   return (
-    <StyledLayoutCenter backgroundColor={backgroundColor}>
+    <StyledLayoutCenter>
       <StyledContent>{children}</StyledContent>
     </StyledLayoutCenter>
   );
