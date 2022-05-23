@@ -125,7 +125,7 @@ const Detail = () => {
       const { data } = await axiosInstance.post(`api/like/`,{ 
         "sub_id": tempData.id,
         "name": tempData.houseName,
-        // "end_date": tempData.applyEndDate,
+        "end_date": tempData.applyEndDate,
         "address": tempData.houseLocation,
       })
     } else{
