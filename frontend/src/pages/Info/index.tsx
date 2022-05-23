@@ -1,6 +1,6 @@
-import styled from 'styled-components';
 import { TabBar, LayoutNavigation } from '../../components';
 import ServiceInfo from '../../components/ServiceInfo';
+import TeamInfo from '../../components/TeamInfo';
 
 const menu = [
   { name: '서비스 소개', option: 'service' },
@@ -8,7 +8,7 @@ const menu = [
 ];
 const checkList = {
   0: <ServiceInfo />,
-  1: <>팀 소개 작성 중이에요!</>,
+  1: <TeamInfo />,
 };
 
 const Info = () => {
