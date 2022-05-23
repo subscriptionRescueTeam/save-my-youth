@@ -56,6 +56,8 @@ export type SubscriptionUsedMainPageByDB = {
   imgLink: string;
 };
 
+export type SubscriptionUsedMyPageByAPI = { readonly id: number; readonly houseName: string; readonly houseLocation: string; readonly applyEndDate: string; readonly likeNum: number; };
+
 export type Writing = '최신' | '인기';
 export type Children = React.ReactNode;
 
