@@ -15,13 +15,13 @@ const StyledButton = styled.button`
   }
 `;
 
-const onClicked = (e: React.MouseEventHandler<HTMLButtonElement>) => {
-
-};
-
 
 const PopularButtons = () => {
+  const [isShow, setIsShow] = useState<boolean>(false);
 
+  const onClicked = (e: React.MouseEventHandler<HTMLButtonElement>) => {
+
+  };
   return (
     <StyledButton>최신순</StyledButton>
   );
