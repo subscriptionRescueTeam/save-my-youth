@@ -1,6 +1,6 @@
 from typing import List
 
-from ninja import Schema
+from ninja import ModelSchema, Schema
 from subscription.schema import SubscriptionSchema
 
 
@@ -8,3 +8,8 @@ from subscription.schema import SubscriptionSchema
 class UserLikeSchema(Schema):
 
     like_list : List[SubscriptionSchema] = None
+
+class UserSchema(Schema):
+    first_name: str
+    last_name: str
+    email: str
