@@ -102,7 +102,7 @@ const Login = () => {
   };
 
   return (
-    <LayoutCenter backgroundColor={PALETTE.LIGHT_010}>
+    <LayoutCenter>
       <StyledTitleContainer>
         <Logo />
         <StyledTitle>청년을 구해줘!</StyledTitle>
@@ -118,11 +118,11 @@ const Login = () => {
         cookiePolicy={'single_host_origin'}
         render={(renderProps) => (
           <StyledButton onClick={renderProps.onClick} style={LoginButtonCss}>
-            <GoogleLogo></GoogleLogo>
+            <GoogleLogo />
             <StyledGoogle>Google로 로그인</StyledGoogle>
           </StyledButton>
         )}
-      ></GoogleLogin>
+      />
       <Link to="/">
         <StyledToHome>홈으로 돌아가기</StyledToHome>
       </Link>
