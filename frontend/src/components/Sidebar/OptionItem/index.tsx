@@ -13,7 +13,7 @@ const StyledContainer = styled.div`
 
 const StyledButton = styled.button<{ underlineHeight: string; disabled?: boolean }>`
   width: 100%;
-  height: 3.5rem;
+  height: 100%;
   text-align: left;
   padding: 1rem 1.5rem;
   border-bottom: ${(props) => props.underlineHeight} solid ${PALETTE.LIGHT_010};

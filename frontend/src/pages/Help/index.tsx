@@ -18,7 +18,6 @@ const StyledContent = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* margin-top: 12.97vh; */
 `;
 
 const StyledWarning = styled.span`
@@ -51,21 +50,19 @@ const FAQContent = ({ FAQList }: FAQContentProps) => {
       {FAQList.map((FAQ) => {
         const newFAQ: AccordionType = {
           head: {
+            // optionName: `Q.${FAQ.question}`,
             optionName: FAQ.question,
-            link: '/',
+            link: '#',
             fontSize: '1rem',
-            fontWeight: 'bold',
             underlineHeight: '2px',
-            isUseBoldUnderline: true,
             isShownAlways: true,
           },
           tails: [
             {
               optionName: FAQ.answer,
-              link: '/help',
+              link: '#',
               fontSize: '0.875rem',
               underlineHeight: '2px',
-              direction: 'right',
               isShownAlways: true,
             },
           ],
