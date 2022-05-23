@@ -39,7 +39,9 @@ const DetailLocation = ({ subData }: any) => {
         <Location />
         {subData.houseLocation}
       </StyledLocationDetail>
-      <StyledLocationButton onClick={() => window.open(subData.applyHomepage)}>
+      <StyledLocationButton
+        onClick={() => window.open(`https://map.naver.com/v5/search/${subData.houseLocation}`)}
+      >
         지도 바로가기
       </StyledLocationButton>
     </StyledWrapper>
