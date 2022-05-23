@@ -73,7 +73,7 @@ export const StyledMainWrapper = styled.div`
 
 export const StyledColorSpan = styled.span`
   color: ${PALETTE.PRI_DARK_010};
-  padding-right: 2vw;
+  padding-right: 5px;
 `;
 
 const Home = () => {
