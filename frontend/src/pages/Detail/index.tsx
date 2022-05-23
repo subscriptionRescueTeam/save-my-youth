@@ -7,7 +7,7 @@ import { DetailSchedule, DetailLocation, TabBar } from '../../components';
 import CommonHeader from '../../components/CommonHeader';
 import { useNavigate } from 'react-router-dom';
 import { HelpContents } from '../../types';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ArrowRight from '../../assets/icons/arrowRight';
 import { useCookies } from 'react-cookie';
 import axiosInstance from '../../utils/axiosInstance';
@@ -117,8 +117,7 @@ const Detail = () => {
     0: <DetailSchedule subData={tempData} />,
     1: <DetailLocation subData={tempData} />,
   };
-//아 ㅇㅋㅇㅋ 하트 되어있는지 확인하는 거죠? 하트 개수
-  // axiosInstance
+
   const onHeartClick = async ()=>{
     if(cookies.AccessToken) {
       setHeartState(!heartState);
@@ -131,8 +130,17 @@ const Detail = () => {
     } else{
       navigate('/login')
     } 
-
   }
+
+  useEffect( ()=>{
+    async function getYourLike() {
+      const { data } = await axiosInstance.get(`api/like/${String(tempData.id)}`);
+      console.log(tempData.id)
+      console.log(data);
+      setHeartState(data.status);
+       }
+    getYourLike(); // 아 페이지에서
+  },[axiosInstance, tempData]);
 
   const navigate = useNavigate();
   return (
