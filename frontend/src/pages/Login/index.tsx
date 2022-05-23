@@ -60,9 +60,8 @@ const StyledToHome = styled.span`
 
 const StyledMaker = styled.span`
   font-size: 0.875rem;
+  margin-top: 15rem;
   color: ${PALETTE.DARK_010};
-  position: absolute;
-  bottom: 24px;
 `;
 
 const Login = () => {
@@ -91,8 +90,7 @@ const Login = () => {
   };
 
   const LoginButtonCss: CSSProperties = {
-    width: '87.46vw',
-    maxWidth: '480px',
+    width: '100%',
     height: '56px', // "72px"
     borderRadius: '20px',
     backgroundColor: PALETTE.WHITE,
