@@ -10,5 +10,6 @@ class UserLikeSchema(Schema):
     like_list : List[SubscriptionSchema] = None
 
 class UserSchema(Schema):
-    username: str
+    first_name: str
+    last_name: str
     email: str
