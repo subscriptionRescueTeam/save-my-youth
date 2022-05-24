@@ -1,4 +1,4 @@
-import { SummarizedSubscription, SearchCardListProps } from '../../types';
+import { SearchCardListProps, Subscription } from '../../types';
 import SearchCardItem from '../SearchCardItem';
 
 const SearchCardList = ({ subData }: SearchCardListProps) => {
@@ -6,7 +6,7 @@ const SearchCardList = ({ subData }: SearchCardListProps) => {
     <article>
       {subData &&
         subData.map((data) => {
-          const summarizedSubscription: SummarizedSubscription = {
+          const Subscription: Subscription = {
             id: data.id,
             houseName: data.houseName,
             houseLocation: data.houseLocation,
@@ -16,15 +16,11 @@ const SearchCardList = ({ subData }: SearchCardListProps) => {
 
           return (
             <>
-              <SearchCardItem
-                key={summarizedSubscription.id}
-                subscription={summarizedSubscription}
-              />
+              <SearchCardItem key={Subscription.id} subscription={Subscription} />
             </>
           );
         })}
     </article>
   );
 };
-
 export default SearchCardList;

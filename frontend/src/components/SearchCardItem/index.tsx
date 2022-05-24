@@ -1,9 +1,10 @@
 import React from 'react';
-import PALETTE from '../../constants/palette';
-import styled from 'styled-components';
-import { SummarizedSubscription, SearchCardItemProps } from '../../types';
-import { ReactComponent as BlueHeart } from '../../assets/icons/blueHeart.svg';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+
+import { ReactComponent as BlueHeart } from '../../assets/icons/blueHeart.svg';
+import PALETTE from '../../constants/palette';
+import { SearchCardItemProps, Subscription } from '../../types';
 
 const StyledBox = styled.div`
   width: 90%;
@@ -18,7 +19,7 @@ const StyledCard = styled.div`
   padding: 0.7rem;
   border: 0.1rem solid ${PALETTE.PRI_LIGHT_010};
   border-radius: 0.5rem;
-  background-color: ${PALETTE.WHITE};
+  background-color: ${PALETTE.WHITE}
   color: ${PALETTE.BLACK};
 `;
 
