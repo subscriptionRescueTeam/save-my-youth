@@ -37,7 +37,13 @@ export type Subscription = {
   readonly likeNum?: number;
 };
 
-
+export type SummarizedSubscription = {
+  id: number;
+  houseName: string;
+  houseLocation: string;
+  applyStartDate: string;
+  applyEndDate: string;
+};
 export type SubscriptionUsedMainPage = SubscriptionUsedMainPageByAPI & SubscriptionUsedMainPageByDB;
 
 export type SubscriptionUsedMainPageByAPI = {
@@ -86,7 +92,7 @@ export type AccordionType = { readonly head: Option; tails: Option[] };
 // serchCardlist
 export type SearchCardListProps = { subData: Subscription[] };
 export type SubscriptionList = { subData: SearchCardListProps };
-export type SearchCardItemProps = { subscription: Subscription };
+export type SearchCardItemProps = { subscription: SummarizedSubscription };
 
 export type FAQCategory = '청약' | '홈페이지';
 export type FAQType = {
