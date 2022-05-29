@@ -66,6 +66,8 @@ INSTALLED_APPS = [
     "dj_rest_auth.registration",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
+    'allauth.socialaccount.providers.naver',
+    'allauth.socialaccount.providers.kakao'
 ]
 
 MIDDLEWARE = [
@@ -203,7 +205,7 @@ SOCIALACCOUNT_PROVIDERS = {
         'AUTH_PARAMS': {
             'access_type': 'online',
         }
-    }
+    },
 }
 
 # Disable email verification since this is just a test.

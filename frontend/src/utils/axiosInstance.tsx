@@ -4,7 +4,7 @@ import { Cookies } from 'react-cookie';
 const cookies = new Cookies();
 
 // const PROXY_URL = window.location.hostname === 'localhost' ? '' : '/proxy';
-const BASE_URL = 'https://secret-reaches-74853.herokuapp.com/';
+const BASE_URL = 'http://127.0.0.1:8000/';
 
 const axiosInstance = axios.create({
   baseURL: `${BASE_URL}`,
@@ -38,7 +38,7 @@ axiosInstance.interceptors.response.use(
 
       const { data } = await axios.post(`${BASE_URL}api/token/refresh/`, {
         refresh: RefreshToken,
-      }); 
+      });
 
       const newAccessToken = data.access;
       const newRefreshToken = data.refresh;

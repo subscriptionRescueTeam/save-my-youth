@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import GoogleLogin from 'react-google-login';
+import KakaoLogin from 'react-kakao-login';
 import LayoutCenter from '../../components/LayoutCenter';
 import PALETTE from '../../constants/palette';
-import { CSSProperties } from 'react';
+import { CSSProperties, useEffect } from 'react';
 import { ReactComponent as Logo } from '../../assets/icons/logo.svg';
 import { ReactComponent as GoogleLogo } from '../../assets/icons/google.svg';
 import { Link, useNavigate } from 'react-router-dom';
@@ -85,6 +86,23 @@ const Login = () => {
     navigate('/');
   };
 
+  const kakaoLoginSuccess = async (response: any) => {
+    const res = await fetch('https://secret-reaches-74853.herokuapp.com/api/social-login/kakao/', {
+      method: 'POST',
+      body: JSON.stringify({
+        access_token: response.response.access_token,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await res.json();
+    setCookie('AccessToken', data.access_token);
+    setCookie('RefreshToken', data.refresh_token);
+    setCookie('UserInfo', data.user);
+    navigate('/');
+  };
+
   const loginFail = () => {
     window.alert('로그인 실패했습니다. 관리자에게 문의해주세요.');
   };
@@ -120,6 +138,15 @@ const Login = () => {
             <StyledGoogle>Google로 로그인</StyledGoogle>
           </StyledButton>
         )}
+      />
+      <KakaoLogin
+        token="65ba956836fbee5b0555a947e7cdfdc7"
+        onSuccess={kakaoLoginSuccess}
+        onFail={loginFail}
+        needProfile
+        useLoginForm
+        persistAccessToken
+        throughTalk
       />
       <Link to="/">
         <StyledToHome>홈으로 돌아가기</StyledToHome>
