@@ -22,5 +22,5 @@ class KaKaoLogin(SocialLoginView):
     authentication_classes = [] # disable authentication
     adapter_class = KakaoOAuth2Adapter
     #callback_url = env('CALLBACK_URL')
-    callback_url = 'http://127.0.0.1:3000/login'
+    callback_url = env('CALLBACK_URL')
     client_class = OAuth2Client
