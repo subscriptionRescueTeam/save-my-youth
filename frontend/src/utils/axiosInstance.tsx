@@ -4,7 +4,7 @@ import { Cookies } from 'react-cookie';
 const cookies = new Cookies();
 
 // const PROXY_URL = window.location.hostname === 'localhost' ? '' : '/proxy';
-const BASE_URL = 'http://127.0.0.1:8000/';
+const BASE_URL = 'https://secret-reaches-74853.herokuapp.com/';
 
 const axiosInstance = axios.create({
   baseURL: `${BASE_URL}`,
