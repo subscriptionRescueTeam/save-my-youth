@@ -50,7 +50,7 @@ const Footer = () => {
     <StyledContainer>
       <StyledFlex>
         {ptag.map((i) => (
-          <StyledTag key={i.toString()} onClick={() => navigate(`/${i.nav}`)}>
+          <StyledTag key={i.title} onClick={() => navigate(`/${i.nav}`)}>
             {i.title}
           </StyledTag>
         ))}
