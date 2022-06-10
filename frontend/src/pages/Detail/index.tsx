@@ -6,11 +6,101 @@ import PALETTE from '../../constants/palette';
 import { DetailSchedule, DetailLocation, TabBar } from '../../components';
 import CommonHeader from '../../components/CommonHeader';
 import { useNavigate } from 'react-router-dom';
-import { HelpContents } from '../../types';
-import { useContext, useEffect, useState } from 'react';
+import { HelpContents, IMenu } from '../../types';
+import { useEffect, useState } from 'react';
 import ArrowRight from '../../assets/icons/arrowRight';
 import { useCookies } from 'react-cookie';
 import axiosInstance from '../../utils/axiosInstance';
+
+export const tempData = {
+  applyEndDate: '2020-06-10',
+  applyHomepage: 'http://leel-sinbanpo-parkavenue.co.kr/',
+  applyScale: 98,
+  applyStartDate: '2020-06-08',
+  houseLocation: '서울특별시 서초구 강남대로107길 14 (잠원동)',
+  houseName: '르엘 신반포 파크애비뉴',
+  id: 2020000651,
+  recNotice: '2020-05-28',
+  SPSPLY_RCEPT_BGNDE: '2020-05-28', //특별공급 접수시작일
+  SPSPLY_RCEPT_ENDDE: '2020-07-28', //특별공급 접수 종료일
+  GNRL_RNK1_CRSPAREA_RCEPT_PD: '2020-05-28', //1순위 접수일 해당지역
+  GNRL_RNK1_ETC_GG_RCPTDE_PD: '2020-05-29', //1순위 접수일 경기지역
+  GNRL_RNK1_ETC_AREA_RCPTDE_PD: '2020-06-08', //1순위 접수일 기타지역
+  GNRL_RNK2_CRSPAREA_RCEPT_PD: '2020-06-07', //2순위 접수일 해당지역
+  GNRL_RNK2_ETC_GG_RCPTDE_PD: '2020-05-28', //2순위 접수일 경기지역
+  GNRL_RNK2_ETC_AREA_RCPTDE_PD: '2020-05-30', //2순위 접수일 기타지역
+  PRZWNER_PRESNATN_DE: '2020-07-01', //당첨자발표일
+  CNTRCT_CNCLS_BGNDE: '2020-07-02', //계약시작일
+  CNTRCT_CNCLS_ENDDE: '2020-07-05', //계약종료일
+};
+
+const Detail = () => {
+  const [heartState, setHeartState] = useState(true);
+  const [cookies, setCookie] = useCookies(['AccessToken', 'RefreshToken', 'UserInfo']);
+
+  const menu: IMenu[] = [
+    { name: '청약일정', option: 'schedule' },
+    { name: '위치', option: 'location' },
+  ];
+  const checkList: HelpContents = {
+    0: <DetailSchedule subData={tempData} />,
+    1: <DetailLocation subData={tempData} />,
+  };
+
+  const onHeartClick = async () => {
+    if (cookies.AccessToken) {
+      setHeartState(!heartState);
+      const { data } = await axiosInstance.post(`api/like/`, {
+        sub_id: tempData.id,
+        name: tempData.houseName,
+        end_date: tempData.applyEndDate,
+        address: tempData.houseLocation,
+      });
+    } else {
+      navigate('/login');
+    }
+  };
+
+  useEffect(() => {
+    // 얘 때문인 거 같아요
+    async function getYourLike() {
+      const { data } = await axiosInstance.get(`api/like/${tempData.id}`);
+      console.log(data);
+      setHeartState(data.status);
+    }
+    getYourLike();
+  }, [axiosInstance, tempData]);
+
+  const navigate = useNavigate();
+  return (
+    <>
+      <CommonHeader title="청약 상세" />
+      <StyledImg src={Picture} width="100%" alt="picture" />
+      <StyledLabel>{tempData.houseLocation.split(' ')[0]}</StyledLabel>
+      <StyledWrapper>
+        <StyledTitleWrapper>
+          <StyledLocationWrapper onClick={() => navigate('/search')}>
+            {tempData.houseLocation.split(' ')[0]} <ArrowRight />{' '}
+            {tempData.houseLocation.split(' ')[1]}
+          </StyledLocationWrapper>
+          <StyledTitle>{tempData.houseName}</StyledTitle>
+          <Flex>
+            <StyledTag>{tempData.applyScale}세대</StyledTag>
+          </Flex>
+          <Flex>
+            <StyledDate>{tempData.applyStartDate} 등록</StyledDate>
+            <StyledHeartButton onClick={onHeartClick}>
+              {heartState ? <BigNullHeart /> : <BigHeart />}
+            </StyledHeartButton>
+          </Flex>
+        </StyledTitleWrapper>
+        <TabBar menu={menu} checkList={checkList} />
+      </StyledWrapper>
+    </>
+  );
+};
+
+export default Detail;
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -77,99 +167,3 @@ const Flex = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-
-interface IMenu {
-  name: string;
-  option: string;
-}
-
-export const tempData = {
-  applyEndDate: '2020-06-10',
-  applyHomepage: 'http://leel-sinbanpo-parkavenue.co.kr/',
-  applyScale: 98,
-  applyStartDate: '2020-06-08',
-  houseLocation: '서울특별시 서초구 강남대로107길 14 (잠원동)',
-  houseName: '르엘 신반포 파크애비뉴',
-  id: 2020000651,
-  recNotice: '2020-05-28',
-  SPSPLY_RCEPT_BGNDE: '2020-05-28', //특별공급 접수시작일
-  SPSPLY_RCEPT_ENDDE: '2020-07-28', //특별공급 접수 종료일
-  GNRL_RNK1_CRSPAREA_RCEPT_PD: '2020-05-28', //1순위 접수일 해당지역
-  GNRL_RNK1_ETC_GG_RCPTDE_PD: '2020-05-29', //1순위 접수일 경기지역
-  GNRL_RNK1_ETC_AREA_RCPTDE_PD: '2020-06-08', //1순위 접수일 기타지역
-  GNRL_RNK2_CRSPAREA_RCEPT_PD: '2020-06-07', //2순위 접수일 해당지역
-  GNRL_RNK2_ETC_GG_RCPTDE_PD: '2020-05-28', //2순위 접수일 경기지역
-  GNRL_RNK2_ETC_AREA_RCPTDE_PD: '2020-05-30', //2순위 접수일 기타지역
-  PRZWNER_PRESNATN_DE: '2020-07-01', //당첨자발표일
-  CNTRCT_CNCLS_BGNDE: '2020-07-02', //계약시작일
-  CNTRCT_CNCLS_ENDDE: '2020-07-05', //계약종료일
-};
-
-const Detail = () => {
-  const [heartState, setHeartState] = useState(true);
-  const [cookies, setCookie] = useCookies(['AccessToken', 'RefreshToken', 'UserInfo']);
-
-  const menu: IMenu[] = [
-    { name: '청약일정', option: 'schedule' },
-    { name: '위치', option: 'location' },
-  ];
-  const checkList: HelpContents = {
-    0: <DetailSchedule subData={tempData} />,
-    1: <DetailLocation subData={tempData} />,
-  };
-
-  const onHeartClick = async ()=>{
-    if(cookies.AccessToken) {
-      setHeartState(!heartState);
-      const { data } = await axiosInstance.post(`api/like/`,{ 
-        "sub_id": tempData.id,
-        "name": tempData.houseName,
-        "end_date": tempData.applyEndDate,
-        "address": tempData.houseLocation,
-      })
-    } else{
-      navigate('/login')
-    } 
-  }
-
-  
-
-  useEffect( ()=>{ // 얘 때문인 거 같아요
-    async function getYourLike() {
-      const { data } = await axiosInstance.get(`api/like/${tempData.id}`);
-      console.log(data);
-      setHeartState(data.status);
-       }
-    getYourLike();
-  },[axiosInstance, tempData]);
-
-  const navigate = useNavigate();
-  return (
-    <>
-      <CommonHeader title="청약 상세" />
-      <StyledImg src={Picture} width="100%" alt="picture" />
-      <StyledLabel>{tempData.houseLocation.split(' ')[0]}</StyledLabel>
-      <StyledWrapper>
-        <StyledTitleWrapper>
-          <StyledLocationWrapper onClick={() => navigate('/search')}>
-            {tempData.houseLocation.split(' ')[0]} <ArrowRight />{' '}
-            {tempData.houseLocation.split(' ')[1]}
-          </StyledLocationWrapper>
-          <StyledTitle>{tempData.houseName}</StyledTitle>
-          <Flex>
-            <StyledTag>{tempData.applyScale}세대</StyledTag>
-          </Flex>
-          <Flex>
-            <StyledDate>{tempData.applyStartDate} 등록</StyledDate>
-            <StyledHeartButton onClick={onHeartClick}>
-              {heartState ? <BigNullHeart /> : <BigHeart />}
-            </StyledHeartButton>
-          </Flex>
-        </StyledTitleWrapper>
-        <TabBar menu={menu} checkList={checkList} />
-      </StyledWrapper>
-    </>
-  );
-};
-
-export default Detail;

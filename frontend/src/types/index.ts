@@ -57,8 +57,6 @@ export type SubscriptionUsedMainPageByDB = {
   imgLink: string;
 };
 
-
-
 export type Writing = '최신' | '인기';
 export type Children = React.ReactNode;
 
@@ -107,3 +105,8 @@ export const CARD_WIDTH = 260;
 export const CARD_HEIGHT = 194;
 export const CARD_MARGIN = 6;
 export const CARD_BORDER_RADIUS = 8;
+
+export type IMenu = {
+  name: string;
+  option: string;
+};

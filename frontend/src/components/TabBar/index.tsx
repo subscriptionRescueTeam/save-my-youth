@@ -22,7 +22,7 @@
 import { useState } from 'react';
 import PALETTE from '../../constants/palette';
 import styled from 'styled-components';
-import { HelpContents } from '../../types';
+import { HelpContents, IMenu } from '../../types';
 
 const StyledContentWrapper = styled.div`
   width: 100%;
@@ -50,11 +50,6 @@ const StyledMenuTitle = styled.li<{ check?: string; count: number }>`
     border-bottom: 2px solid ${PALETTE.PRI_MAIN};
   }
 `;
-
-interface IMenu {
-  name: string;
-  option: string;
-}
 
 type TabBarProps = {
   menu: IMenu[];
