@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Input, CommonHeader } from '../../components';
 import PALETTE from '../../constants/palette';
 import useSearch from '../../hooks/useSearch';
+import useDebounce from '../../hooks/useDebounce';
 import SearchCardList from '../../components/SearchCardList';
 
 const InputWrapper = styled.div`
@@ -21,11 +22,12 @@ const MessageWrapper = styled.div`
 `;
 
 const Search = () => {
-  const [keyword, setKeyword] = useState<string>();
+  const [keyword, setKeyword] = useState<string>("");
   const { subData } = useSearch(keyword);
 
+
   const onChangeData = (e: React.FormEvent<HTMLInputElement>) => {
-    setKeyword(e.currentTarget.value);
+    useDebounce(setKeyword(e.currentTarget.value), 200);
   };
 
   const onKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
