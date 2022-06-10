@@ -22,8 +22,9 @@ const MessageWrapper = styled.div`
 `;
 
 const Search = () => {
-  const [keyword, setKeyword] = useState<string>();
-  const { subData } = useSearch(keyword);
+  const [keyword, setKeyword] = useState<string>("");
+  const searchkeyword = useDebounce(keyword,150);
+  const { subData } = useSearch(searchkeyword);
 
   const onChangeData = (e: React.FormEvent<HTMLInputElement>) => {
     setKeyword(e.currentTarget.value);
