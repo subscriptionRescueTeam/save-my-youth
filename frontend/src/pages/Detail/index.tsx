@@ -3,10 +3,9 @@ import Picture from '../../assets/images/picture2.png';
 import { ReactComponent as BigHeart } from '../../assets/icons/bigHeart.svg';
 import { ReactComponent as BigNullHeart } from '../../assets/icons/bigNullHeart.svg';
 import PALETTE from '../../constants/palette';
-import { DetailSchedule, DetailLocation, TabBar } from '../../components';
-import CommonHeader from '../../components/CommonHeader';
+import { DetailSchedule, DetailLocation, TabBar, CommonHeader } from '../../components';
 import { useNavigate } from 'react-router-dom';
-import { HelpContents, IMenu } from '../../types';
+import { HelpContents, IDetailOptions } from '../../types';
 import { useEffect, useState } from 'react';
 import ArrowRight from '../../assets/icons/arrowRight';
 import { useCookies } from 'react-cookie';
@@ -37,8 +36,9 @@ export const tempData = {
 const Detail = () => {
   const [heartState, setHeartState] = useState(true);
   const [cookies, setCookie] = useCookies(['AccessToken', 'RefreshToken', 'UserInfo']);
+  const navigate = useNavigate();
 
-  const menu: IMenu[] = [
+  const menu: IDetailOptions[] = [
     { name: '청약일정', option: 'schedule' },
     { name: '위치', option: 'location' },
   ];
@@ -71,29 +71,28 @@ const Detail = () => {
     getYourLike();
   }, [axiosInstance, tempData]);
 
-  const navigate = useNavigate();
   return (
     <>
       <CommonHeader title="청약 상세" />
-      <StyledImg src={Picture} width="100%" alt="picture" />
+      <img src={Picture} width="100%" alt="picture" />
       <StyledLabel>{tempData.houseLocation.split(' ')[0]}</StyledLabel>
       <StyledWrapper>
-        <StyledTitleWrapper>
+        <StyledWrapper id="title">
           <StyledLocationWrapper onClick={() => navigate('/search')}>
             {tempData.houseLocation.split(' ')[0]} <ArrowRight />{' '}
             {tempData.houseLocation.split(' ')[1]}
           </StyledLocationWrapper>
           <StyledTitle>{tempData.houseName}</StyledTitle>
-          <Flex>
+          <StyledFlex>
             <StyledTag>{tempData.applyScale}세대</StyledTag>
-          </Flex>
-          <Flex>
+          </StyledFlex>
+          <StyledFlex>
             <StyledDate>{tempData.applyStartDate} 등록</StyledDate>
             <StyledHeartButton onClick={onHeartClick}>
               {heartState ? <BigNullHeart /> : <BigHeart />}
             </StyledHeartButton>
-          </Flex>
-        </StyledTitleWrapper>
+          </StyledFlex>
+        </StyledWrapper>
         <TabBar menu={menu} checkList={checkList} />
       </StyledWrapper>
     </>
@@ -105,12 +104,10 @@ export default Detail;
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
-`;
 
-const StyledTitleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 1rem;
+  &#title {
+    margin: 1rem;
+  }
 `;
 
 const StyledHeartButton = styled.button`
@@ -160,9 +157,7 @@ const StyledLabel = styled.div`
   border-radius: 0 4px 4px 0;
 `;
 
-const StyledImg = styled.img``;
-
-const Flex = styled.div`
+const StyledFlex = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
