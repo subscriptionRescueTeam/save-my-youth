@@ -22,7 +22,7 @@
 import { useState } from 'react';
 import PALETTE from '../../constants/palette';
 import styled from 'styled-components';
-import { HelpContents, IMenu } from '../../types';
+import { HelpContents, IDetailOptions } from '../../types';
 
 const StyledContentWrapper = styled.div`
   width: 100%;
@@ -52,7 +52,7 @@ const StyledMenuTitle = styled.li<{ check?: string; count: number }>`
 `;
 
 type TabBarProps = {
-  menu: IMenu[];
+  menu: IDetailOptions[];
   checkList: HelpContents;
 };
 

@@ -106,7 +106,7 @@ export const CARD_HEIGHT = 194;
 export const CARD_MARGIN = 6;
 export const CARD_BORDER_RADIUS = 8;
 
-export type IMenu = {
+export type IDetailOptions = {
   name: string;
   option: string;
 };
