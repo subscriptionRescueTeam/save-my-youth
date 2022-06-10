@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 // debounce 된 값을 돌려줌
-const useDebounce = (value: void, delay: number) => {
+const useDebounce = (value: string, delay: number) => {
     const [debouncedValue, setDebouncedValue] = useState(value);
     useEffect(() => {
         const handler = setTimeout(() => {

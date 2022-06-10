@@ -22,12 +22,11 @@ const MessageWrapper = styled.div`
 `;
 
 const Search = () => {
-  const [keyword, setKeyword] = useState<string>("");
+  const [keyword, setKeyword] = useState<string>();
   const { subData } = useSearch(keyword);
 
-
   const onChangeData = (e: React.FormEvent<HTMLInputElement>) => {
-    useDebounce(setKeyword(e.currentTarget.value), 200);
+    setKeyword(e.currentTarget.value);
   };
 
   const onKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
