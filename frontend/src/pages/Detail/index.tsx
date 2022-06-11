@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import ArrowRight from '../../assets/icons/arrowRight';
 import { useCookies } from 'react-cookie';
 import axiosInstance from '../../utils/axiosInstance';
+import useSubscription from '../../hooks/useSubscription';
 
 export const tempData = {
   applyEndDate: '2020-06-10',
@@ -34,6 +35,7 @@ export const tempData = {
 };
 
 const Detail = () => {
+  const tempCheck = useSubscription();
   const [heartState, setHeartState] = useState(true);
   const [cookies, setCookie] = useCookies(['AccessToken', 'RefreshToken', 'UserInfo']);
   const navigate = useNavigate();
@@ -46,6 +48,8 @@ const Detail = () => {
     0: <DetailSchedule subData={tempData} />,
     1: <DetailLocation subData={tempData} />,
   };
+
+  console.log(tempCheck);
 
   const onHeartClick = async () => {
     if (cookies.AccessToken) {
