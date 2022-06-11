@@ -15,12 +15,10 @@ const SearchCardList = ({ subData }: SearchCardListProps) => {
           };
 
           return (
-            <>
-              <SearchCardItem
-                key={summarizedSubscription.id}
-                subscription={summarizedSubscription}
-              />
-            </>
+            <SearchCardItem
+              key={summarizedSubscription.id}
+              subscription={summarizedSubscription}
+            />
           );
         })}
     </article>
