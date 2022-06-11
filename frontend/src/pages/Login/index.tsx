@@ -7,7 +7,7 @@ import { ReactComponent as Logo } from '../../assets/icons/logo.svg';
 import { ReactComponent as GoogleLogo } from '../../assets/icons/google.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-import KakaoLogin from 'react-kakao-login';
+// import KakaoLogin from 'react-kakao-login';
 
 const StyledTitleContainer = styled.div`
   display: flex;
@@ -86,22 +86,22 @@ const Login = () => {
     navigate('/');
   };
 
-  const kakaoLoginSuccess = async (response: any) => {
-    const res = await fetch('https://secret-reaches-74853.herokuapp.com/api/social-login/kakao/', {
-      method: 'POST',
-      body: JSON.stringify({
-        access_token: response.response.access_token,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const data = await res.json();
-    setCookie('AccessToken', data.access_token);
-    setCookie('RefreshToken', data.refresh_token);
-    setCookie('UserInfo', data.user);
-    navigate('/');
-  };
+  // const kakaoLoginSuccess = async (response: any) => {
+  //   const res = await fetch('https://secret-reaches-74853.herokuapp.com/api/social-login/kakao/', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       access_token: response.response.access_token,
+  //     }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   });
+  //   const data = await res.json();
+  //   setCookie('AccessToken', data.access_token);
+  //   setCookie('RefreshToken', data.refresh_token);
+  //   setCookie('UserInfo', data.user);
+  //   navigate('/');
+  // };
 
   const loginFail = () => {
     window.alert('로그인 실패했습니다. 관리자에게 문의해주세요.');
@@ -117,15 +117,15 @@ const Login = () => {
     marginBottom: '4.32vh',
   };
 
-  const KakaoLoginButtonCss: CSSProperties = {
-    width: '100%',
-    height: '56px', // "72px"
-    borderRadius: '20px',
-    backgroundColor: PALETTE.KAKAO,
-    boxShadow: '0px 4px 17px rgba(119, 119, 119, 0.2)',
-    marginTop: '6.48vh',
-    marginBottom: '4.32vh',
-  };
+  // const KakaoLoginButtonCss: CSSProperties = {
+  //   width: '100%',
+  //   height: '56px', // "72px"
+  //   borderRadius: '20px',
+  //   backgroundColor: PALETTE.KAKAO,
+  //   boxShadow: '0px 4px 17px rgba(119, 119, 119, 0.2)',
+  //   marginTop: '6.48vh',
+  //   marginBottom: '4.32vh',
+  // };
 
   return (
     <LayoutCenter>
@@ -149,7 +149,7 @@ const Login = () => {
           </StyledButton>
         )}
       />
-      <KakaoLogin
+      {/* <KakaoLogin
         token="65ba956836fbee5b0555a947e7cdfdc7"
         onSuccess={kakaoLoginSuccess}
         onFail={loginFail}
@@ -162,7 +162,7 @@ const Login = () => {
             <StyledGoogle>Kakao로 로그인</StyledGoogle>
           </StyledButton>
         )}
-      />
+      /> */}
       <Link to="/">
         <StyledToHome>홈으로 돌아가기</StyledToHome>
       </Link>
