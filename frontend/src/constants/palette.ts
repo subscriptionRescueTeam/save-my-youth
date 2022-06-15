@@ -1,6 +1,7 @@
 const PALETTE = {
   WHITE: '#ffffff',
   BLACK: '#1a1a1a',
+  KAKAO: '#FFE812',
 
   DARK_040: '#262626',
   DARK_030: '#6C6C6C',
