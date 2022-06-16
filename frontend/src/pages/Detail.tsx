@@ -36,10 +36,12 @@ export const tempData = {
 
 const Detail = () => {
   const location = useLocation();
+  console.log(location);
   const state = location.state as DetailState;
+  console.log(state);
   const { id } = state;
 
-  const tempCheck = useSubscription();
+  const tempCheck = useSubscription('id', '', id);
   const [heartState, setHeartState] = useState(true);
   const [cookies, setCookie] = useCookies(['AccessToken', 'RefreshToken', 'UserInfo']);
   const navigate = useNavigate();

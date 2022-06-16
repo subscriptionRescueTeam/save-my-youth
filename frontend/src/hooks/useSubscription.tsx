@@ -6,16 +6,16 @@ import tmpImg from '../assets/images/picture2.png';
 const SERVER_SUBSCRIPTION_URL = `https://secret-reaches-74853.herokuapp.com/api/subscription/perPage=10`;
 const SERVER_LIKE_COUNT_URL = `https://secret-reaches-74853.herokuapp.com/api/like`;
 
-export type Request = 'today' | 'theOtherDay' | 'region';
+export type Request = 'today' | 'theOtherDay' | 'region' | 'id';
 
-const useTodaySubscription = (request: Request, region?: string) => {
+const useTodaySubscription = (request: Request, region?: string, id?: number) => {
   const [subscriptions, setSubscriptions] = useState<SubscriptionUsedFront[]>([]);
 
   const now = new Date();
   const today = '2022-06-11'; //now.toJSON().slice(0, 10).replace(/-/g, '-');
   const theOtherDay = new Date(now.setDate(now.getDate() - 10)).toJSON().slice(0, 10);
 
-  const getRequestUrl = (request: Request, region?: string): string => {
+  const getRequestUrl = (request: Request, region?: string, id?: number): string => {
     let condition = '';
     switch (request) {
       case 'today': {
@@ -28,6 +28,10 @@ const useTodaySubscription = (request: Request, region?: string) => {
       }
       case 'region': {
         condition = `&cond[SUBSCRPT_AREA_CODE_NM::EQ]=${region}`;
+        break;
+      }
+      case 'id': {
+        condition = `&cond[PBLANC_NO::EQ]=${id}`;
         break;
       }
     }
