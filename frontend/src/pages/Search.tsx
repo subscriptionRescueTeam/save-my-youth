@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Input, CommonHeader } from '../components';
 import PALETTE from '../constants/palette';
-import useSearch from '../hooks/useSearch';
 import useDebounce from '../hooks/useDebounce';
 import SearchCardList from '../components/SearchCardList';
+import useSubscription from '../hooks/useSubscription';
 
 const InputWrapper = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ const MessageWrapper = styled.div`
 const Search = () => {
   const [keyword, setKeyword] = useState<string>('');
   const searchkeyword = useDebounce(keyword, 150);
-  const { subData } = useSearch(searchkeyword);
+  const { subscriptions: subData } = useSubscription('region', searchkeyword);
 
   const onChangeData = (e: React.FormEvent<HTMLInputElement>) => {
     setKeyword(e.currentTarget.value);

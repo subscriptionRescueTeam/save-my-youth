@@ -1,8 +1,7 @@
 import { Input, MainCardList, LayoutNavigation, CardSlider } from '../components';
 import styled from 'styled-components';
 import PALETTE from '../constants/palette';
-import { SubscriptionUsedMainPage } from '../types';
-import useTodaySubscription from '../hooks/useSubscription';
+import { SubscriptionUsedFront } from '../types';
 import MainBanner from '../assets/images/mainBanner.svg';
 import { Link } from 'react-router-dom';
 import ArrowRight from '../assets/icons/arrowRight';
@@ -84,13 +83,13 @@ const Home = () => {
   console.log(theOtherDaySubscriptions);
 
   const popularityList = theOtherDaySubscriptions
-    .sort((a: SubscriptionUsedMainPage, b: SubscriptionUsedMainPage) => {
+    .sort((a: SubscriptionUsedFront, b: SubscriptionUsedFront) => {
       return new Date(a.likeNum).getDate() - new Date(b.likeNum).getDate();
     })
     .slice(0, 3);
 
   const likeList = theOtherDaySubscriptions
-    .sort((a: SubscriptionUsedMainPage, b: SubscriptionUsedMainPage) => {
+    .sort((a: SubscriptionUsedFront, b: SubscriptionUsedFront) => {
       return new Date(b.recNotice).getDate() - new Date(a.recNotice).getDate();
     })
     .slice(0, 3);
