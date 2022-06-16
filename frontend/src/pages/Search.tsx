@@ -37,7 +37,7 @@ const Search = () => {
         <SearchCardList subData={subData} />;
       </div>;
       if (keyword.length === 0) {
-        alert("검색어를 입력해주세요!")
+        alert("검색어를 입력해주세요")
       } 
     }
   };
