@@ -59,7 +59,7 @@ export type SubscriptionUsedMainPageByAPI = {
 };
 
 export type SubscriptionUsedMainPageByDB = {
-  readonly likeNum: number;
+  likeNum: number;
   imgLink: string;
 };
 

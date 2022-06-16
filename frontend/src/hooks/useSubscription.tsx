@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import tmpImg from '../assets/images/picture2.png';
 import { SubscriptionUsedMainPage } from '../types';
 
-const SERVER_URL = `https://secret-reaches-74853.herokuapp.com/api/subscription/perPage=10`;
+const SERVER_SUBSCRIPTION_URL = `https://secret-reaches-74853.herokuapp.com/api/subscription/perPage=10`;
+const SERVER_LIKE_COUNT_URL = `https://secret-reaches-74853.herokuapp.com/api/like`;
 
 export type Request = 'today' | 'theOtherDay' | 'region';
 
@@ -30,13 +31,14 @@ const useTodaySubscription = (request: Request, region?: string) => {
         break;
       }
     }
-    return SERVER_URL + condition;
+    return SERVER_SUBSCRIPTION_URL + condition;
   };
 
   const getSubscriptionsFromServer = async () => {
     try {
       const response: AxiosResponse<any> = await axios.get(getRequestUrl(request, region));
       const res = response.data.subscription_data.data;
+
       const data: SubscriptionUsedMainPage[] = res
         .filter((v: any) => {
           if (request === 'today' && v.RCRIT_PBLANC_DE !== today) {
@@ -49,11 +51,19 @@ const useTodaySubscription = (request: Request, region?: string) => {
             id: v.PBLANC_NO,
             houseName: v.HOUSE_NM,
             recNotice: v.RCRIT_PBLANC_DE,
-            likeNum: 26, // TODO: DB에서 가져오기
+            likeNum: -1,
             imgLink: tmpImg,
           };
           return subscriptionState;
         });
+
+      for (let i = 0; i < data.length; i++) {
+        const likeNumResponse: AxiosResponse<any> = await axios.get(
+          SERVER_LIKE_COUNT_URL + `/${data[i].id}`
+        );
+        data[i].likeNum = likeNumResponse.data.like_num;
+      }
+
       return data;
     } catch (e) {
       console.error(e);
