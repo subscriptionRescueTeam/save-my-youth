@@ -2,11 +2,11 @@ import { Input, MainCardList, LayoutNavigation, CardSlider } from '../components
 import styled from 'styled-components';
 import PALETTE from '../constants/palette';
 import { SubscriptionUsedMainPage } from '../types';
-import useTodaySubscription from '../hooks/useTodaySubscription';
-import useTheOtherDaySubscription from '../hooks/useTheOtherDaySubscription';
+import useTodaySubscription from '../hooks/useSubscription';
 import MainBanner from '../assets/images/mainBanner.svg';
 import { Link } from 'react-router-dom';
 import ArrowRight from '../assets/icons/arrowRight';
+import useSubscription from '../hooks/useSubscription';
 
 export const StyledMainBannerContainer = styled.div`
   width: 100%;
@@ -77,8 +77,10 @@ export const StyledColorSpan = styled.span`
 `;
 
 const Home = () => {
-  const { todaySubscriptions } = useTodaySubscription();
-  const { theOtherDaySubscriptions } = useTheOtherDaySubscription();
+  const { subscriptions: todaySubscriptions } = useSubscription('today');
+  const { subscriptions: theOtherDaySubscriptions } = useSubscription('theOtherDay');
+
+  console.log(todaySubscriptions);
 
   const popularityList = theOtherDaySubscriptions
     .sort((a: SubscriptionUsedMainPage, b: SubscriptionUsedMainPage) => {
