@@ -81,6 +81,7 @@ const Home = () => {
   const { subscriptions: theOtherDaySubscriptions } = useSubscription('theOtherDay');
 
   console.log(todaySubscriptions);
+  console.log(theOtherDaySubscriptions);
 
   const popularityList = theOtherDaySubscriptions
     .sort((a: SubscriptionUsedMainPage, b: SubscriptionUsedMainPage) => {

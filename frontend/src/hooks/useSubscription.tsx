@@ -11,11 +11,8 @@ const useTodaySubscription = (request: Request, region?: string) => {
   const [subscriptions, setSubscriptions] = useState<SubscriptionUsedMainPage[]>([]);
 
   const now = new Date();
-  const today = '2022-06-01'; //now.toJSON().slice(0, 10).replace(/-/g, '-');
-  const theOtherDay = new Date(now.setDate(now.getDate() - 10))
-    .toJSON()
-    .slice(0, 10)
-    .replace(/-/g, '-');
+  const today = '2022-06-11'; //now.toJSON().slice(0, 10).replace(/-/g, '-');
+  const theOtherDay = new Date(now.setDate(now.getDate() - 10)).toJSON().slice(0, 10);
 
   const getRequestUrl = (request: Request, region?: string): string => {
     let condition = '';
@@ -40,18 +37,23 @@ const useTodaySubscription = (request: Request, region?: string) => {
     try {
       const response: AxiosResponse<any> = await axios.get(getRequestUrl(request, region));
       const res = response.data.subscription_data.data;
-      const data: SubscriptionUsedMainPage[] = res.map((v: any) => {
-        if (request === 'today' && v.RCRIT_PBLANC_DE !== today) return;
-
-        const subscriptionState: SubscriptionUsedMainPage = {
-          id: v.PBLANC_NO,
-          houseName: v.HOUSE_NM,
-          recNotice: v.RCRIT_PBLANC_DE,
-          likeNum: 26, // TODO: DB에서 가져오기
-          imgLink: tmpImg,
-        };
-        return subscriptionState;
-      });
+      const data: SubscriptionUsedMainPage[] = res
+        .filter((v: any) => {
+          if (request === 'today' && v.RCRIT_PBLANC_DE !== today) {
+            return false;
+          }
+          return true;
+        })
+        .map((v: any) => {
+          const subscriptionState: SubscriptionUsedMainPage = {
+            id: v.PBLANC_NO,
+            houseName: v.HOUSE_NM,
+            recNotice: v.RCRIT_PBLANC_DE,
+            likeNum: 26, // TODO: DB에서 가져오기
+            imgLink: tmpImg,
+          };
+          return subscriptionState;
+        });
       return data;
     } catch (e) {
       console.error(e);
