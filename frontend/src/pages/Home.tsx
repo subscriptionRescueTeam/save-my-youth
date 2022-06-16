@@ -79,9 +79,6 @@ const Home = () => {
   const { subscriptions: todaySubscriptions } = useSubscription('today');
   const { subscriptions: theOtherDaySubscriptions } = useSubscription('theOtherDay');
 
-  console.log(todaySubscriptions);
-  console.log(theOtherDaySubscriptions);
-
   const popularityList = theOtherDaySubscriptions
     .sort((a: SubscriptionUsedFront, b: SubscriptionUsedFront) => {
       return new Date(a.likeNum).getDate() - new Date(b.likeNum).getDate();
