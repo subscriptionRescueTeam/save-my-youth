@@ -5,6 +5,7 @@ import { ReactComponent as Hamburger } from '../../assets/icons/hamburger.svg';
 import Sidebar from '../Sidebar';
 import { useNavigate } from 'react-router-dom';
 import { Children } from '../../types';
+import Footer from '../Footer';
 
 const StyledContent = styled.main`
   display: flex;
@@ -78,6 +79,7 @@ const LayoutNavigation = ({ children }: LayoutNavigationProps) => {
       </StyledHeader>
       <Sidebar isOpen={isSidebarOpen} onSidebarOpen={handleIsSidebarOpen} />
       <StyledContent>{children}</StyledContent>
+      <Footer />
     </>
   );
 };
