@@ -4,8 +4,8 @@ import { ReactComponent as BigHeart } from '../assets/icons/bigHeart.svg';
 import { ReactComponent as BigNullHeart } from '../assets/icons/bigNullHeart.svg';
 import PALETTE from '../constants/palette';
 import { DetailSchedule, DetailLocation, TabBar, CommonHeader } from '../components';
-import { useNavigate } from 'react-router-dom';
-import { HelpContents, IDetailOptions } from '../types';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { DetailState, HelpContents, IDetailOptions } from '../types';
 import { useEffect, useState } from 'react';
 import ArrowRight from '../assets/icons/arrowRight';
 import { useCookies } from 'react-cookie';
@@ -35,6 +35,10 @@ export const tempData = {
 };
 
 const Detail = () => {
+  const location = useLocation();
+  const state = location.state as DetailState;
+  const { id } = state;
+
   const tempCheck = useSubscription();
   const [heartState, setHeartState] = useState(true);
   const [cookies, setCookie] = useCookies(['AccessToken', 'RefreshToken', 'UserInfo']);
