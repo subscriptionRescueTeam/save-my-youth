@@ -42,6 +42,7 @@ const CardSlider = ({ todaySubscriptions }: CardSliderProps) => {
         >
           {todaySubscriptions.map((todaySubscription) => (
             <Card
+              subscriptionId={todaySubscription.id}
               key={todaySubscription.id}
               title={todaySubscription.houseName}
               likeNum={todaySubscription.likeNum}

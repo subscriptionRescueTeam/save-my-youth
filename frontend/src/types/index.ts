@@ -59,9 +59,13 @@ export type SubscriptionUsedMainPageByAPI = {
 };
 
 export type SubscriptionUsedMainPageByDB = {
-  readonly likeNum: number;
+  likeNum: number;
   imgLink: string;
 };
+
+export type DetailState = {
+  readonly id: number;
+}
 
 export type Writing = '최신' | '인기';
 export type Children = React.ReactNode;
