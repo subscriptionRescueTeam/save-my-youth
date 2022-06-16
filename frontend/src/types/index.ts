@@ -1,18 +1,13 @@
 import React from 'react';
+
 export type User = {
   name: string; // nickname
   email: string;
   likeNum: number;
-  likeList: Subscription[];
+  likeList: SubscriptionFromBackend[];
 };
 
-export interface SubscriptionResponse {
-  subscription_data: {
-    data: SubscriptionData[];
-  };
-}
-
-export type SubscriptionData = {
+export type SubscriptionFromBackend = {
   PBLANC_NO: number; //공고번호
   HOUSE_NM: string; //주택명
   HSSPLY_ADRES: string; //공급위치
@@ -34,33 +29,17 @@ export type SubscriptionData = {
   CNTRCT_CNCLS_ENDDE: string; //계약종료일
 };
 
-export type Subscription = {
-  readonly id: number;
-  readonly houseName: string;
-  readonly houseLocation: string;
-  readonly applyStartDate?: string;
-  readonly applyEndDate: string;
-  readonly likeNum?: number;
-};
-
-export type SummarizedSubscription = {
-  id: number;
-  houseName: string;
-  houseLocation: string;
-  applyStartDate: string;
-  applyEndDate: string;
-};
-export type SubscriptionUsedMainPage = SubscriptionUsedMainPageByAPI & SubscriptionUsedMainPageByDB;
-
-export type SubscriptionUsedMainPageByAPI = {
+export type SubscriptionUsedFront = {
   readonly id: number;
   readonly houseName: string;
   readonly recNotice: string;
-};
-
-export type SubscriptionUsedMainPageByDB = {
+  readonly houseLocation: string;
+  readonly applyScale: string;
+  readonly applyStartDate: string;
+  readonly applyEndDate: string;
+  readonly applyHomepage: string;
   likeNum: number;
-  imgLink: string;
+  imgLink?: string;
 };
 
 export type Writing = '최신' | '인기';
@@ -94,9 +73,9 @@ export type HelpContents = Record<number, JSX.Element>;
 export type AccordionType = { readonly head: Option; tails: Option[] };
 
 // serchCardlist
-export type SearchCardListProps = { subData: Subscription[] };
+export type SearchCardListProps = { subData: SubscriptionUsedFront[] };
+export type SearchCardItemProps = { subscription: SubscriptionUsedFront };
 export type SubscriptionList = { subData: SearchCardListProps };
-export type SearchCardItemProps = { subscription: SummarizedSubscription };
 
 export type FAQCategory = '청약' | '홈페이지';
 export type FAQType = {

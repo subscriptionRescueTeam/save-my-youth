@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
+import { SubscriptionUsedFront } from '../types';
 import tmpImg from '../assets/images/picture2.png';
-import { SubscriptionUsedMainPage } from '../types';
 
 const SERVER_SUBSCRIPTION_URL = `https://secret-reaches-74853.herokuapp.com/api/subscription/perPage=10`;
 const SERVER_LIKE_COUNT_URL = `https://secret-reaches-74853.herokuapp.com/api/like`;
@@ -9,7 +9,7 @@ const SERVER_LIKE_COUNT_URL = `https://secret-reaches-74853.herokuapp.com/api/li
 export type Request = 'today' | 'theOtherDay' | 'region';
 
 const useTodaySubscription = (request: Request, region?: string) => {
-  const [subscriptions, setSubscriptions] = useState<SubscriptionUsedMainPage[]>([]);
+  const [subscriptions, setSubscriptions] = useState<SubscriptionUsedFront[]>([]);
 
   const now = new Date();
   const today = '2022-06-11'; //now.toJSON().slice(0, 10).replace(/-/g, '-');
@@ -39,7 +39,7 @@ const useTodaySubscription = (request: Request, region?: string) => {
       const response: AxiosResponse<any> = await axios.get(getRequestUrl(request, region));
       const res = response.data.subscription_data.data;
 
-      const data: SubscriptionUsedMainPage[] = res
+      const data: SubscriptionUsedFront[] = res
         .filter((v: any) => {
           if (request === 'today' && v.RCRIT_PBLANC_DE !== today) {
             return false;
@@ -47,10 +47,15 @@ const useTodaySubscription = (request: Request, region?: string) => {
           return true;
         })
         .map((v: any) => {
-          const subscriptionState: SubscriptionUsedMainPage = {
+          const subscriptionState: SubscriptionUsedFront = {
             id: v.PBLANC_NO,
             houseName: v.HOUSE_NM,
             recNotice: v.RCRIT_PBLANC_DE,
+            houseLocation: v.HSSPLY_ADRES,
+            applyScale: v.TOT_SUPLY_HSHLDCO,
+            applyStartDate: v.RCEPT_BGNDE,
+            applyEndDate: v.RCEPT_ENDDE,
+            applyHomepage: v.HMPG_ADRES,
             likeNum: -1,
             imgLink: tmpImg,
           };
