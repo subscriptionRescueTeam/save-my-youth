@@ -36,6 +36,9 @@ const Search = () => {
         <MessageWrapper>총 {subData.length}개의 공고가 있습니다</MessageWrapper>
         <SearchCardList subData={subData} />;
       </div>;
+      if (keyword.length === 0) {
+        alert("검색어를 입력해주세요!")
+      } 
     }
   };
 
