@@ -1,9 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
-import { Subscription } from '../types';
+import { SubscriptionUsedFront } from '../types';
 
 const usePopularity = (keyword?: string) => {
-  const [subData, setSubData] = useState<Subscription[]>([]);
+  const [subData, setSubData] = useState<SubscriptionUsedFront[]>([]);
 
   const getPosts = async (sub_id?: any) => {
     try {
