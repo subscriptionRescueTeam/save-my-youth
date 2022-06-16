@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import Picture from '../assets/images/picture2.png';
+import PALETTE from '../constants/palette';
 import { ReactComponent as BigHeart } from '../assets/icons/bigHeart.svg';
 import { ReactComponent as BigNullHeart } from '../assets/icons/bigNullHeart.svg';
-import PALETTE from '../constants/palette';
 import { DetailSchedule, DetailLocation, TabBar, CommonHeader } from '../components';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { DetailState, HelpContents, IDetailOptions } from '../types';
 import { useEffect, useState } from 'react';
-import ArrowRight from '../assets/icons/arrowRight';
 import { useCookies } from 'react-cookie';
+import ArrowRight from '../assets/icons/arrowRight';
 import axiosInstance from '../utils/axiosInstance';
 import useSubscription from '../hooks/useSubscription';
 
@@ -20,9 +20,7 @@ const Detail = () => {
   const { loading, subscriptions } = useSubscription('id', '', id);
   const subscription = subscriptions[0];
 
-  console.log(subscription);
-
-  const [heartState, setHeartState] = useState(true);
+  const [heartState, setHeartState] = useState(false);
   const [checkList, setCheckList] = useState<HelpContents>();
   const [cookies, setCookie] = useCookies(['AccessToken', 'RefreshToken', 'UserInfo']);
   const navigate = useNavigate();
@@ -33,34 +31,34 @@ const Detail = () => {
   ];
 
   const onHeartClick = async () => {
-    if (cookies.AccessToken) {
+    if (!cookies.AccessToken) {
+      navigate('/login');
+    } else {
       setHeartState(!heartState);
       const { data } = await axiosInstance.post(`api/like/`, {
+        // TODO: 403 에러
         sub_id: subscription.id,
         name: subscription.houseName,
         end_date: subscription.applyEndDate,
         address: subscription.houseLocation,
       });
-    } else {
-      navigate('/login');
     }
   };
 
   useEffect(() => {
     if (loading || subscription == null) return;
+
     setCheckList({
       0: <DetailSchedule subData={subscription} />,
       1: <DetailLocation subData={subscription} />,
     });
-  }, [loading, subscription]);
 
-  useEffect(() => {
-    // async function getYourLike() {
-    //   const { data } = await axiosInstance.get(`api/like/${subscription.id}`);
-    //   setHeartState(data.status);
-    // }
-    // getYourLike();
-  }, [axiosInstance, subscription]);
+    async function getYourLike() {
+      const response = await axiosInstance.get(`api/like/${subscription.id}`);
+      setHeartState(Boolean(response.status));
+    }
+    getYourLike();
+  }, [loading, subscription]);
 
   return (
     <>
@@ -83,7 +81,7 @@ const Detail = () => {
               <StyledFlex>
                 <StyledDate>{subscription.applyStartDate} 등록</StyledDate>
                 <StyledHeartButton onClick={onHeartClick}>
-                  {heartState ? <BigNullHeart /> : <BigHeart />}
+                  {heartState ? <BigHeart /> : <BigNullHeart />}
                 </StyledHeartButton>
               </StyledFlex>
             </StyledWrapper>
