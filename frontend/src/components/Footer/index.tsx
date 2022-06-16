@@ -3,7 +3,8 @@ import PALETTE from '../../constants/palette';
 import footerGithub from '../../assets/images/footer.png';
 import { useNavigate } from 'react-router-dom';
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.footer`
+  width: 100%;
   display: flex;
   flex-direction: column;
   color: ${PALETTE.DARK_020};

@@ -7,6 +7,13 @@ import { useNavigate } from 'react-router-dom';
 import { Children } from '../../types';
 import Footer from '../Footer';
 
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+`;
+
 const StyledContent = styled.main`
   display: flex;
   flex-direction: column;
@@ -67,20 +74,22 @@ const LayoutNavigation = ({ children }: LayoutNavigationProps) => {
   }, []);
 
   return (
-    <>
+    <StyledContainer>
       {isSidebarOpen && <StyledDarkBody isOpen={isSidebarOpen} />}
-      <StyledHeader>
-        <StyledLogo onClick={() => navigate('/')}>
-          <HeaderTitle />
-        </StyledLogo>
-        <button onClick={onClick}>
-          <Hamburger />
-        </button>
-      </StyledHeader>
-      <Sidebar isOpen={isSidebarOpen} onSidebarOpen={handleIsSidebarOpen} />
-      <StyledContent>{children}</StyledContent>
+      <div>
+        <StyledHeader>
+          <StyledLogo onClick={() => navigate('/')}>
+            <HeaderTitle />
+          </StyledLogo>
+          <button onClick={onClick}>
+            <Hamburger />
+          </button>
+        </StyledHeader>
+        <Sidebar isOpen={isSidebarOpen} onSidebarOpen={handleIsSidebarOpen} />
+        <StyledContent>{children}</StyledContent>
+      </div>
       <Footer />
-    </>
+    </StyledContainer>
   );
 };
 
