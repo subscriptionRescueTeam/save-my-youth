@@ -57,12 +57,14 @@ const StyledLikeNum = styled.span`
 `;
 
 export type CardProps = {
+  subscriptionId: number;
   image?: string;
   title: string;
   likeNum: number;
 };
 
 const Card = ({
+  subscriptionId,
   image = `House` + String(Math.floor(Math.random() * 6 + 1)),
   title,
   likeNum,
@@ -87,7 +89,13 @@ const Card = ({
   };
 
   return (
-    <StyledCard onClick={() => navigate('/detail')}>
+    <StyledCard
+      onClick={() =>
+        navigate('/detail', {
+          state: { id: subscriptionId },
+        })
+      }
+    >
       <StyledImage image={getImage(image)} />
       <StyledTitle>{title}</StyledTitle>
       <StyledLikeNumContainer>
