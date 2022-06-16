@@ -38,6 +38,17 @@ export type SubscriptionUsedFront = {
   readonly applyStartDate: string;
   readonly applyEndDate: string;
   readonly applyHomepage: string;
+  readonly SPSPLY_RCEPT_BGNDE?: string;
+  readonly SPSPLY_RCEPT_ENDDE?: string;
+  readonly GNRL_RNK1_CRSPAREA_RCEPT_PD?: string;
+  readonly GNRL_RNK1_ETC_GG_RCPTDE_PD?: string;
+  readonly GNRL_RNK1_ETC_AREA_RCPTDE_PD?: string;
+  readonly GNRL_RNK2_CRSPAREA_RCEPT_PD?: string;
+  readonly GNRL_RNK2_ETC_GG_RCPTDE_PD?: string;
+  readonly GNRL_RNK2_ETC_AREA_RCPTDE_PD?: string;
+  readonly PRZWNER_PRESNATN_DE?: string;
+  readonly CNTRCT_CNCLS_BGNDE?: string
+  readonly CNTRCT_CNCLS_ENDDE?: string
   likeNum: number;
   imgLink?: string;
 };

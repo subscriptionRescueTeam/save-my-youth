@@ -9,6 +9,7 @@ const SERVER_LIKE_COUNT_URL = `https://secret-reaches-74853.herokuapp.com/api/li
 export type Request = 'today' | 'theOtherDay' | 'region' | 'id';
 
 const useTodaySubscription = (request: Request, region?: string, id?: number) => {
+  const [loading, setLoading] = useState(false);
   const [subscriptions, setSubscriptions] = useState<SubscriptionUsedFront[]>([]);
 
   const now = new Date();
@@ -40,7 +41,8 @@ const useTodaySubscription = (request: Request, region?: string, id?: number) =>
 
   const getSubscriptionsFromServer = async () => {
     try {
-      const response: AxiosResponse<any> = await axios.get(getRequestUrl(request, region));
+      setLoading(true);
+      const response: AxiosResponse<any> = await axios.get(getRequestUrl(request, region, id));
       const res = response.data.subscription_data.data;
 
       const data: SubscriptionUsedFront[] = res
@@ -60,6 +62,14 @@ const useTodaySubscription = (request: Request, region?: string, id?: number) =>
             applyStartDate: v.RCEPT_BGNDE,
             applyEndDate: v.RCEPT_ENDDE,
             applyHomepage: v.HMPG_ADRES,
+            SPSPLY_RCEPT_BGNDE: v.SPSPLY_RCEPT_BGNDE,
+            SPSPLY_RCEPT_ENDDE: v.SPSPLY_RCEPT_ENDDE,
+            GNRL_RNK1_CRSPAREA_RCEPT_PD: v.GNRL_RNK1_CRSPAREA_RCEPT_PD,
+            GNRL_RNK1_ETC_GG_RCPTDE_PD: v.GNRL_RNK1_ETC_GG_RCPTDE_PD,
+            GNRL_RNK1_ETC_AREA_RCPTDE_PD: v.GNRL_RNK1_ETC_AREA_RCPTDE_PD,
+            GNRL_RNK2_CRSPAREA_RCEPT_PD: v.GNRL_RNK2_CRSPAREA_RCEPT_PD,
+            GNRL_RNK2_ETC_GG_RCPTDE_PD: v.GNRL_RNK2_ETC_GG_RCPTDE_PD,
+            GNRL_RNK2_ETC_AREA_RCPTDE_PD: v.GNRL_RNK2_ETC_AREA_RCPTDE_PD,
             likeNum: -1,
             imgLink: tmpImg,
           };
@@ -76,6 +86,8 @@ const useTodaySubscription = (request: Request, region?: string, id?: number) =>
       return data;
     } catch (e) {
       console.error(e);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -85,7 +97,7 @@ const useTodaySubscription = (request: Request, region?: string, id?: number) =>
     });
   }, [request, region]);
 
-  return { subscriptions };
+  return { loading, subscriptions };
 };
 
 export default useTodaySubscription;
