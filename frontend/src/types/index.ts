@@ -96,14 +96,10 @@ export type FAQType = {
   };
 };
 
-export const CARD_WIDTH = 260;
-export const CARD_HEIGHT = 194;
-export const CARD_MARGIN = 6;
-export const CARD_BORDER_RADIUS = 8;
-
 export type IDetailOptions = {
   name: string;
   option: string;
 };
 
 export type ListType = 'popular' | 'new';
+export type CardDirection = 'column' | 'row';
