@@ -77,19 +77,8 @@ export const StyledColorSpan = styled.span`
 
 const Home = () => {
   const { subscriptions: todaySubscriptions } = useSubscription('today');
-  const { subscriptions: theOtherDaySubscriptions } = useSubscription('theOtherDay');
-
-  const popularityList = theOtherDaySubscriptions
-    .sort((a: SubscriptionUsedFront, b: SubscriptionUsedFront) => {
-      return new Date(a.likeNum).getDate() - new Date(b.likeNum).getDate();
-    })
-    .slice(0, 3);
-
-  const latestList = theOtherDaySubscriptions
-    .sort((a: SubscriptionUsedFront, b: SubscriptionUsedFront) => {
-      return new Date(b.recNotice).getDate() - new Date(a.recNotice).getDate();
-    })
-    .slice(0, 3);
+  const { subscriptions: popularityList } = useSubscription('popular');
+  const { subscriptions: latestList } = useSubscription('new');
 
   return (
     <LayoutNavigation>
@@ -117,7 +106,7 @@ const Home = () => {
         </div>
       </StyledMainWrapper>
       <CardSlider todaySubscriptions={todaySubscriptions} />
-      <List popularityList={popularityList} latestList={latestList} />
+      <List popularityList={popularityList.slice(0, 3)} latestList={latestList.slice(0, 3)} />
     </LayoutNavigation>
   );
 };
