@@ -110,3 +110,5 @@ export type IDetailOptions = {
   name: string;
   option: string;
 };
+
+export type ListType = 'popular' | 'new';

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import PALETTE from '../constants/palette';
 import { useNavigate } from 'react-router-dom';
+import { ListType } from '../types';
 
 export const StyledListTitle = styled.div<{ underline: boolean; color?: string }>`
   display: flex;
@@ -27,17 +28,17 @@ export const StyledMore = styled.button`
 `;
 
 export type ListTitleProps = {
-  title: string;
+  type: ListType;
   more?: string;
   underline?: boolean;
 };
 
-const ListTitle = ({ title, more = '더보기', underline = false }: ListTitleProps) => {
+const ListTitle = ({ type, more = '더보기', underline = false }: ListTitleProps) => {
   const navigate = useNavigate();
   return (
     <StyledListTitle underline={underline}>
-      <StyledTitle>{title}</StyledTitle>
-      <StyledMore onClick={() => navigate('/search')}>{more}</StyledMore>
+      <StyledTitle>{type === 'popular' ? '인기 청약 BEST3' : '최신 청약 BEST3'}</StyledTitle>
+      <StyledMore onClick={() => navigate(`/more/${type}`)}>{more}</StyledMore>
     </StyledListTitle>
   );
 };

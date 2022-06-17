@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import ListTitle from './ListTitle';
-import { SubscriptionUsedFront } from '../types';
+import { ListType, SubscriptionUsedFront } from '../types';
 import { useNavigate } from 'react-router-dom';
 
 export type ItemProps = {
-  type: 'popularity' | 'latest';
+  type: ListType;
   SubscriptionList: SubscriptionUsedFront[];
 };
 
@@ -25,13 +25,13 @@ const Item = ({ type, SubscriptionList }: ItemProps) => {
 
   return (
     <article>
-      <ListTitle title={type === 'popularity' ? '인기 청약 BEST3' : '최신 청약 BEST3'} />
+      <ListTitle type={type} />
       <StyledItem>
         {SubscriptionList.map((subscription, i) => (
           <StyledItemSpan
             key={subscription.id}
             onClick={() =>
-              navigate('/more/', {
+              navigate('/detail/', {
                 state: { id: subscription.id },
               })
             }

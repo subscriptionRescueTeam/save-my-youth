@@ -19,8 +19,8 @@ export type MainCardProps = {
 const List = ({ popularityList, latestList }: MainCardProps) => {
   return (
     <StyledList>
-      <Item type="popularity" SubscriptionList={popularityList} />
-      <Item type="latest" SubscriptionList={latestList} />
+      <Item type="popular" SubscriptionList={popularityList} />
+      <Item type="new" SubscriptionList={latestList} />
     </StyledList>
   );
 };
