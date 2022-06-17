@@ -1,6 +1,6 @@
 import styled from 'styled-components';
+import { SubscriptionUsedFront } from '../types';
 import Card from './Card';
-import { SubscriptionUsedMainPage } from '../types';
 import TodaySubscriptionNull from './TodaySubscriptionNull';
 
 const StyledCardConatiner = styled.div`
@@ -29,7 +29,7 @@ const StyledCardSlider = styled.div<{
 `;
 
 export type CardSliderProps = {
-  todaySubscriptions: SubscriptionUsedMainPage[];
+  todaySubscriptions: SubscriptionUsedFront[];
 };
 
 const CardSlider = ({ todaySubscriptions }: CardSliderProps) => {

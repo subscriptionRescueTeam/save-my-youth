@@ -1,4 +1,4 @@
-import { Input, MainCardList, LayoutNavigation, CardSlider } from '../components';
+import { Input, LayoutNavigation, CardSlider, List } from '../components';
 import styled from 'styled-components';
 import PALETTE from '../constants/palette';
 import { SubscriptionUsedFront } from '../types';
@@ -98,7 +98,7 @@ const Home = () => {
           <StyledTitle>청년을 위한 청약 공고를</StyledTitle>
           <StyledTitle>빠르게 찾아보세요!</StyledTitle>
         </StyleTitleContainer>
-        <Input placeholder="검색어를 입력하세요 (ex.지역)" />
+        <Input placeholder="지역명을 입력하세요" />
       </StyledMainBannerContainer>
       <StyledServiceContainer>
         <StyledServiceReason>왜 ‘청년을 구해줘!’ 일까요?</StyledServiceReason>
@@ -117,7 +117,7 @@ const Home = () => {
         </div>
       </StyledMainWrapper>
       <CardSlider todaySubscriptions={todaySubscriptions} />
-      <MainCardList popularityList={popularityList} likeList={likeList} />
+      <List popularityList={popularityList} likeList={likeList} />
     </LayoutNavigation>
   );
 };

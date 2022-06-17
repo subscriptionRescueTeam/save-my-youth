@@ -1,6 +1,6 @@
 export { default as LayoutNavigation } from './LayoutNavigation';
 export { default as Input } from './Input';
-export { default as MainCardList } from './MainCardList';
+export { default as List } from './List';
 export { default as DetailLocation } from './DetailLocation';
 export { default as DetailSchedule } from './DetailSchedule';
 export { default as CommonHeader } from './CommonHeader';
