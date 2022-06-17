@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { SubscriptionFromBackend, SubscriptionUsedFront } from '../types';
 
 const StyledWrapper = styled.div`
   margin: 1rem;
@@ -18,7 +19,11 @@ const StyledLocationDetail = styled.div`
   }
 `;
 
-const DetailSchedule = ({ subData }: any) => {
+export type DetailScheduleProps = {
+  subData: SubscriptionUsedFront;
+};
+
+const DetailSchedule = ({ subData }: DetailScheduleProps) => {
   return (
     <StyledWrapper>
       <StyledLocationTitle>청약 일정</StyledLocationTitle>

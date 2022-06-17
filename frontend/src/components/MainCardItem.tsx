@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import ListTitle from './ListTitle';
-import { SubscriptionUsedMainPage } from '../types';
+import { SubscriptionUsedFront } from '../types';
 import { useNavigate } from 'react-router-dom';
 
 export type MainCardItemProps = {
   title: string;
-  SubscriptionList: SubscriptionUsedMainPage[];
+  SubscriptionList: SubscriptionUsedFront[];
 };
 
 export const StyledMainCardItem = styled.div`
@@ -28,7 +28,14 @@ const MainCardItem = ({ title, SubscriptionList }: MainCardItemProps) => {
       <ListTitle title={title} />
       <StyledMainCardItem>
         {SubscriptionList.map((subscription, i) => (
-          <StyledMainCardItemSpan key={subscription.id} onClick={() => navigate('/detail')}>
+          <StyledMainCardItemSpan
+            key={subscription.id}
+            onClick={() =>
+              navigate('/detail', {
+                state: { id: subscription.id },
+              })
+            }
+          >
             {i + 1}. {subscription.houseName}
           </StyledMainCardItemSpan>
         ))}

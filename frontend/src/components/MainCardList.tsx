@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import MainCardItem from './MainCardItem';
-import { SubscriptionUsedMainPage } from '../types';
+import { SubscriptionUsedFront } from '../types';
 
 export const StyledMainCardList = styled.section`
   width: 90%;
@@ -12,8 +12,8 @@ export const StyledMainCardList = styled.section`
 `;
 
 export type MainCardProps = {
-  popularityList: SubscriptionUsedMainPage[];
-  likeList: SubscriptionUsedMainPage[];
+  popularityList: SubscriptionUsedFront[];
+  likeList: SubscriptionUsedFront[];
 };
 
 const MainCardList = ({ popularityList, likeList }: MainCardProps) => {
