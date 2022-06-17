@@ -85,7 +85,7 @@ const Home = () => {
     })
     .slice(0, 3);
 
-  const likeList = theOtherDaySubscriptions
+  const latestList = theOtherDaySubscriptions
     .sort((a: SubscriptionUsedFront, b: SubscriptionUsedFront) => {
       return new Date(b.recNotice).getDate() - new Date(a.recNotice).getDate();
     })
@@ -117,7 +117,7 @@ const Home = () => {
         </div>
       </StyledMainWrapper>
       <CardSlider todaySubscriptions={todaySubscriptions} />
-      <List popularityList={popularityList} likeList={likeList} />
+      <List popularityList={popularityList} latestList={latestList} />
     </LayoutNavigation>
   );
 };

@@ -13,14 +13,14 @@ export const StyledList = styled.section`
 
 export type MainCardProps = {
   popularityList: SubscriptionUsedFront[];
-  likeList: SubscriptionUsedFront[];
+  latestList: SubscriptionUsedFront[];
 };
 
-const List = ({ popularityList, likeList }: MainCardProps) => {
+const List = ({ popularityList, latestList }: MainCardProps) => {
   return (
     <StyledList>
-      <Item title="인기 청약 BEST3" SubscriptionList={popularityList} />
-      <Item title="최신 청약 BEST3" SubscriptionList={likeList} />
+      <Item type="popularity" SubscriptionList={popularityList} />
+      <Item type="latest" SubscriptionList={latestList} />
     </StyledList>
   );
 };
