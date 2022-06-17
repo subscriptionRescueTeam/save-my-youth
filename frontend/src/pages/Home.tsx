@@ -1,4 +1,4 @@
-import { Input, MainCardList, LayoutNavigation, CardSlider } from '../components';
+import { Input, LayoutNavigation, CardSlider, List } from '../components';
 import styled from 'styled-components';
 import PALETTE from '../constants/palette';
 import { SubscriptionUsedFront } from '../types';
@@ -6,6 +6,44 @@ import MainBanner from '../assets/images/mainBanner.svg';
 import { Link } from 'react-router-dom';
 import ArrowRight from '../assets/icons/arrowRight';
 import useSubscription from '../hooks/useSubscription';
+
+const Home = () => {
+  const { subscriptions: todaySubscriptions } = useSubscription('today');
+  const { subscriptions: popularityList } = useSubscription('popular');
+  const { subscriptions: latestList } = useSubscription('new');
+
+  return (
+    <LayoutNavigation>
+      <StyledMainBannerContainer>
+        <StyleTitleContainer>
+          <StyledTitle>청년을 위한 청약 공고를</StyledTitle>
+          <StyledTitle>빠르게 찾아보세요!</StyledTitle>
+        </StyleTitleContainer>
+        <Input placeholder="지역명을 입력하세요" />
+      </StyledMainBannerContainer>
+      <StyledServiceContainer>
+        <StyledServiceReason>왜 ‘청년을 구해줘!’ 일까요?</StyledServiceReason>
+        <Link to="/info">
+          <StyledGotoServiceIntroduction>
+            서비스 소개 보러가기
+            <ArrowRight color={PALETTE.BLACK} />
+          </StyledGotoServiceIntroduction>
+        </Link>
+      </StyledServiceContainer>
+
+      <StyledMainWrapper>
+        <div>오늘의 청약</div>
+        <div>
+          <StyledColorSpan>{todaySubscriptions.length}</StyledColorSpan>건
+        </div>
+      </StyledMainWrapper>
+      <CardSlider todaySubscriptions={todaySubscriptions} />
+      <List popularityList={popularityList.slice(0, 3)} latestList={latestList.slice(0, 3)} />
+    </LayoutNavigation>
+  );
+};
+
+export default Home;
 
 export const StyledMainBannerContainer = styled.div`
   width: 100%;
@@ -74,52 +112,3 @@ export const StyledColorSpan = styled.span`
   color: ${PALETTE.PRI_DARK_010};
   padding-right: 5px;
 `;
-
-const Home = () => {
-  const { subscriptions: todaySubscriptions } = useSubscription('today');
-  const { subscriptions: theOtherDaySubscriptions } = useSubscription('theOtherDay');
-
-  const popularityList = theOtherDaySubscriptions
-    .sort((a: SubscriptionUsedFront, b: SubscriptionUsedFront) => {
-      return new Date(a.likeNum).getDate() - new Date(b.likeNum).getDate();
-    })
-    .slice(0, 3);
-
-  const likeList = theOtherDaySubscriptions
-    .sort((a: SubscriptionUsedFront, b: SubscriptionUsedFront) => {
-      return new Date(b.recNotice).getDate() - new Date(a.recNotice).getDate();
-    })
-    .slice(0, 3);
-
-  return (
-    <LayoutNavigation>
-      <StyledMainBannerContainer>
-        <StyleTitleContainer>
-          <StyledTitle>청년을 위한 청약 공고를</StyledTitle>
-          <StyledTitle>빠르게 찾아보세요!</StyledTitle>
-        </StyleTitleContainer>
-        <Input placeholder="검색어를 입력하세요 (ex.지역)" />
-      </StyledMainBannerContainer>
-      <StyledServiceContainer>
-        <StyledServiceReason>왜 ‘청년을 구해줘!’ 일까요?</StyledServiceReason>
-        <Link to="/info">
-          <StyledGotoServiceIntroduction>
-            서비스 소개 보러가기
-            <ArrowRight color={PALETTE.BLACK} />
-          </StyledGotoServiceIntroduction>
-        </Link>
-      </StyledServiceContainer>
-
-      <StyledMainWrapper>
-        <div>오늘의 청약</div>
-        <div>
-          <StyledColorSpan>{todaySubscriptions.length}</StyledColorSpan>건
-        </div>
-      </StyledMainWrapper>
-      <CardSlider todaySubscriptions={todaySubscriptions} />
-      <MainCardList popularityList={popularityList} likeList={likeList} />
-    </LayoutNavigation>
-  );
-};
-
-export default Home;

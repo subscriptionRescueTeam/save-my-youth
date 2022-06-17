@@ -1,25 +1,33 @@
-import { SummarizedSubscription, SearchCardListProps } from '../types';
+import styled from 'styled-components';
+import { ListType, SubscriptionUsedFront } from '../types';
 import SearchCardItem from './SearchCardItem';
 
-const SearchCardList = ({ subData }: SearchCardListProps) => {
-  return (
-    <article>
-      {subData &&
-        subData.map((data) => {
-          const summarizedSubscription: SummarizedSubscription = {
-            id: data.id,
-            houseName: data.houseName,
-            houseLocation: data.houseLocation,
-            applyStartDate: data.applyStartDate || '',
-            applyEndDate: data.applyEndDate || '2022-05-23',
-          };
+export type SearchCardListProps = { type: ListType; subData: SubscriptionUsedFront[] };
 
+const SearchCardList = ({ type, subData }: SearchCardListProps) => {
+  return (
+    <StyledSection type={type}>
+      {subData &&
+        subData.map((data, index) => {
           return (
-            <SearchCardItem key={summarizedSubscription.id} subscription={summarizedSubscription} />
+            <SearchCardItem
+              key={data.id}
+              subscription={data}
+              indexing={type === 'popular' ? true : false}
+              index={index + 1}
+            />
           );
         })}
-    </article>
+    </StyledSection>
   );
 };
 
 export default SearchCardList;
+
+const StyledSection = styled.article<{ type: ListType }>`
+  display: flex;
+  flex-direction: column;
+  padding: ${(props) => (props.type === 'popular' ? '0 12px 0 24px' : '0 12px')};
+  gap: 12px;
+  padding-bottom: 179px;
+`;

@@ -1,47 +1,47 @@
 import styled from 'styled-components';
 import ListTitle from './ListTitle';
-import { SubscriptionUsedFront } from '../types';
+import { ListType, SubscriptionUsedFront } from '../types';
 import { useNavigate } from 'react-router-dom';
 
-export type MainCardItemProps = {
-  title: string;
+export type ItemProps = {
+  type: ListType;
   SubscriptionList: SubscriptionUsedFront[];
 };
 
-export const StyledMainCardItem = styled.div`
+export const StyledItem = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 3rem;
 `;
 
-export const StyledMainCardItemSpan = styled.span`
+export const StyledItemSpan = styled.span`
   padding: 0.5rem 0;
   font-size: 0.9rem;
   cursor: pointer;
 `;
 
-const MainCardItem = ({ title, SubscriptionList }: MainCardItemProps) => {
+const Item = ({ type, SubscriptionList }: ItemProps) => {
   const navigate = useNavigate();
 
   return (
     <article>
-      <ListTitle title={title} />
-      <StyledMainCardItem>
+      <ListTitle type={type} />
+      <StyledItem>
         {SubscriptionList.map((subscription, i) => (
-          <StyledMainCardItemSpan
+          <StyledItemSpan
             key={subscription.id}
             onClick={() =>
-              navigate('/detail', {
+              navigate('/detail/', {
                 state: { id: subscription.id },
               })
             }
           >
             {i + 1}. {subscription.houseName}
-          </StyledMainCardItemSpan>
+          </StyledItemSpan>
         ))}
-      </StyledMainCardItem>
+      </StyledItem>
     </article>
   );
 };
 
-export default MainCardItem;
+export default Item;

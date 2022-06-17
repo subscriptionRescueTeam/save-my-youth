@@ -32,12 +32,12 @@ export type SubscriptionFromBackend = {
 export type SubscriptionUsedFront = {
   readonly id: number;
   readonly houseName: string;
-  readonly recNotice: string;
+  readonly recNotice?: string;
   readonly houseLocation: string;
-  readonly applyScale: string;
+  readonly applyScale?: string;
   readonly applyStartDate: string;
   readonly applyEndDate: string;
-  readonly applyHomepage: string;
+  readonly applyHomepage?: string;
   readonly SPSPLY_RCEPT_BGNDE?: string;
   readonly SPSPLY_RCEPT_ENDDE?: string;
   readonly GNRL_RNK1_CRSPAREA_RCEPT_PD?: string;
@@ -49,7 +49,7 @@ export type SubscriptionUsedFront = {
   readonly PRZWNER_PRESNATN_DE?: string;
   readonly CNTRCT_CNCLS_BGNDE?: string
   readonly CNTRCT_CNCLS_ENDDE?: string
-  likeNum: number;
+  likeNum?: number;
   imgLink?: string;
 };
 
@@ -87,11 +87,6 @@ export type HelpContents = Record<number, JSX.Element>;
 
 export type AccordionType = { readonly head: Option; tails: Option[] };
 
-// serchCardlist
-export type SearchCardListProps = { subData: SubscriptionUsedFront[] };
-export type SearchCardItemProps = { subscription: SubscriptionUsedFront };
-export type SubscriptionList = { subData: SearchCardListProps };
-
 export type FAQCategory = '청약' | '홈페이지';
 export type FAQType = {
   question: string;
@@ -110,3 +105,5 @@ export type IDetailOptions = {
   name: string;
   option: string;
 };
+
+export type ListType = 'popular' | 'new';

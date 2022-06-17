@@ -3,6 +3,7 @@ import Footer from './components/Footer';
 import {
   Home,
   Search,
+  More,
   Mypage,
   Detail,
   UserModify,
@@ -19,6 +20,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/more/:type" element={<More />} />
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/detail" element={<Detail />} />
         <Route path="/usermodify" element={<UserModify />} />
