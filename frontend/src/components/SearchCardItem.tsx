@@ -6,16 +6,13 @@ import { SubscriptionUsedFront } from '../types';
 
 export type SearchCardItemProps = {
   subscription: SubscriptionUsedFront;
-  indexing?: boolean;
-  index?: number;
 };
 
-const SearchCardItem = ({ subscription, indexing = true, index = 1 }: SearchCardItemProps) => {
+const SearchCardItem = ({ subscription }: SearchCardItemProps) => {
   const navigate = useNavigate();
 
   return (
     <StyledBox>
-      {indexing && <StyledIndex index={index}>{index}</StyledIndex>}
       <StyledCard key={subscription.id} onClick={() => navigate('/detail')}>
         <StyledText>
           <StyledTitle>{subscription.houseName}</StyledTitle>
@@ -38,18 +35,6 @@ export default SearchCardItem;
 const StyledBox = styled.article`
   width: 100%;
   height: 30%;
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-`;
-
-const StyledIndex = styled.span<{ index: number }>`
-  font-family: 'Noto Sans';
-  font-weight: ${(props) => (props.index > 3 ? 'normal' : 'bold')};
-  font-size: '1.25rem';
-  line-height: 190%;
-  letter-spacing: -0.5px;
-  color: ${(props) => (props.index > 3 ? PALETTE.DARK_030 : PALETTE.PRI_DARK_020)};
 `;
 
 const StyledCard = styled.div`

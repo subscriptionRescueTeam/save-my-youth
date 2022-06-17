@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ListType, SubscriptionUsedFront } from '../types';
+import Indexing from './Indexing';
 import SearchCardItem from './SearchCardItem';
 
 export type SearchCardListProps = { type: ListType; subData: SubscriptionUsedFront[] };
@@ -10,12 +11,9 @@ const SearchCardList = ({ type, subData }: SearchCardListProps) => {
       {subData &&
         subData.map((data, index) => {
           return (
-            <SearchCardItem
-              key={data.id}
-              subscription={data}
-              indexing={type === 'popular' ? true : false}
-              index={index + 1}
-            />
+            <Indexing activate={type === 'popular' ? true : false} index={index + 1}>
+              <SearchCardItem key={data.id} subscription={data} />
+            </Indexing>
           );
         })}
     </StyledSection>
@@ -24,7 +22,7 @@ const SearchCardList = ({ type, subData }: SearchCardListProps) => {
 
 export default SearchCardList;
 
-const StyledSection = styled.article<{ type: ListType }>`
+const StyledSection = styled.section<{ type: ListType }>`
   display: flex;
   flex-direction: column;
   padding: ${(props) => (props.type === 'popular' ? '0 12px 0 24px' : '0 12px')};

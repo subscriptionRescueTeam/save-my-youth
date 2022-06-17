@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { CommonHeader } from '../components';
 import Description from '../components/Description';
 import SearchCardList from '../components/SearchCardList';
-import PALETTE from '../constants/palette';
 import useSubscription from '../hooks/useSubscription';
 import { ListType } from '../types';
 
