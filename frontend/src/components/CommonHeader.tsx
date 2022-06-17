@@ -6,11 +6,13 @@ import { ReactComponent as Hamburger } from '../assets/icons/hamburger.svg';
 import Sidebar from './Sidebar';
 import PALETTE from '../constants/palette';
 
-const Container = styled.header`
+const Container = styled.header<{ underline?: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 60px;
+  border-bottom: 4px;
+  border: ${PALETTE.LIGHT_010} solid;
 `;
 
 const Item = styled.div`
@@ -72,9 +74,10 @@ export const StyledBurger = styled.button`
 
 export type HeaderProps = {
   title: string;
+  underline?: boolean;
 };
 
-const CommonHeader = ({ title }: HeaderProps) => {
+const CommonHeader = ({ title, underline = false }: HeaderProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleIsSidebarOpen = useCallback((isOpen: boolean) => {
@@ -93,7 +96,7 @@ const CommonHeader = ({ title }: HeaderProps) => {
   return (
     <>
       {isSidebarOpen && <StyledDarkBody isOpen={isSidebarOpen} />}
-      <Container>
+      <Container underline={underline}>
         <Item onClick={clickBefore}>
           <ArrowLeft />
         </Item>
