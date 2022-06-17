@@ -6,7 +6,7 @@ export type SearchCardListProps = { type: ListType; subData: SubscriptionUsedFro
 
 const SearchCardList = ({ type, subData }: SearchCardListProps) => {
   return (
-    <StyledSection>
+    <StyledSection type={type}>
       {subData &&
         subData.map((data, index) => {
           return (
@@ -24,10 +24,10 @@ const SearchCardList = ({ type, subData }: SearchCardListProps) => {
 
 export default SearchCardList;
 
-const StyledSection = styled.article`
+const StyledSection = styled.article<{ type: ListType }>`
   display: flex;
   flex-direction: column;
-  padding: 0 12px 0 24px;
+  padding: ${(props) => (props.type === 'popular' ? '0 12px 0 24px' : '0 12px')};
   gap: 12px;
   padding-bottom: 179px;
 `;
