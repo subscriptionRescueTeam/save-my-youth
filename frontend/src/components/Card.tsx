@@ -13,7 +13,6 @@ import {
   CARD_HEIGHT_ROW,
   CARD_WIDTH_COLUMN,
   CARD_WIDTH_ROW,
-  CARD_MARGIN,
   CARD_BORDER_RADIUS,
 } from '../constants/variables';
 import { CardDirection } from '../types';
@@ -81,7 +80,6 @@ const StyledCard = styled.article<{ direction?: CardDirection }>`
   border-radius: ${CARD_BORDER_RADIUS}px;
   display: flex;
   flex-direction: ${(props) => (props.direction === 'column' ? 'column' : 'row')};
-  margin: ${CARD_MARGIN}px;
   cursor: pointer;
 `;
 
@@ -128,10 +126,10 @@ const StyledLikeNumContainer = styled.div`
   background: ${PALETTE.LIGHT_010};
   border-radius: 0 0 ${CARD_BORDER_RADIUS}px ${CARD_BORDER_RADIUS}px;
   padding: 6px 8px;
+  gap: 4px;
 `;
 
 const StyledLikeNum = styled.span`
   font-size: 0.75rem;
   color: ${PALETTE.DARK_020};
-  margin-left: 4px;
 `;
