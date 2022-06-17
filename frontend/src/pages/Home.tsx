@@ -6,6 +6,10 @@ import MainBanner from '../assets/images/mainBanner.svg';
 import { Link } from 'react-router-dom';
 import ArrowRight from '../assets/icons/arrowRight';
 import useSubscription from '../hooks/useSubscription';
+import ListTitle from '../components/ListTitle';
+import Description from '../components/Description';
+import Indexing from '../components/Indexing';
+import Card from '../components/Card';
 
 const Home = () => {
   const { subscriptions: todaySubscriptions } = useSubscription('today');
@@ -31,14 +35,35 @@ const Home = () => {
         </Link>
       </StyledServiceContainer>
 
-      <StyledMainWrapper>
-        <div>오늘의 청약</div>
-        <div>
-          <StyledColorSpan>{todaySubscriptions.length}</StyledColorSpan>건
-        </div>
-      </StyledMainWrapper>
-      <CardSlider todaySubscriptions={todaySubscriptions} />
-      <List popularityList={popularityList.slice(0, 3)} latestList={latestList.slice(0, 3)} />
+      <StyledSectionContainer alignItems={'center'}>
+        <StyledTodySubscriptionTitle>
+          <div>오늘의 청약</div>
+          <div>
+            <StyledColorSpan>{todaySubscriptions.length}</StyledColorSpan>건
+          </div>
+        </StyledTodySubscriptionTitle>
+        <CardSlider subscriptions={todaySubscriptions} />
+      </StyledSectionContainer>
+
+      <StyledSectionContainer alignItems={'flex-start'}>
+        <ListTitle type={'popular'} />
+        <Description type={'popular'} topBottomPadding={false} />
+        <StyledPopularityList>
+          {popularityList.slice(0, 3).map((item, index) => (
+            <Indexing key={item.id} index={index + 1}>
+              <Card
+                direction="row"
+                subscriptionId={item.id}
+                title={item.houseName}
+                likeNum={item.likeNum || 0}
+              />
+            </Indexing>
+          ))}
+        </StyledPopularityList>
+      </StyledSectionContainer>
+
+      <ListTitle type={'new'} />
+      <CardSlider subscriptions={latestList} />
     </LayoutNavigation>
   );
 };
@@ -98,17 +123,35 @@ export const StyledGotoServiceIntroduction = styled.div`
   align-items: center;
 `;
 
-export const StyledMainWrapper = styled.div`
+export const StyledTodySubscriptionTitle = styled.div`
+  width: 100%;
   display: flex;
-  width: 90%;
-  margin: 0 auto;
   justify-content: space-between;
   font-size: 1.2rem;
   font-weight: bold;
-  margin-bottom: 2rem;
+  padding: 16px 18px;
 `;
 
 export const StyledColorSpan = styled.span`
   color: ${PALETTE.PRI_DARK_010};
   padding-right: 5px;
+`;
+
+export const StyledPopularityList = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px 0 24px;
+`;
+
+export const StyledSectionContainer = styled.section<{ alignItems: string }>`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: ${(props) => props.alignItems};
+  gap: 8px;
+  padding-bottom: 32px;
 `;

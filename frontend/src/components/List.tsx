@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import Item from './Item';
 import { SubscriptionUsedFront } from '../types';
 
+/* never used */
+
 export const StyledList = styled.section`
   width: 90%;
   height: 100%;

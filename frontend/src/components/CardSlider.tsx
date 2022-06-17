@@ -3,6 +3,35 @@ import { SubscriptionUsedFront } from '../types';
 import Card from './Card';
 import TodaySubscriptionNull from './TodaySubscriptionNull';
 
+export type CardSliderProps = {
+  subscriptions: SubscriptionUsedFront[];
+};
+
+const CardSlider = ({ subscriptions }: CardSliderProps) => {
+  return (
+    <section>
+      <StyledCardConatiner>
+        <StyledCardSlider
+          subscriptionsLength={subscriptions.length}
+          nullShow={subscriptions.length < 2}
+        >
+          {subscriptions.map((subscription) => (
+            <Card
+              subscriptionId={subscription.id}
+              key={subscription.id}
+              title={subscription.houseName}
+              likeNum={subscription.likeNum || 0}
+            />
+          ))}
+          {subscriptions.length < 2 && <TodaySubscriptionNull />}
+        </StyledCardSlider>
+      </StyledCardConatiner>
+    </section>
+  );
+};
+
+export default CardSlider;
+
 const StyledCardConatiner = styled.div`
   position: relative;
   width: 100%;
@@ -17,7 +46,7 @@ const StyledCardConatiner = styled.div`
 `;
 
 const StyledCardSlider = styled.div<{
-  todaySubscriptionsLength: number;
+  subscriptionsLength: number;
   nullShow: boolean;
 }>`
   position: relative;
@@ -26,33 +55,5 @@ const StyledCardSlider = styled.div<{
   height: 100%;
   display: flex;
   transition: all 1s ease;
+  gap: 16px;
 `;
-
-export type CardSliderProps = {
-  todaySubscriptions: SubscriptionUsedFront[];
-};
-
-const CardSlider = ({ todaySubscriptions }: CardSliderProps) => {
-  return (
-    <section>
-      <StyledCardConatiner>
-        <StyledCardSlider
-          todaySubscriptionsLength={todaySubscriptions.length}
-          nullShow={todaySubscriptions.length < 2}
-        >
-          {todaySubscriptions.map((todaySubscription) => (
-            <Card
-              subscriptionId={todaySubscription.id}
-              key={todaySubscription.id}
-              title={todaySubscription.houseName}
-              likeNum={todaySubscription.likeNum}
-            />
-          ))}
-          {todaySubscriptions.length < 2 && <TodaySubscriptionNull />}
-        </StyledCardSlider>
-      </StyledCardConatiner>
-    </section>
-  );
-};
-
-export default CardSlider;

@@ -11,8 +11,8 @@ const Container = styled.header<{ underline?: boolean }>`
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  border-bottom: 4px;
-  border: ${PALETTE.LIGHT_010} solid;
+  border: 0 ${PALETTE.LIGHT_010} solid;
+  border-bottom-width: 4px;
 `;
 
 const Item = styled.div`
