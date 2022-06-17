@@ -17,7 +17,7 @@ const StyledCardConatiner = styled.div`
 `;
 
 const StyledCardSlider = styled.div<{
-  todaySubscriptionsLength: number;
+  subscriptionsLength: number;
   nullShow: boolean;
 }>`
   position: relative;
@@ -29,26 +29,26 @@ const StyledCardSlider = styled.div<{
 `;
 
 export type CardSliderProps = {
-  todaySubscriptions: SubscriptionUsedFront[];
+  subscriptions: SubscriptionUsedFront[];
 };
 
-const CardSlider = ({ todaySubscriptions }: CardSliderProps) => {
+const CardSlider = ({ subscriptions }: CardSliderProps) => {
   return (
     <section>
       <StyledCardConatiner>
         <StyledCardSlider
-          todaySubscriptionsLength={todaySubscriptions.length}
-          nullShow={todaySubscriptions.length < 2}
+          subscriptionsLength={subscriptions.length}
+          nullShow={subscriptions.length < 2}
         >
-          {todaySubscriptions.map((todaySubscription) => (
+          {subscriptions.map((subscription) => (
             <Card
-              subscriptionId={todaySubscription.id}
-              key={todaySubscription.id}
-              title={todaySubscription.houseName}
-              likeNum={todaySubscription.likeNum}
+              subscriptionId={subscription.id}
+              key={subscription.id}
+              title={subscription.houseName}
+              likeNum={subscription.likeNum || 0}
             />
           ))}
-          {todaySubscriptions.length < 2 && <TodaySubscriptionNull />}
+          {subscriptions.length < 2 && <TodaySubscriptionNull />}
         </StyledCardSlider>
       </StyledCardConatiner>
     </section>
