@@ -3,6 +3,8 @@ import ListTitle from './ListTitle';
 import { ListType, SubscriptionUsedFront } from '../types';
 import { useNavigate } from 'react-router-dom';
 
+/* never used */
+
 export type ItemProps = {
   type: ListType;
   SubscriptionList: SubscriptionUsedFront[];
