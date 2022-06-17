@@ -7,10 +7,9 @@ export const StyledListTitle = styled.div<{ underline: boolean; color?: string }
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 24px;
   border-bottom: ${(props) => (props.underline ? '0.2rem' : 0)} solid
     ${(props) => (props.color ? props.color : PALETTE.WHITE)};
-  margin: 1rem 0;
+  padding: 16px 18px;
 `;
 
 export const StyledTitle = styled.span`
@@ -33,7 +32,7 @@ export type ListTitleProps = {
   underline?: boolean;
 };
 
-const ListTitle = ({ type, more = '더보기', underline = false }: ListTitleProps) => {
+const ListTitle = ({ type, more = '더보기 >', underline = false }: ListTitleProps) => {
   const navigate = useNavigate();
   return (
     <StyledListTitle underline={underline}>
