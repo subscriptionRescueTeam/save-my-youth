@@ -6,6 +6,8 @@ import MainBanner from '../assets/images/mainBanner.svg';
 import { Link } from 'react-router-dom';
 import ArrowRight from '../assets/icons/arrowRight';
 import useSubscription from '../hooks/useSubscription';
+import ListTitle from '../components/ListTitle';
+import Description from '../components/Description';
 
 const Home = () => {
   const { subscriptions: todaySubscriptions } = useSubscription('today');
@@ -37,7 +39,13 @@ const Home = () => {
           <StyledColorSpan>{todaySubscriptions.length}</StyledColorSpan>건
         </div>
       </StyledMainWrapper>
-      <CardSlider todaySubscriptions={todaySubscriptions} />
+      <CardSlider subscriptions={todaySubscriptions} />
+
+      <ListTitle type={'popular'} />
+      <Description type={'popular'} />
+
+      <ListTitle type={'new'} />
+      <CardSlider subscriptions={latestList} />
       <List popularityList={popularityList.slice(0, 3)} latestList={latestList.slice(0, 3)} />
     </LayoutNavigation>
   );
