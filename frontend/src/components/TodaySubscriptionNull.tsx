@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import PALETTE from '../constants/palette';
-import { CARD_HEIGHT, CARD_MARGIN, CARD_WIDTH } from '../types';
+import { CARD_HEIGHT_COLUMN, CARD_MARGIN, CARD_WIDTH_COLUMN } from '../constants/variables';
+import {} from '../types';
 
 export const StyledCard = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: ${CARD_WIDTH}px;
-  height: ${CARD_HEIGHT}px;
+  width: ${CARD_WIDTH_COLUMN}px;
+  height: ${CARD_HEIGHT_COLUMN}px;
   background: rgba(171, 210, 254, 0.2);
   border-radius: 8px;
   margin: ${CARD_MARGIN}px;
