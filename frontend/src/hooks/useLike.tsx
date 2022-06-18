@@ -1,18 +1,16 @@
 import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
-import { Subscription } from '../types';
+import { SubscriptionUsedFront } from '../types';
 import axiosInstance from '../utils/axiosInstance';
 
 const useLike = () => {
-  const [likeList, setLikeList] = useState<Subscription[]>();
+  const [likeList, setLikeList] = useState<SubscriptionUsedFront[]>();
 
   const getLikeList = async () => {
     try {
-      const response: any = await axiosInstance.get(
-        `api/user/like/`
-      );
+      const response: any = await axiosInstance.get(`api/user/like/`);
 
-      const res = response['like_list']
+      const res = response['like_list'];
       const data = res.map((v: any) => {
         const newlike_list = {
           id: v.sub_id,
@@ -24,17 +22,17 @@ const useLike = () => {
       });
       return data;
     } catch (e) {
-        console.error(e);
-      }
-    };
-  
-    useEffect(() => {
-      getLikeList().then((res) => {
-        setLikeList(res);
-      });
-    }, []);
-  
-    return { likeList };
+      console.error(e);
+    }
   };
-  
-  export default useLike;  
+
+  useEffect(() => {
+    getLikeList().then((res) => {
+      setLikeList(res);
+    });
+  }, []);
+
+  return { likeList };
+};
+
+export default useLike;
