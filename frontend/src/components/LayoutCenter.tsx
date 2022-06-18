@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Children } from '../../types';
+import { Children } from '../types';
 
 export const StyledLayoutCenter = styled.div`
   width: 100%;

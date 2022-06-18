@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import PALETTE from '../../constants/palette';
+import PALETTE from '../constants/palette';
 
 const StyledButton = styled.button`
   padding: 0.375rem 0.75rem;
