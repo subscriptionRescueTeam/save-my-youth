@@ -10,7 +10,7 @@ const Like = () => {
     <>
       <CommonHeader title="좋아요" />
       <StyledAnnounce>총 {likeList?.length} 개의 공고가 있습니다.</StyledAnnounce>
-      {likeList && <SearchCardList subData={likeList} />}
+      {likeList && <SearchCardList type="popular" subData={likeList} />}
     </>
   );
 };
