@@ -67,16 +67,18 @@ const OptionItem = ({
   };
 
   return (
-    (isShownAlways || (!isShownAlways && cookies.AccessToken)) && (
-      <StyledContainer>
-        <StyledButton underlineHeight={underlineHeight} disabled={disabled} onClick={onClick}>
-          <StyledSpan fontSize={fontSize} fontFamily={fontFamily} fontColor={fontColor}>
-            {children}
-          </StyledSpan>
-          {direction && <StyledArrow>{getArrowIcon(direction)}</StyledArrow>}
-        </StyledButton>
-      </StyledContainer>
-    )
+    <>
+      {(isShownAlways || (!isShownAlways && cookies.AccessToken)) && (
+        <StyledContainer>
+          <StyledButton underlineHeight={underlineHeight} disabled={disabled} onClick={onClick}>
+            <StyledSpan fontSize={fontSize} fontFamily={fontFamily} fontColor={fontColor}>
+              {children}
+            </StyledSpan>
+            {direction && <StyledArrow>{getArrowIcon(direction)}</StyledArrow>}
+          </StyledButton>
+        </StyledContainer>
+      )}
+    </>
   );
 };
 
