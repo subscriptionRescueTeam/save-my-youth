@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import App from './App';
 import { RecoilRoot } from 'recoil';
 import GlobalStyle from './GlobalStyle';
 import { CookiesProvider } from 'react-cookie';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.render(
   <React.StrictMode>
     <GlobalStyle />
     <RecoilRoot>
@@ -13,5 +13,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <App />
       </CookiesProvider>
     </RecoilRoot>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
