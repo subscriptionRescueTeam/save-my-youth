@@ -34,11 +34,11 @@ const Search = () => {
     if (e.key === 'Enter') {
       <div>
         <MessageWrapper>총 {subData.length}개의 공고가 있습니다</MessageWrapper>
-        <SearchCardList subData={subData} />;
+        <SearchCardList type="popular" subData={subData} />;
       </div>;
       if (keyword.length === 0) {
-        alert("검색어를 입력해주세요")
-      } 
+        alert('검색어를 입력해주세요');
+      }
     }
   };
 
@@ -46,14 +46,10 @@ const Search = () => {
     <>
       <CommonHeader title="검색" />
       <InputWrapper>
-        <Input
-          placeholder="지역명을 입력하세요"
-          onChange={onChangeData}
-          onKeyPress={onKeyPress}
-        />
+        <Input placeholder="지역명을 입력하세요" onChange={onChangeData} onKeyPress={onKeyPress} />
       </InputWrapper>
       <MessageWrapper>총 {subData.length}개의 공고가 있습니다</MessageWrapper>
-      <SearchCardList subData={subData} />
+      <SearchCardList type="popular" subData={subData} />
     </>
   );
 };

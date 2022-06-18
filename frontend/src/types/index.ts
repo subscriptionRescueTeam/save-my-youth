@@ -32,11 +32,11 @@ export type SubscriptionFromBackend = {
 export type SubscriptionUsedFront = {
   readonly id: number;
   readonly houseName: string;
-  readonly recNotice?: string;
   readonly houseLocation: string;
-  readonly applyScale?: string;
   readonly applyStartDate: string;
   readonly applyEndDate: string;
+  readonly recNotice: string;
+  readonly applyScale?: string;
   readonly applyHomepage?: string;
   readonly SPSPLY_RCEPT_BGNDE?: string;
   readonly SPSPLY_RCEPT_ENDDE?: string;
@@ -47,15 +47,15 @@ export type SubscriptionUsedFront = {
   readonly GNRL_RNK2_ETC_GG_RCPTDE_PD?: string;
   readonly GNRL_RNK2_ETC_AREA_RCPTDE_PD?: string;
   readonly PRZWNER_PRESNATN_DE?: string;
-  readonly CNTRCT_CNCLS_BGNDE?: string
-  readonly CNTRCT_CNCLS_ENDDE?: string
-  likeNum?: number;
+  readonly CNTRCT_CNCLS_BGNDE?: string;
+  readonly CNTRCT_CNCLS_ENDDE?: string;
+  likeNum: number;
   imgLink?: string;
 };
 
 export type DetailState = {
   readonly id: number;
-}
+};
 
 export type Writing = '최신' | '인기';
 export type Children = React.ReactNode;
