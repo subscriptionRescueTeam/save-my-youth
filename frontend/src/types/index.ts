@@ -35,7 +35,7 @@ export type SubscriptionUsedFront = {
   readonly houseLocation: string;
   readonly applyStartDate: string;
   readonly applyEndDate: string;
-  readonly recNotice?: string;
+  readonly recNotice: string;
   readonly applyScale?: string;
   readonly applyHomepage?: string;
   readonly SPSPLY_RCEPT_BGNDE?: string;
