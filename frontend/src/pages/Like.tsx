@@ -8,7 +8,7 @@ const Like = () => {
   const { likeList } = useLike();
 
   return (
-    <LayoutNavigation headerTitle="좋아요">
+    <LayoutNavigation headerTitle="좋아요" haederUnderline={true}>
       <StyledAnnounce>총 {likeList?.length} 개의 공고가 있습니다.</StyledAnnounce>
       {likeList && <SearchCardList type="popular" subData={likeList} />}
     </LayoutNavigation>

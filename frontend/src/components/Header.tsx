@@ -15,7 +15,7 @@ export type HeaderProps = {
 
 const Header = ({
   title,
-  underline,
+  underline = false,
   leftIcon = 'arrowLeft',
   rightIcon = 'hamburger',
   handleRightButtonClick,
@@ -50,12 +50,12 @@ const Header = ({
 export default Header;
 
 const StyledHeader = styled.header<{ underline?: boolean }>`
-  width: 90%;
+  width: 100%;
   height: 60px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 16px;
   border: 0 ${PALETTE.LIGHT_010} solid;
   border-bottom-width: ${(props) => (props.underline ? '4px' : 0)};
 `;

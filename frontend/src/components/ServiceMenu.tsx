@@ -1,7 +1,8 @@
-import styled from 'styled-components';
-import PALETTE from '../constants/palette';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
 import ArrowRight from '../assets/icons/arrowRight';
+import PALETTE from '../constants/palette';
 
 const MenuItems = [
   {
@@ -25,7 +26,6 @@ const StyledMenuList = styled.ul`
   display: flex;
   flex-direction: column;
   font-weight: bold;
-  margin-top: 10px;
 `;
 
 const StyledItem = styled.li`

@@ -5,7 +5,7 @@ import { Children } from '../types';
 import Header from './Header';
 import Sidebar from './Sidebar';
 
-type LayoutNavigationProps = {
+export type LayoutNavigationProps = {
   headerTitle?: string;
   haederUnderline?: boolean;
   children: Children;
