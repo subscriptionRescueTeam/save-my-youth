@@ -1,23 +1,6 @@
 import styled from 'styled-components';
-import { SubscriptionFromBackend, SubscriptionUsedFront } from '../types';
 
-const StyledWrapper = styled.div`
-  margin: 1rem;
-`;
-
-const StyledLocationTitle = styled.div`
-  font-family: 'Pretendard-Bold';
-`;
-
-const StyledLocationDetail = styled.div`
-  font-family: 'Pretendard-Medium';
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-
-  & > li {
-    margin: 10px;
-  }
-`;
+import { SubscriptionUsedFront } from '../types';
 
 export type DetailScheduleProps = {
   subData: SubscriptionUsedFront;
@@ -61,3 +44,21 @@ const DetailSchedule = ({ subData }: DetailScheduleProps) => {
 };
 
 export default DetailSchedule;
+
+const StyledWrapper = styled.div`
+  margin: 1rem;
+`;
+
+const StyledLocationTitle = styled.div`
+  font-family: 'Pretendard-Bold';
+`;
+
+const StyledLocationDetail = styled.div`
+  font-family: 'Pretendard-Medium';
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+
+  & > li {
+    margin: 10px;
+  }
+`;

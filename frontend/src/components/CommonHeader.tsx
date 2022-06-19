@@ -1,10 +1,53 @@
-import { useNavigate } from 'react-router-dom';
 import { useCallback, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
+
 import { ReactComponent as ArrowLeft } from '../assets/icons/arrowLeft.svg';
 import { ReactComponent as Hamburger } from '../assets/icons/hamburger.svg';
-import Sidebar from './Sidebar';
 import PALETTE from '../constants/palette';
+import Sidebar from './Sidebar';
+
+export type HeaderProps = {
+  title: string;
+  underline?: boolean;
+};
+
+const CommonHeader = ({ title, underline = false }: HeaderProps) => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const handleIsSidebarOpen = useCallback((isOpen: boolean) => {
+    setIsSidebarOpen(isOpen);
+  }, []);
+
+  const onClick = useCallback(() => {
+    setIsSidebarOpen(!isSidebarOpen);
+  }, []);
+  const navigate = useNavigate();
+
+  const clickBefore = () => {
+    navigate('/');
+  };
+
+  return (
+    <>
+      {isSidebarOpen && <StyledDarkBody isOpen={isSidebarOpen} />}
+      <Container underline={underline}>
+        <Item onClick={clickBefore}>
+          <ArrowLeft />
+        </Item>
+        <TitleItem>{title}</TitleItem>
+        <Item>
+          <StyledBurger onClick={onClick}>
+            <Hamburger />
+          </StyledBurger>
+        </Item>
+        <Sidebar isOpen={isSidebarOpen} onSidebarOpen={handleIsSidebarOpen}></Sidebar>
+      </Container>
+    </>
+  );
+};
+
+export default CommonHeader;
 
 const Container = styled.header<{ underline?: boolean }>`
   display: flex;
@@ -71,45 +114,3 @@ export const StyledAlarm = styled.button``;
 export const StyledBurger = styled.button`
   margin-left: 0.5rem;
 `;
-
-export type HeaderProps = {
-  title: string;
-  underline?: boolean;
-};
-
-const CommonHeader = ({ title, underline = false }: HeaderProps) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const handleIsSidebarOpen = useCallback((isOpen: boolean) => {
-    setIsSidebarOpen(isOpen);
-  }, []);
-
-  const onClick = useCallback(() => {
-    setIsSidebarOpen(!isSidebarOpen);
-  }, []);
-  const navigate = useNavigate();
-
-  const clickBefore = () => {
-    navigate('/');
-  };
-
-  return (
-    <>
-      {isSidebarOpen && <StyledDarkBody isOpen={isSidebarOpen} />}
-      <Container underline={underline}>
-        <Item onClick={clickBefore}>
-          <ArrowLeft />
-        </Item>
-        <TitleItem>{title}</TitleItem>
-        <Item>
-          <StyledBurger onClick={onClick}>
-            <Hamburger />
-          </StyledBurger>
-        </Item>
-        <Sidebar isOpen={isSidebarOpen} onSidebarOpen={handleIsSidebarOpen}></Sidebar>
-      </Container>
-    </>
-  );
-};
-
-export default CommonHeader;

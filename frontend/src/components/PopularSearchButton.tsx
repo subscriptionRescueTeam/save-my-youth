@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import PALETTE from '../constants/palette';
 
 const StyledButton = styled.button`

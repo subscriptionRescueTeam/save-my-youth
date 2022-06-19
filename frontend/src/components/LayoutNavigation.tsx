@@ -1,10 +1,46 @@
-import styled, { keyframes } from 'styled-components';
 import { useCallback, useState } from 'react';
-import { ReactComponent as HeaderTitle } from '../assets/icons/headerTitle.svg';
-import { ReactComponent as Hamburger } from '../assets/icons/hamburger.svg';
-import Sidebar from './Sidebar';
 import { useNavigate } from 'react-router-dom';
+import styled, { keyframes } from 'styled-components';
+
+import { ReactComponent as Hamburger } from '../assets/icons/hamburger.svg';
+import { ReactComponent as HeaderTitle } from '../assets/icons/headerTitle.svg';
 import { Children } from '../types';
+import Sidebar from './Sidebar';
+
+export type LayoutNavigationProps = {
+  children: Children;
+};
+
+const LayoutNavigation = ({ children }: LayoutNavigationProps) => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleIsSidebarOpen = useCallback((isOpen: boolean) => {
+    setIsSidebarOpen(isOpen);
+  }, []);
+
+  const onClick = useCallback(() => {
+    setIsSidebarOpen(!isSidebarOpen);
+  }, []);
+
+  return (
+    <>
+      {isSidebarOpen && <StyledDarkBody isOpen={isSidebarOpen} />}
+      <StyledHeader>
+        <StyledLogo onClick={() => navigate('/')}>
+          <HeaderTitle />
+        </StyledLogo>
+        <button onClick={onClick}>
+          <Hamburger />
+        </button>
+      </StyledHeader>
+      <Sidebar isOpen={isSidebarOpen} onSidebarOpen={handleIsSidebarOpen} />
+      <StyledContent>{children}</StyledContent>
+    </>
+  );
+};
+
+export default LayoutNavigation;
 
 const StyledContent = styled.main`
   display: flex;
@@ -12,10 +48,6 @@ const StyledContent = styled.main`
   align-items: center;
   overflow: hidden;
 `;
-
-type LayoutNavigationProps = {
-  children: Children;
-};
 
 const colorAnimation = keyframes`
   0% {
@@ -52,34 +84,3 @@ const StyledLogo = styled.button`
   display: flex;
   align-items: center;
 `;
-
-const LayoutNavigation = ({ children }: LayoutNavigationProps) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const navigate = useNavigate();
-
-  const handleIsSidebarOpen = useCallback((isOpen: boolean) => {
-    setIsSidebarOpen(isOpen);
-  }, []);
-
-  const onClick = useCallback(() => {
-    setIsSidebarOpen(!isSidebarOpen);
-  }, []);
-
-  return (
-    <>
-      {isSidebarOpen && <StyledDarkBody isOpen={isSidebarOpen} />}
-      <StyledHeader>
-        <StyledLogo onClick={() => navigate('/')}>
-          <HeaderTitle />
-        </StyledLogo>
-        <button onClick={onClick}>
-          <Hamburger />
-        </button>
-      </StyledHeader>
-      <Sidebar isOpen={isSidebarOpen} onSidebarOpen={handleIsSidebarOpen} />
-      <StyledContent>{children}</StyledContent>
-    </>
-  );
-};
-
-export default LayoutNavigation;

@@ -1,19 +1,20 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+
 import { ReactComponent as BlueHeart } from '../assets/icons/blueHeart.svg';
-import PALETTE from '../constants/palette';
 import House1 from '../assets/images/house/image1.png';
 import House2 from '../assets/images/house/image2.png';
 import House3 from '../assets/images/house/image3.png';
 import House4 from '../assets/images/house/image4.png';
 import House5 from '../assets/images/house/image5.png';
 import House6 from '../assets/images/house/image6.png';
-import { useNavigate } from 'react-router-dom';
+import PALETTE from '../constants/palette';
 import {
+  CARD_BORDER_RADIUS,
   CARD_HEIGHT_COLUMN,
   CARD_HEIGHT_ROW,
   CARD_WIDTH_COLUMN,
   CARD_WIDTH_ROW,
-  CARD_BORDER_RADIUS,
 } from '../constants/variables';
 import { CardDirection } from '../types';
 

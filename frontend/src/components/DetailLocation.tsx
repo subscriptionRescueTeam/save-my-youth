@@ -1,6 +1,31 @@
 import styled from 'styled-components';
+
 import { ReactComponent as Location } from '../assets/icons/location.svg';
 import PALETTE from '../constants/palette';
+import { SubscriptionUsedFront } from '../types';
+
+export type DetailLocationProps = {
+  subData: SubscriptionUsedFront;
+};
+
+const DetailLocation = ({ subData }: DetailLocationProps) => {
+  return (
+    <StyledWrapper>
+      <StyledLocationTitle>위치</StyledLocationTitle>
+      <StyledLocationDetail>
+        <Location />
+        {subData.houseLocation}
+      </StyledLocationDetail>
+      <StyledLocationButton
+        onClick={() => window.open(`https://map.naver.com/v5/search/${subData.houseLocation}`)}
+      >
+        지도 바로가기
+      </StyledLocationButton>
+    </StyledWrapper>
+  );
+};
+
+export default DetailLocation;
 
 const StyledWrapper = styled.div`
   margin: 1rem;
@@ -30,22 +55,3 @@ const StyledLocationButton = styled.button`
   padding: 2rem 0;
   border-radius: 8px;
 `;
-
-const DetailLocation = ({ subData }: any) => {
-  return (
-    <StyledWrapper>
-      <StyledLocationTitle>위치</StyledLocationTitle>
-      <StyledLocationDetail>
-        <Location />
-        {subData.houseLocation}
-      </StyledLocationDetail>
-      <StyledLocationButton
-        onClick={() => window.open(`https://map.naver.com/v5/search/${subData.houseLocation}`)}
-      >
-        지도 바로가기
-      </StyledLocationButton>
-    </StyledWrapper>
-  );
-};
-
-export default DetailLocation;
