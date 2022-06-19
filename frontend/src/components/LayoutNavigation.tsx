@@ -7,10 +7,11 @@ import Sidebar from './Sidebar';
 
 type LayoutNavigationProps = {
   headerTitle?: string;
+  haederUnderline?: boolean;
   children: Children;
 };
 
-const LayoutNavigation = ({ headerTitle, children }: LayoutNavigationProps) => {
+const LayoutNavigation = ({ headerTitle, haederUnderline, children }: LayoutNavigationProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleIsSidebarOpen = useCallback((isOpen: boolean) => {
@@ -24,7 +25,7 @@ const LayoutNavigation = ({ headerTitle, children }: LayoutNavigationProps) => {
   return (
     <>
       {isSidebarOpen && <StyledDarkBody isOpen={isSidebarOpen} />}
-      <Header title={headerTitle} handleRightButtonClick={onClick} />
+      <Header title={headerTitle} underline={haederUnderline} handleRightButtonClick={onClick} />
       <Sidebar isOpen={isSidebarOpen} onSidebarOpen={handleIsSidebarOpen} />
       <StyledContent>{children}</StyledContent>
     </>
@@ -46,7 +47,6 @@ const colorAnimation = keyframes`
 const StyledContent = styled.main`
   display: flex;
   flex-direction: column;
-  align-items: center;
   overflow: hidden;
 `;
 

@@ -7,6 +7,7 @@ import { Icon } from './Icon';
 
 export type HeaderProps = {
   title?: string;
+  underline?: boolean;
   leftIcon?: IconName;
   rightIcon?: IconName;
   handleRightButtonClick: React.MouseEventHandler<HTMLButtonElement>;
@@ -14,6 +15,7 @@ export type HeaderProps = {
 
 const Header = ({
   title,
+  underline,
   leftIcon = 'arrowLeft',
   rightIcon = 'hamburger',
   handleRightButtonClick,
@@ -23,7 +25,7 @@ const Header = ({
   const onLogoClick = () => navigate('/');
 
   return (
-    <StyledHeader>
+    <StyledHeader underline={underline}>
       {title && (
         <>
           <button onClick={() => navigate(-1)}>

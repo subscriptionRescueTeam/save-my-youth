@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { ServiceMenu, CommonHeader } from '../components';
+
+import { LayoutNavigation, ServiceMenu } from '../components';
 import PALETTE from '../constants/palette';
 
 const StyledMenuWrap = styled.div``;
@@ -18,9 +19,10 @@ const Mypage = () => {
   return (
     <>
       <StyledMenuWrap>
-        <CommonHeader title="My Page" />
-        <ServiceMenu />
-        <StyledFooter />
+        <LayoutNavigation headerTitle="My Page">
+          <ServiceMenu />
+          <StyledFooter />
+        </LayoutNavigation>
       </StyledMenuWrap>
     </>
   );

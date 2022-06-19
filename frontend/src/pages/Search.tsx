@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Input, CommonHeader } from '../components';
+
+import { Input, LayoutNavigation } from '../components';
+import SearchCardList from '../components/SearchCardList';
 import PALETTE from '../constants/palette';
 import useDebounce from '../hooks/useDebounce';
-import SearchCardList from '../components/SearchCardList';
 import useSubscription from '../hooks/useSubscription';
 
 const InputWrapper = styled.div`
@@ -43,14 +44,13 @@ const Search = () => {
   };
 
   return (
-    <>
-      <CommonHeader title="검색" />
+    <LayoutNavigation headerTitle="검색">
       <InputWrapper>
         <Input placeholder="지역명을 입력하세요" onChange={onChangeData} onKeyPress={onKeyPress} />
       </InputWrapper>
       <MessageWrapper>총 {subData.length}개의 공고가 있습니다</MessageWrapper>
       <SearchCardList type="popular" subData={subData} />
-    </>
+    </LayoutNavigation>
   );
 };
 export default Search;
