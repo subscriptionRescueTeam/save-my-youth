@@ -1,29 +1,6 @@
 import styled from 'styled-components';
+
 import PALETTE from '../constants/palette';
-
-const StyledWrapper = styled.div`
-  padding: 1rem;
-  flex-direction: column;
-  align-items: flex-start;
-`;
-
-const StyledLocationTitle = styled.div`
-  font-family: 'Pretendard-Bold';
-  font-size: 1.2rem;
-`;
-
-const StyledLocationDetail = styled.div`
-  font-family: 'Pretendard-Medium';
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  font-size: 0.8rem;
-`;
-
-const StyledBar = styled.div`
-  font-family: 'Pretendard-Medium';
-  font-size: 2rem;
-  color: ${PALETTE.PRI_LIGHT_020};
-`;
 
 const ServiceInfo = () => {
   return (
@@ -35,8 +12,8 @@ const ServiceInfo = () => {
       <StyledWrapper>
         <StyledLocationTitle>프로젝트 개요</StyledLocationTitle>
         <StyledLocationDetail>
-          <span style={{ fontFamily: 'Pretendard-Bold' }}>"청년을 구해줘!"</span>는 청년들이 신청할
-          수 있는 청약을 보여주는 웹사이트입니다.
+          <span style={{ fontFamily: 'Pretendard-Bold' }}>&quot;청년을 구해줘!&quot;</span>는
+          청년들이 신청할 수 있는 청약을 보여주는 웹사이트입니다.
         </StyledLocationDetail>
         <StyledBar>─</StyledBar>
         <StyledLocationDetail>
@@ -53,3 +30,26 @@ const ServiceInfo = () => {
 };
 
 export default ServiceInfo;
+const StyledWrapper = styled.div`
+  padding: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+const StyledLocationTitle = styled.h1`
+  font-family: 'Pretendard-Bold';
+  font-size: 1.2rem;
+`;
+
+const StyledLocationDetail = styled.h2`
+  font-family: 'Pretendard-Medium';
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 0.8rem;
+`;
+
+const StyledBar = styled.div`
+  font-family: 'Pretendard-Medium';
+  font-size: 2rem;
+  color: ${PALETTE.PRI_LIGHT_020};
+`;

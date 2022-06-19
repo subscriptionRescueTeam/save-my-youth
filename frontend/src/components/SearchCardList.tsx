@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { ListType, SubscriptionUsedFront } from '../types';
 import Indexing from './Indexing';
 import SearchCardItem from './SearchCardItem';
@@ -11,8 +12,8 @@ const SearchCardList = ({ type, subData }: SearchCardListProps) => {
       {subData &&
         subData.map((data, index) => {
           return (
-            <Indexing activate={type === 'popular' ? true : false} index={index + 1}>
-              <SearchCardItem key={data.id} subscription={data} />
+            <Indexing key={data.id} activate={type === 'popular' ? true : false} index={index + 1}>
+              <SearchCardItem subscription={data} />
             </Indexing>
           );
         })}

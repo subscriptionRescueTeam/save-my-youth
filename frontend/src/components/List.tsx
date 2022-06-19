@@ -1,17 +1,9 @@
 import styled from 'styled-components';
-import Item from './Item';
+
 import { SubscriptionUsedFront } from '../types';
+import Item from './Item';
 
 /* never used */
-
-export const StyledList = styled.section`
-  width: 90%;
-  height: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  margin-top: 3rem;
-`;
 
 export type MainCardProps = {
   popularityList: SubscriptionUsedFront[];
@@ -28,3 +20,12 @@ const List = ({ popularityList, latestList }: MainCardProps) => {
 };
 
 export default List;
+
+export const StyledList = styled.section`
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+`;
