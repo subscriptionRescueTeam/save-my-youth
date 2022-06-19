@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { CommonHeader } from '../components';
+
+import { LayoutNavigation } from '../components';
 import Description from '../components/Description';
 import SearchCardList from '../components/SearchCardList';
 import useSubscription from '../hooks/useSubscription';
@@ -13,8 +14,10 @@ const More = () => {
   const type: ListType = typeParam as ListType;
 
   return (
-    <>
-      <CommonHeader title={type === 'popular' ? '인기 청약' : '최신 청약'} underline={true} />
+    <LayoutNavigation
+      headerTitle={type === 'popular' ? '인기 청약' : '최신 청약'}
+      haederUnderline={true}
+    >
       <Description type={type} subscriptionLength={latestList.length} />
       <StyledGap>
         {(popularLoading || newLoading) && <div>불러오는 중이에요 잠시만 기다려주세요.</div>}
@@ -25,7 +28,7 @@ const More = () => {
           />
         )}
       </StyledGap>
-    </>
+    </LayoutNavigation>
   );
 };
 

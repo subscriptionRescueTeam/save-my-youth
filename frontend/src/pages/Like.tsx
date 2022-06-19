@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import CommonHeader from '../components/CommonHeader';
+
+import { LayoutNavigation } from '../components';
 import SearchCardList from '../components/SearchCardList';
 import useLike from '../hooks/useLike';
 
@@ -7,11 +8,10 @@ const Like = () => {
   const { likeList } = useLike();
 
   return (
-    <>
-      <CommonHeader title="좋아요" />
+    <LayoutNavigation headerTitle="좋아요" haederUnderline={true}>
       <StyledAnnounce>총 {likeList?.length} 개의 공고가 있습니다.</StyledAnnounce>
       {likeList && <SearchCardList type="popular" subData={likeList} />}
-    </>
+    </LayoutNavigation>
   );
 };
 
