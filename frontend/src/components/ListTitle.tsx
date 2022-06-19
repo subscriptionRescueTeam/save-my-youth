@@ -1,7 +1,26 @@
-import styled from 'styled-components';
-import PALETTE from '../constants/palette';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+
+import PALETTE from '../constants/palette';
 import { ListType } from '../types';
+
+export type ListTitleProps = {
+  type: ListType;
+  more?: string;
+  underline?: boolean;
+};
+
+const ListTitle = ({ type, more = '더보기 >', underline = false }: ListTitleProps) => {
+  const navigate = useNavigate();
+  return (
+    <StyledListTitle underline={underline}>
+      <StyledTitle>{type === 'popular' ? '인기 청약 BEST3' : '최신 청약 BEST3'}</StyledTitle>
+      <StyledMore onClick={() => navigate(`/more/${type}`)}>{more}</StyledMore>
+    </StyledListTitle>
+  );
+};
+
+export default ListTitle;
 
 export const StyledListTitle = styled.div<{ underline: boolean; color?: string }>`
   display: flex;
@@ -25,21 +44,3 @@ export const StyledMore = styled.button`
   font-family: 'Pretendard-Medium';
   cursor: pointer;
 `;
-
-export type ListTitleProps = {
-  type: ListType;
-  more?: string;
-  underline?: boolean;
-};
-
-const ListTitle = ({ type, more = '더보기 >', underline = false }: ListTitleProps) => {
-  const navigate = useNavigate();
-  return (
-    <StyledListTitle underline={underline}>
-      <StyledTitle>{type === 'popular' ? '인기 청약 BEST3' : '최신 청약 BEST3'}</StyledTitle>
-      <StyledMore onClick={() => navigate(`/more/${type}`)}>{more}</StyledMore>
-    </StyledListTitle>
-  );
-};
-
-export default ListTitle;

@@ -1,12 +1,7 @@
 import { useCookies } from 'react-cookie';
 import styled from 'styled-components';
-import InputLabel from './InputLabel';
 
-const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 3rem 2rem;
-`;
+import InputLabel from './InputLabel';
 
 const UserInfo = () => {
   const [cookies, setCookie] = useCookies(['AccessToken', 'RefreshToken', 'UserInfo']);
@@ -22,3 +17,9 @@ const UserInfo = () => {
 };
 
 export default UserInfo;
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 2rem;
+`;

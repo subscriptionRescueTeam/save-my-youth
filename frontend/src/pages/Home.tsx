@@ -1,15 +1,15 @@
-import { Input, LayoutNavigation, CardSlider, List } from '../components';
-import styled from 'styled-components';
-import PALETTE from '../constants/palette';
-import { SubscriptionUsedFront } from '../types';
-import MainBanner from '../assets/images/mainBanner.svg';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
 import ArrowRight from '../assets/icons/arrowRight';
-import useSubscription from '../hooks/useSubscription';
-import ListTitle from '../components/ListTitle';
+import MainBanner from '../assets/images/mainBanner.svg';
+import { CardSlider, Input, LayoutNavigation } from '../components';
+import Card from '../components/Card';
 import Description from '../components/Description';
 import Indexing from '../components/Indexing';
-import Card from '../components/Card';
+import ListTitle from '../components/ListTitle';
+import PALETTE from '../constants/palette';
+import useSubscription from '../hooks/useSubscription';
 
 const Home = () => {
   const { subscriptions: todaySubscriptions } = useSubscription('today');
