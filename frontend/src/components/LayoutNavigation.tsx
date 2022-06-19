@@ -45,7 +45,6 @@ export default LayoutNavigation;
 const StyledContent = styled.main`
   display: flex;
   flex-direction: column;
-  align-items: center;
   overflow: hidden;
 `;
 

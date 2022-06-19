@@ -85,7 +85,7 @@ const StyledCard = styled.article<{ direction?: CardDirection }>`
 `;
 
 const StyledImage = styled.img<{ direction?: CardDirection; image: string }>`
-  width: ${(props) => (props.direction === 'column' ? '100%' : `${CARD_WIDTH_ROW}px`)};
+  width: ${(props) => (props.direction === 'column' ? 'initial' : `${CARD_WIDTH_ROW}px`)};
   height: ${(props) => (props.direction === 'column' ? ' 124px' : `${CARD_HEIGHT_ROW}px`)};
   border-radius: ${(props) =>
     props.direction === 'column'
