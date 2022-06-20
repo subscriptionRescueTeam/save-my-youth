@@ -5,7 +5,7 @@ import PALETTE from '../constants/palette';
 import useDebounce from '../hooks/useDebounce';
 import SearchCardList from '../components/SearchCardList';
 import useSubscription from '../hooks/useSubscription';
-import LatestSearchSortButton from '../components/LatestSearchSortButton';
+import LatestSearchSortButton from '../components/SearchSortButton';
 
 const InputWrapper = styled.div`
   display: flex;

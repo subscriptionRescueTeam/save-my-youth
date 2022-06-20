@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import React,{useState} from 'react';
 import PALETTE from '../constants/palette';
+import { SubscriptionUsedFront } from '../types'
+import useSubscription from '../hooks/useSubscription';
 
 const StyledButton = styled.button<{ isTarget:boolean }>`
   padding: 0.375rem 0.75rem;
@@ -16,10 +18,14 @@ const StyledButton = styled.button<{ isTarget:boolean }>`
 }
 `;
 
-interface props {
-  isTarget: boolean;
-}
-
+const MessageWrapper = styled.div`
+  display: flex;
+  justify-content: left;
+  margin: 1rem 0;
+  padding-left: 2em;
+  font-size: 0.8em;
+  color: ${PALETTE.DARK_020};
+`;
 
 const StyledWrapper = styled.div`
   padding-rignt:10px;
@@ -27,15 +33,25 @@ const StyledWrapper = styled.div`
   display:flex;
 `
 
+interface props {
+  isTarget: boolean;
+}
+export type MessageProps = {
+  totalMessage: string;
+};
 
-const LatestSearchSortButton = (props:any) => {
+
+const SearchSortButton = ({ totalMessage,subData }:any) => {
 
   return (
+    <div>
+      <MessageWrapper></MessageWrapper>
       <StyledWrapper>
-        <StyledButton isTarget={true}>인기순</StyledButton>
+        <StyledButton isTarget={true} >인기순</StyledButton>
         <StyledButton isTarget={true}>최신순</StyledButton>
       </StyledWrapper>
+    </div>
   )
 };
 
-export default LatestSearchSortButton;
+export default SearchSortButton;
