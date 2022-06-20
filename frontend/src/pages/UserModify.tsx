@@ -1,15 +1,11 @@
-import styled from 'styled-components';
-import CommonHeader from '../components/CommonHeader';
+import { LayoutNavigation } from '../components';
 import UserInfo from '../components/UserInfo';
-
-const StyledUserInfoWrap = styled.div``;
 
 const UserModify = () => {
   return (
-    <StyledUserInfoWrap>
-      <CommonHeader title="개인정보" />
+    <LayoutNavigation headerTitle="개인정보">
       <UserInfo />
-    </StyledUserInfoWrap>
+    </LayoutNavigation>
   );
 };
 

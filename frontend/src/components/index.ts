@@ -1,5 +1,4 @@
 export { default as CardSlider } from './CardSlider';
-export { default as CommonHeader } from './CommonHeader';
 export { default as DetailLocation } from './DetailLocation';
 export { default as DetailSchedule } from './DetailSchedule';
 export { default as Input } from './Input';

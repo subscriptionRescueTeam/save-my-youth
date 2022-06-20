@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { TabBar } from '../components';
-import CommonHeader from '../components/CommonHeader';
-import PALETTE from '../constants/palette';
-import { HelpType, HelpContents, FAQType, AccordionType } from '../types';
+
 import { ReactComponent as Warning } from '../assets/icons/warning.svg';
-import useFAQ from '../hooks/useFAQ';
+import { LayoutNavigation, TabBar } from '../components';
 import Accordion from '../components/Accordion';
+import PALETTE from '../constants/palette';
+import useFAQ from '../hooks/useFAQ';
+import { AccordionType, FAQType, HelpContents, HelpType } from '../types';
 
 const menu: HelpType[] = [
   { name: '공지사항', option: 'announcement' },
@@ -101,8 +101,9 @@ const Help = () => {
 
   return (
     <>
-      <CommonHeader title="고객 센터" />
-      <TabBar menu={menu} checkList={helpContents} />
+      <LayoutNavigation headerTitle="고객센터">
+        <TabBar menu={menu} checkList={helpContents} />
+      </LayoutNavigation>
     </>
   );
 };

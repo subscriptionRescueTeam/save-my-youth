@@ -1,16 +1,17 @@
-import styled from 'styled-components';
-import Picture from '../assets/images/picture2.png';
-import PALETTE from '../constants/palette';
-import { ReactComponent as BigHeart } from '../assets/icons/bigHeart.svg';
-import { ReactComponent as BigNullHeart } from '../assets/icons/bigNullHeart.svg';
-import { DetailSchedule, DetailLocation, TabBar, CommonHeader } from '../components';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { DetailState, HelpContents, IDetailOptions } from '../types';
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
+import { useLocation, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+
 import ArrowRight from '../assets/icons/arrowRight';
-import axiosInstance from '../utils/axiosInstance';
+import { ReactComponent as BigHeart } from '../assets/icons/bigHeart.svg';
+import { ReactComponent as BigNullHeart } from '../assets/icons/bigNullHeart.svg';
+import Picture from '../assets/images/picture2.png';
+import { DetailLocation, DetailSchedule, LayoutNavigation, TabBar } from '../components';
+import PALETTE from '../constants/palette';
 import useSubscription from '../hooks/useSubscription';
+import { DetailState, HelpContents, IDetailOptions } from '../types';
+import axiosInstance from '../utils/axiosInstance';
 
 const Detail = () => {
   const location = useLocation();
@@ -61,8 +62,7 @@ const Detail = () => {
   }, [loading, subscription]);
 
   return (
-    <>
-      <CommonHeader title="청약 상세" />
+    <LayoutNavigation headerTitle="청약 상세">
       {loading && <div>불러오는 중이에요 잠시만 기다려주세요.</div>}
       {!loading && subscription && (
         <>
@@ -89,7 +89,7 @@ const Detail = () => {
           </StyledWrapper>
         </>
       )}
-    </>
+    </LayoutNavigation>
   );
 };
 
