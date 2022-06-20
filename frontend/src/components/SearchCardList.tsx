@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import { ListType, SubscriptionUsedFront } from '../types';
 import Indexing from './Indexing';
 import SearchCardItem from './SearchCardItem';
