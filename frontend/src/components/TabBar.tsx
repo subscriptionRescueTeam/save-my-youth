@@ -20,9 +20,45 @@
 
 */
 import { useState } from 'react';
-import PALETTE from '../constants/palette';
 import styled from 'styled-components';
+
+import PALETTE from '../constants/palette';
 import { HelpContents, IDetailOptions } from '../types';
+
+export type TabBarProps = {
+  menu: IDetailOptions[];
+  checkList: HelpContents;
+};
+
+const TabBar = ({ menu, checkList }: TabBarProps) => {
+  const [menuCheck, setMenuCheck] = useState<number>(0);
+  const [check, setCheck] = useState<string>(menu[0].option);
+
+  const menuList = menu.map((i: IDetailOptions, index: number) => (
+    <StyledMenuTitle
+      key={i.option}
+      id={i.option}
+      check={check}
+      count={menu.length}
+      onClick={(e) => clickFunc(e, index)}
+    >
+      {i.name}
+    </StyledMenuTitle>
+  ));
+
+  const clickFunc = (e: React.BaseSyntheticEvent<MouseEvent>, index: number) => {
+    setMenuCheck(index);
+    setCheck(e.target.id);
+  };
+  return (
+    <>
+      <StyledContentWrapper>{menuList}</StyledContentWrapper>
+      {checkList[menuCheck]}
+    </>
+  );
+};
+
+export default TabBar;
 
 const StyledContentWrapper = styled.div`
   width: 100%;
@@ -50,38 +86,3 @@ const StyledMenuTitle = styled.li<{ check?: string; count: number }>`
     border-bottom: 2px solid ${PALETTE.PRI_MAIN};
   }
 `;
-
-type TabBarProps = {
-  menu: IDetailOptions[];
-  checkList: HelpContents;
-};
-
-const TabBar = ({ menu, checkList }: TabBarProps) => {
-  const [menuCheck, setMenuCheck] = useState<number>(0);
-  const [check, setCheck] = useState<string>(menu[0].option);
-
-  const menuList = menu.map((i: any, index: number) => (
-    <StyledMenuTitle
-      key={i.option}
-      id={i.option}
-      check={check}
-      count={menu.length}
-      onClick={(e) => clickFunc(e, index)}
-    >
-      {i.name}
-    </StyledMenuTitle>
-  ));
-
-  const clickFunc = (e: React.BaseSyntheticEvent<MouseEvent>, index: number) => {
-    setMenuCheck(index);
-    setCheck(e.target.id);
-  };
-  return (
-    <>
-      <StyledContentWrapper>{menuList}</StyledContentWrapper>
-      {checkList[menuCheck]}
-    </>
-  );
-};
-
-export default TabBar;

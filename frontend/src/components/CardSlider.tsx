@@ -1,11 +1,37 @@
 import styled from 'styled-components';
+
+import { SubscriptionUsedFront } from '../types';
 import Card from './Card';
-import { SubscriptionUsedMainPage } from '../types';
 import TodaySubscriptionNull from './TodaySubscriptionNull';
 
-const StyledCardConatiner = styled.div`
-  position: relative;
-  width: 100%;
+export type CardSliderProps = {
+  subscriptions: SubscriptionUsedFront[];
+};
+
+const CardSlider = ({ subscriptions }: CardSliderProps) => {
+  return (
+    <StyledCardConatiner>
+      <StyledCardSlider
+        subscriptionsLength={subscriptions.length}
+        nullShow={subscriptions.length < 2}
+      >
+        {subscriptions.map((subscription) => (
+          <Card
+            subscriptionId={subscription.id}
+            key={subscription.id}
+            title={subscription.houseName}
+            likeNum={subscription.likeNum || 0}
+          />
+        ))}
+        {subscriptions.length < 2 && <TodaySubscriptionNull />}
+      </StyledCardSlider>
+    </StyledCardConatiner>
+  );
+};
+
+export default CardSlider;
+
+const StyledCardConatiner = styled.section`
   overflow-x: scroll; // PC
   -webkit-overflow-scrolling: touch; // mobile */
   -ms-overflow-style: none; /* IE and Edge */
@@ -17,41 +43,11 @@ const StyledCardConatiner = styled.div`
 `;
 
 const StyledCardSlider = styled.div<{
-  todaySubscriptionsLength: number;
+  subscriptionsLength: number;
   nullShow: boolean;
 }>`
-  position: relative;
-  top: 0;
-  left: ${(props) => (props.nullShow ? '0px' : '1200px')};
+  padding-left: 16px;
   height: 100%;
   display: flex;
-  transition: all 1s ease;
+  gap: 16px;
 `;
-
-export type CardSliderProps = {
-  todaySubscriptions: SubscriptionUsedMainPage[];
-};
-
-const CardSlider = ({ todaySubscriptions }: CardSliderProps) => {
-  return (
-    <section>
-      <StyledCardConatiner>
-        <StyledCardSlider
-          todaySubscriptionsLength={todaySubscriptions.length}
-          nullShow={todaySubscriptions.length < 2}
-        >
-          {todaySubscriptions.map((todaySubscription) => (
-            <Card
-              key={todaySubscription.id}
-              title={todaySubscription.houseName}
-              likeNum={todaySubscription.likeNum}
-            />
-          ))}
-          {todaySubscriptions.length < 2 && <TodaySubscriptionNull />}
-        </StyledCardSlider>
-      </StyledCardConatiner>
-    </section>
-  );
-};
-
-export default CardSlider;

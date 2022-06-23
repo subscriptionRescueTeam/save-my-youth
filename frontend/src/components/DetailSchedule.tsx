@@ -1,24 +1,12 @@
 import styled from 'styled-components';
 
-const StyledWrapper = styled.div`
-  margin: 1rem;
-`;
+import { SubscriptionUsedFront } from '../types';
 
-const StyledLocationTitle = styled.div`
-  font-family: 'Pretendard-Bold';
-`;
+export type DetailScheduleProps = {
+  subData: SubscriptionUsedFront;
+};
 
-const StyledLocationDetail = styled.div`
-  font-family: 'Pretendard-Medium';
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-
-  & > li {
-    margin: 10px;
-  }
-`;
-
-const DetailSchedule = ({ subData }: any) => {
+const DetailSchedule = ({ subData }: DetailScheduleProps) => {
   return (
     <StyledWrapper>
       <StyledLocationTitle>청약 일정</StyledLocationTitle>
@@ -56,3 +44,21 @@ const DetailSchedule = ({ subData }: any) => {
 };
 
 export default DetailSchedule;
+
+const StyledWrapper = styled.div`
+  margin: 1rem;
+`;
+
+const StyledLocationTitle = styled.div`
+  font-family: 'Pretendard-Bold';
+`;
+
+const StyledLocationDetail = styled.div`
+  font-family: 'Pretendard-Medium';
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+
+  & > li {
+    margin: 10px;
+  }
+`;

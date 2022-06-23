@@ -1,18 +1,13 @@
 import React from 'react';
+
 export type User = {
   name: string; // nickname
   email: string;
   likeNum: number;
-  likeList: Subscription[];
+  likeList: SubscriptionFromBackend[];
 };
 
-export interface SubscriptionResponse {
-  subscription_data: {
-    data: SubscriptionData[];
-  };
-}
-
-export type SubscriptionData = {
+export type SubscriptionFromBackend = {
   PBLANC_NO: number; //공고번호
   HOUSE_NM: string; //주택명
   HSSPLY_ADRES: string; //공급위치
@@ -34,33 +29,32 @@ export type SubscriptionData = {
   CNTRCT_CNCLS_ENDDE: string; //계약종료일
 };
 
-export type Subscription = {
+export type SubscriptionUsedFront = {
   readonly id: number;
   readonly houseName: string;
   readonly houseLocation: string;
-  readonly applyStartDate?: string;
+  readonly applyStartDate: string;
   readonly applyEndDate: string;
-  readonly likeNum?: number;
-};
-
-export type SummarizedSubscription = {
-  id: number;
-  houseName: string;
-  houseLocation: string;
-  applyStartDate: string;
-  applyEndDate: string;
-};
-export type SubscriptionUsedMainPage = SubscriptionUsedMainPageByAPI & SubscriptionUsedMainPageByDB;
-
-export type SubscriptionUsedMainPageByAPI = {
-  readonly id: number;
-  readonly houseName: string;
   readonly recNotice: string;
+  readonly applyScale?: string;
+  readonly applyHomepage?: string;
+  readonly SPSPLY_RCEPT_BGNDE?: string;
+  readonly SPSPLY_RCEPT_ENDDE?: string;
+  readonly GNRL_RNK1_CRSPAREA_RCEPT_PD?: string;
+  readonly GNRL_RNK1_ETC_GG_RCPTDE_PD?: string;
+  readonly GNRL_RNK1_ETC_AREA_RCPTDE_PD?: string;
+  readonly GNRL_RNK2_CRSPAREA_RCEPT_PD?: string;
+  readonly GNRL_RNK2_ETC_GG_RCPTDE_PD?: string;
+  readonly GNRL_RNK2_ETC_AREA_RCPTDE_PD?: string;
+  readonly PRZWNER_PRESNATN_DE?: string;
+  readonly CNTRCT_CNCLS_BGNDE?: string;
+  readonly CNTRCT_CNCLS_ENDDE?: string;
+  likeNum: number;
+  imgLink?: string;
 };
 
-export type SubscriptionUsedMainPageByDB = {
-  readonly likeNum: number;
-  imgLink: string;
+export type DetailState = {
+  readonly id: number;
 };
 
 export type Writing = '최신' | '인기';
@@ -93,11 +87,6 @@ export type HelpContents = Record<number, JSX.Element>;
 
 export type AccordionType = { readonly head: Option; tails: Option[] };
 
-// serchCardlist
-export type SearchCardListProps = { subData: Subscription[] };
-export type SubscriptionList = { subData: SearchCardListProps };
-export type SearchCardItemProps = { subscription: SummarizedSubscription };
-
 export type FAQCategory = '청약' | '홈페이지';
 export type FAQType = {
   question: string;
@@ -107,12 +96,11 @@ export type FAQType = {
   };
 };
 
-export const CARD_WIDTH = 260;
-export const CARD_HEIGHT = 194;
-export const CARD_MARGIN = 6;
-export const CARD_BORDER_RADIUS = 8;
-
 export type IDetailOptions = {
   name: string;
   option: string;
 };
+
+export type ListType = 'popular' | 'new';
+export type CardDirection = 'column' | 'row';
+export type IconName = 'hamburger' | 'headerTitle' | 'arrowLeft';

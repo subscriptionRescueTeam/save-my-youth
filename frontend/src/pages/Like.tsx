@@ -1,8 +1,21 @@
 import styled from 'styled-components';
-import CommonHeader from '../components/CommonHeader';
+
+import { LayoutNavigation } from '../components';
 import SearchCardList from '../components/SearchCardList';
 import useLike from '../hooks/useLike';
-import { Subscription } from '../types';
+
+const Like = () => {
+  const { likeList } = useLike();
+
+  return (
+    <LayoutNavigation headerTitle="좋아요" haederUnderline={true}>
+      <StyledAnnounce>총 {likeList?.length} 개의 공고가 있습니다.</StyledAnnounce>
+      {likeList && <SearchCardList type="popular" subData={likeList} />}
+    </LayoutNavigation>
+  );
+};
+
+export default Like;
 
 const StyledAnnounce = styled.div`
   display: flex;
@@ -12,17 +25,3 @@ const StyledAnnounce = styled.div`
   font-size: 0.7em;
   letter-spacing: -0.5px;
 `;
-
-const Like = () => {
-  const { likeList } = useLike();
-
-  return (
-    <>
-      <CommonHeader title="좋아요" />
-      <StyledAnnounce>총 {likeList?.length} 개의 공고가 있습니다.</StyledAnnounce>
-      {likeList && <SearchCardList subData={likeList} />}
-    </>
-  );
-};
-
-export default Like;

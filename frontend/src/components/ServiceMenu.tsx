@@ -1,7 +1,8 @@
-import styled from 'styled-components';
-import PALETTE from '../constants/palette';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
 import ArrowRight from '../assets/icons/arrowRight';
+import PALETTE from '../constants/palette';
 
 const MenuItems = [
   {
@@ -21,21 +22,6 @@ const MenuItems = [
   },
 ];
 
-const StyledMenuList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
-  margin-top: 10px;
-`;
-
-const StyledItem = styled.li`
-  display: flex;
-  padding: 1.5rem;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid ${PALETTE.LIGHT_010};
-`;
-
 const SearchMenu = () => {
   return (
     <StyledMenuList>
@@ -52,3 +38,18 @@ const SearchMenu = () => {
 };
 
 export default SearchMenu;
+
+const StyledMenuList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  margin-top: 10px;
+`;
+
+const StyledItem = styled.li`
+  display: flex;
+  padding: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid ${PALETTE.LIGHT_010};
+`;

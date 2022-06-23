@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Input, CommonHeader } from '../components';
-import PALETTE from '../constants/palette';
-import useSearch from '../hooks/useSearch';
-import useDebounce from '../hooks/useDebounce';
+
+import { Input, LayoutNavigation } from '../components';
 import SearchCardList from '../components/SearchCardList';
+import PALETTE from '../constants/palette';
+import useDebounce from '../hooks/useDebounce';
+import useSubscription from '../hooks/useSubscription';
 
 const InputWrapper = styled.div`
   display: flex;
@@ -24,7 +25,7 @@ const MessageWrapper = styled.div`
 const Search = () => {
   const [keyword, setKeyword] = useState<string>('');
   const searchkeyword = useDebounce(keyword, 150);
-  const { subData } = useSearch(searchkeyword);
+  const { subscriptions: subData } = useSubscription('region', searchkeyword);
 
   const onChangeData = (e: React.FormEvent<HTMLInputElement>) => {
     setKeyword(e.currentTarget.value);
@@ -34,24 +35,22 @@ const Search = () => {
     if (e.key === 'Enter') {
       <div>
         <MessageWrapper>총 {subData.length}개의 공고가 있습니다</MessageWrapper>
-        <SearchCardList subData={subData} />;
+        <SearchCardList type="popular" subData={subData} />;
       </div>;
+      if (keyword.length === 0) {
+        alert('검색어를 입력해주세요');
+      }
     }
   };
 
   return (
-    <>
-      <CommonHeader title="검색" />
+    <LayoutNavigation headerTitle="검색">
       <InputWrapper>
-        <Input
-          placeholder="검색어를 입력하세요 (ex.지역)"
-          onChange={onChangeData}
-          onKeyPress={onKeyPress}
-        />
+        <Input placeholder="지역명을 입력하세요" onChange={onChangeData} onKeyPress={onKeyPress} />
       </InputWrapper>
       <MessageWrapper>총 {subData.length}개의 공고가 있습니다</MessageWrapper>
-      <SearchCardList subData={subData} />
-    </>
+      <SearchCardList type="popular" subData={subData} />
+    </LayoutNavigation>
   );
 };
 export default Search;
