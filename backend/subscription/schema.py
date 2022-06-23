@@ -5,14 +5,18 @@ from .models import Subscription
 class ErrorSchema(Schema):
     message: str
 
-
 class OpenApiSchema(Schema):
-    subscription_data : dict = None
+    currentCount: int
+    data: list = None
+    matchCount: int
+    page: int
+    perPage: int
+    totalCount: int
 
 # 좋아요 get 스키마
 class UserGetLikeSchema(Schema):
-    status : bool
-    like_num : int
+    status: bool
+    like_num: int
 
 # 좋아요 post 스키마
 class SubscriptionSchema(ModelSchema):
