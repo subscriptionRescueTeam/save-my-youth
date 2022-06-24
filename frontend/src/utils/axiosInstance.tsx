@@ -38,7 +38,7 @@ axiosInstance.interceptors.response.use(
 
       const { data } = await axios.post(`${BASE_URL}api/token/refresh/`, {
         refresh: RefreshToken,
-      }); 
+      });
 
       const newAccessToken = data.access;
       const newRefreshToken = data.refresh;

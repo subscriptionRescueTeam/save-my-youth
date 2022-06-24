@@ -20,13 +20,14 @@ urlpatterns = [
 
 # 추가 url 설정
 from .api import api # Django Ninja api
-from user.views import GoogleLogin # Social Login Views
+from user.views import GoogleLogin, KaKaoLogin # Social Login Views
 from rest_framework_simplejwt import views as jwt_views
 
 
 urlpatterns = urlpatterns + [
     path('api/auth/', include('dj_rest_auth.urls')),
     path('api/social-login/google/', GoogleLogin.as_view(), name='google_login'),
+    path('api/social-login/kakao/', KaKaoLogin.as_view(), name='kakao_login'),
     path('api/', api.urls), #Django Ninja
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 ]

@@ -12,6 +12,7 @@ import json
 env = environ.Env(
     DEBUG=(bool, False)
 )
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
@@ -48,7 +49,7 @@ def get_subscription(request, queryData: str):
     contents = json.loads(response.text)
     subscription_list = contents
 
-    return 200, {'subscription_data': subscription_list}
+    return 200, subscription_list
 
 
 like_router = Router(tags=["좋아요 API"])

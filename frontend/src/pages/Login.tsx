@@ -86,6 +86,24 @@ const Login = () => {
     navigate('/');
   };
 
+<<<<<<< HEAD:frontend/src/pages/Login/index.tsx
+  const kakaoLoginSuccess = async (response: any) => {
+    const res = await fetch('https://secret-reaches-74853.herokuapp.com/api/social-login/kakao/', {
+      method: 'POST',
+      body: JSON.stringify({
+        access_token: response.response.access_token,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await res.json();
+    setCookie('AccessToken', data.access_token);
+    setCookie('RefreshToken', data.refresh_token);
+    setCookie('UserInfo', data.user);
+    navigate('/');
+  };
+=======
   // const kakaoLoginSuccess = async (response: any) => {
   //   const res = await fetch('https://secret-reaches-74853.herokuapp.com/api/social-login/kakao/', {
   //     method: 'POST',
@@ -102,6 +120,7 @@ const Login = () => {
   //   setCookie('UserInfo', data.user);
   //   navigate('/');
   // };
+>>>>>>> 21fe7c82153bcf896bae3b8634155b606b722db6:frontend/src/pages/Login.tsx
 
   const loginFail = () => {
     window.alert('로그인 실패했습니다. 관리자에게 문의해주세요.');
@@ -149,7 +168,11 @@ const Login = () => {
           </StyledButton>
         )}
       />
+<<<<<<< HEAD:frontend/src/pages/Login/index.tsx
+      <KakaoLogin
+=======
       {/* <KakaoLogin
+>>>>>>> 21fe7c82153bcf896bae3b8634155b606b722db6:frontend/src/pages/Login.tsx
         token="65ba956836fbee5b0555a947e7cdfdc7"
         onSuccess={kakaoLoginSuccess}
         onFail={loginFail}
@@ -157,12 +180,16 @@ const Login = () => {
         useLoginForm
         persistAccessToken
         throughTalk
+<<<<<<< HEAD:frontend/src/pages/Login/index.tsx
+      />
+=======
         render={(renderProps) => (
           <StyledButton onClick={renderProps.onClick} style={KakaoLoginButtonCss}>
             <StyledGoogle>Kakao로 로그인</StyledGoogle>
           </StyledButton>
         )}
       /> */}
+>>>>>>> 21fe7c82153bcf896bae3b8634155b606b722db6:frontend/src/pages/Login.tsx
       <Link to="/">
         <StyledToHome>홈으로 돌아가기</StyledToHome>
       </Link>
