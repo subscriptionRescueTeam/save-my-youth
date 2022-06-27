@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import { Children } from '../types';
+import Footer from './Footer';
 import Header from './Header';
 import Sidebar from './Sidebar';
 
@@ -28,6 +29,7 @@ const LayoutNavigation = ({ headerTitle, haederUnderline, children }: LayoutNavi
       <Header title={headerTitle} underline={haederUnderline} handleRightButtonClick={onClick} />
       <Sidebar isOpen={isSidebarOpen} onSidebarOpen={handleIsSidebarOpen} />
       <StyledContent>{children}</StyledContent>
+      <Footer />
     </>
   );
 };

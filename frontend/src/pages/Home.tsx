@@ -12,9 +12,11 @@ import PALETTE from '../constants/palette';
 import useSubscription from '../hooks/useSubscription';
 
 const Home = () => {
-  const { subscriptions: todaySubscriptions } = useSubscription('today');
-  const { subscriptions: popularityList } = useSubscription('popular');
-  const { subscriptions: latestList } = useSubscription('new');
+  const { loading: todaySubscriptionsLoading, subscriptions: todaySubscriptions } =
+    useSubscription('today');
+  const { loading: popularityListLoading, subscriptions: popularityList } =
+    useSubscription('popular');
+  const { loading: latestListLoading, subscriptions: latestList } = useSubscription('new');
 
   return (
     <LayoutNavigation>
@@ -35,35 +37,60 @@ const Home = () => {
         </Link>
       </StyledServiceContainer>
 
-      <StyledSectionContainer alignItems={'center'}>
-        <StyledTodySubscriptionTitle>
-          <div>오늘의 청약</div>
-          <div>
-            <StyledColorSpan>{todaySubscriptions.length}</StyledColorSpan>건
-          </div>
-        </StyledTodySubscriptionTitle>
-        <CardSlider subscriptions={todaySubscriptions} />
-      </StyledSectionContainer>
+      {todaySubscriptionsLoading && (
+        <StyledFlex>
+          <span>인기있는 청약을 가져오고 있습니다 🌀</span>
+        </StyledFlex>
+      )}
+      {!todaySubscriptionsLoading && (
+        <StyledSectionContainer alignItems={'center'}>
+          <StyledTodySubscriptionTitle>
+            <div>오늘의 청약</div>
+            <div>
+              <StyledColorSpan>{todaySubscriptions.length}</StyledColorSpan>건
+            </div>
+          </StyledTodySubscriptionTitle>
+          <CardSlider subscriptions={todaySubscriptions} />
+        </StyledSectionContainer>
+      )}
 
-      <StyledSectionContainer alignItems={'flex-start'}>
-        <ListTitle type={'popular'} />
-        <Description type={'popular'} topBottomPadding={false} />
-        <StyledPopularityList>
-          {popularityList.slice(0, 3).map((item, index) => (
-            <Indexing key={item.id} index={index + 1}>
-              <Card
-                direction="row"
-                subscriptionId={item.id}
-                title={item.houseName}
-                likeNum={item.likeNum || 0}
-              />
-            </Indexing>
-          ))}
-        </StyledPopularityList>
-      </StyledSectionContainer>
+      {popularityListLoading && (
+        <StyledFlex>
+          <span>인기있는 청약을 가져오고 있습니다 🌀</span>
+        </StyledFlex>
+      )}
+      {!popularityListLoading && (
+        <>
+          <StyledSectionContainer alignItems={'flex-start'}>
+            <ListTitle type={'popular'} />
+            <Description type={'popular'} topBottomPadding={false} />
+            <StyledFlex>
+              {popularityList.slice(0, 3).map((item, index) => (
+                <Indexing key={item.id} index={index + 1}>
+                  <Card
+                    direction="row"
+                    subscriptionId={item.id}
+                    title={item.houseName}
+                    likeNum={item.likeNum || 0}
+                  />
+                </Indexing>
+              ))}
+            </StyledFlex>
+          </StyledSectionContainer>
+        </>
+      )}
 
-      <ListTitle type={'new'} />
-      <CardSlider subscriptions={latestList} />
+      {latestListLoading && (
+        <StyledFlex>
+          <span>오늘 올라온 청약을 가져오고 있습니다 🌀</span>
+        </StyledFlex>
+      )}
+      {!latestListLoading && (
+        <>
+          <ListTitle type={'new'} />
+          <CardSlider subscriptions={latestList} />
+        </>
+      )}
     </LayoutNavigation>
   );
 };
@@ -137,7 +164,7 @@ export const StyledColorSpan = styled.span`
   padding-right: 5px;
 `;
 
-export const StyledPopularityList = styled.div`
+export const StyledFlex = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
