@@ -36,7 +36,7 @@ export type SubscriptionUsedFront = {
   readonly applyStartDate: string;
   readonly applyEndDate: string;
   readonly recNotice: string;
-  readonly applyScale?: string;
+  readonly applyScale?: number;
   readonly applyHomepage?: string;
   readonly SPSPLY_RCEPT_BGNDE?: string;
   readonly SPSPLY_RCEPT_ENDDE?: string;
@@ -51,6 +51,10 @@ export type SubscriptionUsedFront = {
   readonly CNTRCT_CNCLS_ENDDE?: string;
   likeNum: number;
   imgLink?: string;
+};
+
+export type SubscriptionResponse = {
+  data: SubscriptionFromBackend[];
 };
 
 export type DetailState = {
