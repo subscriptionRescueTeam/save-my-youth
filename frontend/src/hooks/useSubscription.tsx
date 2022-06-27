@@ -1,7 +1,8 @@
 import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
-import { ListType, SubscriptionUsedFront } from '../types';
+
 import tmpImg from '../assets/images/picture2.png';
+import { ListType, SubscriptionResponse, SubscriptionUsedFront } from '../types';
 
 const SERVER_SUBSCRIPTION_URL = `https://secret-reaches-74853.herokuapp.com/api/subscription/perPage=10`;
 const SERVER_LIKE_COUNT_URL = `https://secret-reaches-74853.herokuapp.com/api/like`;
@@ -44,17 +45,19 @@ const useTodaySubscription = (request: Request, region?: string, id?: number) =>
   const getSubscriptionsFromServer = async () => {
     try {
       setLoading(true);
-      const response: AxiosResponse<any> = await axios.get(getRequestUrl(request, region, id));
-      const res = response.data.subscription_data.data;
+      const response: AxiosResponse<SubscriptionResponse> = await axios.get(
+        getRequestUrl(request, region, id)
+      );
+      const res = response.data.data;
 
-      const data: SubscriptionUsedFront[] = res
-        .filter((v: any) => {
+      const data = res
+        .filter((v) => {
           if (request === 'today' && v.RCRIT_PBLANC_DE !== today) {
             return false;
           }
           return true;
         })
-        .map((v: any) => {
+        .map((v) => {
           const subscriptionState: SubscriptionUsedFront = {
             id: v.PBLANC_NO,
             houseName: v.HOUSE_NM,
@@ -79,9 +82,7 @@ const useTodaySubscription = (request: Request, region?: string, id?: number) =>
         });
 
       for (let i = 0; i < data.length; i++) {
-        const likeNumResponse: AxiosResponse<any> = await axios.get(
-          SERVER_LIKE_COUNT_URL + `/${data[i].id}`
-        );
+        const likeNumResponse = await axios.get(SERVER_LIKE_COUNT_URL + `/${data[i].id}`);
         data[i].likeNum = likeNumResponse.data.like_num;
       }
 
@@ -99,7 +100,7 @@ const useTodaySubscription = (request: Request, region?: string, id?: number) =>
         switch (request) {
           case 'popular': {
             const popularityList = res
-              .sort((a: SubscriptionUsedFront, b: SubscriptionUsedFront) => {
+              .sort((a, b) => {
                 return new Date(a.likeNum).getDate() - new Date(b.likeNum).getDate();
               })
               .slice(0, 6);
@@ -107,7 +108,7 @@ const useTodaySubscription = (request: Request, region?: string, id?: number) =>
             break;
           }
           case 'new': {
-            const latestList = res.sort((a: SubscriptionUsedFront, b: SubscriptionUsedFront) => {
+            const latestList = res.sort((a, b) => {
               return new Date(b.recNotice).getDate() - new Date(a.recNotice).getDate();
             });
             setSubscriptions(latestList);
