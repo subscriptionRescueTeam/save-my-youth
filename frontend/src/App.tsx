@@ -31,6 +31,7 @@ const App = () => {
         <Route path="/404" element={<NotFound />} />
         <Route path="/*" element={<Navigate replace to="/404" />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
