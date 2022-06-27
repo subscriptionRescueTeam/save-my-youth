@@ -23,7 +23,7 @@ const CardSlider = ({ subscriptions }: CardSliderProps) => {
             likeNum={subscription.likeNum || 0}
           />
         ))}
-        {subscriptions.length < 2 && <TodaySubscriptionNull />}
+        {subscriptions.length < 1 && <TodaySubscriptionNull />}
       </StyledCardSlider>
     </StyledCardConatiner>
   );
