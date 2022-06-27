@@ -39,7 +39,7 @@ const Home = () => {
 
       {todaySubscriptionsLoading && (
         <StyledFlex>
-          <span>인기있는 청약을 가져오고 있습니다 🌀</span>
+          <span>오늘의 청약을 가져오고 있습니다 🌀</span>
         </StyledFlex>
       )}
       {!todaySubscriptionsLoading && (
@@ -54,11 +54,6 @@ const Home = () => {
         </StyledSectionContainer>
       )}
 
-      {popularityListLoading && (
-        <StyledFlex>
-          <span>인기있는 청약을 가져오고 있습니다 🌀</span>
-        </StyledFlex>
-      )}
       {!popularityListLoading && (
         <>
           <StyledSectionContainer alignItems={'flex-start'}>
@@ -80,11 +75,6 @@ const Home = () => {
         </>
       )}
 
-      {latestListLoading && (
-        <StyledFlex>
-          <span>오늘 올라온 청약을 가져오고 있습니다 🌀</span>
-        </StyledFlex>
-      )}
       {!latestListLoading && (
         <>
           <ListTitle type={'new'} />
