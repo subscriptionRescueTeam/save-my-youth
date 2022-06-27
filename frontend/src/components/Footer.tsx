@@ -40,6 +40,7 @@ const StyledContainer = styled.div`
   color: ${PALETTE.DARK_020};
   background-color: ${PALETTE.LIGHT_020};
   padding: 1.2rem;
+  margin-top: 117px;
 `;
 
 const StyledFlex = styled.div`
