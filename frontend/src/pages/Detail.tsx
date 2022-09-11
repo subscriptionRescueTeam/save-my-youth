@@ -3,7 +3,7 @@ import { useCookies } from 'react-cookie';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import ArrowRight from '../assets/icons/arrowRight';
+import ArrowRight from '../assets/icons/arrowRight.svg?component';
 import { ReactComponent as BigHeart } from '../assets/icons/bigHeart.svg';
 import { ReactComponent as BigNullHeart } from '../assets/icons/bigNullHeart.svg';
 import Picture from '../assets/images/picture2.png';
