@@ -63,32 +63,45 @@ const Detail = () => {
 
   return (
     <LayoutNavigation headerTitle="청약 상세">
-      {loading && <div>불러오는 중이에요 잠시만 기다려주세요.</div>}
-      {!loading && subscription && (
-        <>
-          <img src={Picture} width="100%" alt="picture" />
-          <StyledLabel>{subscription.houseLocation.split(' ')[0]}</StyledLabel>
-          <StyledWrapper>
-            <StyledWrapper id="title">
-              <StyledLocationWrapper onClick={() => navigate('/search')}>
-                {subscription.houseLocation.split(' ')[0]} <ArrowRight />{' '}
-                {subscription.houseLocation.split(' ')[1]}
-              </StyledLocationWrapper>
-              <StyledTitle>{subscription.houseName}</StyledTitle>
-              <StyledFlex>
-                <StyledTag>{subscription.applyScale}세대</StyledTag>
-              </StyledFlex>
-              <StyledFlex>
-                <StyledDate>{subscription.applyStartDate} 등록</StyledDate>
-                <StyledHeartButton onClick={onHeartClick}>
-                  {heartState ? <BigHeart /> : <BigNullHeart />}
-                </StyledHeartButton>
-              </StyledFlex>
-            </StyledWrapper>
-            {checkList && <TabBar menu={menu} checkList={checkList} />}
-          </StyledWrapper>
-        </>
-      )}
+      <div style={{ height: '290px', backgroundColor: '#777777' }}>
+        {!loading && subscription ? (
+          <>
+            <img src={Picture} width="100%" alt="picture" />
+            <StyledLabel>{subscription.houseLocation.split(' ')[0]}</StyledLabel>
+          </>
+        ) : (
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '100%',
+            }}
+          >
+            불러오는 중이에요 잠시만 기다려주세요. 🌀
+          </div>
+        )}
+      </div>
+
+      <StyledWrapper>
+        <StyledWrapper id="title">
+          <StyledLocationWrapper onClick={() => navigate('/search')}>
+            {subscription?.houseLocation?.split(' ')[0] ?? '...'} <ArrowRight />{' '}
+            {subscription?.houseLocation?.split(' ')[1] ?? '...'}
+          </StyledLocationWrapper>
+          <StyledTitle>{subscription?.houseName ?? '...'}</StyledTitle>
+          <StyledFlex>
+            <StyledTag>{subscription?.applyScale ?? '...'}세대</StyledTag>
+          </StyledFlex>
+          <StyledFlex>
+            <StyledDate>{subscription?.applyStartDate ?? '...'} 등록</StyledDate>
+            <StyledHeartButton onClick={onHeartClick}>
+              {heartState ? <BigHeart /> : <BigNullHeart />}
+            </StyledHeartButton>
+          </StyledFlex>
+        </StyledWrapper>
+        {checkList && <TabBar menu={menu} checkList={checkList} />}
+      </StyledWrapper>
     </LayoutNavigation>
   );
 };

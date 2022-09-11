@@ -32,6 +32,9 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color:${PALETTE.BLACK}
   }
+  #root>main{
+    min-height:65vh;
+  }
 `;
 
 export default GlobalStyle;
