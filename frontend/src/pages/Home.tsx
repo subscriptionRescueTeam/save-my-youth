@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import ArrowRight from '../assets/icons/arrowRight';
 import MainBanner from '../assets/images/mainBanner.svg';
 import { CardSlider, Input, LayoutNavigation } from '../components';
 import Card from '../components/Card';
@@ -30,10 +29,7 @@ const Home = () => {
       <StyledServiceContainer>
         <StyledServiceReason>왜 ‘청년을 구해줘!’ 일까요?</StyledServiceReason>
         <Link to="/info">
-          <StyledGotoServiceIntroduction>
-            서비스 소개 보러가기
-            <ArrowRight color={PALETTE.BLACK} />
-          </StyledGotoServiceIntroduction>
+          <StyledGotoServiceIntroduction>서비스 소개 보러가기</StyledGotoServiceIntroduction>
         </Link>
       </StyledServiceContainer>
       <StyledSectionContainer alignItems={'center'}>
