@@ -15,7 +15,7 @@ export const Icon = ({ color, width = 24, height = 24, name }: IconProps) => {
     <StyledIcon color={color}>
       <ReactSVG
         css={{ display: 'inline-block' }}
-        src={`src/assets/icons/${name}.svg`}
+        src={`/src/assets/icons/${name}.svg`}
         beforeInjection={(svg) => {
           svg.setAttribute('style', `width: ${width}px; height: ${height}px;`);
         }}
