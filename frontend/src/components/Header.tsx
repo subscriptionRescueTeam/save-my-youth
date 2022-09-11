@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { ReactComponent as ArrowLeft } from '../assets/icons/arrowLeft.svg';
+import { ReactComponent as Hamburger } from '../assets/icons/hamburger.svg';
+import { ReactComponent as HeaderTitle } from '../assets/icons/headerTitle.svg';
 
 import PALETTE from '../constants/palette';
 import { IconName } from '../types';
-import { Icon } from './Icon';
 
 export type HeaderProps = {
   title?: string;
@@ -13,13 +15,7 @@ export type HeaderProps = {
   handleRightButtonClick: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const Header = ({
-  title,
-  underline = false,
-  leftIcon = 'arrowLeft',
-  rightIcon = 'hamburger',
-  handleRightButtonClick,
-}: HeaderProps) => {
+const Header = ({ title, underline = false, handleRightButtonClick }: HeaderProps) => {
   const navigate = useNavigate();
 
   const onLogoClick = () => navigate('/');
@@ -29,7 +25,7 @@ const Header = ({
       {title && (
         <>
           <button onClick={() => navigate(-1)}>
-            <Icon name={leftIcon} />
+            <ArrowLeft />
           </button>
           <StyledPageName>{title}</StyledPageName>
         </>
@@ -37,11 +33,11 @@ const Header = ({
 
       {!title && (
         <StyledLogo onClick={onLogoClick}>
-          <Icon name="headerTitle" width={154.74} height={30} />
+          <HeaderTitle />
         </StyledLogo>
       )}
       <button onClick={handleRightButtonClick}>
-        <Icon name={rightIcon} />
+        <Hamburger />
       </button>
     </StyledHeader>
   );
