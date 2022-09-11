@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as BigHeart } from '../assets/icons/bigHeart.svg';
 import { ReactComponent as BigNullHeart } from '../assets/icons/bigNullHeart.svg';
-import Picture from '../assets/images/picture2.png';
 import { DetailLocation, DetailSchedule, LayoutNavigation, TabBar } from '../components';
 import PALETTE from '../constants/palette';
 import useSubscription from '../hooks/useSubscription';
@@ -14,7 +13,7 @@ import axiosInstance from '../utils/axiosInstance';
 const Detail = () => {
   const location = useLocation();
   const state = location.state as DetailState;
-  const { id } = state;
+  const { id, imgLink } = state;
 
   const { loading, subscriptions } = useSubscription('id', '', id);
   const subscription = subscriptions[0];
@@ -61,10 +60,10 @@ const Detail = () => {
 
   return (
     <LayoutNavigation headerTitle="청약 상세">
-      <div style={{ height: '290px', backgroundColor: '#777777' }}>
+      <div style={{ height: '196px', backgroundColor: '#777777' }}>
         {!loading && subscription ? (
           <>
-            <img src={Picture} width="100%" alt="picture" />
+            <img src={imgLink} width="100%" alt="picture" />
             <StyledLabel>{subscription.houseLocation.split(' ')[0]}</StyledLabel>
           </>
         ) : (

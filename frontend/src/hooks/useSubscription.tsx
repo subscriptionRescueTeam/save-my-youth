@@ -75,6 +75,9 @@ const useTodaySubscription = (request: Request, region?: string, id?: number) =>
             GNRL_RNK2_CRSPAREA_RCEPT_PD: v.GNRL_RNK2_CRSPAREA_RCEPT_PD,
             GNRL_RNK2_ETC_GG_RCPTDE_PD: v.GNRL_RNK2_ETC_GG_RCPTDE_PD,
             GNRL_RNK2_ETC_AREA_RCPTDE_PD: v.GNRL_RNK2_ETC_AREA_RCPTDE_PD,
+            PRZWNER_PRESNATN_DE: v.PRZWNER_PRESNATN_DE,
+            CNTRCT_CNCLS_BGNDE: v.CNTRCT_CNCLS_BGNDE,
+            CNTRCT_CNCLS_ENDDE: v.CNTRCT_CNCLS_ENDDE,
             likeNum: -1,
             imgLink: tmpImg,
           };

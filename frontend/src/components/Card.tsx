@@ -57,7 +57,7 @@ const Card = ({
       direction={direction}
       onClick={() =>
         navigate('/detail', {
-          state: { id: subscriptionId },
+          state: { id: subscriptionId, imgLink: getImage(image) },
         })
       }
     >

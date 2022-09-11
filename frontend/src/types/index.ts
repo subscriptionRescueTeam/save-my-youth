@@ -59,6 +59,7 @@ export type SubscriptionResponse = {
 
 export type DetailState = {
   readonly id: number;
+  readonly imgLink: string;
 };
 
 export type Writing = '최신' | '인기';

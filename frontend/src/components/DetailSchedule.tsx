@@ -20,24 +20,24 @@ const DetailSchedule = ({ subData }: DetailScheduleProps) => {
       </StyledLocationDetail>
       <StyledLocationTitle>1순위 접수일 일정</StyledLocationTitle>
       <StyledLocationDetail>
-        <li>해당지역 1순위 접수일: {subData.GNRL_RNK1_CRSPAREA_RCEPT_PD}</li>
-        <li>경기지역 1순위 접수일: {subData.GNRL_RNK1_ETC_GG_RCPTDE_PD}</li>
-        <li>기타지역 1순위 접수일: {subData.GNRL_RNK1_ETC_AREA_RCPTDE_PD}</li>
+        <li>해당지역 1순위 접수일: {subData.GNRL_RNK1_CRSPAREA_RCEPT_PD ?? '해당사항 없음'}</li>
+        <li>경기지역 1순위 접수일: {subData.GNRL_RNK1_ETC_GG_RCPTDE_PD ?? '해당사항 없음'}</li>
+        <li>기타지역 1순위 접수일: {subData.GNRL_RNK1_ETC_AREA_RCPTDE_PD ?? '해당사항 없음'}</li>
       </StyledLocationDetail>
       <StyledLocationTitle>2순위 접수일 일정</StyledLocationTitle>
       <StyledLocationDetail>
-        <li>해당지역 2순위 접수일: {subData.GNRL_RNK2_CRSPAREA_RCEPT_PD}</li>
-        <li>경기지역 2순위 접수일: {subData.GNRL_RNK2_ETC_GG_RCPTDE_PD}</li>
-        <li>기타지역 2순위 접수일: {subData.GNRL_RNK2_ETC_AREA_RCPTDE_PD}</li>
+        <li>해당지역 2순위 접수일: {subData.GNRL_RNK2_CRSPAREA_RCEPT_PD ?? '해당사항 없음'}</li>
+        <li>경기지역 2순위 접수일: {subData.GNRL_RNK2_ETC_GG_RCPTDE_PD ?? '해당사항 없음'}</li>
+        <li>기타지역 2순위 접수일: {subData.GNRL_RNK2_ETC_AREA_RCPTDE_PD ?? '해당사항 없음'}</li>
       </StyledLocationDetail>
       <StyledLocationTitle>당첨자 발표 일정</StyledLocationTitle>
       <StyledLocationDetail>
-        <li>당첨 발표일: {subData.PRZWNER_PRESNATN_DE}</li>
+        <li>당첨 발표일: {subData.PRZWNER_PRESNATN_DE ?? '해당사항 없음'}</li>
       </StyledLocationDetail>
       <StyledLocationTitle>계약 일정</StyledLocationTitle>
       <StyledLocationDetail>
-        <li>계약 시작일: {subData.CNTRCT_CNCLS_BGNDE}</li>
-        <li>계약 종료일: {subData.CNTRCT_CNCLS_ENDDE}</li>
+        <li>계약 시작일: {subData.CNTRCT_CNCLS_BGNDE ?? '해당사항 없음'}</li>
+        <li>계약 종료일: {subData.CNTRCT_CNCLS_ENDDE ?? '해당사항 없음'}</li>
       </StyledLocationDetail>
     </StyledWrapper>
   );
