@@ -1,7 +1,9 @@
+import './assets/css/font.css';
+
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+
 import PALETTE from './constants/palette';
-import './assets/css/font.css';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}

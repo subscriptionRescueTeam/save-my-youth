@@ -26,6 +26,7 @@ export const StyledListTitle = styled.div<{ underline: boolean; color?: string }
   display: flex;
   justify-content: space-between;
   width: 100%;
+  height: 50px;
   border-bottom: ${(props) => (props.underline ? '0.2rem' : 0)} solid
     ${(props) => (props.color ? props.color : PALETTE.WHITE)};
   padding: 16px 18px;
