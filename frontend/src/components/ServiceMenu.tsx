@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import ArrowRight from '../assets/icons/arrowRight.svg?component';
 import PALETTE from '../constants/palette';
 
 const MenuItems = [
@@ -27,10 +26,7 @@ const SearchMenu = () => {
     <StyledMenuList>
       {MenuItems.map((item) => (
         <Link key={`${item.id}-${item.link}`} to={item.link}>
-          <StyledItem>
-            {item.title}
-            <ArrowRight />
-          </StyledItem>
+          <StyledItem>{item.title}</StyledItem>
         </Link>
       ))}
     </StyledMenuList>

@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-
-import ArrowRight from '../assets/icons/arrowRight.svg?component';
 import { ReactComponent as BigHeart } from '../assets/icons/bigHeart.svg';
 import { ReactComponent as BigNullHeart } from '../assets/icons/bigNullHeart.svg';
 import Picture from '../assets/images/picture2.png';
@@ -86,7 +84,7 @@ const Detail = () => {
       <StyledWrapper>
         <StyledWrapper id="title">
           <StyledLocationWrapper onClick={() => navigate('/search')}>
-            {subscription?.houseLocation?.split(' ')[0] ?? '...'} <ArrowRight />{' '}
+            {subscription?.houseLocation?.split(' ')[0] ?? '...'}{' '}
             {subscription?.houseLocation?.split(' ')[1] ?? '...'}
           </StyledLocationWrapper>
           <StyledTitle>{subscription?.houseName ?? '...'}</StyledTitle>

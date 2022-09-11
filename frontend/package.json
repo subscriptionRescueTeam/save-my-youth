@@ -17,7 +17,6 @@
     "react-kakao-login": "^2.1.0",
     "react-naver-login": "^0.1.4",
     "react-router-dom": "^6.3.0",
-    "react-svg": "^15.1.8",
     "recoil": "^0.7.3-alpha.2",
     "styled-components": "^5.3.5",
     "styled-reset": "^4.3.4",
