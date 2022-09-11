@@ -36,27 +36,30 @@ const Home = () => {
           </StyledGotoServiceIntroduction>
         </Link>
       </StyledServiceContainer>
-
-      {todaySubscriptionsLoading && (
-        <StyledFlex>
-          <span>오늘의 청약을 가져오고 있습니다 🌀</span>
-        </StyledFlex>
-      )}
-      {!todaySubscriptionsLoading && (
-        <StyledSectionContainer alignItems={'center'}>
-          <StyledTodySubscriptionTitle>
-            <div>오늘의 청약</div>
-            <div>
-              <StyledColorSpan>{todaySubscriptions.length}</StyledColorSpan>건
-            </div>
-          </StyledTodySubscriptionTitle>
-          <CardSlider subscriptions={todaySubscriptions} />
-        </StyledSectionContainer>
-      )}
-
-      {!popularityListLoading && (
-        <>
-          <StyledSectionContainer alignItems={'flex-start'}>
+      <StyledSectionContainer alignItems={'center'}>
+        {todaySubscriptionsLoading ? (
+          <StyledFlex>
+            <span>오늘의 청약을 가져오고 있습니다 🌀</span>
+          </StyledFlex>
+        ) : (
+          <>
+            <StyledTodySubscriptionTitle>
+              <div>오늘의 청약</div>
+              <div>
+                <StyledColorSpan>{todaySubscriptions.length}</StyledColorSpan>건
+              </div>
+            </StyledTodySubscriptionTitle>
+            <CardSlider subscriptions={todaySubscriptions} />
+          </>
+        )}
+      </StyledSectionContainer>
+      <StyledSectionContainer alignItems={'flex-start'}>
+        {popularityListLoading ? (
+          <StyledFlex>
+            <span>인기 청약을 가져오고 있습니다 🌀</span>
+          </StyledFlex>
+        ) : (
+          <>
             <ListTitle type={'popular'} />
             <Description type={'popular'} topBottomPadding={false} />
             <StyledFlex>
@@ -71,16 +74,22 @@ const Home = () => {
                 </Indexing>
               ))}
             </StyledFlex>
-          </StyledSectionContainer>
-        </>
-      )}
+          </>
+        )}
+      </StyledSectionContainer>
 
-      {!latestListLoading && (
-        <>
-          <ListTitle type={'new'} />
-          <CardSlider subscriptions={latestList} />
-        </>
-      )}
+      <StyledSectionContainer alignItems={'flex-start'}>
+        {latestListLoading ? (
+          <StyledFlex>
+            <span>최신 청약을 가져오고 있습니다 🌀</span>
+          </StyledFlex>
+        ) : (
+          <>
+            <ListTitle type={'new'} />
+            <CardSlider subscriptions={latestList} />
+          </>
+        )}
+      </StyledSectionContainer>
     </LayoutNavigation>
   );
 };
@@ -165,6 +174,7 @@ export const StyledFlex = styled.div`
 
 export const StyledSectionContainer = styled.section<{ alignItems: string }>`
   width: 100%;
+  height: 286px;
   display: flex;
   flex-direction: column;
   justify-content: center;
