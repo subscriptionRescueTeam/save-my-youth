@@ -33,57 +33,51 @@ const Home = () => {
         </Link>
       </StyledServiceContainer>
       <StyledSectionContainer alignItems={'center'}>
+        <StyledTodySubscriptionTitle>
+          <div>오늘의 청약</div>
+          <div>
+            <StyledColorSpan>{todaySubscriptions.length}</StyledColorSpan>건
+          </div>
+        </StyledTodySubscriptionTitle>
         {todaySubscriptionsLoading ? (
           <StyledFlex>
             <span>오늘의 청약을 가져오고 있습니다 🌀</span>
           </StyledFlex>
         ) : (
-          <>
-            <StyledTodySubscriptionTitle>
-              <div>오늘의 청약</div>
-              <div>
-                <StyledColorSpan>{todaySubscriptions.length}</StyledColorSpan>건
-              </div>
-            </StyledTodySubscriptionTitle>
-            <CardSlider subscriptions={todaySubscriptions} />
-          </>
+          <CardSlider subscriptions={todaySubscriptions} />
         )}
       </StyledSectionContainer>
       <StyledSectionContainer alignItems={'flex-start'}>
+        <ListTitle type={'popular'} />
+        <Description type={'popular'} topBottomPadding={false} />
         {popularityListLoading ? (
           <StyledFlex>
             <span>인기 청약을 가져오고 있습니다 🌀</span>
           </StyledFlex>
         ) : (
-          <>
-            <ListTitle type={'popular'} />
-            <Description type={'popular'} topBottomPadding={false} />
-            <StyledFlex>
-              {popularityList.slice(0, 3).map((item, index) => (
-                <Indexing key={item.id} index={index + 1}>
-                  <Card
-                    direction="row"
-                    subscriptionId={item.id}
-                    title={item.houseName}
-                    likeNum={item.likeNum || 0}
-                  />
-                </Indexing>
-              ))}
-            </StyledFlex>
-          </>
+          <StyledFlex>
+            {popularityList.slice(0, 3).map((item, index) => (
+              <Indexing key={item.id} index={index + 1}>
+                <Card
+                  direction="row"
+                  subscriptionId={item.id}
+                  title={item.houseName}
+                  likeNum={item.likeNum || 0}
+                />
+              </Indexing>
+            ))}
+          </StyledFlex>
         )}
       </StyledSectionContainer>
 
       <StyledSectionContainer alignItems={'flex-start'}>
+        <ListTitle type={'new'} />
         {latestListLoading ? (
           <StyledFlex>
             <span>최신 청약을 가져오고 있습니다 🌀</span>
           </StyledFlex>
         ) : (
-          <>
-            <ListTitle type={'new'} />
-            <CardSlider subscriptions={latestList} />
-          </>
+          <CardSlider subscriptions={latestList} />
         )}
       </StyledSectionContainer>
     </LayoutNavigation>
@@ -173,7 +167,7 @@ export const StyledSectionContainer = styled.section<{ alignItems: string }>`
   height: 286px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: ${(props) => props.alignItems};
   gap: 8px;
   padding-bottom: 32px;
