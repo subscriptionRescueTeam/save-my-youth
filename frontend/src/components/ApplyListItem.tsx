@@ -3,11 +3,6 @@ import styled from 'styled-components';
 
 import { ReactComponent as BlueHeart } from '../assets/icons/blueHeart.svg';
 import House1 from '../assets/images/house/image1.png';
-import House2 from '../assets/images/house/image2.png';
-import House3 from '../assets/images/house/image3.png';
-import House4 from '../assets/images/house/image4.png';
-import House5 from '../assets/images/house/image5.png';
-import House6 from '../assets/images/house/image6.png';
 import PALETTE from '../constants/palette';
 import { CARD_BORDER_RADIUS } from '../constants/variables';
 
@@ -18,40 +13,18 @@ export type ApplyListItemProps = {
   likeNum: number;
 };
 
-const ApplyListItem = ({
-  subscriptionId,
-  image = `House` + String(Math.floor(Math.random() * 6 + 1)),
-  title,
-  likeNum,
-}: ApplyListItemProps) => {
+const ApplyListItem = ({ subscriptionId, image = House1, title, likeNum }: ApplyListItemProps) => {
   const navigate = useNavigate();
-
-  const getImage = (image: string) => {
-    switch (image) {
-      case 'House1':
-        return House1;
-      case 'House2':
-        return House2;
-      case 'House3':
-        return House3;
-      case 'House4':
-        return House4;
-      case 'House5':
-        return House5;
-      case 'House6':
-        return House6;
-    }
-  };
 
   return (
     <StyledCard
       onClick={() =>
         navigate('/detail', {
-          state: { id: subscriptionId, imgLink: getImage(image) },
+          state: { id: subscriptionId, imgLink: image },
         })
       }
     >
-      <StyledImage image={getImage(image)} />
+      <StyledImage image={image} />
       <StyledTextContainer>
         <StyledTitle>{title}</StyledTitle>
         <StyledLikeNumContainer>
