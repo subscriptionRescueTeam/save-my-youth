@@ -164,7 +164,6 @@ export const StyledFlex = styled.div`
 
 export const StyledSectionContainer = styled.section<{ alignItems: string }>`
   width: 100%;
-  height: 286px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
