@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { SubscriptionUsedFront } from '../types';
-import Card from './Card';
+import ApplyCard from './ApplyCard';
 import TodaySubscriptionNull from './TodaySubscriptionNull';
 
 export type CardSliderProps = {
@@ -16,7 +16,7 @@ const CardSlider = ({ subscriptions }: CardSliderProps) => {
         nullShow={subscriptions.length < 2}
       >
         {subscriptions.map((subscription) => (
-          <Card
+          <ApplyCard
             subscriptionId={subscription.id}
             key={subscription.id}
             title={subscription.houseName}

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import MainBanner from '../assets/images/mainBanner.svg';
 import { CardSlider, Input, LayoutNavigation } from '../components';
-import Card from '../components/Card';
+import ApplyListItem from '../components/ApplyListItem';
 import Description from '../components/Description';
 import Indexing from '../components/Indexing';
 import ListTitle from '../components/ListTitle';
@@ -58,8 +58,7 @@ const Home = () => {
           <StyledFlex>
             {popularityList.slice(0, 3).map((item, index) => (
               <Indexing key={item.id} index={index + 1}>
-                <Card
-                  direction="row"
+                <ApplyListItem
                   subscriptionId={item.id}
                   title={item.houseName}
                   likeNum={item.likeNum || 0}

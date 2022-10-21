@@ -16,18 +16,15 @@ import {
   CARD_WIDTH_COLUMN,
   CARD_WIDTH_ROW,
 } from '../constants/variables';
-import { CardDirection } from '../types';
 
 export type CardProps = {
-  direction?: CardDirection;
   subscriptionId: number;
   image?: string;
   title: string;
   likeNum: number;
 };
 
-const Card = ({
-  direction = 'column',
+const ApplyCard = ({
   subscriptionId,
   image = `House` + String(Math.floor(Math.random() * 6 + 1)),
   title,
@@ -54,15 +51,14 @@ const Card = ({
 
   return (
     <StyledCard
-      direction={direction}
       onClick={() =>
         navigate('/detail', {
           state: { id: subscriptionId, imgLink: getImage(image) },
         })
       }
     >
-      <StyledImage direction={direction} image={getImage(image)} />
-      <StyledTextContainer direction={direction}>
+      <StyledImage image={getImage(image)} />
+      <StyledTextContainer>
         <StyledTitle>{title}</StyledTitle>
         <StyledLikeNumContainer>
           <BlueHeart />
@@ -73,39 +69,32 @@ const Card = ({
   );
 };
 
-export default Card;
+export default ApplyCard;
 
-const StyledCard = styled.article<{ direction?: CardDirection }>`
-  width: ${(props) => (props.direction === 'column' ? `${CARD_WIDTH_COLUMN}px` : '100%')};
-  height: ${(props) => (props.direction === 'column' ? `${CARD_HEIGHT_COLUMN}px` : '100%')};
+const StyledCard = styled.article`
+  width: ${CARD_WIDTH_COLUMN}px;
+  height: ${CARD_HEIGHT_COLUMN}px;
   border-radius: ${CARD_BORDER_RADIUS}px;
   display: flex;
-  flex-direction: ${(props) => (props.direction === 'column' ? 'column' : 'row')};
+  flex-direction: column;
   cursor: pointer;
 `;
 
-const StyledImage = styled.img<{ direction?: CardDirection; image: string }>`
-  width: ${(props) => (props.direction === 'column' ? 'initial' : `${CARD_WIDTH_ROW}px`)};
-  height: ${(props) => (props.direction === 'column' ? ' 124px' : `${CARD_HEIGHT_ROW}px`)};
-  border-radius: ${(props) =>
-    props.direction === 'column'
-      ? `${CARD_BORDER_RADIUS}px ${CARD_BORDER_RADIUS}px 0 0`
-      : `${CARD_BORDER_RADIUS}px 0  0 ${CARD_BORDER_RADIUS}px`};
-
+const StyledImage = styled.img<{ image: string }>`
+  width: initial;
+  height: 124px;
+  border-radius: ${CARD_BORDER_RADIUS}px ${CARD_BORDER_RADIUS}px 0 0;
   content: url(${(props) => props.image});
   object-fit: cover;
 `;
 
-const StyledTextContainer = styled.div<{ direction?: CardDirection }>`
+const StyledTextContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   background-color: ${PALETTE.LIGHT_010};
-  border-radius: ${(props) =>
-    props.direction === 'column'
-      ? `0 0 ${CARD_BORDER_RADIUS}px ${CARD_BORDER_RADIUS}px`
-      : `0 ${CARD_BORDER_RADIUS}px ${CARD_BORDER_RADIUS}px 0`};
+  border-radius: 0 0 ${CARD_BORDER_RADIUS}px ${CARD_BORDER_RADIUS}px;
 `;
 
 const StyledTitle = styled.span`
