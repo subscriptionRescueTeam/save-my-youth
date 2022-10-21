@@ -9,13 +9,7 @@ import House4 from '../assets/images/house/image4.png';
 import House5 from '../assets/images/house/image5.png';
 import House6 from '../assets/images/house/image6.png';
 import PALETTE from '../constants/palette';
-import {
-  CARD_BORDER_RADIUS,
-  CARD_HEIGHT_COLUMN,
-  CARD_HEIGHT_ROW,
-  CARD_WIDTH_COLUMN,
-  CARD_WIDTH_ROW,
-} from '../constants/variables';
+import { CARD_BORDER_RADIUS } from '../constants/variables';
 
 export type ApplyListItemProps = {
   subscriptionId: number;
@@ -73,7 +67,6 @@ export default ApplyListItem;
 
 const StyledCard = styled.article`
   width: 100%;
-  height: 100%;
   border-radius: ${CARD_BORDER_RADIUS}px;
   display: flex;
   flex-direction: row;
@@ -81,8 +74,8 @@ const StyledCard = styled.article`
 `;
 
 const StyledImage = styled.img<{ image: string }>`
-  width: ${CARD_WIDTH_ROW}px;
-  height: ${CARD_HEIGHT_ROW}px;
+  width: 5.875rem;
+  height: 6.375rem;
   border-radius: ${CARD_BORDER_RADIUS}px 0 0 ${CARD_BORDER_RADIUS}px;
   content: url(${(props) => props.image});
   object-fit: cover;
@@ -99,24 +92,19 @@ const StyledTextContainer = styled.div`
 
 const StyledTitle = styled.span`
   width: 100%;
-  height: 40px;
-  font-size: 1rem;
   font-weight: bold;
-  line-height: 1.5rem;
-  padding: 8px 12px;
+  padding: 0.5rem 0.75rem;
   background: ${PALETTE.LIGHT_010};
 `;
 
 const StyledLikeNumContainer = styled.div`
-  width: 100%;
-  height: 30px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   background: ${PALETTE.LIGHT_010};
   border-radius: 0 0 ${CARD_BORDER_RADIUS}px ${CARD_BORDER_RADIUS}px;
-  padding: 6px 8px;
-  gap: 4px;
+  padding: 0.375rem 0.5rem;
+  gap: 0.25rem;
 `;
 
 const StyledLikeNum = styled.span`
