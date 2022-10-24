@@ -8,14 +8,13 @@ import Description from '../components/Description';
 import Indexing from '../components/Indexing';
 import ListTitle from '../components/ListTitle';
 import PALETTE from '../constants/palette';
-import useSubscription from '../hooks/useSubscription';
+import useApply from '../hooks/useApply';
 
 const Home = () => {
   const { loading: todaySubscriptionsLoading, subscriptions: todaySubscriptions } =
-    useSubscription('today');
-  const { loading: popularityListLoading, subscriptions: popularityList } =
-    useSubscription('popular');
-  const { loading: latestListLoading, subscriptions: latestList } = useSubscription('new');
+    useApply('today');
+  const { loading: popularityListLoading, subscriptions: popularityList } = useApply('popular');
+  const { loading: latestListLoading, subscriptions: latestList } = useApply('new');
 
   return (
     <LayoutNavigation>

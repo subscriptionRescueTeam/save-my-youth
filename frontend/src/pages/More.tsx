@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { LayoutNavigation } from '../components';
 import Description from '../components/Description';
 import SearchCardList from '../components/SearchCardList';
-import useSubscription from '../hooks/useSubscription';
+import useSubscription from '../hooks/useApply';
 import { ListType } from '../types';
 
 const More = () => {
