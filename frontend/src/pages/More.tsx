@@ -4,13 +4,13 @@ import styled from 'styled-components';
 import { LayoutNavigation } from '../components';
 import Description from '../components/Description';
 import SearchCardList from '../components/SearchCardList';
-import useSubscription from '../hooks/useApply';
+import useApply from '../hooks/useApply';
 import { ListType } from '../types';
 
 const More = () => {
   const { type: typeParam } = useParams();
-  const { loading: popularLoading, subscriptions: popularityList } = useSubscription('popular');
-  const { loading: newLoading, subscriptions: latestList } = useSubscription('new');
+  const { loading: popularLoading, applies: popularityList } = useApply({ condition: 'popular' });
+  const { loading: newLoading, applies: latestList } = useApply({ condition: 'new' });
   const type: ListType = typeParam as ListType;
 
   return (

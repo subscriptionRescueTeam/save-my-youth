@@ -5,7 +5,7 @@ import { Input, LayoutNavigation } from '../components';
 import SearchCardList from '../components/SearchCardList';
 import PALETTE from '../constants/palette';
 import useDebounce from '../hooks/useDebounce';
-import useSubscription from '../hooks/useApply';
+import useApply from '../hooks/useApply';
 import LatestSearchSortButton from '../components/SearchSortButton';
 
 const InputWrapper = styled.div`
@@ -26,7 +26,7 @@ const MessageWrapper = styled.div`
 const Search = () => {
   const [keyword, setKeyword] = useState<string>('');
   const searchkeyword = useDebounce(keyword, 150);
-  const { subscriptions: subData } = useSubscription('region', searchkeyword);
+  const { applies: subData } = useApply({ condition: 'region', region: searchkeyword });
 
   const onChangeData = (e: React.FormEvent<HTMLInputElement>) => {
     setKeyword(e.currentTarget.value);

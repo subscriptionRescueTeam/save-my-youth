@@ -11,10 +11,13 @@ import PALETTE from '../constants/palette';
 import useApply from '../hooks/useApply';
 
 const Home = () => {
-  const { loading: todaySubscriptionsLoading, subscriptions: todaySubscriptions } =
-    useApply('today');
-  const { loading: popularityListLoading, subscriptions: popularityList } = useApply('popular');
-  const { loading: latestListLoading, subscriptions: latestList } = useApply('new');
+  const { loading: todaySubscriptionsLoading, applies: todaySubscriptions } = useApply({
+    condition: 'today',
+  });
+  const { loading: popularityListLoading, applies: popularityList } = useApply({
+    condition: 'popular',
+  });
+  const { loading: latestListLoading, applies: latestList } = useApply({ condition: 'new' });
 
   return (
     <LayoutNavigation>
