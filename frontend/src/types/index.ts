@@ -107,5 +107,4 @@ export type IDetailOptions = {
 };
 
 export type ListType = 'popular' | 'new';
-export type CardDirection = 'column' | 'row';
 export type IconName = 'hamburger' | 'headerTitle' | 'arrowLeft';

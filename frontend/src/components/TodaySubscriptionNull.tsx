@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import PALETTE from '../constants/palette';
-import { CARD_HEIGHT_COLUMN, CARD_WIDTH_COLUMN } from '../constants/variables';
 
 const TodaySubscriptionNull = () => {
   return (
@@ -25,8 +24,8 @@ export const StyledCard = styled.article`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: ${CARD_WIDTH_COLUMN}px;
-  height: ${CARD_HEIGHT_COLUMN}px;
+  width: 16.25rem;
+  height: 12.125rem;
   background: rgba(171, 210, 254, 0.2);
   border-radius: 8px;
 `;
