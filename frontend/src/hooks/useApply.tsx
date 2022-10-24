@@ -3,13 +3,14 @@ import { useEffect, useState } from 'react';
 
 import tmpImg from '../assets/images/picture2.png';
 import { ListType, SubscriptionResponse, SubscriptionUsedFront } from '../types';
+const { VITE_APP_API_KEY } = import.meta.env;
 
-const SERVER_SUBSCRIPTION_URL = `https://secret-reaches-74853.herokuapp.com/api/subscription/perPage=10`;
-const SERVER_LIKE_COUNT_URL = `https://secret-reaches-74853.herokuapp.com/api/like`;
+const SERVER_SUBSCRIPTION_URL = `https://api.odcloud.kr/api/ApplyhomeInfoDetailSvc/v1/getAPTLttotPblancDetail&serviceKey=${VITE_APP_API_KEY}`;
+const SERVER_LIKE_COUNT_URL = 'https://secret-reaches-74853.herokuapp.com/api/like';
 
 export type Request = ListType | 'today' | 'theOtherDay' | 'region' | 'id';
 
-const useTodaySubscription = (request: Request, region?: string, id?: number) => {
+const useTodayApply = (request: Request, region?: string, id?: number) => {
   const [loading, setLoading] = useState(false);
   const [subscriptions, setSubscriptions] = useState<SubscriptionUsedFront[]>([]);
 
@@ -127,4 +128,4 @@ const useTodaySubscription = (request: Request, region?: string, id?: number) =>
   return { loading, subscriptions };
 };
 
-export default useTodaySubscription;
+export default useTodayApply;
