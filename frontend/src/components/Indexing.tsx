@@ -22,14 +22,13 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  gap: 24px;
+  gap: 1.5rem;
 `;
 
 const StyledIndex = styled.span<{ index: number }>`
+  width: 0.875rem;
   font-family: 'Noto Sans';
   font-weight: ${(props) => (props.index > 3 ? 'normal' : 'bold')};
   font-size: '1.25rem';
-  line-height: 190%;
-  letter-spacing: -0.5px;
   color: ${(props) => (props.index > 3 ? PALETTE.DARK_030 : PALETTE.PRI_DARK_020)};
 `;
