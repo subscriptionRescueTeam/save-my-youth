@@ -2,7 +2,13 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import MainBanner from '../assets/images/mainBanner.svg';
-import { CardSlider, Input, LayoutNavigation, ApplyCardSkeleton } from '../components';
+import {
+  CardSlider,
+  Input,
+  LayoutNavigation,
+  ApplyCardSkeleton,
+  ApplyListItemSkeleton,
+} from '../components';
 import ApplyListItem from '../components/ApplyListItem';
 import Description from '../components/Description';
 import Indexing from '../components/Indexing';
@@ -52,7 +58,11 @@ const Home = () => {
         <Description type={'popular'} topBottomPadding={false} />
         {popularityListLoading ? (
           <StyledFlex>
-            <span>인기 청약을 가져오고 있습니다 🌀</span>
+            {[1, 2, 3].map((value) => (
+              <Indexing index={value}>
+                <ApplyListItemSkeleton />
+              </Indexing>
+            ))}
           </StyledFlex>
         ) : (
           <StyledFlex>
