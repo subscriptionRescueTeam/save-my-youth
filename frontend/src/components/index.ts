@@ -7,3 +7,4 @@ export { default as LayoutNavigation } from './LayoutNavigation';
 export { default as SearchCardList } from './SearchCardList';
 export { default as ServiceMenu } from './ServiceMenu';
 export { default as TabBar } from './TabBar';
+export { default as ApplyCardSkeleton } from './ApplyCardSkeleton';
