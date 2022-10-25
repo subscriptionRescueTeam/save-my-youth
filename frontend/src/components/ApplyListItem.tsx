@@ -17,7 +17,7 @@ const ApplyListItem = ({ subscriptionId, image = House1, title, likeNum }: Apply
   const navigate = useNavigate();
 
   return (
-    <StyledCard
+    <StyledListItem
       onClick={() =>
         navigate('/detail', {
           state: { id: subscriptionId, imgLink: image },
@@ -32,34 +32,33 @@ const ApplyListItem = ({ subscriptionId, image = House1, title, likeNum }: Apply
           <StyledLikeNum>{likeNum}</StyledLikeNum>
         </StyledLikeNumContainer>
       </StyledTextContainer>
-    </StyledCard>
+    </StyledListItem>
   );
 };
 
 export default ApplyListItem;
 
-const StyledCard = styled.article`
+const StyledListItem = styled.article`
   width: 100%;
+  height: 6.375rem;
   border-radius: ${CARD_BORDER_RADIUS}px;
   display: flex;
-  flex-direction: row;
   cursor: pointer;
 `;
 
 const StyledImage = styled.img<{ image: string }>`
   width: 5.875rem;
-  height: 6.375rem;
   border-radius: ${CARD_BORDER_RADIUS}px 0 0 ${CARD_BORDER_RADIUS}px;
   content: url(${(props) => props.image});
   object-fit: cover;
 `;
 
 const StyledTextContainer = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   background-color: ${PALETTE.LIGHT_010};
+  flex: 1;
   border-radius: 0 ${CARD_BORDER_RADIUS}px ${CARD_BORDER_RADIUS}px 0;
 `;
 

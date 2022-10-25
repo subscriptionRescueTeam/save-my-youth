@@ -18,11 +18,11 @@ export default ApplyCardSkeleton;
 
 const skeletonLoading = keyframes`
 0% {
-    background-color: ${PALETTE.LIGHT_040};
+    background: ${PALETTE.LIGHT_040};
   }
 
   100% {
-    background-color: ${PALETTE.LIGHT_020};
+    background: ${PALETTE.LIGHT_020};
   }
 `;
 
@@ -33,7 +33,7 @@ const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  background-color: white;
+  background: white;
 `;
 
 const StyledImage = styled.div`
@@ -47,14 +47,11 @@ const StyledTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background: ${PALETTE.LIGHT_010};
   border-radius: 0 0 ${CARD_BORDER_RADIUS}px ${CARD_BORDER_RADIUS}px;
 `;
 
 const StyledTitle = styled.div`
-  font-weight: bold;
   height: 1.5rem;
-  padding: 0.5rem 0.75rem;
   margin: 0.5rem 0.75rem;
   opacity: 0.7;
   animation: ${skeletonLoading} 1s linear infinite alternate;
