@@ -47,7 +47,9 @@ const Home = () => {
         </StyledTodySubscriptionTitle>
         {todaySubscriptionsLoading ? (
           <StyledApplyCardSkeletonContainer>
-            <ApplyCardSkeleton /> <ApplyCardSkeleton /> <ApplyCardSkeleton />{' '}
+            {[...Array(3)].map((_, index) => (
+              <ApplyCardSkeleton key={index} />
+            ))}
           </StyledApplyCardSkeletonContainer>
         ) : (
           <CardSlider subscriptions={todaySubscriptions} />
@@ -58,7 +60,7 @@ const Home = () => {
         <Description type={'popular'} topBottomPadding={false} />
         {popularityListLoading ? (
           <StyledFlex>
-            {[1, 2, 3].map((value) => (
+            {[...Array(3)].map((value) => (
               <Indexing index={value}>
                 <ApplyListItemSkeleton />
               </Indexing>
@@ -83,7 +85,9 @@ const Home = () => {
         <ListTitle type={'new'} />
         {latestListLoading ? (
           <StyledApplyCardSkeletonContainer>
-            <ApplyCardSkeleton /> <ApplyCardSkeleton /> <ApplyCardSkeleton />{' '}
+            {[...Array(3)].map((_, index) => (
+              <ApplyCardSkeleton key={index} />
+            ))}
           </StyledApplyCardSkeletonContainer>
         ) : (
           <CardSlider subscriptions={latestList} />
