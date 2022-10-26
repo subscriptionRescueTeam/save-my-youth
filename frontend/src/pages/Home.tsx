@@ -2,7 +2,13 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import MainBanner from '../assets/images/mainBanner.svg';
-import { CardSlider, Input, LayoutNavigation } from '../components';
+import {
+  CardSlider,
+  Input,
+  LayoutNavigation,
+  ApplyCardSkeleton,
+  ApplyListItemSkeleton,
+} from '../components';
 import ApplyListItem from '../components/ApplyListItem';
 import Description from '../components/Description';
 import Indexing from '../components/Indexing';
@@ -40,9 +46,11 @@ const Home = () => {
           </div>
         </StyledTodySubscriptionTitle>
         {todaySubscriptionsLoading ? (
-          <StyledFlex>
-            <span>오늘의 청약을 가져오고 있습니다 🌀</span>
-          </StyledFlex>
+          <StyledApplyCardSkeletonContainer>
+            {[...Array(3)].map((_, index) => (
+              <ApplyCardSkeleton key={index} />
+            ))}
+          </StyledApplyCardSkeletonContainer>
         ) : (
           <CardSlider subscriptions={todaySubscriptions} />
         )}
@@ -52,7 +60,11 @@ const Home = () => {
         <Description type={'popular'} topBottomPadding={false} />
         {popularityListLoading ? (
           <StyledFlex>
-            <span>인기 청약을 가져오고 있습니다 🌀</span>
+            {[...Array(3)].map((value) => (
+              <Indexing index={value}>
+                <ApplyListItemSkeleton />
+              </Indexing>
+            ))}
           </StyledFlex>
         ) : (
           <StyledFlex>
@@ -72,9 +84,11 @@ const Home = () => {
       <StyledSectionContainer alignItems={'flex-start'}>
         <ListTitle type={'new'} />
         {latestListLoading ? (
-          <StyledFlex>
-            <span>최신 청약을 가져오고 있습니다 🌀</span>
-          </StyledFlex>
+          <StyledApplyCardSkeletonContainer>
+            {[...Array(3)].map((_, index) => (
+              <ApplyCardSkeleton key={index} />
+            ))}
+          </StyledApplyCardSkeletonContainer>
         ) : (
           <CardSlider subscriptions={latestList} />
         )}
@@ -169,4 +183,10 @@ export const StyledSectionContainer = styled.section<{ alignItems: string }>`
   align-items: ${(props) => props.alignItems};
   gap: 8px;
   padding-bottom: 32px;
+`;
+
+const StyledApplyCardSkeletonContainer = styled.div`
+  padding-left: 16px;
+  display: flex;
+  gap: 16px;
 `;
