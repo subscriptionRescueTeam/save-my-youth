@@ -3,62 +3,64 @@ import { useEffect, useState } from 'react';
 
 import tmpImg from '../assets/images/picture2.png';
 import { ListType, SubscriptionResponse, SubscriptionUsedFront } from '../types';
+const { VITE_APP_API_KEY } = import.meta.env;
 
-const SERVER_SUBSCRIPTION_URL = `https://secret-reaches-74853.herokuapp.com/api/subscription/perPage=10`;
-const SERVER_LIKE_COUNT_URL = `https://secret-reaches-74853.herokuapp.com/api/like`;
+const SERVER_SUBSCRIPTION_URL = `https://api.odcloud.kr/api/ApplyhomeInfoDetailSvc/v1/getAPTLttotPblancDetail?page=1&perPage=10&serviceKey=${VITE_APP_API_KEY}`;
+const SERVER_LIKE_COUNT_URL = 'https://secret-reaches-74853.herokuapp.com/api/like';
 
-export type Request = ListType | 'today' | 'theOtherDay' | 'region' | 'id';
+export type Condition = ListType | 'today' | 'theOtherDay' | 'region' | 'id';
 
-const useTodaySubscription = (request: Request, region?: string, id?: number) => {
+const useApply = (options: { condition: Condition; region?: string; id?: number }) => {
   const [loading, setLoading] = useState(false);
-  const [subscriptions, setSubscriptions] = useState<SubscriptionUsedFront[]>([]);
+  const [applies, setApplies] = useState<SubscriptionUsedFront[]>([]);
 
   const now = new Date();
   const today = now.toJSON().slice(0, 10).replace(/-/g, '-');
   const theOtherDay = new Date(now.setDate(now.getDate() - 7)).toJSON().slice(0, 10);
 
-  const getRequestUrl = (request: Request, region?: string, id?: number): string => {
+  const getRequestUrlByOptions = (): string => {
     let condition = '';
-    switch (request) {
-      case 'today': {
-        condition = `&cond[RCRIT_PBLANC_DE::GTE]=${today}`;
-        break;
-      }
+
+    switch (options.condition) {
       case 'theOtherDay':
       case 'popular':
       case 'new': {
         condition = `&cond[RCRIT_PBLANC_DE::GTE]=${theOtherDay}`;
         break;
       }
+      case 'today': {
+        condition = `&cond[RCRIT_PBLANC_DE::GTE]=${today}`;
+        break;
+      }
       case 'region': {
-        condition = `&cond[SUBSCRPT_AREA_CODE_NM::EQ]=${region}`;
+        condition = `&cond[SUBSCRPT_AREA_CODE_NM::EQ]=${options.region}`;
         break;
       }
       case 'id': {
-        condition = `&cond[PBLANC_NO::EQ]=${id}`;
+        condition = `&cond[PBLANC_NO::EQ]=${options.id}`;
         break;
       }
     }
     return SERVER_SUBSCRIPTION_URL + condition;
   };
 
-  const getSubscriptionsFromServer = async () => {
+  const get = async () => {
     try {
       setLoading(true);
       const response: AxiosResponse<SubscriptionResponse> = await axios.get(
-        getRequestUrl(request, region, id)
+        getRequestUrlByOptions()
       );
       const res = response.data.data;
 
       const data = res
         .filter((v) => {
-          if (request === 'today' && v.RCRIT_PBLANC_DE !== today) {
+          if (options.condition === 'today' && v.RCRIT_PBLANC_DE !== today) {
             return false;
           }
           return true;
         })
         .map((v) => {
-          const subscriptionState: SubscriptionUsedFront = {
+          const apply: SubscriptionUsedFront = {
             id: v.PBLANC_NO,
             houseName: v.HOUSE_NM,
             recNotice: v.RCRIT_PBLANC_DE,
@@ -81,7 +83,8 @@ const useTodaySubscription = (request: Request, region?: string, id?: number) =>
             likeNum: -1,
             imgLink: tmpImg,
           };
-          return subscriptionState;
+
+          return apply;
         });
 
       for (let i = 0; i < data.length; i++) {
@@ -98,33 +101,33 @@ const useTodaySubscription = (request: Request, region?: string, id?: number) =>
   };
 
   useEffect(() => {
-    getSubscriptionsFromServer().then((res) => {
+    get().then((res) => {
       if (res) {
-        switch (request) {
+        switch (options.condition) {
           case 'popular': {
             const popularityList = res
               .sort((a, b) => {
                 return new Date(a.likeNum).getDate() - new Date(b.likeNum).getDate();
               })
               .slice(0, 6);
-            setSubscriptions(popularityList);
+            setApplies(popularityList);
             break;
           }
           case 'new': {
             const latestList = res.sort((a, b) => {
               return new Date(b.recNotice).getDate() - new Date(a.recNotice).getDate();
             });
-            setSubscriptions(latestList);
+            setApplies(latestList);
             break;
           }
         }
 
-        setSubscriptions(res);
+        setApplies(res);
       }
     });
-  }, [request, region]);
+  }, [options.condition, options.region]);
 
-  return { loading, subscriptions };
+  return { loading, applies };
 };
 
-export default useTodaySubscription;
+export default useApply;

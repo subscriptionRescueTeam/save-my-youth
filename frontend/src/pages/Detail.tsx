@@ -6,7 +6,7 @@ import { ReactComponent as BigHeart } from '../assets/icons/bigHeart.svg';
 import { ReactComponent as BigNullHeart } from '../assets/icons/bigNullHeart.svg';
 import { DetailLocation, DetailSchedule, LayoutNavigation, TabBar } from '../components';
 import PALETTE from '../constants/palette';
-import useSubscription from '../hooks/useSubscription';
+import useApply from '../hooks/useApply';
 import { DetailState, HelpContents, IDetailOptions } from '../types';
 import axiosInstance from '../utils/axiosInstance';
 
@@ -15,7 +15,7 @@ const Detail = () => {
   const state = location.state as DetailState;
   const { id, imgLink } = state;
 
-  const { loading, subscriptions } = useSubscription('id', '', id);
+  const { loading, applies: subscriptions } = useApply({ condition: 'id', id });
   const subscription = subscriptions[0];
 
   const [heartState, setHeartState] = useState(false);

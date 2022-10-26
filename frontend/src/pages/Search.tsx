@@ -5,7 +5,7 @@ import { Input, LayoutNavigation } from '../components';
 import SearchCardList from '../components/SearchCardList';
 import PALETTE from '../constants/palette';
 import useDebounce from '../hooks/useDebounce';
-import useSubscription from '../hooks/useSubscription';
+import useApply from '../hooks/useApply';
 import LatestSearchSortButton from '../components/SearchSortButton';
 
 const InputWrapper = styled.div`
@@ -26,7 +26,7 @@ const MessageWrapper = styled.div`
 const Search = () => {
   const [keyword, setKeyword] = useState<string>('');
   const searchkeyword = useDebounce(keyword, 150);
-  const { subscriptions: subData } = useSubscription('region', searchkeyword);
+  const { applies: subData } = useApply({ condition: 'region', region: searchkeyword });
 
   const onChangeData = (e: React.FormEvent<HTMLInputElement>) => {
     setKeyword(e.currentTarget.value);
@@ -36,7 +36,7 @@ const Search = () => {
     if (e.key === 'Enter') {
       <div>
         <MessageWrapper>총 {subData.length}개의 공고가 있습니다</MessageWrapper>
-        <LatestSearchSortButton/>
+        <LatestSearchSortButton />
         <SearchCardList type="popular" subData={subData} />;
       </div>;
       if (keyword.length === 0) {
@@ -51,7 +51,7 @@ const Search = () => {
         <Input placeholder="지역명을 입력하세요" onChange={onChangeData} onKeyPress={onKeyPress} />
       </InputWrapper>
       <MessageWrapper>총 {subData.length}개의 공고가 있습니다</MessageWrapper>
-      <LatestSearchSortButton/>
+      <LatestSearchSortButton />
       <SearchCardList type="popular" subData={subData} />
     </LayoutNavigation>
   );
