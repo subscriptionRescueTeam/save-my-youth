@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import { RecoilRoot } from 'recoil';
-import GlobalStyle from './GlobalStyle';
 import { CookiesProvider } from 'react-cookie';
+import ReactDOM from 'react-dom';
+import { RecoilRoot } from 'recoil';
+import App from './App';
+import GlobalStyle from './GlobalStyle';
 
 ReactDOM.render(
   <React.StrictMode>

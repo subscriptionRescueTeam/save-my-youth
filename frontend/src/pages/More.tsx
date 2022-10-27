@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { LayoutNavigation } from '../components';
-import Description from '../components/Description';
-import SearchCardList from '../components/SearchCardList';
-import useApply from '../hooks/useApply';
+import Description from '@components/Description';
+import SearchCardList from '@components/SearchCardList';
+import useApply from '@hooks/useApply';
 import { ListType } from '../types';
+import { LayoutNavigation } from '@components';
 
 const More = () => {
   const { type: typeParam } = useParams();

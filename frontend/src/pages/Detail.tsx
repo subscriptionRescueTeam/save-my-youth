@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
+import { ReactComponent as BigHeart } from '@assets/icons/bigHeart.svg';
+import { ReactComponent as BigNullHeart } from '@assets/icons/bigNullHeart.svg';
 import { useCookies } from 'react-cookie';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { ReactComponent as BigHeart } from '../assets/icons/bigHeart.svg';
-import { ReactComponent as BigNullHeart } from '../assets/icons/bigNullHeart.svg';
-import { DetailLocation, DetailSchedule, LayoutNavigation, TabBar } from '../components';
-import PALETTE from '../constants/palette';
-import useApply from '../hooks/useApply';
-import { DetailState, HelpContents, IDetailOptions } from '../types';
-import axiosInstance from '../utils/axiosInstance';
+import PALETTE from '@constants/palette';
+import useApply from '@hooks/useApply';
+import axiosInstance from '@utils/axiosInstance';
+import { DetailLocation, DetailSchedule, LayoutNavigation, TabBar } from '@components';
+import { DetailState, HelpContents, IDetailOptions } from '@types';
 
 const Detail = () => {
   const location = useLocation();

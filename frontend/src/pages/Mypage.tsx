@@ -1,4 +1,4 @@
-import { LayoutNavigation, ServiceMenu } from '../components';
+import { LayoutNavigation, ServiceMenu } from '@components';
 
 const Mypage = () => {
   return (

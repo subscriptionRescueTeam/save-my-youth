@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import Footer from './components/Footer';
 import {
   Home,
   Search,
@@ -12,7 +11,7 @@ import {
   Help,
   NotFound,
   Info,
-} from './pages';
+} from '@pages';
 
 const App = () => {
   return (

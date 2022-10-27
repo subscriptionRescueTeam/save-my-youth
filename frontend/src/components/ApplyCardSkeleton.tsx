@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
-import PALETTE from '../constants/palette';
-import { CARD_BORDER_RADIUS } from '../constants/variables';
+import PALETTE from '@constants/palette';
+import { CARD_BORDER_RADIUS } from '@constants/variables';
 
 const ApplyCardSkeleton = () => (
   <StyledCard>

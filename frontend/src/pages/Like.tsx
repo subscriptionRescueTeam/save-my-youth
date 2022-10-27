@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { LayoutNavigation } from '../components';
-import SearchCardList from '../components/SearchCardList';
-import useLike from '../hooks/useLike';
+import SearchCardList from '@components/SearchCardList';
+import useLike from '@hooks/useLike';
+import { LayoutNavigation } from '@components';
 
 const Like = () => {
   const { likeList } = useLike();

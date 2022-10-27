@@ -1,5 +1,5 @@
-import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
+import axios, { AxiosResponse } from 'axios';
 import { SubscriptionUsedFront } from '../types';
 
 const usePopularity = (keyword?: string) => {
@@ -10,9 +10,9 @@ const usePopularity = (keyword?: string) => {
       const response: AxiosResponse<any> = await axios.get(
         `hhttps://secret-reaches-74853.herokuapp.com/api/like/`
       );
-      let res = response.data.subscription_data.data;
+      const res = response.data.subscription_data.data;
       const data = res.map((v: any) => {
-        let subscriptionState = {
+        const subscriptionState = {
           id: v.PBLANC_NO,
           houseName: v.HOUSE_NM,
           houseLocation: v.HSSPLY_ADRES,

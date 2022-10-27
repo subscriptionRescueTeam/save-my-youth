@@ -1,8 +1,8 @@
+import footerGithub from '@assets/images/footer.png';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import footerGithub from '../assets/images/footer.png';
-import PALETTE from '../constants/palette';
+import PALETTE from '@constants/palette';
 
 const ptag = [
   { title: 'HOME', nav: '' },

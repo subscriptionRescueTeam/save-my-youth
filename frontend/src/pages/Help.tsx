@@ -1,11 +1,10 @@
+import { ReactComponent as Warning } from '@assets/icons/warning.svg';
 import styled from 'styled-components';
-
-import { ReactComponent as Warning } from '../assets/icons/warning.svg';
-import { LayoutNavigation, TabBar } from '../components';
-import Accordion from '../components/Accordion';
-import PALETTE from '../constants/palette';
-import useFAQ from '../hooks/useFAQ';
+import Accordion from '@components/Accordion';
+import PALETTE from '@constants/palette';
+import useFAQ from '@hooks/useFAQ';
 import { AccordionType, FAQType, HelpContents, HelpType } from '../types';
+import { LayoutNavigation, TabBar } from '@components';
 
 const menu: HelpType[] = [
   { name: '공지사항', option: 'announcement' },

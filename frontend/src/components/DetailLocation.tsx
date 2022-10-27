@@ -1,7 +1,7 @@
+import { ReactComponent as Location } from '@assets/icons/location.svg';
 import styled from 'styled-components';
 
-import { ReactComponent as Location } from '../assets/icons/location.svg';
-import PALETTE from '../constants/palette';
+import PALETTE from '@constants/palette';
 import { SubscriptionUsedFront } from '../types';
 
 export type DetailLocationProps = {

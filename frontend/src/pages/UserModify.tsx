@@ -1,5 +1,5 @@
-import { LayoutNavigation } from '../components';
-import UserInfo from '../components/UserInfo';
+import UserInfo from '@components/UserInfo';
+import { LayoutNavigation } from '@components';
 
 const UserModify = () => {
   return (

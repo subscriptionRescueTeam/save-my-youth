@@ -2,6 +2,7 @@
   "name": "save-my-youth",
   "private": true,
   "version": "1.1.0",
+  "lint": "eslint --ext .tsx --ignore-path .gitignore .",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -28,8 +29,9 @@
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.28.0",
     "@vitejs/plugin-react": "^1.3.0",
-    "eslint": "^8.16.0",
+    "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
