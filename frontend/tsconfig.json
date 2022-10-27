@@ -30,6 +30,9 @@
       "@components": [
         "src/components/index"
       ],
+      "@components/*": [
+        "src/components/*"
+      ],
       "@constants/*": [
         "src/constants/*"
       ],

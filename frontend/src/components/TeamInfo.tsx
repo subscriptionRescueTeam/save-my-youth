@@ -1,7 +1,6 @@
+import { ReactComponent as GitHub } from '@assets/icons/gitHub.svg';
+import Team from '@assets/images/team.png';
 import styled from 'styled-components';
-
-import { ReactComponent as GitHub } from '../assets/icons/gitHub.svg';
-import Team from '../assets/images/team.png';
 
 const TeamInfo = () => {
   return (

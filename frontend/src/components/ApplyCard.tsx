@@ -1,10 +1,10 @@
+import { ReactComponent as BlueHeart } from '@assets/icons/blueHeart.svg';
+import House1 from '@assets/images/house/image1.png';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { ReactComponent as BlueHeart } from '../assets/icons/blueHeart.svg';
-import House1 from '../assets/images/house/image1.png';
-import PALETTE from '../constants/palette';
-import { CARD_BORDER_RADIUS } from '../constants/variables';
+import PALETTE from '@constants/palette';
+import { CARD_BORDER_RADIUS } from '@constants/variables';
 
 export type CardProps = {
   subscriptionId: number;

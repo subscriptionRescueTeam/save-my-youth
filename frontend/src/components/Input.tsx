@@ -1,8 +1,8 @@
+import { ReactComponent as Search } from '@assets/icons/search.svg';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { ReactComponent as Search } from '../assets/icons/search.svg';
-import PALETTE from '../constants/palette';
+import PALETTE from '@constants/palette';
 
 export type InputPros = {
   color?: string;

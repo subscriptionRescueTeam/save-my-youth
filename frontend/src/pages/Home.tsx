@@ -1,20 +1,20 @@
+import MainBanner from '@assets/images/mainBanner.svg';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import MainBanner from '../assets/images/mainBanner.svg';
+import ApplyListItem from '@components/ApplyListItem';
+import Description from '@components/Description';
+import Indexing from '@components/Indexing';
+import ListTitle from '@components/ListTitle';
+import PALETTE from '@constants/palette';
+import useApply from '@hooks/useApply';
 import {
   CardSlider,
   Input,
   LayoutNavigation,
   ApplyCardSkeleton,
   ApplyListItemSkeleton,
-} from '../components';
-import ApplyListItem from '../components/ApplyListItem';
-import Description from '../components/Description';
-import Indexing from '../components/Indexing';
-import ListTitle from '../components/ListTitle';
-import PALETTE from '../constants/palette';
-import useApply from '../hooks/useApply';
+} from '@components';
 
 const Home = () => {
   const { loading: todaySubscriptionsLoading, applies: todaySubscriptions } = useApply({
@@ -62,8 +62,8 @@ const Home = () => {
         <Description type={'popular'} topBottomPadding={false} />
         {popularityListLoading ? (
           <StyledFlex>
-            {[...Array(3)].map((value) => (
-              <Indexing index={value}>
+            {[...Array(3)].map((value, idx) => (
+              <Indexing key={idx} index={value}>
                 <ApplyListItemSkeleton />
               </Indexing>
             ))}

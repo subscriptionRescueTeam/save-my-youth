@@ -1,7 +1,7 @@
-import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
+import tmpImg from '@assets/images/picture2.png';
+import axios, { AxiosResponse } from 'axios';
 
-import tmpImg from '../assets/images/picture2.png';
 import { ListType, SubscriptionResponse, SubscriptionUsedFront } from '../types';
 const { VITE_APP_API_KEY } = import.meta.env;
 

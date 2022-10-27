@@ -1,13 +1,13 @@
 import { CSSProperties } from 'react';
+import { ReactComponent as GoogleLogo } from '@assets/icons/google.svg';
+import { ReactComponent as Logo } from '@assets/icons/logo.svg';
 import { useCookies } from 'react-cookie';
 import GoogleLogin from 'react-google-login';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { ReactComponent as GoogleLogo } from '../assets/icons/google.svg';
-import { ReactComponent as Logo } from '../assets/icons/logo.svg';
-import LayoutCenter from '../components/LayoutCenter';
-import PALETTE from '../constants/palette';
+import LayoutCenter from '@components/LayoutCenter';
+import PALETTE from '@constants/palette';
 
 const StyledTitleContainer = styled.div`
   display: flex;

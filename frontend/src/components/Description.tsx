@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import PALETTE from '../constants/palette';
+import PALETTE from '@constants/palette';
 import { ListType } from '../types';
 
 export type DescriptionProps = {

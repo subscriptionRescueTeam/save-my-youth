@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-import { ReactComponent as Close } from '../../../assets/icons/close.svg';
-import { ReactComponent as HeaderTitle } from '../../../assets/icons/headerTitle.svg';
-import PALETTE from '../../../constants/palette';
+import PALETTE from '@constants/palette';
 import { Children } from '../../../types';
+import { ReactComponent as Close } from '../../@assets/icons/close.svg';
+import { ReactComponent as HeaderTitle } from '../../@assets/icons/headerTitle.svg';
 
 export type OptionListProps = {
   children: Children;

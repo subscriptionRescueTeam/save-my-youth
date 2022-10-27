@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import ErrorNotFound from '../assets/images/errorNotFound.gif';
-import { LayoutNavigation } from '../components';
-import PALETTE from '../constants/palette';
+import ErrorNotFound from '@assets/images/errorNotFound.gif';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import PALETTE from '@constants/palette';
+import { LayoutNavigation } from '@components';
 
 const StyledImg = styled.img`
   margin-top: 2rem;
@@ -31,7 +31,7 @@ const StyledButton = styled.button`
 `;
 
 const NotFound = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <LayoutNavigation>
       <StyledImg src={ErrorNotFound} width="100%" alt="errornotfound" />

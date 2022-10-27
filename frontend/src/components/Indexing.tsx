@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import PALETTE from '../constants/palette';
+import PALETTE from '@constants/palette';
 import { Children } from '../types';
 
 export type IndexingProps = {

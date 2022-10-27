@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { Input, LayoutNavigation } from '../components';
-import SearchCardList from '../components/SearchCardList';
-import PALETTE from '../constants/palette';
-import useDebounce from '../hooks/useDebounce';
-import useApply from '../hooks/useApply';
-import LatestSearchSortButton from '../components/SearchSortButton';
+import SearchCardList from '@components/SearchCardList';
+import LatestSearchSortButton from '@components/SearchSortButton';
+import PALETTE from '@constants/palette';
+import useApply from '@hooks/useApply';
+import useDebounce from '@hooks/useDebounce';
+import { Input, LayoutNavigation } from '@components';
 
 const InputWrapper = styled.div`
   display: flex;

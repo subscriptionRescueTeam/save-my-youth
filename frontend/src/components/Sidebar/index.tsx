@@ -2,11 +2,11 @@ import { useCookies } from 'react-cookie';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import PALETTE from '../../constants/palette';
-import { AccordionType, Option } from '../../types';
+import PALETTE from '@constants/palette';
 import Accordion from '../Accordion';
 import OptionItem from './OptionItem';
 import OptionList from './OptionList';
+import { AccordionType, Option } from '@types';
 
 export type SidebarProps = {
   onSidebarOpen: (isOpen: boolean) => void;

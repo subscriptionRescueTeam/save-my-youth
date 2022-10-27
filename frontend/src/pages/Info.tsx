@@ -1,6 +1,6 @@
-import { TabBar, LayoutNavigation } from '../components';
-import ServiceInfo from '../components/ServiceInfo';
-import TeamInfo from '../components/TeamInfo';
+import ServiceInfo from '@components/ServiceInfo';
+import TeamInfo from '@components/TeamInfo';
+import { TabBar, LayoutNavigation } from '@components';
 
 const menu = [
   { name: '서비스 소개', option: 'service' },

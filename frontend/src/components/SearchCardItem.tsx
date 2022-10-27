@@ -1,8 +1,8 @@
+import { ReactComponent as BlueHeart } from '@assets/icons/blueHeart.svg';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { ReactComponent as BlueHeart } from '../assets/icons/blueHeart.svg';
-import PALETTE from '../constants/palette';
+import PALETTE from '@constants/palette';
 import { SubscriptionUsedFront } from '../types';
 
 export type SearchCardItemProps = {

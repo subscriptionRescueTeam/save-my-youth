@@ -1,4 +1,3 @@
-import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
 import { SubscriptionUsedFront } from '../types';
 import axiosInstance from '../utils/axiosInstance';

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import PALETTE from '../constants/palette';
+import PALETTE from '@constants/palette';
 
 interface props {
   isTarget: boolean;

@@ -1,10 +1,10 @@
+import { ReactComponent as ArrowLeft } from '@assets/icons/arrowLeft.svg';
+import { ReactComponent as Hamburger } from '@assets/icons/hamburger.svg';
+import { ReactComponent as HeaderTitle } from '@assets/icons/headerTitle.svg';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { ReactComponent as ArrowLeft } from '../assets/icons/arrowLeft.svg';
-import { ReactComponent as Hamburger } from '../assets/icons/hamburger.svg';
-import { ReactComponent as HeaderTitle } from '../assets/icons/headerTitle.svg';
 
-import PALETTE from '../constants/palette';
+import PALETTE from '@constants/palette';
 import { IconName } from '../types';
 
 export type HeaderProps = {
