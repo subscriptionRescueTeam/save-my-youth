@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import PALETTE from '@constants/palette';
-
 const MenuItems = [
   {
     id: 0,

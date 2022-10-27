@@ -48,6 +48,9 @@
       "@utils/*": [
         "src/utils/*"
       ],
+      "@assets/*": [
+        "src/assets/*"
+      ]
     }
   },
   "include": [

@@ -1,10 +1,10 @@
+import { ReactComponent as ArrowDown } from '@assets/icons/arrowDown.svg';
+import { ReactComponent as ArrowUp } from '@assets/icons/arrowUp.svg';
 import { useCookies } from 'react-cookie';
 import styled from 'styled-components';
-
 import PALETTE from '@constants/palette';
+
 import { Children, OptionDecoration } from '../../../types';
-import { ReactComponent as ArrowDown } from '../../@assets/icons/arrowDown.svg';
-import { ReactComponent as ArrowUp } from '../../@assets/icons/arrowUp.svg';
 
 export type OptionItemProps = {
   children: Children;
