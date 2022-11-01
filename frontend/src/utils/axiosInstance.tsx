@@ -7,7 +7,7 @@ const cookies = new Cookies();
 const BASE_URL = 'https://secret-reaches-74853.herokuapp.com/';
 
 const axiosInstance = axios.create({
-  baseURL: `${BASE_URL}`,
+  baseURL: BASE_URL,
   timeout: 5000,
 });
 
