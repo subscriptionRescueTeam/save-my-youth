@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { mainAPI } from '@api';
 import tmpImg from '@assets/images/picture2.png';
 import axios, { AxiosResponse } from 'axios';
 
@@ -86,10 +87,10 @@ const useApply = (options: { condition: Condition; region?: string; id?: number 
 
           return apply;
         });
+      const likeNumResponse = await mainAPI.getLikeList(data.map(({ id }) => id));
 
       for (let i = 0; i < data.length; i++) {
-        const likeNumResponse = await axios.get(SERVER_LIKE_COUNT_URL + `/${data[i].id}`);
-        data[i].likeNum = likeNumResponse.data.like_num;
+        data[i].likeNum = likeNumResponse[i].data.like_num;
       }
 
       return data;
